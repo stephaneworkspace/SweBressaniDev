@@ -6,8 +6,10 @@ import PackageDescription
 let package = Package(
         name: "SweSvg",
         targets: [.target(name: "cpplib"),
-                  .executableTarget(name: "cpp-exec", dependencies: ["cpplib"]),
-                  .target(name: "cwrapper", dependencies: ["cpplib"]),
+                  .target(name: "svglib"),
+                  .target(name: "swelib"),
+                  .executableTarget(name: "cpp-exec", dependencies: ["cpplib", "swelib", "svglib"]),
+                  .target(name: "cwrapper", dependencies: ["cpplib", "swelib"]),
                   .executableTarget(name: "SweSvg", dependencies: ["cwrapper"]),
         ]
 )
