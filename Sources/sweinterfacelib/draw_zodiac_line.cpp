@@ -1,7 +1,9 @@
 //
 // Created by Stéphane on 22.09.22.
 //
-#include "draw_zodiac_line.h"
+#include "include/sweinterfacelib.h"
+
+using namespace sweinterfacelib;
 
 double DrawZodiacLines::get_radius_rules_inside_circle(larger_draw_line ldl) {
     double size;

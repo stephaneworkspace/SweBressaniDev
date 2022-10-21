@@ -1,7 +1,9 @@
 //
 // Created by Stéphane on 22.09.22.
 //
-#include "swe14.h"
+#include "include/sweinterfacelib.h"
+
+using namespace sweinterfacelib;
 
 H Swe14::house(double tjd_ut, double geo_lat, double geo_lng, char hsys, int house) {
     double* cusps_ptr = new double[37];

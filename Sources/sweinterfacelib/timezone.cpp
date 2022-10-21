@@ -1,7 +1,9 @@
 //
 // Created by Stéphane on 22.09.22.
 //
-#include "timezone.h"
+#include "include/sweinterfacelib.h"
+
+using namespace sweinterfacelib;
 
 TimeZone TZ::utc_time_zone(TimeZone time_zone, double timezone) {
     int* year_ptr = new int[2];

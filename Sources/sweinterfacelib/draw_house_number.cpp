@@ -1,7 +1,9 @@
 //
 // Created by Stéphane on 25.09.22.
 //
-#include "draw_house_number.h"
+#include "include/sweinterfacelib.h"
+
+using namespace sweinterfacelib;
 
 Size DrawHouseNumber::number_size(int house_number) {
     Size size;

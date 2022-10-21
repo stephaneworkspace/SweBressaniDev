@@ -4,19 +4,21 @@
 
 #include <iostream>
 #include "cpplib.h"
-#include "swelib.h"
-#include "svglib.h"
+//#include "swelib.h"
+//#include "svglib.h"
+#include "sweinterfacelib.h"
 
 using namespace std;
 using namespace svglib;
 
 int main() {
     std::cout << cpplib::five() << std::endl;
+    /*
     char *version = (char *) malloc(255);
     swelib::swe_version(version);
     std::string res = version;
     std::cout << res << std::endl;
-    free(version);
+    //free(version);
 
     // Document
     Document doc = Document(50, 50);
@@ -44,6 +46,7 @@ int main() {
     // Document
     cout << doc.generate() << endl;
 
-
+    cout << sweinterfacelib::theme_astral_svg(1984, 1, 4, 0, 0, 16, 26, 2, version) << endl;
+    free(version);*/
     return 0;
 }

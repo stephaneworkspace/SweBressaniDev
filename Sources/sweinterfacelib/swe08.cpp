@@ -1,7 +1,9 @@
 //
 // Created by Stéphane on 22.09.22.
 //
-#include "swe08.h"
+#include "include/sweinterfacelib.h"
+
+using namespace sweinterfacelib;
 
 UtcToJd Swe08::utc_to_jd(TimeZone tz, Calandar calandar) {
     double* dret_ptr = new double[2];

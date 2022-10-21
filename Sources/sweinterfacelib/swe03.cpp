@@ -1,7 +1,9 @@
 //
 // Created by Stéphane on 22.09.22.
 //
-#include "swe03.h"
+#include "include/sweinterfacelib.h"
+
+using namespace sweinterfacelib;
 
 CalcUt Swe03::calc_ut(double tjd_ut, Astres ipl, OptionFlag iflag) {
     double* xx_ptr = new double[6];

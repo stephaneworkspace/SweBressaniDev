@@ -1,8 +1,9 @@
 //
 // Created by Stéphane on 25.09.22.
 //
+#include "include/sweinterfacelib.h"
 
-#include "angle.h"
+using namespace sweinterfacelib;
 
 string Angle::read_svg(Angles a) {
     string* ang = new string[4];

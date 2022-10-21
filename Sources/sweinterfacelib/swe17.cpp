@@ -1,8 +1,9 @@
 //
 // Created by Stéphane on 22.09.22.
 //
-#include "swe17.h"
-#include "sign.h"
+#include "include/sweinterfacelib.h"
+
+using namespace sweinterfacelib;
 
 SplitDeg Swe17::split_deg(double ddeg, int roundflag) {
     double sign_calc = floor(ddeg / 30.0);

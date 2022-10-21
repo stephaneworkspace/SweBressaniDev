@@ -8,7 +8,8 @@ let package = Package(
         targets: [.target(name: "cpplib"),
                   .target(name: "svglib"),
                   .target(name: "swelib"),
-                  .executableTarget(name: "cpp-exec", dependencies: ["cpplib", "swelib", "svglib"]),
+                  .target(name: "sweinterfacelib", dependencies: ["svglib", "swelib"]),
+                  .executableTarget(name: "cpp-exec", dependencies: ["cpplib", "swelib", "svglib", "sweinterfacelib"]),
                   .target(name: "cwrapper", dependencies: ["cpplib", "swelib"]),
                   .executableTarget(name: "SweSvg", dependencies: ["cwrapper"]),
         ]

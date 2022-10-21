@@ -1,26 +1,9 @@
 //
 // Created by Stéphane on 01.10.22.
 //
+#include "include/sweinterfacelib.h"
 
-#include "../Svg/document.h"
-#include "../Svg/circle.h"
-#include "../Svg/image.h"
-#include "../Svg/line.h"
-#include "SweInterface.h"
-#include "base64.h"
-#include "draw.h"
-#include "draw_aspect_line.h"
-#include "draw_bodie_astre.h"
-#include "draw_bodie_line.h"
-#include "draw_house_angle.h"
-#include "draw_house_line.h"
-#include "draw_house_number.h"
-#include "draw_zodiac_circle.h"
-#include "draw_zodiac_line.h"
-#include "draw_zodiac_sign.h"
-#include "timezone.h"
-#include "swe08.h"
-#include "swe14.h"
+using namespace sweinterfacelib;
 
 extern "C" const char* theme_astral_svg(int year, int month, int day, int hour, int min, double lat, double lng, int gmt, const char* ephem_path) {
     // Charger le path des ephem, depuis swift il est a préciser, sinon ça utilise de ce répertoire

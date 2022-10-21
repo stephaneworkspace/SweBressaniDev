@@ -1,7 +1,9 @@
 //
 // Created by Stéphane on 24.09.22.
 //
-#include "draw_bodie_astre.h"
+#include "include/sweinterfacelib.h"
+
+using namespace sweinterfacelib;
 
 double DrawBodieAstre::astre_size() {
     const double ASTRE_SIZE = 43;

@@ -1,7 +1,9 @@
 //
 // Created by Stéphane on 24.09.22.
 //
-#include "draw.h"
+#include "include/sweinterfacelib.h"
+
+using namespace sweinterfacelib;
 
 double Draw::get_fixed_center(double pos_value) {
     return pos_value + CHART_SIZE / 2;

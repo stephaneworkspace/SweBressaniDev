@@ -1,7 +1,9 @@
 //
 // Created by Stéphane on 24.09.22.
 //
-#include "draw_house_line.h"
+#include "include/sweinterfacelib.h"
+
+using namespace sweinterfacelib;
 
 LineXY3 *DrawHouseLines::lines(H *house) {
     const int MAX_HOUSE = 12;

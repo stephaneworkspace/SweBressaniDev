@@ -1,7 +1,9 @@
 //
 // Created by Stéphane on 22.09.22.
 //
-#include "swe02.h"
+#include "include/sweinterfacelib.h"
+
+using namespace sweinterfacelib;
 
 void Swe02::set_ephe_path(string path) {
     char* path_p = new char[255];

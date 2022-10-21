@@ -1,7 +1,9 @@
 //
 // Created by Stéphane on 27.09.22.
 //
-#include "draw_aspect_line.h"
+#include "include/sweinterfacelib.h"
+
+using namespace sweinterfacelib;
 
 LineXYAspect DrawAspectLines::line(H house_asc, double* item_longitude) {
     const double CIRCLE_CENTER_POS = 360 * 40 / 100;

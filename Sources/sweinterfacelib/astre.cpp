@@ -1,7 +1,9 @@
 //
 // Created by Stéphane on 21.09.22.
 //
-#include "astre.h"
+#include "include/sweinterfacelib.h"
+
+using namespace sweinterfacelib;
 
 string Astre::read_svg(Astres astre) {
     string* a = new string[14];

@@ -1,7 +1,9 @@
 //
 // Created by Stéphane on 23.09.22.
 //
-#include "draw_zodiac_sign.h"
+#include "include/sweinterfacelib.h"
+
+using namespace sweinterfacelib;
 
 double DrawZodiacSign::zodiac_size() {
     const double ZODIAC_SIZE = 43;

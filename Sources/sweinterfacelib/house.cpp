@@ -1,7 +1,9 @@
 //
 // Created by Stéphane on 22.09.22.
 //
-#include "house.h"
+#include "include/sweinterfacelib.h"
+
+using namespace sweinterfacelib;
 
 string House::read_svg(int house) {
     string* h = new string[12];

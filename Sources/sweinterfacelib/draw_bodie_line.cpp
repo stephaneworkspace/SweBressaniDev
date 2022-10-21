@@ -1,7 +1,9 @@
 //
 // Created by Stéphane on 24.09.22.
 //
-#include "draw_bodie_line.h"
+#include "include/sweinterfacelib.h"
+
+using namespace sweinterfacelib;
 
 LineXY DrawBodieLines::line(H house_asc, CalcUt calcul_ut, bool sw_transit) {
     LineXY res;

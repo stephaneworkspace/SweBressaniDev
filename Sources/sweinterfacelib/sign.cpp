@@ -1,7 +1,9 @@
 //
 // Created by Stéphane on 22.09.22.
 //
-#include "sign.h"
+#include "include/sweinterfacelib.h"
+
+using namespace sweinterfacelib;
 
 string Sign::read_svg(Signs sign) {
     string* s = new string[12];

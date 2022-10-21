@@ -1,7 +1,9 @@
 //
 // Created by Stéphane on 25.09.22.
 //
-#include "draw_house_angle.h"
+#include "include/sweinterfacelib.h"
+
+using namespace sweinterfacelib;
 
 Size DrawHouseAngle::angle_size(Angles angle) {
     Size size;
