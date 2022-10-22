@@ -87,16 +87,15 @@ extern "C" const char* theme_astral_svg(int year, int month, int day, int hour, 
                 doc << svg_line.generate(lxy3[i].lx1, lxy3[i].ly1, lxy3[i].lx2, lxy3[i].ly2);
             }
         } else {
-            /*
-            Path triangle(Fill(Color::Black), Stroke(1, Color::Black));
-            triangle << Point(lxy3[i].lx3, lxy3[i].ly3) << Point(lxy3[i].lx2, lxy3[i].ly2)
-                     << Point(lxy3[i].lx2, lxy3[i].ly1); // ceci est du bricolage, ça fonctionne que a angle droit
-            doc << triangle;*/
-            // TODO
-            /*
-            triangle << Point(lxy3[i].lx3, lxy3[i].ly3) << Point(lxy3[i].lx2, lxy3[i].ly2)
-                     << Point(lxy3[i].lx1, lxy3[i].ly1);
-            doc << triangle;*/
+            svg_fill.fill = "black";
+            svg_stroke.stroke = "black";
+            svg_stroke.stroke_width = 1;
+            Data svg_data(svg_fill, svg_stroke);
+            svg_data.move_to(lxy3[i].lx3, lxy3[i].ly3);
+            svg_data.line_to(lxy3[i].lx2, lxy3[i].ly2);
+            svg_data.line_to(lxy3[i].lx1, lxy3[i].ly1);
+            svg_data.close_to();
+            doc << svg_data.generate();
         }
     }
 

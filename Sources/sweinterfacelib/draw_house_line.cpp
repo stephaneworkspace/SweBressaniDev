@@ -8,7 +8,7 @@ using namespace sweinterfacelib;
 LineXY3 *DrawHouseLines::lines(H *house) {
     const int MAX_HOUSE = 12;
     const double ANGULAR_POINTER = -1;
-    const double TRIANGLE_TOP = 79.5;
+    const double TRIANGLE_TOP = 80;
     const double TRIANGLE_BOTTOM = 76;
     const double LINE_TOP = 80;
     const double LINE_BOTTOM = 76;
@@ -18,7 +18,8 @@ LineXY3 *DrawHouseLines::lines(H *house) {
         double pos = Draw::get_fixed_pos(off_house + house[i].longitude);
         Offset* axy_triangle;
         double angular_pointer = ANGULAR_POINTER;
-        if (house[i].angle != Angles::asc) {
+        if (house[i].angle != Angles::asc && house[i].angle != Angles::fc &&
+            house[i].angle != Angles::desc & house[i].angle != Angles::mc) {
             Offset* axy_line = Draw::get_line_trigo(pos,
                                                     (Draw::get_radius_total() * LINE_TOP) / 100,
                                                     (Draw::get_radius_total() * LINE_BOTTOM) / 100);
