@@ -303,7 +303,7 @@ namespace sweinterfacelib {
         class DrawHouseLines {
         public:
             LineXY3 *lines(H *house);
-
+            LineXY3 *triangles_small(H *house);
             LineXY angle_lines(H *house, Angles angle);
         };
         class DrawHouseNumber {

@@ -53,34 +53,20 @@ namespace svglib {
             int idx_data;
             int idx_point;
             SvgProperties properties;
-
             static long get_size(string s);
-
             static float get_value(string s, int pos);
-
             SvgData set_data(char c, int point_size);
-
             SvgPoint set_point(string point_string, int pos);
-
             void set_command(char c, string s);
-
             string round(float var);
-
         public:
             Data(Fill fill, Stroke stroke);
-
             void move_to(float x, float y);
-
             void move_by(float x, float y);
-
             void line_to(float x, float y);
-
             void line_by(float x, float y);
-
             void close_to();
-
             void close_by();
-
             string generate();
         };
         class Document {
@@ -90,12 +76,10 @@ namespace svglib {
             string content;
         public:
             Document(float w, float h);
-
             Document &operator<<(string const &s) {
                 content += s;
                 return *this;
             }
-
             string generate();
         };
     }

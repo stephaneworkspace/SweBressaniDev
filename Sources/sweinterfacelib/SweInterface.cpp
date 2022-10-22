@@ -76,17 +76,30 @@ extern "C" const char* theme_astral_svg(int year, int month, int day, int hour, 
     // Draw house lines
     DrawHouseLines dhl;
     LineXY3* lxy3 = dhl.lines(house);
+    LineXY3 *lxy3_ts = dhl.triangles_small(house);
     for (int i = 0; i < 12; ++i) {
         if (!lxy3[i].sw_lxy3) {
-            double stroke;
+            //double stroke; TOTO enlever ?
             if (i == 3 || i == 6 || i == 9) {
             } else {
+                // Line
                 svg_stroke.stroke = "black";
                 svg_stroke.stroke_width = 1;
                 Line svg_line(svg_stroke);
                 doc << svg_line.generate(lxy3[i].lx1, lxy3[i].ly1, lxy3[i].lx2, lxy3[i].ly2);
+                // Triangle small
+                svg_fill.fill = "black";
+                svg_stroke.stroke = "black";
+                svg_stroke.stroke_width = 1;
+                Data svg_data(svg_fill, svg_stroke);
+                svg_data.move_to(lxy3_ts[i].lx3, lxy3_ts[i].ly3);
+                svg_data.line_to(lxy3_ts[i].lx2, lxy3_ts[i].ly2);
+                svg_data.line_to(lxy3_ts[i].lx1, lxy3_ts[i].ly1);
+                svg_data.close_to();
+                doc << svg_data.generate();
             }
         } else {
+            // Triangle big (in lines() function)
             svg_fill.fill = "black";
             svg_stroke.stroke = "black";
             svg_stroke.stroke_width = 1;
