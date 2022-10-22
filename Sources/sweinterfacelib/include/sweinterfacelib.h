@@ -229,6 +229,7 @@ namespace sweinterfacelib {
     };
     extern "C" {
         const char *theme_astral_svg(int year, int month, int day, int hour, int min, double lat, double lng, int gmt, const char *ephem_path);
+        const char *asset_sign(int sign);
         class Angle {
         public:
             static string read_svg(Angles a);

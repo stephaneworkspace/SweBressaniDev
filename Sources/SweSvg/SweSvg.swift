@@ -12,16 +12,20 @@ public struct SweSvg {
         self.ephemPath = ephemPath
     }
 
-    public func theme_astral(year: Int32, month: Int32, day: Int32, hour: Int32, min: Int32, lat: Double, lng: Double, tz: Int32) -> String {
-        let svg: String = String(cString: UnsafePointer<CChar>(cwrapper.theme_astral(year, month, day, hour, min, lat, lng, tz, ephemPath)))
+    private func ptrToString(ptr: UnsafePointer<CChar>) -> String {
+        let s: String = String(cString: UnsafePointer<CChar>(ptr))
+        return s
+    }
+
+    private func asset(name: String, encoded: String) -> String {
         guard
                 var documentsURL = (FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)).last,
-                let convertedData = Data(base64Encoded: svg)
+                let convertedData = Data(base64Encoded: encoded)
         else {
             print("error1")
             return "" // TODO
         }
-        documentsURL.appendPathComponent("astrologie.svg")
+        documentsURL.appendPathComponent(name)
         do {
             try convertedData.write(to: documentsURL)
         } catch {
@@ -31,5 +35,15 @@ public struct SweSvg {
         let svg_file = documentsURL.absoluteString
         print(documentsURL.absoluteString)
         return svg_file.replacingOccurrences(of: "file://", with: "")
+    }
+
+    public func theme_astral(year: Int32, month: Int32, day: Int32, hour: Int32, min: Int32, lat: Double, lng: Double, tz: Int32) -> String {
+        let svg: String = ptrToString(ptr: cwrapper.theme_astral(year, month, day, hour, min, lat, lng, tz, ephemPath))
+        return asset(name: "asset_theme_astral.svg", encoded: svg)
+    }
+
+    public func asset_sign(i: Int32) -> String {
+        let svg: String = ptrToString(ptr: cwrapper.a_sign(i))
+        return asset(name: String(format: "asset_%d_sign.svg"), encoded: svg)
     }
 }

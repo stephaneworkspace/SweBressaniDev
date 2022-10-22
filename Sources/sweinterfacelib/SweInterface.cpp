@@ -4,7 +4,6 @@
 #include "include/sweinterfacelib.h"
 
 using namespace sweinterfacelib;
-
 extern "C" const char* theme_astral_svg(int year, int month, int day, int hour, int min, double lat, double lng, int gmt, const char* ephem_path) {
     // Charger le path des ephem, depuis swift il est a préciser, sinon ça utilise de ce répertoire
     string ephem_path_string;
@@ -275,4 +274,12 @@ extern "C" const char* theme_astral_svg(int year, int month, int day, int hour, 
     }
     free(astres);
     return encoded.c_str();
+}
+
+const int R_SVG_B64 = 26; //data:image/svg+xml;base64," = 26
+
+extern "C" const char *asset_sign(int sign) {
+    static std::string s = sweinterfacelib::Sign::read_svg(static_cast<sweinterfacelib::Signs>(sign));
+    s.replace(0, R_SVG_B64, "");
+    return s.c_str();
 }
