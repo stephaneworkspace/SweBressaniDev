@@ -12,60 +12,62 @@ Size DrawHouseNumber::number_size(int house_number) {
     const double ANTONIO_RATIO = 3;
     double width = 0;
     double height = 0;
-    switch (house_number) {
+    /*switch (house_number) {
         case 1:
-            width = 12 * ANTONIO_RATIO;
-            height = 43 * ANTONIO_RATIO;
+            width = 44 * ANTONIO_RATIO;
+            height = 12 * ANTONIO_RATIO;
             break;
         case 2:
-            width = 18 * ANTONIO_RATIO;
-            height = 44 * ANTONIO_RATIO;
+            width = 44 * ANTONIO_RATIO;
+            height = 18 * ANTONIO_RATIO;
             break;
         case 3:
-            width = 19 * ANTONIO_RATIO;
-            height = 44 * ANTONIO_RATIO;
+            width = 44 * ANTONIO_RATIO;
+            height = 19 * ANTONIO_RATIO;
             break;
         case 4:
-            width = 20 * ANTONIO_RATIO;
-            height = 44 * ANTONIO_RATIO;
+            width = 44 * ANTONIO_RATIO;
+            height = 20 * ANTONIO_RATIO;
             break;
         case 5:
-            width = 18 * ANTONIO_RATIO;
-            height = 44 * ANTONIO_RATIO;
+            width = 44 * ANTONIO_RATIO;
+            height = 18 * ANTONIO_RATIO;
             break;
         case 6:
-            width = 20 * ANTONIO_RATIO;
-            height = 44 * ANTONIO_RATIO;
+            width = 44 * ANTONIO_RATIO;
+            height = 20 * ANTONIO_RATIO;
             break;
         case 7:
-            width = 19 * ANTONIO_RATIO;
-            height = 44 * ANTONIO_RATIO;
+            width = 44 * ANTONIO_RATIO;
+            height = 19 * ANTONIO_RATIO;
             break;
         case 8:
-            width = 19 * ANTONIO_RATIO;
-            height = 44 * ANTONIO_RATIO;
+            width = 44 * ANTONIO_RATIO;
+            height = 19 * ANTONIO_RATIO;
             break;
         case 9:
-            width = 19 * ANTONIO_RATIO;
-            height = 44 * ANTONIO_RATIO;
+            width = 44 * ANTONIO_RATIO;
+            height = 19 * ANTONIO_RATIO;
             break;
         case 10:
-            width = 38 * ANTONIO_RATIO;
-            height = 44 * ANTONIO_RATIO;
+            width = 44 * ANTONIO_RATIO;
+            height = 38 * ANTONIO_RATIO;
             break;
         case 11:
-            width = 29 * ANTONIO_RATIO;
-            height = 44 * ANTONIO_RATIO;
+            width = 44 * ANTONIO_RATIO;
+            height = 29 * ANTONIO_RATIO;
             break;
         case 12:
-            width = 37 * ANTONIO_RATIO;
-            height = 44 * ANTONIO_RATIO;
+            width = 44 * ANTONIO_RATIO;
+            height = 37 * ANTONIO_RATIO;
             break;
         default:
             width = HOUSE_SIZE * HOUSE_RATIO;
             height = HOUSE_SIZE * HOUSE_RATIO;
             break;
-    }
+    }*/
+    width = 44 * ANTONIO_RATIO;
+    height = 44 * ANTONIO_RATIO;
     size.width = ((width / 100.0) * CHART_SIZE) / 100.0;
     size.height = ((height / 100.0) * CHART_SIZE) / 100.0;
     return size;

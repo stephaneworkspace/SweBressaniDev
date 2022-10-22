@@ -118,6 +118,7 @@ extern "C" const char* theme_astral_svg(int year, int month, int day, int hour, 
         house_size = DrawHouseNumber::number_size(i);
         offset = DrawHouseNumber::number(i, house);
         doc << Image::generate(house_size.width, house_size.height, offset.x, offset.y, House::read_svg(i).c_str());
+        //doc << Image::generate(7, 7, offset.x, offset.y, House::read_svg(i).c_str());
     }
 
     // Draw house angle image

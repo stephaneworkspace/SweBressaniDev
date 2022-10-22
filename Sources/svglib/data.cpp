@@ -62,18 +62,11 @@ void Data::set_command(char c, string s) {
 }
 
 string Data::round(float var){
-    // we use array of chars to store number
-    // as a string.
-    char str[40];
-
-    // Print in string the value of var
-    // with two decimal point
-    sprintf(str, "%.1f", var);
-
-    // scan string value in var
-    sscanf(str, "%f", &var);
-
-    return str;
+    //char str[40];
+    //sprintf(str, "%.1f", var);
+    //sscanf(str, "%f", &var);
+    //return str;
+    return to_string(var);
 }
 
 Data::Data(Fill fill, Stroke stroke) {
