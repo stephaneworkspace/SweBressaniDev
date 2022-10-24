@@ -47,12 +47,12 @@ SvgData Data::set_data(char c, int point_size) {
 SvgPoint Data::set_point(string point_string, int pos) {
     SvgPoint point;
     point.point_idx = idx_data;
-    point.point = get_value(point_string, pos);
+    point.point = Data::get_value(point_string, pos);
     return point;
 }
 
 void Data::set_command(char c, string s) {
-    long size = get_size(s);
+    long size = Data::get_size(s);
     vec_data.push_back(Data::set_data(c, size));
     for (int k = 0; k < size; ++k) {
         vec_point.push_back(Data::set_point(s, k));

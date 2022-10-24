@@ -241,42 +241,27 @@ namespace sweinterfacelib {
         class Astre {
         public:
             static string read_svg(Astres astre);
-
             static string nom(Astres a);
-
             static string *sign_name_and_svg(CalcUt calcul_ut);
         };
         class Draw {
         public:
             static double get_fixed_center(double pos_value);
-
             static double get_fixed_pos(double pos_value);
-
             static Offset get_center_item(double size, Offset offset);
-
             static Offset get_center_item(double width, double height, Offset offset);
-
             static Offset get_pos_trigo(double angular, double radius_circle);
-
             static double get_radius_total();
-
             static Offset *get_line_trigo(double angular, double radius_circle_begin, double radius_circle_end);
-
             static double get_astre_longitude(H house, CalcUt calcul_ut);
-
             static double get_item_longitude(H house, double longitude);
-
             static Offset *get_triangle_trigo(double angular,
                     double angular_pointer,
                     double radius_circle_begin,
                     double radius_circle_end);
-
             static double get_sign_longitude(H house_asc, CalcUt calcul_ut);
-
             static double get_angle_longitude(H *house, Angles angle);
-
             static double get_z_norm(double angle);
-
             static double get_closest_distance(double *angle);
         };
         class DrawAspectLines {
@@ -287,7 +272,6 @@ namespace sweinterfacelib {
         private:
         public:
             static double astre_size();
-
             static Offset bodie_astre(H house_asc, CalcUt calcul_ut, bool sw_transit);
         };
         class DrawBodieLines {
@@ -297,7 +281,6 @@ namespace sweinterfacelib {
         class DrawHouseAngle {
         public:
             static Size angle_size(Angles angle);
-
             static Offset angle(H *house, Angles angle);
         };
         class DrawHouseLines {
@@ -309,55 +292,45 @@ namespace sweinterfacelib {
         class DrawHouseNumber {
         public:
             static Size number_size(int house_number);
-
             static Offset number(int house_number, H *house);
         };
         class DrawCircle {
         private:
             CirclePosition get_radius_circle(CirclePositions circle_position);
-
         public:
             CircleZod circle(CirclePositions circle_position);
         };
         class DrawZodiacLines {
         private:
             double get_radius_rules_inside_circle(larger_draw_line ldl);
-
         public:
             LineXY *line(H house_asc);
         };
         class DrawZodiacSign {
         public:
             static double zodiac_size();
-
             static Offset zodiac_sign(Signs sign, H house_asc);
         };
         class House {
         public:
             static string read_svg(int house);
-
             static H init(int object_id, double longitude, Angles angle);
         };
         class Sign {
         public:
             static string read_svg(Signs sign);
-
             static string nom(Signs sign);
         };
         class Swe02 {
         public:
             static void set_ephe_path(string path);
-
             void close();
-
             string version();
-
             string get_library_path();
         };
         class Swe03 {
         public:
             static CalcUt calc_ut(double tjd_ut, Astres ipl, OptionFlag iflag);
-
             static void display(CalcUt calcul_ut);
         };
         class Swe07 {

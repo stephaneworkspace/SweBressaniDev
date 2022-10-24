@@ -17,7 +17,7 @@ public struct SweSvg {
         return s
     }
 
-    private func asset(name: String, encoded: String) -> String {
+    private func asset_svg(name: String, encoded: String) -> String {
         guard
                 var documentsURL = (FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)).last,
                 let convertedData = Data(base64Encoded: encoded)
@@ -39,11 +39,11 @@ public struct SweSvg {
 
     public func theme_astral(year: Int32, month: Int32, day: Int32, hour: Int32, min: Int32, lat: Double, lng: Double, tz: Int32) -> String {
         let svg: String = ptrToString(ptr: cwrapper.theme_astral(year, month, day, hour, min, lat, lng, tz, ephemPath))
-        return asset(name: "asset_theme_astral.svg", encoded: svg)
+        return asset_svg(name: "asset_theme_astral.svg", encoded: svg)
     }
 
     public func asset_sign(i: Int32) -> String {
         let svg: String = ptrToString(ptr: cwrapper.a_sign(i))
-        return asset(name: String(format: "asset_%d_sign.svg"), encoded: svg)
+        return asset_svg(name: String(format: "asset_%d_sign.svg"), encoded: svg)
     }
 }

@@ -43,7 +43,6 @@ namespace svglib {
                 SvgProperties properties;
             public:
                 Circle(Fill fill, Stroke stroke);
-
                 string generate(float x, float y, float r);
         };
         class Data {
@@ -92,9 +91,7 @@ namespace svglib {
         SvgStroke stroke;
     public:
         Line(Stroke s);
-
         void set_stroke(Stroke s);
-
         string generate(float x1, float y1, float x2, float y2);
     };
 }
