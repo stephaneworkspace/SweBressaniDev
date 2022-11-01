@@ -34,13 +34,6 @@ public class SweSwiftUi {
         var result: Double
     }
 
-    public struct House {
-        var objectId: Int32
-        var longitude: Double
-        var split: SplitDeg
-        var angle: Angle
-    }
-
     public struct HouseResult {
         var cusps: [Double]
         var ascmc: [Double]
@@ -57,7 +50,7 @@ public class SweSwiftUi {
     public var lng: Double
     public var tz: Int32
     public var pathEphe: String
-    public var houses: [House] = []
+    public var houses: [cwrapper.SweHouse] = []
 
     public init(year: Int32, month: Int32, day: Int32, hour: Int32, min: Int32, lat: Double, lng: Double, tz: Int32, pathEphe: String) {
         size = 400
@@ -84,12 +77,13 @@ public class SweSwiftUi {
         utcTimeZone.min = self.min
         utcTimeZone.sec = 0.0
         utcTimeZone = cwrapper.swelib_utc_time_zone(utcTimeZone, Double(self.tz))
-        cwrapper.swelib_utc_to_jd(utcTimeZone)
+        let utc_to_jd = cwrapper.swelib_utc_to_jd(utcTimeZone)
         // Transit TODO
 
         // Houses
-        //houses = houses(tjdUt: utcToJd.julianDayUt, geoLat: self.lat, geoLong: self.lng,
-        //        hsys: CChar("W") ?? CChar.init())
+        for i in 0...12 {
+            houses.append(cwrapper.swelib_house_ex(utc_to_jd, self.lat, self.lng, Int32(i)))
+        }
     }
 
     public func drawCircle(circles: [Circle]) -> Path {
@@ -233,32 +227,5 @@ public class SweSwiftUi {
 
     private func getCenter() -> Offset {
         Offset(offX: getRadiusTotal(), offY: getRadiusTotal())
-    }
-
-    private func houses(tjdUt: Double, geoLat: Double, geoLong: Double, hsys: CChar) -> [House] {
-        //let cuspsPtr = UnsafeMutablePointer<Double>.allocate(capacity: 37)
-        //let ascmcPtr = UnsafeMutablePointer<Double>.allocate(capacity: 10)
-        //let _ = cwrapper.swelib_houses_ex(tjdUt, 0, geoLat, geoLong, Int32(hsys), cuspsPtr, ascmcPtr)
-        var house: [House] = []
-        /*
-        for pos in 1...12 {
-            var angle: Angle = Angle.nothing
-            if pos == 1 {
-                angle = .asc
-            }
-            if pos == 4 {
-                angle = .fc
-            }
-            if pos == 7 {
-                angle = .desc
-            }
-            if pos == 10 {
-                angle = .mc
-            }
-            house.append(House.init(objectId: Int32(pos), longitude: cuspsPtr[pos], angle: angle))
-        }
-        free(cuspsPtr)
-        free(ascmcPtr)*/
-        return house
     }
 }

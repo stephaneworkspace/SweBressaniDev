@@ -18,6 +18,7 @@ SplitDeg Swe17::split_deg(double ddeg, int roundflag) {
     string print = to_string(abs(deg_ptr[0])) + "°"
                  + to_string(abs(min_ptr[0])) + "'"
                  + to_string(abs(sec_ptr[0])) + "\"";
+    /*
     Signs sign = Signs::belier;
     for (int i = 0; i < 12; ++i) {
         Signs sign_temp = static_cast<Signs>(sign_calc);
@@ -25,14 +26,15 @@ SplitDeg Swe17::split_deg(double ddeg, int roundflag) {
             sign = sign_temp;
             break;
         }
-    }
+    }*/
     SplitDeg res;
     res.print = print;
     res.deg = deg_ptr[0];
     res.min = min_ptr[0];
     res.sec = sec_ptr[0];
     res.cdegfr = cdeg_ptr[0];
-    res.sign = sign;
+    //res.sign = sign;
+    res.sign = sign_calc;
     res.result = result;
     free(deg_ptr);
     free(min_ptr);

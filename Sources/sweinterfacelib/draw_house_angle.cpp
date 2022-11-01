@@ -5,30 +5,30 @@
 
 using namespace sweinterfacelib;
 
-Size DrawHouseAngle::angle_size(Angles angle) {
+Size DrawHouseAngle::angle_size(int angle) {
     Size size;
     const double ANGLE_SIZE = 63;
     const double ANGLE_RATIO = 10;
     double width = 0;
     double height = 0;
     switch (angle) {
-        case Angles::asc:
+        case ANGLES_ASC:
             width = 44 * 5.5;
             height = 44 * 5.5;
             //width = 65 * 5.5;
             //height = 44 * 5.5;
             break;
-        case Angles::fc:
+        case ANGLES_FC:
             width = 37 * 5.5;
             height = 44 * 5.5;
             break;
-        case Angles::desc:
+        case ANGLES_DESC:
             width = 44 * 5.5;
             height = 44 * 5.5;
             //width = 87 * 5.5;
             //height = 44 * 5.5;
             break;
-        case Angles::mc:
+        case ANGLES_MC:
             width = 53 * 5.5;
             height = 44 * 5.5;
             break;
@@ -42,7 +42,7 @@ Size DrawHouseAngle::angle_size(Angles angle) {
     return size;
 }
 
-Offset DrawHouseAngle::angle(H* house, Angles angle) {
+Offset DrawHouseAngle::angle(H* house, int angle) {
     double pos = Draw::get_angle_longitude(house, angle);
     Offset trigo = Draw::get_pos_trigo(pos, (Draw::get_radius_total() * 95) / 100);
 

@@ -36,16 +36,14 @@ namespace sweinterfacelib {
         int min;
         int sec;
         double cdegfr;
-        Signs sign;
+        int sign;
         double result;
     };
-    enum Angles {
-        nothing = 0,
-        asc = 1,
-        fc = 2,
-        desc = 3,
-        mc = 4
-    };
+    const int ANGLES_NOTHING = 0;
+    const int ANGLES_ASC = 1;
+    const int ANGLES_FC = 2;
+    const int ANGLES_DESC = 3;
+    const int ANGLES_MC = 4;
     enum Aspects {
         conjunction = 0,
         opposition = 1,
@@ -57,6 +55,16 @@ namespace sweinterfacelib {
         semisquare = 7,
         semisextile = 8
     };
+    const int ASPECTS_CONJUNCTION = 0;
+    const int ASPECTS_OPPOSITION = 1;
+    const int ASPECTS_TRINE = 2;
+    const int ASPECTS_SQUARE = 3;
+    const int ASPECTS_SEXTILE = 4;
+    const int ASPECTS_INCONJUNCTION = 5;
+    const int ASPECTS_SEQUISQUARE = 6;
+    const int ASPECTS_SEMISQUARE = 7;
+    const int ASPECTS_SEMISEXTILE = 8;
+
     const int SOLEIL = 0;
     const int LUNE = 1;
     const int MERCURE = 2;
@@ -89,6 +97,9 @@ namespace sweinterfacelib {
         julian = 0,
         gregorian = 1
     };
+    const int CALANDAR_JULIAN = 0;
+    const int CALANDAR_GREGORIAN = 1;
+
     struct CalcUt {
         double longitude;
         double latitude;
@@ -175,7 +186,7 @@ namespace sweinterfacelib {
         int object_id;
         double longitude;
         SplitDeg split;
-        Angles angle;
+        int angle;
     };
     // Option flag
     enum OptionFlag {
@@ -232,7 +243,7 @@ namespace sweinterfacelib {
         const char *asset_sign(int sign);
         class Angle {
         public:
-            static string read_svg(Angles a);
+            static string read_svg(int a);
         };
         class Aspect {
         public:
@@ -260,7 +271,7 @@ namespace sweinterfacelib {
                     double radius_circle_begin,
                     double radius_circle_end);
             static double get_sign_longitude(H house_asc, CalcUt calcul_ut);
-            static double get_angle_longitude(H *house, Angles angle);
+            static double get_angle_longitude(H *house, int angle);
             static double get_z_norm(double angle);
             static double get_closest_distance(double *angle);
         };
@@ -280,14 +291,14 @@ namespace sweinterfacelib {
         };
         class DrawHouseAngle {
         public:
-            static Size angle_size(Angles angle);
-            static Offset angle(H *house, Angles angle);
+            static Size angle_size(int angle);
+            static Offset angle(H *house, int angle);
         };
         class DrawHouseLines {
         public:
             LineXY3 *lines(H *house);
             LineXY3 *triangles_small(H *house);
-            LineXY angle_lines(H *house, Angles angle);
+            LineXY angle_lines(H *house, int angle);
         };
         class DrawHouseNumber {
         public:
@@ -314,7 +325,7 @@ namespace sweinterfacelib {
         class House {
         public:
             static string read_svg(int house);
-            static H init(int object_id, double longitude, Angles angle);
+            static H init(int object_id, double longitude, int angle);
         };
         class Sign {
         public:

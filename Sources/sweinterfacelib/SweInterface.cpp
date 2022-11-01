@@ -117,8 +117,9 @@ extern "C" const char* theme_astral_svg(int year, int month, int day, int hour, 
     svg_stroke.stroke_width = STROKE_BOLD;
     Line svg_line(svg_stroke);
     LineXY lxy;
-    for (int i = int(Angles::asc); i < int(Angles::mc) + 1; ++i) {
-        lxy = dhl.angle_lines(house, static_cast<Angles>(i));
+
+    for (int i = ANGLES_ASC; i < ANGLES_MC + 1; ++i) {
+        lxy = dhl.angle_lines(house, i);
         doc << svg_line.generate(lxy.lx1, lxy.ly1, lxy.lx2, lxy.ly2);
     }
 
@@ -137,8 +138,7 @@ extern "C" const char* theme_astral_svg(int year, int month, int day, int hour, 
     Angle house_angle;
     Offset offset;
     // Asc
-    for (int i = int(Angles::asc); i < int(Angles::mc) + 1; ++i) {
-        Angles angle = static_cast<Angles>(i);
+    for (int angle = ANGLES_ASC; angle < ANGLES_MC + 1; ++angle) {
         offset = DrawHouseAngle::angle(house, angle);
         angle_size = DrawHouseAngle::angle_size(angle);
         doc << Image::generate(angle_size.width, angle_size.height, offset.x, offset.y, Angle::read_svg(angle).c_str());

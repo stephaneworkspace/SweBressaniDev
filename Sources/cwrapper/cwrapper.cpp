@@ -57,23 +57,22 @@ SweUtcToJd swelib_utc_to_jd(SweTimeZone tz) {
     return utc_to_jd;
 }
 
-/*SweHouse swelib_house_ex(SweUtcToJd utc_to_jd, double lat, double lng, int house) {
-    sweinterfacelib::H house = sweinterfacelib::Swe14::house(utc_to_jd.julian_day_ut, lat, lng, 'P', house);
+SweHouse swelib_house_ex(SweUtcToJd utc_to_jd, double lat, double lng, int house) {
+    sweinterfacelib::H house_h = sweinterfacelib::Swe14::house(utc_to_jd.julian_day_ut, lat, lng, 'P', house);
     SweHouse h;
-    h.object_id = house.object_id;
-    h.longitude = house.longitude;
-    h.split.deg = house.split.deg;
-    h.split.print = house.split.print.c_str();
-    h.split.deg = house.split.deg;
-    h.split.min = house.split.min;
-    h.split.sec = house.split.sec;
-    h.split.cdegfr = house.split.cdegfr;
-    h.split.sign = (int) house.split.sign;
-    h.split.result = house.split.result;
-    h.angle = (int) house.angle;
+    h.object_id = house_h.object_id;
+    h.longitude = house_h.longitude;
+    h.split.deg = house_h.split.deg;
+    h.split.print = house_h.split.print.c_str();
+    h.split.deg = house_h.split.deg;
+    h.split.min = house_h.split.min;
+    h.split.sec = house_h.split.sec;
+    h.split.cdegfr = house_h.split.cdegfr;
+    h.split.sign = house_h.split.sign;
+    h.split.result = house_h.split.result;
+    h.angle = house_h.angle;
     return h;
-}*/
-
+}
 
 const char *a_sign(int sign) {
     return sweinterfacelib::asset_sign(sign);
