@@ -7,9 +7,11 @@ import SwiftUI
 
 public struct DrawAstrologieView: View {
     //@Environment(\.colorScheme) var colorScheme: ColorScheme
+    @State var colorScheme: ColorScheme
     @State var swe_swift_ui: SweSwiftUi
 
-    public init(swe_swift_ui: SweSwiftUi) {
+    public init(colorScheme: ColorScheme, swe_swift_ui: SweSwiftUi) {
+        self.colorScheme = colorScheme
         self.swe_swift_ui = swe_swift_ui
     }
 
