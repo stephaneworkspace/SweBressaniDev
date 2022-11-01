@@ -36,6 +36,7 @@ SweTimeZone swelib_utc_time_zone(struct SweTimeZone time_zone, double timezone) 
     tz.sec = res.sec;
     return tz;
 }
+
 void swelib_utc_time_zone(int year, int month, int day, int hour, int min, double sec, double d_timezone, int* p_year_out, int* p_month_out, int* p_day_out, int* p_hour_out, int* p_min_out, double* p_sec_out) {
     swelib::swe_utc_time_zone(year, month, day, hour, min, sec, d_timezone, p_year_out, p_month_out, p_day_out, p_hour_out, p_min_out, p_sec_out);
 }
@@ -56,9 +57,22 @@ SweUtcToJd swelib_utc_to_jd(SweTimeZone tz) {
     return utc_to_jd;
 }
 
-int swelib_house_ex(double tjd_ut, int iflag, double geolat, double geolon, int hsys, double *cusps, double *ascms) {
-    return swelib::swe_houses_ex(tjd_ut, iflag, geolat, geolon, hsys, cusps, ascms);
-}
+/*SweHouse swelib_house_ex(SweUtcToJd utc_to_jd, double lat, double lng, int house) {
+    sweinterfacelib::H house = sweinterfacelib::Swe14::house(utc_to_jd.julian_day_ut, lat, lng, 'P', house);
+    SweHouse h;
+    h.object_id = house.object_id;
+    h.longitude = house.longitude;
+    h.split.deg = house.split.deg;
+    h.split.print = house.split.print.c_str();
+    h.split.deg = house.split.deg;
+    h.split.min = house.split.min;
+    h.split.sec = house.split.sec;
+    h.split.cdegfr = house.split.cdegfr;
+    h.split.sign = (int) house.split.sign;
+    h.split.result = house.split.result;
+    h.angle = (int) house.angle;
+    return h;
+}*/
 
 
 const char *a_sign(int sign) {
