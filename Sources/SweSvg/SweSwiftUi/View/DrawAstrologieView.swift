@@ -4,6 +4,7 @@
 
 import Foundation
 import SwiftUI
+import cwrapper
 
 public struct DrawAstrologieLightView: View {
     @State var swe_swift_ui: SweSwiftUi
@@ -40,6 +41,10 @@ public struct DrawAstrologieDarkView: View {
         }.frame(width: CGFloat(swe_swift_ui.size), height: CGFloat(swe_swift_ui.size))
         ForEach(1...12, id: \.self) { idx in
             VStack {
+                // TODO enlever
+                let _ = cwrapper.a_sign(Int32(idx))
+                //let url = cwrapper.a_sign(Int32(idx)).1
+                //let ui = AppKit.UIImage(contentsOfFile: url.path)
                 GeometryReader { geometry in
                         Image(String(format: "asset_%d_sign.svg", idx))
                             .resizable()
