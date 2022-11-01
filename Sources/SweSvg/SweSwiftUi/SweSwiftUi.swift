@@ -4,6 +4,7 @@
 
 import Foundation
 import SwiftUI
+import cwrapper
 
 public class SweSwiftUi {
     public struct Circle {
@@ -23,10 +24,76 @@ public class SweSwiftUi {
         var offY: Double
     }
 
-    public var size: Int
+    struct SplitDeg {
+        var print: String
+        var deg: Int32
+        var min: Int32
+        var sec: Int32
+        var cdegfr: Double
+        var sign: Signs
+        var result: Double
+    }
 
-    public init() {
+    public struct House {
+        var objectId: Int32
+        var longitude: Double
+        var split: SplitDeg
+        var angle: Angle
+    }
+
+    public struct HouseResult {
+        var cusps: [Double]
+        var ascmc: [Double]
+        var result: Int32
+    }
+
+    struct TimeZone {
+        var year: Int32
+        var month: Int32
+        var day: Int32
+        var hour: Int32
+        var min: Int32
+        var sec: Double
+    }
+
+    public var size: Int
+    public var year: Int32
+    public var month: Int32
+    public var day: Int32
+    public var hour: Int32
+    public var min: Int32
+    public var lat: Double
+    public var lng: Double
+    public var tz: Int32
+    public var pathEphe: String
+    public var houses: [House] = []
+
+    public init(year: Int32, month: Int32, day: Int32, hour: Int32, min: Int32, lat: Double, lng: Double, tz: Int32, pathEphe: String) {
         size = 400
+        self.year = year
+        self.month = month
+        self.day = day
+        self.hour = hour
+        self.min = min
+        self.lat = lat
+        self.lng = lng
+        self.tz = tz
+        self.pathEphe = pathEphe
+
+        // Set path
+        let pathPtr = UnsafeMutablePointer<Int8>(mutating: (self.pathEphe as NSString).utf8String)
+        cwrapper.set_ephe_path(pathPtr)
+
+        // Compute julian day
+        var utcTimeZone = TimeZone(
+                year: self.year,
+                month: self.month,
+                day: self.day,
+                hour: self.hour,
+                min: self.min,
+                sec: 0.0)
+        utcTimeZone.utc_time_zone(timezone: Double(self.tz))
+        // TODO let utcToJd = swe08.utc_to_jd(tz: utcTimeZone, calandar: .gregorian)
     }
 
     public func drawCircle(circles: [Circle]) -> Path {
@@ -170,5 +237,29 @@ public class SweSwiftUi {
 
     private func getCenter() -> Offset {
         Offset(offX: getRadiusTotal(), offY: getRadiusTotal())
+    }
+}
+
+extension SweSwiftUi.TimeZone {
+    mutating func utc_time_zone(timezone: Double) {
+        let yearPtr = UnsafeMutablePointer<Int32>.allocate(capacity: 2)
+        let monthPtr = UnsafeMutablePointer<Int32>.allocate(capacity: 2)
+        let dayPtr = UnsafeMutablePointer<Int32>.allocate(capacity: 2)
+        let hourPtr = UnsafeMutablePointer<Int32>.allocate(capacity: 2)
+        let minPtr = UnsafeMutablePointer<Int32>.allocate(capacity: 2)
+        let secPtr = UnsafeMutablePointer<Double>.allocate(capacity: 2)
+        cwrapper.swe_utc_time_zone(year, month, day, hour, min, sec, timezone, yearPtr, monthPtr, dayPtr, hourPtr, minPtr, secPtr)
+        year = yearPtr[0]
+        month = monthPtr[0]
+        day = dayPtr[0]
+        hour = hourPtr[0]
+        min = minPtr[0]
+        sec = secPtr[0]
+        free(yearPtr)
+        free(monthPtr)
+        free(dayPtr)
+        free(hourPtr)
+        free(minPtr)
+        free(secPtr)
     }
 }
