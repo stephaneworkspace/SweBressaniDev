@@ -28,7 +28,7 @@ public struct DrawAstrologieLightView: View {
                     //let url = cwrapper.a_sign(Int32(idx)).1
                     //let ui = AppKit.UIImage(contentsOfFile: url.path)
                     GeometryReader { geometry in
-                        Image(String(format: "asset_%d_sign.svg", idx))
+                        Image(String(format: "asset_%d_sign", idx))
                                 .resizable()
                                 .offset(
                                         x: swe_swift_ui.zodiac_sign(sign: Int32(idx)).oPx,
@@ -64,7 +64,7 @@ public struct DrawAstrologieDarkView: View {
                 //let url = cwrapper.a_sign(Int32(idx)).1
                 //let ui = AppKit.UIImage(contentsOfFile: url.path)
                 GeometryReader { geometry in
-                        Image(String(format: "asset_%d_sign.svg", idx))
+                        Image(String(format: "asset_%d_sign", idx))
                             .resizable()
                             .offset(
                                     x: swe_swift_ui.zodiac_sign(sign: Int32(idx)).oPx,
