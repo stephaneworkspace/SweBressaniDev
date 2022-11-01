@@ -101,7 +101,7 @@ public class SweSwiftUi {
             houses.append(cwrapper.swelib_house_ex(utc_to_jd, self.lat, self.lng, Int32(i)))
         }
 
-        for i in 0...12 {
+        for i in 0...11 {
             cwrapper.a_sign(Int32(i))
         }
     }
