@@ -73,6 +73,7 @@ public class SweSwiftUi {
         // Set path
         let pathPtr = UnsafeMutablePointer<Int8>(mutating: (self.pathEphe as NSString).utf8String)
         cwrapper.swelib_set_ephe_path(pathPtr)
+        free(pathPtr)
 
         // Compute julian day
         var utcTimeZone = cwrapper.SweTimeZone()
