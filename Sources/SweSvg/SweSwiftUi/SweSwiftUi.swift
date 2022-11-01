@@ -6,6 +6,15 @@ import Foundation
 import SwiftUI
 import cwrapper
 
+// TODO ailleur
+public struct Object {
+    var sign: Signs
+    var oSx: Double
+    var oSy: Double
+    var oPx: Double
+    var oPy: Double
+}
+
 public class SweSwiftUi {
     public struct Circle {
         var center: Double
@@ -40,7 +49,7 @@ public class SweSwiftUi {
         var result: Int32
     }
 
-    public var size: Int
+    public var size: Int // TODO sizeChart: (screenSize.width == 744 && screenSize.height == 1133) ? 630.0 : 390.0)
     public var year: Int32
     public var month: Int32
     public var day: Int32
@@ -73,7 +82,7 @@ public class SweSwiftUi {
         // Set path
         let pathPtr = UnsafeMutablePointer<Int8>(mutating: (self.pathEphe as NSString).utf8String)
         cwrapper.swelib_set_ephe_path(pathPtr)
-        //free(pathPtr) TODO comprendre
+        //free(pathPtr) TODO comprendre je pense que c'est parce que self.pathEphe est null
 
         // Compute julian day
         var utcTimeZone = cwrapper.SweTimeZone()
@@ -90,6 +99,10 @@ public class SweSwiftUi {
         // Houses
         for i in 0...12 {
             houses.append(cwrapper.swelib_house_ex(utc_to_jd, self.lat, self.lng, Int32(i)))
+        }
+
+        for i in 0...12 {
+            cwrapper.a_sign(Int32(i))
         }
     }
 
@@ -132,7 +145,7 @@ public class SweSwiftUi {
         return res
     }
 
-    func zodiac_lines() -> [Line] {
+    public func zodiac_lines() -> [Line] {
         var res: [Line] = []
         for iIdx in 1...12 {
             // 0°
@@ -171,6 +184,25 @@ public class SweSwiftUi {
                 )
             }
         }
+        return res
+    }
+
+    public func zodiac_sign(sign: Int32) -> Object {
+        let zodiacSize = (((ZODIAC_SIZE * ZODIAC_RATIO) / 100.0) * Double(size)) / 100.0;
+        let offPosAsc = CIRCLE - houses[0].longitude
+        let signEnum: Signs = Signs.init(rawValue: sign) ?? Signs.aries
+        let pos = (Double(signEnum.rawValue - 1) * 30.0) + 15.0 + offPosAsc
+        let offset = getCenterItem(
+                size: zodiacSize,
+                offset: getPosTrigo(
+                        angular: pos,
+                        radiusCircle: getRadiusCircleZodiac()))
+        let res = Object(
+                sign: signEnum,
+                oSx: zodiacSize,
+                oSy: zodiacSize,
+                oPx: offset.offX,
+                oPy: offset.offY)
         return res
     }
 
@@ -235,4 +267,27 @@ public class SweSwiftUi {
     private func getCenter() -> Offset {
         Offset(offX: getRadiusTotal(), offY: getRadiusTotal())
     }
+
+    private func getCenterItem(size: Double, offset: Offset) -> Offset {
+        Offset(
+                offX: offset.offX - (size / 2.0),
+                offY: offset.offY - (size / 2.0))
+    }
+
+    private func getPosTrigo(angular: Double, radiusCircle: Double) -> Offset {
+        let getCenter = getRadiusTotal()
+        return Offset(
+                offX: getCenter + cos(angular / CIRCLE * 2.0 * Double.pi) * -1.0 * radiusCircle,
+                offY: getCenter + sin(angular / CIRCLE * 2.0 * Double.pi) * radiusCircle)
+    }
+
+    private func getRadiusCircleZodiac() -> Double {
+        let divTraitBig = 0.2
+        return (getRadiusTotal() * (
+                (
+                        (CIRCLE_SIZE_TRANSIT[2].0 - CIRCLE_SIZE_TRANSIT[1].0) / (2.0 + divTraitBig)
+                ) + CIRCLE_SIZE_TRANSIT[1].0))
+                / 100.0
+    }
 }
+

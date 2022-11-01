@@ -14,6 +14,10 @@ const char *theme_astral(int year, int month, int day, int hour, int min, double
     return sweinterfacelib::theme_astral_svg(year, month, day, hour, min, lat, lng, gmt, ephem_path);
 }
 
+const char *a_sign(int sign) {
+    return sweinterfacelib::asset_sign(sign);
+}
+
 void swelib_set_ephe_path(char* path) {
     swelib::swe_set_ephe_path(path);
 }
@@ -72,8 +76,3 @@ SweHouse swelib_house_ex(SweUtcToJd utc_to_jd, double lat, double lng, int house
     h.angle = house_h.angle;
     return h;
 }
-
-const char *a_sign(int sign) {
-    return sweinterfacelib::asset_sign(sign);
-}
-

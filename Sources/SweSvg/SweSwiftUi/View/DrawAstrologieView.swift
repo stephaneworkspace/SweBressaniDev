@@ -38,5 +38,19 @@ public struct DrawAstrologieDarkView: View {
         VStack {
             swe_swift_ui.drawLine(lines: swe_swift_ui.zodiac_lines()).stroke(.white, lineWidth: 1.0)
         }.frame(width: CGFloat(swe_swift_ui.size), height: CGFloat(swe_swift_ui.size))
+        ForEach(1...12, id: \.self) { idx in
+            VStack {
+                GeometryReader { geometry in
+                        Image(String(format: "asset_%d_sign.svg", idx))
+                            .resizable()
+                            .offset(
+                                    x: swe_swift_ui.zodiac_sign(sign: Int32(idx)).oPx,
+                                    y: swe_swift_ui.zodiac_sign(sign: Int32(idx)).oPy)
+                            .frame(
+                                    width: swe_swift_ui.zodiac_sign(sign: Int32(idx)).oSx,
+                                    height: swe_swift_ui.zodiac_sign(sign: Int32(idx)).oSy)
+                }
+            }.frame(width: CGFloat(swe_swift_ui.size), height: CGFloat(swe_swift_ui.size))
+        }
     }
 }

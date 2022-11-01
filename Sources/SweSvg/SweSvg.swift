@@ -44,6 +44,6 @@ public struct SweSvg {
 
     public func asset_sign(i: Int32) -> String {
         let svg: String = ptrToString(ptr: cwrapper.a_sign(i))
-        return asset_svg(name: String(format: "asset_%d_sign.svg"), encoded: svg)
+        return asset_svg(name: String(format: "asset_%d_sign.svg", i), encoded: svg)
     }
 }
