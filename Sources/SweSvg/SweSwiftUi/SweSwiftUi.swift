@@ -47,15 +47,6 @@ public class SweSwiftUi {
         var result: Int32
     }
 
-    struct TimeZone {
-        var year: Int32
-        var month: Int32
-        var day: Int32
-        var hour: Int32
-        var min: Int32
-        var sec: Double
-    }
-
     public var size: Int
     public var year: Int32
     public var month: Int32
@@ -82,18 +73,23 @@ public class SweSwiftUi {
 
         // Set path
         let pathPtr = UnsafeMutablePointer<Int8>(mutating: (self.pathEphe as NSString).utf8String)
-        cwrapper.set_ephe_path(pathPtr)
+        cwrapper.swelib_set_ephe_path(pathPtr)
 
         // Compute julian day
-        var utcTimeZone = TimeZone(
-                year: self.year,
-                month: self.month,
-                day: self.day,
-                hour: self.hour,
-                min: self.min,
-                sec: 0.0)
-        utcTimeZone.utc_time_zone(timezone: Double(self.tz))
-        // TODO let utcToJd = swe08.utc_to_jd(tz: utcTimeZone, calandar: .gregorian)
+        var utcTimeZone = cwrapper.SweTimeZone()
+        utcTimeZone.year = self.year
+        utcTimeZone.month = self.month
+        utcTimeZone.day = self.day
+        utcTimeZone.hour = self.hour
+        utcTimeZone.min = self.min
+        utcTimeZone.sec = 0.0
+        utcTimeZone = cwrapper.swelib_utc_time_zone(utcTimeZone, Double(self.tz))
+        cwrapper.swelib_utc_to_jd(utcTimeZone)
+        // Transit TODO
+
+        // Houses
+        //houses = houses(tjdUt: utcToJd.julianDayUt, geoLat: self.lat, geoLong: self.lng,
+        //        hsys: CChar("W") ?? CChar.init())
     }
 
     public func drawCircle(circles: [Circle]) -> Path {
@@ -139,7 +135,7 @@ public class SweSwiftUi {
         var res: [Line] = []
         for iIdx in 1...12 {
             // 0°
-            let offPosAsc = 360.0 // - swe.houses[0].longitude
+            let offPosAsc = 360.0 - houses[0].longitude
             var pos = Double(iIdx) * 30.0 + offPosAsc
             pos = getFixedPos(pos_value: pos)
             let axy: [Offset] = getLineTrigo(
@@ -238,28 +234,31 @@ public class SweSwiftUi {
     private func getCenter() -> Offset {
         Offset(offX: getRadiusTotal(), offY: getRadiusTotal())
     }
-}
 
-extension SweSwiftUi.TimeZone {
-    mutating func utc_time_zone(timezone: Double) {
-        let yearPtr = UnsafeMutablePointer<Int32>.allocate(capacity: 2)
-        let monthPtr = UnsafeMutablePointer<Int32>.allocate(capacity: 2)
-        let dayPtr = UnsafeMutablePointer<Int32>.allocate(capacity: 2)
-        let hourPtr = UnsafeMutablePointer<Int32>.allocate(capacity: 2)
-        let minPtr = UnsafeMutablePointer<Int32>.allocate(capacity: 2)
-        let secPtr = UnsafeMutablePointer<Double>.allocate(capacity: 2)
-        cwrapper.swe_utc_time_zone(year, month, day, hour, min, sec, timezone, yearPtr, monthPtr, dayPtr, hourPtr, minPtr, secPtr)
-        year = yearPtr[0]
-        month = monthPtr[0]
-        day = dayPtr[0]
-        hour = hourPtr[0]
-        min = minPtr[0]
-        sec = secPtr[0]
-        free(yearPtr)
-        free(monthPtr)
-        free(dayPtr)
-        free(hourPtr)
-        free(minPtr)
-        free(secPtr)
+    private func houses(tjdUt: Double, geoLat: Double, geoLong: Double, hsys: CChar) -> [House] {
+        //let cuspsPtr = UnsafeMutablePointer<Double>.allocate(capacity: 37)
+        //let ascmcPtr = UnsafeMutablePointer<Double>.allocate(capacity: 10)
+        //let _ = cwrapper.swelib_houses_ex(tjdUt, 0, geoLat, geoLong, Int32(hsys), cuspsPtr, ascmcPtr)
+        var house: [House] = []
+        /*
+        for pos in 1...12 {
+            var angle: Angle = Angle.nothing
+            if pos == 1 {
+                angle = .asc
+            }
+            if pos == 4 {
+                angle = .fc
+            }
+            if pos == 7 {
+                angle = .desc
+            }
+            if pos == 10 {
+                angle = .mc
+            }
+            house.append(House.init(objectId: Int32(pos), longitude: cuspsPtr[pos], angle: angle))
+        }
+        free(cuspsPtr)
+        free(ascmcPtr)*/
+        return house
     }
 }
