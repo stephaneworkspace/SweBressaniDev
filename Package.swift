@@ -15,10 +15,13 @@ let package = Package(
                         name: "SweSvg",
                         targets: ["SweSvg"]),
                 .library(
+                        name: "SweSwiftUi",
+                        targets: ["SweSvg"]),
+                .library(
                         name: "DrawAstrologieView",
                         targets: ["SweSvg"]),
-        ],
-        targets: [.target(name: "cpplib"),
+],
+targets: [.target(name: "cpplib"),
                   .target(name: "svglib"),
                   .target(name: "swelib"),
                   .target(name: "sweinterfacelib", dependencies: ["svglib", "swelib"]),
