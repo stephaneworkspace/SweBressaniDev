@@ -52,13 +52,19 @@ public class SweSwiftUi {
     public var pathEphe: String
     public var houses: [cwrapper.SweHouse] = []
 
-    public init(year: Int32, month: Int32, day: Int32, hour: Int32, min: Int32, lat: Double, lng: Double, tz: Int32, pathEphe: String) {
+    public init(natal: Date, lat: Double, lng: Double, tz: Int32, pathEphe: String) {
         size = 400
-        self.year = year
-        self.month = month
-        self.day = day
-        self.hour = hour
-        self.min = min
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "YYYY"
+        year = Int32(dateFormatter.string(from: natal)) ?? 1980
+        dateFormatter.dateFormat = "MM"
+        month = Int32(dateFormatter.string(from: natal)) ?? 1
+        dateFormatter.dateFormat = "dd"
+        day = Int32(dateFormatter.string(from: natal)) ?? 1
+        dateFormatter.dateFormat = "hh"
+        hour = Int32(dateFormatter.string(from: natal)) ?? 0
+        dateFormatter.dateFormat = "mm"
+        min = Int32(dateFormatter.string(from: natal)) ?? 0
         self.lat = lat
         self.lng = lng
         self.tz = tz
