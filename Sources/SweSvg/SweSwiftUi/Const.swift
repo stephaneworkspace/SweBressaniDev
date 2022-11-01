@@ -4,6 +4,7 @@
 
 import Foundation
 
+let CIRCLE = 360.0
 let CIRCLE_SIZE_TRANSIT: [(Double, Bool)] = [
     (42.0, true), // 0 CIRCLE ASPECT
     (59.0, true), // 1 CIRCLE TRANSIT
@@ -19,3 +20,5 @@ let CIRCLE_SIZE_TRANSIT: [(Double, Bool)] = [
     (57.5, false), // 10 - 7 transit
     (54.5, false), // 11 - 8 transit
 ]
+let LARGER_DRAW_LINE_RULES_SMALL = 0.1
+let LARGER_DRAW_LINE_RULES_LARGE = 0.2
