@@ -41,7 +41,7 @@ public struct DrawAstrologieDarkView: View {
         ForEach(1...12, id: \.self) { idx in
             VStack {
                 GeometryReader { geometry in
-                        Image(String(format: "asset_%d_sign", idx))
+                        Image(String(format: "asset_%d_sign.svg", idx))
                             .resizable()
                             .offset(
                                     x: swe_swift_ui.zodiac_sign(sign: Int32(idx)).oPx,
