@@ -5,7 +5,7 @@
 
 using namespace sweinterfacelib;
 
-string Sign::read_svg(Signs sign) {
+string Sign::read_svg(int sign) {
     string* s = new string[12];
     s[0] = "PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDI2LjAuMiwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkNhbHF1ZV8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIKCSB2aWV3Qm94PSIwIDAgMzE2LjIgMjg3LjUiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDMxNi4yIDI4Ny41OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+Cgkuc3Qwe2ZpbGw6I0ZGMDAwMDt9Cjwvc3R5bGU+CjxnIGlkPSJsYXllcjEiPgoJPGcgaWQ9Imc0MzIyIj4KCQk8cGF0aCBpZD0icGF0aDQxOTciIGNsYXNzPSJzdDAiIGQ9Ik02Mi4xLDBDMzguNywwLDE3LjIsMTUuNyw3LjUsMzYuN0MtNS4zLDY0LjEtMC45LDk3LjUsMTQuNCwxMjNjNC4yLDUuNSwxMi41LDYsMTcuNiwxLjYKCQkJYzYuNy0zLjcsMTUuMy03LjcsMTcuNC0xNS44YzEuMS05LTYuMy0xNS45LTcuNC0yNC41QzM4LjIsNzAsNDAuOCw1MS45LDU0LDQzLjFjMTAuNy01LjksMjMuNiwwLjQsMzEuNCw4LjQKCQkJYzIxLjMsMTkuOSwzMC4xLDQ5LjEsMzcsNzYuNWMxMi41LDUyLjIsMTQuNSwxMDYuMSwxNi4yLDE1OS41aDM4LjdjMi40LTQ3LjYsMS45LTk1LjUsMTIuNC0xNDIuMmM2LjYtMzEuNiwxNi4zLTYzLjcsMzYuOS04OS4yCgkJCWM3LjctOC45LDE5LjItMTcuOCwzMS41LTE0LjljMTMuNSw0LjcsMTguMywyMSwxNy4yLDM0Yy0wLjYsMTEtNS44LDIwLjktOS4yLDMxLjJjLTAuOCw3LjQsNi4xLDEyLjUsMTIuMywxNC44CgkJCWM1LjcsMy42LDEzLjMsOSwyMCw0LjZjNy4zLTUsOC41LTE0LjUsMTIuMi0yMmMxMC41LTI4LjQsNi45LTYzLjctMTUtODUuOEMyNzguNywwLjUsMjUwLjktNC45LDIyOC43LDUKCQkJYy0yMiw5LTM3LjcsMjguMy00OC45LDQ4LjZjLTksMTYtMTYuNCwzMy0yMS44LDUwLjVjLTEwLjEtMzMuNS0yNS43LTY3LjUtNTMuOC04OS43QzkyLjEsNS40LDc3LjItMC4xLDYyLjEsMEw2Mi4xLDB6Ii8+Cgk8L2c+CjwvZz4KPC9zdmc+";
     s[1] = "PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDI2LjAuMiwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkNhbHF1ZV8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIKCSB2aWV3Qm94PSIwIDAgMjY4LjQgMjg5IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAyNjguNCAyODk7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4KPHN0eWxlIHR5cGU9InRleHQvY3NzIj4KCS5zdDB7ZmlsbDojOTk2NjMzO30KPC9zdHlsZT4KPGcgaWQ9ImxheWVyMSI+Cgk8ZyBpZD0iZzQzMjIiPgoJCTxwYXRoIGlkPSJwYXRoNDE3NSIgY2xhc3M9InN0MCIgZD0iTTQuNCwwQy0zLDEuOCwxLjYsMTEuMiwwLjMsMTYuNGMwLDcuNywwLDE1LjQsMCwyMy4yYzkuNi0wLjgsMjEuMS0xLjIsMjcuNyw3LjIKCQkJYzIwLjcsMTkuNiwzMi42LDQ2LjYsNTMuMSw2Ni40Yy0zMSwxOS40LTQ3LjMsNTguNS00MSw5NC4zYzUuMywzNC43LDMwLjQsNjYuNSw2NC41LDc2LjdjMzMsMTAuOSw3Mi40LDMsOTYuNS0yMi43CgkJCWMzMC4yLTMwLjYsMzguNC04Mi40LDE1LjMtMTE5LjVjLTcuMi0xMS42LTE3LTIxLjUtMjguNi0yOC45YzIxLjUtMjAuOCwzMy4zLTQ5LjgsNTYuNC02OS4xYzUuNi00LjIsMTIuOC01LjQsMTkuNi01LjIKCQkJYzYuMS0yLjIsNC40LTkuOCw0LjUtMTQuOFYxLjFjLTE2LjYtMS41LTM0LjcsMC44LTQ3LjcsMTIuMmMtMjcuNywyMS0zOS43LDU2LTY2LjYsNzcuN2MtMTMuNCw5LjYtMzMuMSw3LjEtNDQuNy00LjYKCQkJQzg1LjksNjQuMSw3My42LDMxLjksNDcuMSwxMi42QzM1LDIuOSwxOS4zLDAuOSw0LjQsMEw0LjQsMHogTTEzNiwxMzUuNmMzMi45LDAuMSw2MSwzMy41LDU1LjEsNjZjLTMuOSwyOC42LTMyLjIsNTEuOS02MS4yLDQ4LjkKCQkJYy0yNS41LTIuMi00OC45LTIzLjItNTIuMi00OS4xYy0zLjYtMjIuNiw3LjYtNDcuMSwyOC4xLTU4QzExNC45LDEzOC4yLDEyNS40LDEzNS41LDEzNiwxMzUuNkwxMzYsMTM1LjZ6Ii8+Cgk8L2c+CjwvZz4KPC9zdmc+";
@@ -21,59 +21,60 @@ string Sign::read_svg(Signs sign) {
     s[11] = "PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDI2LjAuMiwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkNhbHF1ZV8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIKCSB2aWV3Qm94PSIwIDAgMjQwLjYgMzE5LjciIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDI0MC42IDMxOS43OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+Cgkuc3Qwe2ZpbGw6IzAwMzNGRjt9Cjwvc3R5bGU+CjxnIGlkPSJsYXllcjEiPgoJPGcgaWQ9Imc0MzIyIj4KCQk8cGF0aCBpZD0icGF0aDQxNjMiIGNsYXNzPSJzdDAiIGQ9Ik0yMTIuMywxLjJjLTM1LjksMzctNjEuNCw4NS40LTY2LjIsMTM3LjFjMC45LDUuOC03LjEsMi0xMC42LDMuMWwtNDEuNC0wLjIKCQkJQzg5LjgsOTEuNCw2NC41LDM1LjUsMjksMC4zQzE3LjUsOS42LDEwLjEsMTUuOCwwLDI1LjRDMzEsNTQsNTAuOSw5My44LDU3LjUsMTM1LjNjMC42LDMuNiwxLjgsOC0zLjcsNi4yCgkJCWMtMTQuNywwLTI5LjUsMC4yLTQ0LjEsMnYzNC44aDQ4LjVjLTMuNiwzNi40LTE5LjQsNzEuMS00Mi4zLDk5LjRjLTUsNS45LTEwLjQsMTEuNi0xNS43LDE3LjNsMjYuNSwyNC44CgkJCWMzNy44LTM3LjMsNjMuNS04Ny43LDY3LjQtMTQxLjFsNTEuOC0wLjNjMy4yLDUwLjksMjguMyw5OC40LDYyLjIsMTM1LjdjMi45LDQsNS45LDcuNyw5LjMsMS45bDIzLjItMjEuMgoJCQljLTMxLjctMjktNTIuMS03MC01OC4xLTExMi4zYy0yLjYtNS43LDMtNC4yLDYuOC00LjJoNDEuMnYtMzQuN2MtMTYtMi0zMi4zLTIuMS00OC40LTJjMy44LTM3LjEsMjAuMi03Mi43LDQ0LTEwMS4zCgkJCWM0LjQtNS4yLDkuMS0xMC4yLDEzLjgtMTUuMkwyMTMuNCwwTDIxMi4zLDEuMnoiLz4KCTwvZz4KPC9nPgo8L3N2Zz4=";
     string r = "data:image/svg+xml;base64,";
     switch (sign) {
-        case Signs::belier:
+        case SIGNS_BELIER:
             return r + s[0];
-        case Signs::taureau:
+        case SIGNS_TAUREAU:
             return r + s[1];
-        case Signs::gemaux:
+        case SIGNS_GEMAUX:
             return r + s[2];
-        case Signs::cancer:
+        case SIGNS_CANCER:
             return r + s[3];
-        case Signs::lion:
+        case SIGNS_LION:
             return r + s[4];
-        case Signs::vierge:
+        case SIGNS_VIERGE:
             return r + s[5];
-        case Signs::balance:
+        case SIGNS_BALANCE:
             return r + s[6];
-        case Signs::scorpion:
+        case SIGNS_SCORPION:
             return r + s[7];
-        case Signs::sagittaire:
+        case SIGNS_SAGITTAIRE:
             return r + s[8];
-        case Signs::capricorne:
+        case SIGNS_CAPRICORNE:
             return r + s[9];
-        case Signs::verseau:
+        case SIGNS_VERSEAU:
             return r + s[10];
-        case Signs::poisson:
+        case SIGNS_POISSON:
             return r + s[11];
+        default:
+            return "";
     }
 }
 
-string Sign::nom(Signs sign) {
+string Sign::nom(int sign) {
     switch (sign) {
-        case belier:
+        case SIGNS_BELIER:
             return "Belier";
-        case taureau:
+        case SIGNS_TAUREAU:
             return "Taureau";
-        case gemaux:
+        case SIGNS_GEMAUX:
             return "Gemaux";
-        case cancer:
+        case SIGNS_CANCER:
             return "Cancer";
-        case lion:
+        case SIGNS_LION:
             return "Lion";
-        case vierge:
+        case SIGNS_VIERGE:
             return "Vierge";
-        case balance:
+        case SIGNS_BALANCE:
             return "Balance";
-        case scorpion:
+        case SIGNS_SCORPION:
             return "Scorpion";
-        case sagittaire:
+        case SIGNS_SAGITTAIRE:
             return "Sagittaire";
-        case capricorne:
+        case SIGNS_CAPRICORNE:
             return "Capricorne";
-        case verseau:
+        case SIGNS_VERSEAU:
             return "Verseau";
-        case poisson:
+        case SIGNS_POISSON:
             return "Poisson";
     }
 }
-

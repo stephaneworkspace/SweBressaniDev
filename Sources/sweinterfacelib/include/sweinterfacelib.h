@@ -15,20 +15,18 @@ using namespace swelib;
 
 namespace sweinterfacelib {
     // Signs
-    enum Signs {
-        belier = 1,
-        taureau = 2,
-        gemaux = 3,
-        cancer = 4,
-        lion = 5,
-        vierge = 6,
-        balance = 7,
-        scorpion = 8,
-        sagittaire = 9,
-        capricorne = 10,
-        verseau = 11,
-        poisson = 12,
-    };
+    const int SIGNS_BELIER = 1;
+    const int SIGNS_TAUREAU = 2;
+    const int SIGNS_GEMAUX = 3;
+    const int SIGNS_CANCER = 4;
+    const int SIGNS_LION = 5;
+    const int SIGNS_VIERGE = 6;
+    const int SIGNS_BALANCE = 7;
+    const int SIGNS_SCORPION = 8;
+    const int SIGNS_SAGITTAIRE = 9;
+    const int SIGNS_CAPRICORNE = 10;
+    const int SIGNS_VERSEAU = 11;
+    const int SIGNS_POISSON = 12;
     // Swe17
     struct SplitDeg {
         string print;
@@ -320,7 +318,7 @@ namespace sweinterfacelib {
         class DrawZodiacSign {
         public:
             static double zodiac_size();
-            static Offset zodiac_sign(Signs sign, H house_asc);
+            static Offset zodiac_sign(int sign, H house_asc);
         };
         class House {
         public:
@@ -329,8 +327,8 @@ namespace sweinterfacelib {
         };
         class Sign {
         public:
-            static string read_svg(Signs sign);
-            static string nom(Signs sign);
+            static string read_svg(int sign);
+            static string nom(int sign);
         };
         class Swe02 {
         public:

@@ -85,9 +85,9 @@ string Astre::nom(Astres a) {
 
 string* Astre::sign_name_and_svg(CalcUt calcul_ut) {
     string* res = new string[2];
-    Signs s = Signs::belier;
+    int s = SIGNS_BELIER;
     for (int i = 1; i < 13; ++i) {
-        s = static_cast<Signs>(i);
+        s = i;
         double pos = (i - 1) * 30;
         if (pos > 360) {
             pos -= 360;

@@ -160,8 +160,8 @@ extern "C" const char* theme_astral_svg(int year, int month, int day, int hour, 
     for (int i = 1; i < 13; ++i) {
         Offset offset;
         zodiac_size = DrawZodiacSign::zodiac_size();
-        offset = DrawZodiacSign::zodiac_sign(static_cast<Signs>(i), house[0]);
-        doc << Image::generate(zodiac_size, zodiac_size, offset.x, offset.y, Sign::read_svg(static_cast<Signs>(i)).c_str());
+        offset = DrawZodiacSign::zodiac_sign(i, house[0]);
+        doc << Image::generate(zodiac_size, zodiac_size, offset.x, offset.y, Sign::read_svg(i).c_str());
     }
 
     // Draw astre image + line
@@ -292,7 +292,7 @@ const int R_SVG_B64 = 26; //data:image/svg+xml;base64," = 26
 
 extern "C" {
     const char *asset_sign(int sign) {
-        static std::string s = sweinterfacelib::Sign::read_svg(static_cast<sweinterfacelib::Signs>(sign));
+        static std::string s = sweinterfacelib::Sign::read_svg(sign);
         s.replace(0, R_SVG_B64, "");
         return s.c_str();
     }
