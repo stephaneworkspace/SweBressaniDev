@@ -14,12 +14,6 @@ let package = Package(
                 .library(
                         name: "SweSvg",
                         targets: ["SweSvg"]),
-                .library(
-                        name: "SweSwiftUi",
-                        targets: ["SweSvg"]),
-                .library(
-                        name: "DrawAstrologieView",
-                        targets: ["SweSvg"]),
 ],
 targets: [.target(name: "cpplib"),
                   .target(name: "svglib"),
