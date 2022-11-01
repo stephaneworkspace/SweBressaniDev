@@ -14,7 +14,7 @@ public class SweSwiftUi {
     private var size: Int
 
     public init() {
-        size = 450
+        size = 400
     }
 
     public func drawCircle(circles: [Circle]) -> Path {
