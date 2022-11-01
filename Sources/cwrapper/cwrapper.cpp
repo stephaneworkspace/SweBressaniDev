@@ -16,7 +16,6 @@ const char *theme_astral(int year, int month, int day, int hour, int min, double
 
 void swelib_set_ephe_path(char* path) {
     swelib::swe_set_ephe_path(path);
-    free(path);
 }
 
 SweTimeZone swelib_utc_time_zone(struct SweTimeZone time_zone, double timezone)  {
