@@ -16,6 +16,7 @@ public struct SweSvg {
     public var lng: Double
     public var tz: Int32
     private var ephemPath: String
+    public var utcTimeZone: cwrapper.SweTimeZone
     public var houses: [cwrapper.SweHouse] = []
     public init(natal: Date, lat: Double, lng: Double, tz: Int32, ephemPath: String) {
         let dateFormatter = DateFormatter()
@@ -42,7 +43,7 @@ public struct SweSvg {
         //free(pathPtr) TODO comprendre je pense que c'est parce que self.pathEphe est null
 
         // Compute julian day
-        var utcTimeZone = cwrapper.SweTimeZone()
+        utcTimeZone = cwrapper.SweTimeZone()
         utcTimeZone.year = year
         utcTimeZone.month = month
         utcTimeZone.day = day
