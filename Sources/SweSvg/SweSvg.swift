@@ -35,7 +35,6 @@ public struct SweSvg {
     }
 
     public mutating func set(natal: Date, lat: Double, lng: Double, tz: Int32) {
-        //self = Self(ephemPath: ephemPath)
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "YYYY"
         year = Int32(dateFormatter.string(from: natal)) ?? 1980
@@ -61,8 +60,6 @@ public struct SweSvg {
         utcTimeZone.sec = 0.0
         utcTimeZone = cwrapper.swelib_utc_time_zone(utcTimeZone, Double(self.tz))
         let utc_to_jd = cwrapper.swelib_utc_to_jd(utcTimeZone)
-        let s: String = String(cString: UnsafePointer<Int8>(utc_to_jd.err))
-        print(s)
         // Transit TODO
 
         // Houses

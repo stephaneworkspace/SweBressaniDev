@@ -48,6 +48,7 @@ SweUtcToJd swelib_utc_to_jd(SweTimeZone tz) {
     sweinterfacelib::TimeZone utc_time_zone_t;
     utc_time_zone_t.year = tz.year;
     utc_time_zone_t.month = tz.month;
+    utc_time_zone_t.hour = tz.hour;
     utc_time_zone_t.day = tz.day;
     utc_time_zone_t.min = tz.min;
     utc_time_zone_t.sec = tz.sec;
