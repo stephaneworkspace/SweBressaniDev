@@ -90,11 +90,12 @@ public struct SweSvg {
     }
 
     private func asset_svg_url(name: String, encoded: String) throws -> URL {
+        let e = encoded.replacingOccurrences(of:  "data:image/svg+xml;base64,", with: "")
         guard
                 var documentsURL = (FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)).last,
-                let convertedData = Data(base64Encoded: encoded)
+                let convertedData = Data(base64Encoded: e)
         else {
-            print("error1")
+            print("Svg pas valide")
             throw  URLError.error1
         }
         documentsURL.appendPathComponent(name)
