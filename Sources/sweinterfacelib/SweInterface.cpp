@@ -24,7 +24,7 @@ extern "C" const char* theme_astral_svg(int year, int month, int day, int hour, 
     time_zone.min = min;
     time_zone.sec = 0;
     TimeZone utc_time_zone = TZ::utc_time_zone(time_zone, gmt);
-    UtcToJd utc_to_jd = Swe08::utc_to_jd(utc_time_zone, Calandar::gregorian);
+    UtcToJd utc_to_jd = Swe08::utc_to_jd(utc_time_zone, CALANDAR_GREGORIAN);
     time_t t = time(0);
     tm* now = localtime(&t);
     TimeZone time_zone_t;
@@ -36,7 +36,7 @@ extern "C" const char* theme_astral_svg(int year, int month, int day, int hour, 
     time_zone_t.sec = now->tm_sec;
     double gmt_t = gmt;
     TimeZone utc_time_zone_t = TZ::utc_time_zone(time_zone_t, gmt_t);
-    UtcToJd utc_to_jd_t = Swe08::utc_to_jd(utc_time_zone_t, Calandar::gregorian);
+    UtcToJd utc_to_jd_t = Swe08::utc_to_jd(utc_time_zone_t, CALANDAR_GREGORIAN);
 
     H* house = new H[12];
     for (int i = 0; i < 12; ++i) {

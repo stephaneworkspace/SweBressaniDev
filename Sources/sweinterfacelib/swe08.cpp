@@ -5,10 +5,10 @@
 
 using namespace sweinterfacelib;
 
-UtcToJd Swe08::utc_to_jd(TimeZone tz, Calandar calandar) {
+UtcToJd Swe08::utc_to_jd(TimeZone tz, int calandar) {
     double* dret_ptr = new double[2];
     char* serr_ptr = new char[255];
-    int result = swe_utc_to_jd(tz.year, tz.month, tz.day, tz.hour, tz.min, tz.sec, int(calandar), dret_ptr, serr_ptr);
+    int result = swe_utc_to_jd(tz.year, tz.month, tz.day, tz.hour, tz.min, tz.sec, calandar, dret_ptr, serr_ptr);
     UtcToJd res;
     res.julian_day_et = dret_ptr[0];
     res.julian_day_ut = dret_ptr[1];

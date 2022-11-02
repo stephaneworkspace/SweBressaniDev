@@ -91,10 +91,6 @@ namespace sweinterfacelib {
         ceres = 17,
         noeud_lunaire_sud = 24,
     };
-    enum Calandar {
-        julian = 0,
-        gregorian = 1
-    };
     const int CALANDAR_JULIAN = 0;
     const int CALANDAR_GREGORIAN = 1;
 
@@ -349,7 +345,7 @@ namespace sweinterfacelib {
         };
         class Swe08 {
         public:
-            static UtcToJd utc_to_jd(TimeZone tz, Calandar calandar);
+            static UtcToJd utc_to_jd(TimeZone tz, int calandar);
         };
         class Swe14 {
         public:

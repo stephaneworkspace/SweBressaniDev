@@ -61,7 +61,7 @@ public struct SweSvg {
         utcTimeZone.sec = 0.0
         utcTimeZone = cwrapper.swelib_utc_time_zone(utcTimeZone, Double(self.tz))
         let utc_to_jd = cwrapper.swelib_utc_to_jd(utcTimeZone)
-        let s: String = String(cString: UnsafePointer<CChar>(utc_to_jd.err))
+        let s: String = String(cString: UnsafePointer<Int8>(utc_to_jd.err))
         print(s)
         // Transit TODO
 

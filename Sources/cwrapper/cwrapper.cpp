@@ -51,7 +51,7 @@ SweUtcToJd swelib_utc_to_jd(SweTimeZone tz) {
     utc_time_zone_t.day = tz.day;
     utc_time_zone_t.min = tz.min;
     utc_time_zone_t.sec = tz.sec;
-    sweinterfacelib::UtcToJd utc_to_jd_t = sweinterfacelib::Swe08::utc_to_jd(utc_time_zone_t, sweinterfacelib::Calandar::gregorian);
+    sweinterfacelib::UtcToJd utc_to_jd_t = sweinterfacelib::Swe08::utc_to_jd(utc_time_zone_t, sweinterfacelib::CALANDAR_GREGORIAN);
     SweUtcToJd utc_to_jd;
     utc_to_jd.julian_day_et = utc_to_jd_t.julian_day_et;
     utc_to_jd.julian_day_ut = utc_to_jd_t.julian_day_ut;
