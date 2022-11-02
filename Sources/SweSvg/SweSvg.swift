@@ -113,8 +113,8 @@ public struct SweSvg {
         return asset_svg(name: "asset_theme_astral.svg", encoded: svg)
     }
 
-    public func asset_sign(i: Int32) throws -> URL {
-        let svg: String = ptrToString(ptr: cwrapper.a_sign(i))
+    public func asset_sign(i: Int) throws -> URL {
+        let svg: String = ptrToString(ptr: cwrapper.a_sign(Int32(i)))
         return try asset_svg_url(name: String(format: "asset_%d_sign.svg", i), encoded: svg)
     }
 }
