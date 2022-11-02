@@ -6,7 +6,7 @@ import Foundation
 import cwrapper
 // TODO protocol
 
-public struct SweSvg {
+public class SweSvg {
     public private(set) var text = "Hello, World!"
     public var year: Int32
     public var month: Int32
@@ -36,7 +36,7 @@ public struct SweSvg {
         houses = []
     }
 
-    public mutating func set(natal: Date, lat: Double, lng: Double, tz: Int32) {
+    public func set(natal: Date, lat: Double, lng: Double, tz: Int32) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "YYYY"
         year = Int32(dateFormatter.string(from: natal)) ?? 1980
