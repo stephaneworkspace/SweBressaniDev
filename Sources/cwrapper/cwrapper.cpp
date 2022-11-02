@@ -27,6 +27,7 @@ SweTimeZone swelib_utc_time_zone(struct SweTimeZone time_zone, double timezone) 
     utc_time_zone_t.year = time_zone.year;
     utc_time_zone_t.month = time_zone.month;
     utc_time_zone_t.day = time_zone.day;
+    utc_time_zone_t.hour = time_zone.hour;
     utc_time_zone_t.min = time_zone.min;
     utc_time_zone_t.sec = time_zone.sec;
     sweinterfacelib::TimeZone res = sweinterfacelib::TZ::utc_time_zone(utc_time_zone_t, timezone);
