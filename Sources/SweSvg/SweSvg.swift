@@ -4,6 +4,7 @@
 
 import Foundation
 import cwrapper
+// TODO protocol
 
 public struct SweSvg {
     public private(set) var text = "Hello, World!"
@@ -15,7 +16,7 @@ public struct SweSvg {
     public var lat: Double = 0
     public var lng: Double = 0
     public var tz: Int32 = 0
-    private var ephemPath: String
+    public var ephemPath: String
     public var utcTimeZone: cwrapper.SweTimeZone = cwrapper.SweTimeZone()
     public var houses: [cwrapper.SweHouse] = []
     public init(ephemPath: String) {
@@ -26,6 +27,7 @@ public struct SweSvg {
     }
 
     public mutating func set(natal: Date, lat: Double, lng: Double, tz: Int32) {
+        self = Self(ephemPath: ephemPath)
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "YYYY"
         year = Int32(dateFormatter.string(from: natal)) ?? 1980
