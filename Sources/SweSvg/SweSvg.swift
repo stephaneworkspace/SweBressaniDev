@@ -65,9 +65,11 @@ public class SweSvg {
         // Transit TODO
 
         // Houses
+        houses = []
         for i in 0...12 {
             houses.append(cwrapper.swelib_house_ex(utc_to_jd, self.lat, self.lng, Int32(i)))
         }
+        print(houses[0].longitude)
     }
 
     private func ptrToString(ptr: UnsafePointer<CChar>) -> String {
