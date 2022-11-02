@@ -288,12 +288,12 @@ extern "C" const char* theme_astral_svg(int year, int month, int day, int hour, 
     return encoded.c_str();
 }
 
-const int R_SVG_B64 = 26; //data:image/svg+xml;base64," = 26
+//const int R_SVG_B64 = 26; //data:image/svg+xml;base64," = 26
 
 extern "C" {
     const char *asset_sign(int sign) {
         static std::string s = sweinterfacelib::Sign::read_svg(sign);
-        s.replace(0, R_SVG_B64, "");
+        //s.replace(0, R_SVG_B64, "");
         return s.c_str();
     }
 }
