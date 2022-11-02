@@ -8,14 +8,14 @@ import cwrapper
 
 public struct SweSvg {
     public private(set) var text = "Hello, World!"
-    public var year: Int32 = 1984
-    public var month: Int32 = 01
-    public var day: Int32 = 01
-    public var hour: Int32 = 00
-    public var min: Int32 = 00
-    public var lat: Double = 0
-    public var lng: Double = 0
-    public var tz: Int32 = 0
+    public var year: Int32
+    public var month: Int32
+    public var day: Int32
+    public var hour: Int32
+    public var min: Int32
+    public var lat: Double
+    public var lng: Double
+    public var tz: Int32
     public var ephemPath: String
     public var utcTimeZone: cwrapper.SweTimeZone = cwrapper.SweTimeZone()
     public var houses: [cwrapper.SweHouse] = []
@@ -24,10 +24,17 @@ public struct SweSvg {
         let pathPtr = UnsafeMutablePointer<Int8>(mutating: (self.ephemPath as NSString).utf8String)
         cwrapper.swelib_set_ephe_path(pathPtr)
         //free(pathPtr) TODO comprendre
+        year = 1984
+        month = 1
+        day = 1
+        hour = 0
+        min = 0
+        lat = 0
+        lng = 0
+        tz = 0
     }
 
     public mutating func set(natal: Date, lat: Double, lng: Double, tz: Int32) {
-        self = Self(ephemPath: ephemPath)
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "YYYY"
         year = Int32(dateFormatter.string(from: natal)) ?? 1980
@@ -82,7 +89,6 @@ public struct SweSvg {
             return "" // TODO
         }
         let svg_file = documentsURL.absoluteString
-        print(documentsURL.absoluteString)
         return svg_file.replacingOccurrences(of: "file://", with: "")
     }
 
@@ -107,7 +113,6 @@ public struct SweSvg {
             print("error2")
             throw  URLError.error2
         }
-        print(documentsURL.absoluteString)
         return documentsURL.absoluteURL
     }
 
