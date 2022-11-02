@@ -37,10 +37,7 @@ public struct SweSvg {
         self.ephemPath = ephemPath
         let pathPtr = UnsafeMutablePointer<Int8>(mutating: (self.ephemPath as NSString).utf8String)
         cwrapper.swelib_set_ephe_path(pathPtr)
-        if (self.ephemPath != "") {
-            free(pathPtr)
-        }
-        //free(pathPtr) TODO comprendre je pense que c'est parce que self.pathEphe est null
+        //free(pathPtr) TODO comprendre
 
         // Compute julian day
         utcTimeZone = cwrapper.SweTimeZone()
