@@ -67,7 +67,7 @@ public class SweSvg {
         // Houses
         houses = []
         for i in 0...12 {
-            houses.append(cwrapper.swelib_house_ex(utc_to_jd, self.lat, self.lng, Int32(i)))
+            houses.append(cwrapper.swelib_house_ex(utc_to_jd, self.lat, self.lng, Int32(i + 1)))
         }
         print(houses[0].longitude)
     }
