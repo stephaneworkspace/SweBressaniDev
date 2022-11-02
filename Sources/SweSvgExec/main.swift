@@ -2,7 +2,8 @@
 import SweSvg
 import Foundation
 
-let sweSvg = SweSvg(natal: Date(), lat: 16, lng: 26.6, tz: 2, ephemPath: "")
+var sweSvg = SweSvg(ephemPath: "")
+sweSvg.set(natal: Date(), lat: 16, lng: 26.6, tz: 2)
 let svg = sweSvg.theme_astral()
 let sign = sweSvg.asset_sign(i: 1)
 //print(cwrapperfive())

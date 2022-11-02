@@ -7,18 +7,25 @@ import cwrapper
 
 public struct SweSvg {
     public private(set) var text = "Hello, World!"
-    public var year: Int32
-    public var month: Int32
-    public var day: Int32
-    public var hour: Int32
-    public var min: Int32
-    public var lat: Double
-    public var lng: Double
-    public var tz: Int32
+    public var year: Int32 = 1984
+    public var month: Int32 = 01
+    public var day: Int32 = 01
+    public var hour: Int32 = 00
+    public var min: Int32 = 00
+    public var lat: Double = 0
+    public var lng: Double = 0
+    public var tz: Int32 = 0
     private var ephemPath: String
-    public var utcTimeZone: cwrapper.SweTimeZone
+    public var utcTimeZone: cwrapper.SweTimeZone = cwrapper.SweTimeZone()
     public var houses: [cwrapper.SweHouse] = []
-    public init(natal: Date, lat: Double, lng: Double, tz: Int32, ephemPath: String) {
+    public init(ephemPath: String) {
+        self.ephemPath = ephemPath
+        let pathPtr = UnsafeMutablePointer<Int8>(mutating: (self.ephemPath as NSString).utf8String)
+        cwrapper.swelib_set_ephe_path(pathPtr)
+        //free(pathPtr) TODO comprendre
+    }
+
+    public mutating func set(natal: Date, lat: Double, lng: Double, tz: Int32) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "YYYY"
         year = Int32(dateFormatter.string(from: natal)) ?? 1980
@@ -33,11 +40,6 @@ public struct SweSvg {
         self.lat = lat
         self.lng = lng
         self.tz = tz
-
-        self.ephemPath = ephemPath
-        let pathPtr = UnsafeMutablePointer<Int8>(mutating: (self.ephemPath as NSString).utf8String)
-        cwrapper.swelib_set_ephe_path(pathPtr)
-        //free(pathPtr) TODO comprendre
 
         // Compute julian day
         utcTimeZone = cwrapper.SweTimeZone()
