@@ -84,13 +84,36 @@ public struct SweSvg {
         return svg_file.replacingOccurrences(of: "file://", with: "")
     }
 
+    enum URLError: Error { // TODO
+        case error1
+        case error2
+    }
+
+    private func asset_svg_url(name: String, encoded: String) throws -> URL {
+        guard
+                var documentsURL = (FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)).last,
+                let convertedData = Data(base64Encoded: encoded)
+        else {
+            print("error1")
+            throw  URLError.error1
+        }
+        documentsURL.appendPathComponent(name)
+        do {
+            try convertedData.write(to: documentsURL)
+        } catch {
+            print("error2")
+            throw  URLError.error2
+        }
+        return documentsURL.absoluteURL
+    }
+
     public func theme_astral() -> String {
         let svg: String = ptrToString(ptr: cwrapper.theme_astral(year, month, day, hour, min, lat, lng, tz, ephemPath))
         return asset_svg(name: "asset_theme_astral.svg", encoded: svg)
     }
 
-    public func asset_sign(i: Int32) -> String {
+    public func asset_sign(i: Int32) throws -> URL {
         let svg: String = ptrToString(ptr: cwrapper.a_sign(i))
-        return asset_svg(name: String(format: "asset_%d_sign.svg", i), encoded: svg)
+        return try asset_svg_url(name: String(format: "asset_%d_sign.svg", i), encoded: svg)
     }
 }
