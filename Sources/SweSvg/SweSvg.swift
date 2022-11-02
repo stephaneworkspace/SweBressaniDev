@@ -17,8 +17,8 @@ public struct SweSvg {
     public var lng: Double
     public var tz: Int32
     public var ephemPath: String
-    public var utcTimeZone: cwrapper.SweTimeZone = cwrapper.SweTimeZone()
-    public var houses: [cwrapper.SweHouse] = []
+    public var utcTimeZone: cwrapper.SweTimeZone
+    public var houses: [cwrapper.SweHouse]
     public init(ephemPath: String) {
         self.ephemPath = ephemPath
         let pathPtr = UnsafeMutablePointer<Int8>(mutating: (self.ephemPath as NSString).utf8String)
@@ -32,6 +32,8 @@ public struct SweSvg {
         lat = 0
         lng = 0
         tz = 0
+        utcTimeZone = cwrapper.SweTimeZone()
+        houses = []
     }
 
     public mutating func set(natal: Date, lat: Double, lng: Double, tz: Int32) {
