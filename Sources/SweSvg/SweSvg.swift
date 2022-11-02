@@ -35,6 +35,7 @@ public struct SweSvg {
     }
 
     public mutating func set(natal: Date, lat: Double, lng: Double, tz: Int32) {
+        self = Self(ephemPath: ephemPath)
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "YYYY"
         year = Int32(dateFormatter.string(from: natal)) ?? 1980
