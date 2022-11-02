@@ -105,16 +105,18 @@ public struct SweSvg {
             print("error2")
             throw  URLError.error2
         }
+        print(documentsURL.absoluteString)
         return documentsURL.absoluteURL
     }
 
     public func theme_astral() -> String {
+        // TODO
         let svg: String = ptrToString(ptr: cwrapper.theme_astral(year, month, day, hour, min, lat, lng, tz, ephemPath))
         return asset_svg(name: "asset_theme_astral.svg", encoded: svg)
     }
 
     public func asset_sign(i: Int) throws -> URL {
-        let svg: String = ptrToString(ptr: cwrapper.a_sign(Int32(i)))
-        return try asset_svg_url(name: String(format: "asset_%d_sign.svg", i), encoded: svg)
+        let s: String = String(cString: UnsafePointer<CChar>(cwrapper.a_sign(Int32(i))!))
+        return try asset_svg_url(name: String(format: "asset_%d_sign.svg", i), encoded: s)
     }
 }

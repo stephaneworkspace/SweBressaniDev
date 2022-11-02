@@ -328,6 +328,7 @@ namespace sweinterfacelib {
         class Sign {
         public:
             static string read_svg(int sign);
+            static const char *read_svg_c(int sign);
             static string nom(int sign);
         };
         class Swe02 {

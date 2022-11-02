@@ -292,8 +292,6 @@ extern "C" const char* theme_astral_svg(int year, int month, int day, int hour, 
 
 extern "C" {
     const char *asset_sign(int sign) {
-        static std::string s = sweinterfacelib::Sign::read_svg(sign);
-        //s.replace(0, R_SVG_B64, "");
-        return s.c_str();
+        return sweinterfacelib::Sign::read_svg_c(sign);
     }
 }
