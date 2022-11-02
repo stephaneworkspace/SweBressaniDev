@@ -1,6 +1,7 @@
 //
 // Created by Stéphane on 24.10.22.
 //
+/*
 
 import Foundation
 import SwiftUI
@@ -76,4 +77,4 @@ public struct DrawAstrologieDarkView: View {
             }.frame(width: CGFloat(swe_swift_ui.size), height: CGFloat(swe_swift_ui.size))
         }
     }
-}
+}*/

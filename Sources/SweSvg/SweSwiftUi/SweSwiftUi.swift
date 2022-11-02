@@ -1,7 +1,7 @@
 //
 // Created by Stéphane on 22.10.22.
 //
-
+/*
 import Foundation
 import SwiftUI
 import cwrapper
@@ -286,4 +286,4 @@ public class SweSwiftUi {
                 / 100.0
     }
 }
-
+*/
