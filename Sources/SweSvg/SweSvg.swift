@@ -114,6 +114,7 @@ public class SweSvg {
         b_arr.append(Int(cwrapper.ASTRE_MARS))
         b_arr.append(Int(cwrapper.ASTRE_JUPITER))
         b_arr.append(Int(cwrapper.ASTRE_SATURN))
+        b_arr.append(Int(cwrapper.ASTRE_URANUS))
         b_arr.append(Int(cwrapper.ASTRE_NEPTUNE))
         b_arr.append(Int(cwrapper.ASTRE_PLUTON))
         b_arr.append(Int(cwrapper.ASTRE_NOEUD_LUNAIRE))
