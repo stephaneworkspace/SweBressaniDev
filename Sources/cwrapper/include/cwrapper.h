@@ -42,6 +42,7 @@ struct SweHouse {
 int cwrapperfive();
 const char *theme_astral(int year, int month, int day, int hour, int min, double lat, double lng, int gmt, const char *ephem_path);
 const char *a_sign(int sign);
+const char *a_house(int house);
 void swelib_set_ephe_path(char* path);
 struct SweTimeZone swelib_utc_time_zone(struct SweTimeZone time_zone, double timezone);
 struct SweUtcToJd swelib_utc_to_jd(struct SweTimeZone tz);

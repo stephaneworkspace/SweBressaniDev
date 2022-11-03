@@ -69,7 +69,6 @@ public class SweSvg {
         for i in 0...12 {
             houses.append(cwrapper.swelib_house_ex(utc_to_jd, self.lat, self.lng, Int32(i + 1)))
         }
-        print(houses[0].longitude)
     }
 
     private func ptrToString(ptr: UnsafePointer<CChar>) -> String {
@@ -127,6 +126,11 @@ public class SweSvg {
     }
 
     public func asset_sign(i: Int) throws -> URL {
+        let s: String = String(cString: UnsafePointer<CChar>(cwrapper.a_sign(Int32(i))!))
+        return try asset_svg_url(name: String(format: "asset_%d_sign.svg", i), encoded: s)
+    }
+
+    public func asset_house(i: Int) throws -> URL {
         let s: String = String(cString: UnsafePointer<CChar>(cwrapper.a_sign(Int32(i))!))
         return try asset_svg_url(name: String(format: "asset_%d_sign.svg", i), encoded: s)
     }

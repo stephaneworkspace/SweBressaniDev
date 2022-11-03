@@ -235,6 +235,7 @@ namespace sweinterfacelib {
     extern "C" {
         const char *theme_astral_svg(int year, int month, int day, int hour, int min, double lat, double lng, int gmt, const char *ephem_path);
         const char *asset_sign(int sign);
+        const char *asset_house(int house);
         class Angle {
         public:
             static string read_svg(int a);
@@ -319,6 +320,7 @@ namespace sweinterfacelib {
         class House {
         public:
             static string read_svg(int house);
+            static const char* read_svg_c(int house);
             static H init(int object_id, double longitude, int angle);
         };
         class Sign {

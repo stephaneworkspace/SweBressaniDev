@@ -18,6 +18,10 @@ const char *a_sign(int sign) {
     return sweinterfacelib::asset_sign(sign);
 }
 
+const char *a_house(int house) {
+    return sweinterfacelib::asset_house(house);
+}
+
 void swelib_set_ephe_path(char* path) {
     swelib::swe_set_ephe_path(path);
 }
