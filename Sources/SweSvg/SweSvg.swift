@@ -121,7 +121,10 @@ public class SweSvg {
         b_arr.append(Int(cwrapper.ASTRE_CERES))
         b_arr.append(Int(cwrapper.ASTRE_NOEUD_LUNAIRE_SUD))
         for b in b_arr {
-
+            let calc_ut = cwrapper.swelib_calc_ut(utc_to_jd, Int32(b))
+            let calc_ut_t = cwrapper.swelib_calc_ut(utc_to_jd_transit, Int32(b))
+            bodies_natal.append(SweBodie.init(bodie: Int32(b), calc_ut: calc_ut))
+            bodies_transit.append(SweBodie.init(bodie: Int32(b), calc_ut: calc_ut_t))
         }
     }
 

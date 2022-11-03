@@ -64,8 +64,8 @@ struct SwePhenoUt {
 struct SweBodie {
     int bodie;
     struct SweCalcUt calc_ut;
-    struct SwePhenoUt phno_ut;
-}; // TODO snake case
+    //struct SwePhenoUt phno_ut; // TODO ?
+};
 
 const int ASTRE_SOLEIL = 0;
 const int ASTRE_LUNE = 1;
