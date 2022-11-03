@@ -42,30 +42,31 @@ struct SweHouse {
 struct SweCalcUt {
     double longitude;
     double latitude;
-    double distanceAu;
-    double speedLongitude;
-    double speedLatitude;
-    double speedDistanceAu;
+    double distance_au;
+    double speed_longitude;
+    double speed_latitude;
+    double speed_distance_au;
     int status;
     const char* serr;
     struct SweSplitDeg split;
 };
 
 struct SwePhenoUt {
-    double phaseAngle;
-    double phaseIlluminated;
-    double elongationOfPlanet;
-    double apparentDimaeterOfDisc;
-    double apparentMagnitude;
+    double phase_angle;
+    double phase_illuminated;
+    double elongation_of_planet;
+    double apparent_dimaeter_of_disc;
+    double apparent_magnitude;
     int status;
     const char* serr;
 };
 
 struct SweBodie {
     int bodie;
-    struct SweCalcUt calculUt;
-    struct SwePhenoUt phnoUt;
-};
+    struct SweCalcUt calc_ut;
+    struct SwePhenoUt phno_ut;
+}; // TODO snake case
+
 const int ASTRE_SOLEIL = 0;
 const int ASTRE_LUNE = 1;
 const int ASTRE_MERCURE = 2;
@@ -90,6 +91,7 @@ void swelib_set_ephe_path(char* path);
 struct SweTimeZone swelib_utc_time_zone(struct SweTimeZone time_zone, double timezone);
 struct SweUtcToJd swelib_utc_to_jd(struct SweTimeZone tz);
 struct SweHouse swelib_house_ex(struct SweUtcToJd utc_to_jd, double lat, double lng, int house);
+struct SweCalcUt swelib_calc_ut(struct SweUtcToJd utc_to_jd, int ipl);
 #ifdef __cplusplus
 }
 #endif
