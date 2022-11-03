@@ -63,6 +63,7 @@ namespace sweinterfacelib {
     const int ASPECTS_SEMISQUARE = 7;
     const int ASPECTS_SEMISEXTILE = 8;
 
+    // Ordre dans le pointeur
     const int SOLEIL = 0;
     const int LUNE = 1;
     const int MERCURE = 2;
@@ -74,23 +75,26 @@ namespace sweinterfacelib {
     const int NEPTUNE = 8;
     const int PLUTON = 9;
     const int NOEUD_LUNAIRE = 10;
-    // les nombres de cet enum sont pour la libraiaire Swe
-    enum Astres {
-        soleil = 0,
-        lune = 1,
-        mercure = 2,
-        venus = 3,
-        mars = 4,
-        jupiter = 5,
-        saturn = 6,
-        uranus = 7,
-        neptune = 8,
-        pluto = 9,
-        noeud_lunaire = 11,
-        chiron = 15,
-        ceres = 17,
-        noeud_lunaire_sud = 24,
-    };
+    const int CHIRON = 11;
+    const int CERES = 12;
+    const int NOEUD_LUNAIRE_SUD = 13;
+
+    // Lbraiaire Swe
+    const int ASTRE_SOLEIL = 0;
+    const int ASTRE_LUNE = 1;
+    const int ASTRE_MERCURE = 2;
+    const int ASTRE_VENUS = 3;
+    const int ASTRE_MARS = 4;
+    const int ASTRE_JUPITER = 5;
+    const int ASTRE_SATURN = 6;
+    const int ASTRE_URANUS = 7;
+    const int ASTRE_NEPTUNE = 8;
+    const int ASTRE_PLUTON = 9;
+    const int ASTRE_NOEUD_LUNAIRE = 11;
+    const int ASTRE_CHIRON = 15;
+    const int ASTRE_CERES = 17;
+    const int ASTRE_NOEUD_LUNAIRE_SUD = 24;
+
     const int CALANDAR_JULIAN = 0;
     const int CALANDAR_GREGORIAN = 1;
 
@@ -246,8 +250,8 @@ namespace sweinterfacelib {
         };
         class Astre {
         public:
-            static string read_svg(Astres astre);
-            static string nom(Astres a);
+            static string read_svg(int astre);
+            static string nom(int a);
             static string *sign_name_and_svg(CalcUt calcul_ut);
         };
         class Draw {
@@ -338,12 +342,12 @@ namespace sweinterfacelib {
         };
         class Swe03 {
         public:
-            static CalcUt calc_ut(double tjd_ut, Astres ipl, OptionFlag iflag);
+            static CalcUt calc_ut(double tjd_ut, int ipl, OptionFlag iflag);
             static void display(CalcUt calcul_ut);
         };
         class Swe07 {
         public:
-            PhenoUt calc_ut(double tjd_ut, Astres ipl, OptionFlag iflag);
+            PhenoUt calc_ut(double tjd_ut, int ipl, OptionFlag iflag);
         };
         class Swe08 {
         public:

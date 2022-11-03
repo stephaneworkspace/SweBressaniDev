@@ -5,7 +5,7 @@
 
 using namespace sweinterfacelib;
 
-string Astre::read_svg(Astres astre) {
+string Astre::read_svg(int astre) {
     string* a = new string[14];
     a[0] = "PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDI2LjAuMiwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIKCSBpZD0ic3ZnOSIgaW5rc2NhcGU6dmVyc2lvbj0iMC45Mi41ICgyMDYwZWMxZjlmLCAyMDIwLTA0LTA4KSIgc29kaXBvZGk6ZG9jbmFtZT0iRWFydGhfc3ltYm9sLnN2ZyIgeG1sbnM6Y2M9Imh0dHA6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL25zIyIgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIiB4bWxuczppbmtzY2FwZT0iaHR0cDovL3d3dy5pbmtzY2FwZS5vcmcvbmFtZXNwYWNlcy9pbmtzY2FwZSIgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIiB4bWxuczpzb2RpcG9kaT0iaHR0cDovL3NvZGlwb2RpLnNvdXJjZWZvcmdlLm5ldC9EVEQvc29kaXBvZGktMC5kdGQiIHhtbG5zOnN2Zz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCgkgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiIHZpZXdCb3g9IjAgMCAxMiAxMiIKCSBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAxMiAxMjsiIHhtbDpzcGFjZT0icHJlc2VydmUiPgo8c3R5bGUgdHlwZT0idGV4dC9jc3MiPgoJLnN0MHtkaXNwbGF5Om5vbmU7ZmlsbDpub25lO30KCS5zdDF7ZmlsbDpub25lO3N0cm9rZTojRjE4NzAwO3N0cm9rZS13aWR0aDowLjc1O3N0cm9rZS1taXRlcmxpbWl0OjEwO30KCS5zdDJ7ZmlsbDojRjE4NzAwO30KPC9zdHlsZT4KPHNvZGlwb2RpOm5hbWVkdmlldyAgYm9yZGVyY29sb3I9IiM2NjY2NjYiIGJvcmRlcm9wYWNpdHk9IjEiIGdyaWR0b2xlcmFuY2U9IjEwIiBndWlkZXRvbGVyYW5jZT0iMTAiIGlkPSJuYW1lZHZpZXcxMSIgaW5rc2NhcGU6Y3VycmVudC1sYXllcj0ic3ZnOSIgaW5rc2NhcGU6Y3g9IjcuODgxMzU1NCIgaW5rc2NhcGU6Y3k9IjgiIGlua3NjYXBlOm9iamVjdC1wYXRocz0idHJ1ZSIgaW5rc2NhcGU6cGFnZW9wYWNpdHk9IjAiIGlua3NjYXBlOnBhZ2VzaGFkb3c9IjIiIGlua3NjYXBlOnNuYXAtaW50ZXJzZWN0aW9uLXBhdGhzPSJ0cnVlIiBpbmtzY2FwZTpzbmFwLW1pZHBvaW50cz0idHJ1ZSIgaW5rc2NhcGU6c25hcC1vYmplY3QtbWlkcG9pbnRzPSJ0cnVlIiBpbmtzY2FwZTpzbmFwLXNtb290aC1ub2Rlcz0idHJ1ZSIgaW5rc2NhcGU6d2luZG93LWhlaWdodD0iMTAxNSIgaW5rc2NhcGU6d2luZG93LW1heGltaXplZD0iMSIgaW5rc2NhcGU6d2luZG93LXdpZHRoPSIxOTIwIiBpbmtzY2FwZTp3aW5kb3cteD0iMCIgaW5rc2NhcGU6d2luZG93LXk9IjAiIGlua3NjYXBlOnpvb209IjU5IiBvYmplY3R0b2xlcmFuY2U9IjEwIiBwYWdlY29sb3I9IiNmZmZmZmYiIHNob3dncmlkPSJmYWxzZSI+Cgk8L3NvZGlwb2RpOm5hbWVkdmlldz4KPGcgaWQ9Imc4MjMiPgoJPHBhdGggaWQ9InBhdGg2IiBpbmtzY2FwZTpjb25uZWN0b3ItY3VydmF0dXJlPSIwIiBzb2RpcG9kaTpub2RldHlwZXM9ImNjIiBjbGFzcz0ic3QwIiBkPSJNMiw2aDgiLz4KCTxwYXRoIGlkPSJwYXRoMi01IiBpbmtzY2FwZTpjb25uZWN0b3ItY3VydmF0dXJlPSIwIiBjbGFzcz0ic3QxIiBkPSJNMTAsNmMwLTIuMi0xLjgtNC00LTRTMiwzLjgsMiw2czEuOCw0LDQsNFMxMCw4LjIsMTAsNnoiLz4KCTxwYXRoIGlkPSJwYXRoMiIgaW5rc2NhcGU6Y29ubmVjdG9yLWN1cnZhdHVyZT0iMCIgY2xhc3M9InN0MiIgZD0iTTYuOSw2YzAtMC41LTAuNC0wLjktMC45LTAuOVM1LjEsNS41LDUuMSw2UzUuNSw2LjksNiw2LjkKCQlTNi45LDYuNSw2LjksNiIvPgo8L2c+Cjwvc3ZnPg==";
     a[1] = "PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDI2LjAuMiwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkNhbHF1ZV8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIKCSB2aWV3Qm94PSIwIDAgNTAgNTAiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUwIDUwOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+Cgkuc3Qwe2ZpbGw6bm9uZTtzdHJva2U6I0JDQjE5QTtzdHJva2Utd2lkdGg6MztzdHJva2UtbWl0ZXJsaW1pdDoxMDt9Cjwvc3R5bGU+CjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0zNyw0QzI1LjQsMC40LDEzLjEsNi44LDkuNCwxOC40UzEyLjMsNDIuNCwyMy45LDQ2YzQuMywxLjMsOC44LDEuMywxMy4xLDBjLTExLjYtMy42LTE4LjEtMTYtMTQuNC0yNy42CglDMjQuNywxMS41LDMwLjEsNi4yLDM3LDR6Ii8+Cjwvc3ZnPg==";
@@ -23,61 +23,69 @@ string Astre::read_svg(Astres astre) {
     a[13] = a[10]; // TODO noeud lunaire sud depuis projet Xcode
     string r = "data:image/svg+xml;base64,";
     switch (astre) {
-        case soleil:
+        case ASTRE_SOLEIL:
             return r + a[0];
-        case lune:
+        case ASTRE_LUNE:
             return r + a[1];
-        case mercure:
+        case ASTRE_MERCURE:
             return r + a[2];
-        case venus:
+        case ASTRE_VENUS:
             return r + a[3];
-        case mars:
+        case ASTRE_MARS:
             return r + a[4];
-        case jupiter:
+        case ASTRE_JUPITER:
             return r + a[5];
-        case saturn:
+        case ASTRE_SATURN:
             return r + a[6];
-        case uranus:
+        case ASTRE_URANUS:
             return r + a[7];
-        case neptune:
+        case ASTRE_NEPTUNE:
             return r + a[8];
-        case pluto:
+        case ASTRE_PLUTON:
             return r + a[9];
-        case noeud_lunaire:
+        case ASTRE_NOEUD_LUNAIRE:
             return r + a[10];
-        case chiron:
+        case ASTRE_CHIRON:
             return r + a[11];
-        case ceres:
+        case ASTRE_CERES:
             return r + a[12];
-        case noeud_lunaire_sud:
+        case ASTRE_NOEUD_LUNAIRE_SUD:
             return r + a[13];
+        default:
+            return "";
     }
 }
 
-string Astre::nom(Astres a) {
+string Astre::nom(int a) {
     switch (a) {
-        case Astres::soleil:
+        case ASTRE_SOLEIL:
             return "Soleil";
-        case Astres::lune:
+        case ASTRE_LUNE:
             return "Lune";
-        case Astres::mercure:
+        case ASTRE_MERCURE:
             return "Mercure";
-        case Astres::venus:
+        case ASTRE_VENUS:
             return "Venus";
-        case Astres::mars:
+        case ASTRE_MARS:
             return "Mars";
-        case Astres::jupiter:
+        case ASTRE_JUPITER:
             return "Jupiter";
-        case Astres::saturn:
+        case ASTRE_SATURN:
             return "Saturn";
-        case Astres::uranus:
+        case ASTRE_URANUS:
             return "Uranus";
-        case Astres::neptune:
+        case ASTRE_NEPTUNE:
             return "Neptune";
-        case Astres::pluto:
+        case ASTRE_PLUTON:
             return "Pluton";
-        case Astres::noeud_lunaire:
+        case ASTRE_NOEUD_LUNAIRE:
             return "Noeud lunaire";
+        case ASTRE_CHIRON:
+            return "Chiron";
+        case ASTRE_CERES:
+            return "Ceres";
+        case ASTRE_NOEUD_LUNAIRE_SUD:
+            return "Noeud lunaire sud";
         default:
             return "";
     }

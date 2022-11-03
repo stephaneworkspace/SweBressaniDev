@@ -5,16 +5,16 @@
 
 using namespace sweinterfacelib;
 
-CalcUt Swe03::calc_ut(double tjd_ut, Astres ipl, OptionFlag iflag) {
+CalcUt Swe03::calc_ut(double tjd_ut, int ipl, OptionFlag iflag) {
     double* xx_ptr = new double[6];
     char* serr_ptr = new char[255];
     int status;
-    if (ipl == Astres::noeud_lunaire) {
-        status = swe_calc_ut(tjd_ut, int(Astres::noeud_lunaire), int(iflag), xx_ptr, serr_ptr);
+    if (ipl == ASTRE_NOEUD_LUNAIRE) {
+        status = swe_calc_ut(tjd_ut, ASTRE_NOEUD_LUNAIRE, int(iflag), xx_ptr, serr_ptr);
     } else {
         status = swe_calc_ut(tjd_ut, int(ipl), int(iflag), xx_ptr, serr_ptr);
     }
-    if (ipl == Astres::noeud_lunaire_sud) {
+    if (ipl == ASTRE_NOEUD_LUNAIRE_SUD) {
         xx_ptr[0] += 180;
         if (xx_ptr[0] >= 360) {
             xx_ptr[0] -= 360;

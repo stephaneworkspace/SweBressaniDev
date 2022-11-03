@@ -5,7 +5,7 @@
 
 using namespace sweinterfacelib;
 
-PhenoUt Swe07::calc_ut(double tjd_ut, Astres ipl, OptionFlag iflag) {
+PhenoUt Swe07::calc_ut(double tjd_ut, int ipl, OptionFlag iflag) {
     double* attr_ptr = new double[20];
     char* serr_ptr = new char[255];
     int status = swe_pheno_ut(tjd_ut ,int(ipl), int(iflag), attr_ptr, serr_ptr);

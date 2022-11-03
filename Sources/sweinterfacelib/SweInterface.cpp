@@ -44,18 +44,22 @@ extern "C" {
             house[i] = Swe14::house(utc_to_jd.julian_day_ut, lat, lng, 'P', i + 1);
         }
 
-        Astres* astres = new Astres[11];
-        astres[SOLEIL] = Astres::soleil;
-        astres[LUNE] = Astres::lune;
-        astres[MERCURE] = Astres::mercure;
-        astres[VENUS] = Astres::venus;
-        astres[MARS] = Astres::mars;
-        astres[JUPITER] = Astres::jupiter;
-        astres[SATURN] = Astres::saturn;
-        astres[URANUS] = Astres::uranus;
-        astres[NEPTUNE] = Astres::neptune;
-        astres[PLUTON] = Astres::pluto;
-        astres[NOEUD_LUNAIRE] = Astres::noeud_lunaire;
+        int* astres = new int[11];
+        astres[SOLEIL] = ASTRE_SOLEIL;
+        astres[LUNE] = ASTRE_LUNE;
+        astres[MERCURE] = ASTRE_MERCURE;
+        astres[VENUS] = ASTRE_VENUS;
+        astres[MARS] = ASTRE_MARS;
+        astres[JUPITER] = ASTRE_JUPITER;
+        astres[SATURN] = ASTRE_SATURN;
+        astres[URANUS] = ASTRE_URANUS;
+        astres[NEPTUNE] = ASTRE_NEPTUNE;
+        astres[PLUTON] = ASTRE_PLUTON;
+        astres[NOEUD_LUNAIRE] = ASTRE_NOEUD_LUNAIRE;
+        // TODO
+        //ASTRE_CHIRON = 15;
+        //ASTRE_CERES = 17;
+        //ASTRE_NOEUD_LUNAIRE_SUD = 24;
 
         Document doc(CHART_SIZE, CHART_SIZE);
         Fill svg_fill;
