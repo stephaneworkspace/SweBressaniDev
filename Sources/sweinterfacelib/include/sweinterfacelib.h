@@ -187,6 +187,8 @@ namespace sweinterfacelib {
         int angle;
     };
     // Option flag
+    const int OPTION_FLAG_SPEED = 256;
+    /*
     enum OptionFlag {
         jpl_eph = 1,
         swiss_eph = 2,
@@ -210,6 +212,7 @@ namespace sweinterfacelib {
         dpsideps1980 = 262144,
         jpl_hor_approx = 524288
     };
+     */
     // Swe07
     struct PhenoUt {
         double phase_angle;
@@ -344,12 +347,12 @@ namespace sweinterfacelib {
         };
         class Swe03 {
         public:
-            static CalcUt calc_ut(double tjd_ut, int ipl, OptionFlag iflag);
+            static CalcUt calc_ut(double tjd_ut, int ipl, int iflag);
             static void display(CalcUt calcul_ut);
         };
         class Swe07 {
         public:
-            PhenoUt calc_ut(double tjd_ut, int ipl, OptionFlag iflag);
+            PhenoUt calc_ut(double tjd_ut, int ipl, int iflag);
         };
         class Swe08 {
         public:

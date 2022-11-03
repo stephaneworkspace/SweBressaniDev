@@ -13,11 +13,17 @@ public class SweSvg {
     public var day: Int32
     public var hour: Int32
     public var min: Int32
+    public var year_transit: Int32
+    public var month_transit: Int32
+    public var day_transit: Int32
+    public var hour_transit: Int32
+    public var min_transit: Int32
     public var lat: Double
     public var lng: Double
     public var tz: Int32
     public var ephemPath: String
     public var utcTimeZone: cwrapper.SweTimeZone
+    public var utcTimeZone_transit: cwrapper.SweTimeZone
     public var houses: [cwrapper.SweHouse]
     public var bodies_natal: [cwrapper.SweBodie]
     public var bodies_transit: [cwrapper.SweBodie]
@@ -31,16 +37,22 @@ public class SweSvg {
         day = 1
         hour = 0
         min = 0
+        year_transit = 1984
+        month_transit = 1
+        day_transit = 1
+        hour_transit = 0
+        min_transit = 0
         lat = 0
         lng = 0
         tz = 0
         utcTimeZone = cwrapper.SweTimeZone()
+        utcTimeZone_transit = cwrapper.SweTimeZone()
         houses = []
         bodies_natal = []
         bodies_transit = []
     }
 
-    public func set(natal: Date, lat: Double, lng: Double, tz: Int32) {
+    public func set(natal: Date, transit: Date, lat: Double, lng: Double, tz: Int32) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "YYYY"
         year = Int32(dateFormatter.string(from: natal)) ?? 1980
@@ -52,6 +64,16 @@ public class SweSvg {
         hour = Int32(dateFormatter.string(from: natal)) ?? 0
         dateFormatter.dateFormat = "mm"
         min = Int32(dateFormatter.string(from: natal)) ?? 0
+        dateFormatter.dateFormat = "YYYY"
+        year_transit = Int32(dateFormatter.string(from: transit)) ?? 1980
+        dateFormatter.dateFormat = "MM"
+        month_transit = Int32(dateFormatter.string(from: transit)) ?? 1
+        dateFormatter.dateFormat = "dd"
+        day_transit = Int32(dateFormatter.string(from: transit)) ?? 1
+        dateFormatter.dateFormat = "hh"
+        hour_transit = Int32(dateFormatter.string(from: transit)) ?? 0
+        dateFormatter.dateFormat = "mm"
+        min_transit = Int32(dateFormatter.string(from: transit)) ?? 0
         self.lat = lat
         self.lng = lng
         self.tz = tz
@@ -66,12 +88,40 @@ public class SweSvg {
         utcTimeZone.sec = 0.0
         utcTimeZone = cwrapper.swelib_utc_time_zone(utcTimeZone, Double(self.tz))
         let utc_to_jd = cwrapper.swelib_utc_to_jd(utcTimeZone)
-        // Transit TODO
+        // Transit
+        utcTimeZone_transit = cwrapper.SweTimeZone()
+        utcTimeZone_transit.year = year_transit
+        utcTimeZone_transit.month = month_transit
+        utcTimeZone_transit.day = day_transit
+        utcTimeZone_transit.hour = hour_transit
+        utcTimeZone_transit.min = min_transit
+        utcTimeZone_transit.sec = 0.0
+        utcTimeZone_transit = cwrapper.swelib_utc_time_zone(utcTimeZone_transit, Double(self.tz))
+        let utc_to_jd_transit = cwrapper.swelib_utc_to_jd(utcTimeZone_transit)
 
         // Houses
         houses = []
         for i in 0...12 {
             houses.append(cwrapper.swelib_house_ex(utc_to_jd, self.lat, self.lng, Int32(i + 1)))
+        }
+
+        // Bodies
+        var b_arr: [Int] = []
+        b_arr.append(Int(cwrapper.ASTRE_SOLEIL))
+        b_arr.append(Int(cwrapper.ASTRE_LUNE))
+        b_arr.append(Int(cwrapper.ASTRE_MERCURE))
+        b_arr.append(Int(cwrapper.ASTRE_VENUS))
+        b_arr.append(Int(cwrapper.ASTRE_MARS))
+        b_arr.append(Int(cwrapper.ASTRE_JUPITER))
+        b_arr.append(Int(cwrapper.ASTRE_SATURN))
+        b_arr.append(Int(cwrapper.ASTRE_NEPTUNE))
+        b_arr.append(Int(cwrapper.ASTRE_PLUTON))
+        b_arr.append(Int(cwrapper.ASTRE_NOEUD_LUNAIRE))
+        b_arr.append(Int(cwrapper.ASTRE_CHIRON))
+        b_arr.append(Int(cwrapper.ASTRE_CERES))
+        b_arr.append(Int(cwrapper.ASTRE_NOEUD_LUNAIRE_SUD))
+        for b in b_arr {
+
         }
     }
 

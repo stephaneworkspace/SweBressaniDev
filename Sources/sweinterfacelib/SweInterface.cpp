@@ -180,13 +180,13 @@ extern "C" {
         for (int i = 0; i < 11; ++i) {
             Offset offset;
             // Natal
-            CalcUt calcul_ut = Swe03::calc_ut(utc_to_jd.julian_day_ut, astres[i], OptionFlag::speed);
+            CalcUt calcul_ut = Swe03::calc_ut(utc_to_jd.julian_day_ut, astres[i], OPTION_FLAG_SPEED);
             offset = DrawBodieAstre::bodie_astre(house[0], calcul_ut, false);
             lxy = dbl.line(house[0], calcul_ut, false);
             doc << Image::generate(astre_size, astre_size, offset.x, offset.y, Astre::read_svg(astres[i]).c_str());
             doc << svg_line.generate(lxy.lx1, lxy.ly1, lxy.lx2, lxy.ly2);
             // Transit
-            CalcUt calcul_ut_t = Swe03::calc_ut(utc_to_jd_t.julian_day_ut, astres[i], OptionFlag::speed);
+            CalcUt calcul_ut_t = Swe03::calc_ut(utc_to_jd_t.julian_day_ut, astres[i], OPTION_FLAG_SPEED);
             offset = DrawBodieAstre::bodie_astre(house[0], calcul_ut_t, true);
             lxy = dbl.line(house[0], calcul_ut_t, true);
             doc << Image::generate(astre_size, astre_size, offset.x, offset.y, Astre::read_svg(astres[i]).c_str());
@@ -197,7 +197,7 @@ extern "C" {
         const int MAX_ITEM = (11 * 2) + 2;
         double* item_longitude = new double[MAX_ITEM];
         for (int i = 0; i < 11; ++i) {
-            item_longitude[i] = Swe03::calc_ut(utc_to_jd.julian_day_ut, astres[i], OptionFlag::speed).longitude;
+            item_longitude[i] = Swe03::calc_ut(utc_to_jd.julian_day_ut, astres[i], OPTION_FLAG_SPEED).longitude;
         }
         for (int i = 1; i < 11; ++i) {
             //item_longitude[11 + i] = Swe03::calc_ut(utc_to_jd_t.julian_day_ut, astres[i], OptionFlag::speed).longitude;
