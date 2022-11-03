@@ -19,6 +19,8 @@ public class SweSvg {
     public var ephemPath: String
     public var utcTimeZone: cwrapper.SweTimeZone
     public var houses: [cwrapper.SweHouse]
+    public var bodies_natal: [cwrapper.SweBodie]
+    public var bodies_transit: [cwrapper.SweBodie]
     public init(ephemPath: String) {
         self.ephemPath = ephemPath
         let pathPtr = UnsafeMutablePointer<Int8>(mutating: (self.ephemPath as NSString).utf8String)
@@ -34,6 +36,8 @@ public class SweSvg {
         tz = 0
         utcTimeZone = cwrapper.SweTimeZone()
         houses = []
+        bodies_natal = []
+        bodies_transit = []
     }
 
     public func set(natal: Date, lat: Double, lng: Double, tz: Int32) {

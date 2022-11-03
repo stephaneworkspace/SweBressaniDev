@@ -39,6 +39,34 @@ struct SweHouse {
     int angle;
 };
 
+struct SweCalcUt {
+    double longitude;
+    double latitude;
+    double distanceAu;
+    double speedLongitude;
+    double speedLatitude;
+    double speedDistanceAu;
+    int status;
+    const char* serr;
+    struct SweSplitDeg split;
+};
+
+struct SwePhenoUt {
+    double phaseAngle;
+    double phaseIlluminated;
+    double elongationOfPlanet;
+    double apparentDimaeterOfDisc;
+    double apparentMagnitude;
+    int status;
+    const char* serr;
+};
+
+struct SweBodie {
+    int bodie;
+    struct SweCalcUt calculUt;
+    struct SwePhenoUt phnoUt;
+};
+
 int cwrapperfive();
 const char *theme_astral(int year, int month, int day, int hour, int min, double lat, double lng, int gmt, const char *ephem_path);
 const char *a_sign(int sign);
