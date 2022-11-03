@@ -22,6 +22,10 @@ const char *a_house(int house) {
     return sweinterfacelib::asset_house(house);
 }
 
+const char *a_bodie(int bodie) {
+    return sweinterfacelib::asset_bodie(bodie);
+}
+
 void swelib_set_ephe_path(char* path) {
     swelib::swe_set_ephe_path(path);
 }

@@ -298,4 +298,7 @@ extern "C" {
     const char *asset_house(int house) {
         return sweinterfacelib::House::read_svg_c(house);
     }
+    const char *asset_bodie(int bodie) {
+        return sweinterfacelib::Astre::read_svg_c(bodie);
+    }
 }
