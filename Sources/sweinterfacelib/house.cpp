@@ -33,44 +33,44 @@ const char* HOUSE_12_SVG = "PHN2ZyB3aWR0aD0iMzdwdCIgaGVpZ2h0PSI0NHB0IiB2aWV3Qm94
 string House::read_svg(int house) {
     string h = "";
     switch (house) {
-        case 0:
+        case 1:
             h = HOUSE_1_SVG;
             break;
-        case 1:
+        case 2:
             h = HOUSE_2_SVG;
             break;
-        case 2:
+        case 3:
             h = HOUSE_3_SVG;
             break;
-        case 3:
+        case 4:
             h = HOUSE_4_SVG;
             break;
-        case 4:
+        case 5:
             h = HOUSE_5_SVG;
             break;
-        case 5:
+        case 6:
             h = HOUSE_6_SVG;
             break;
-        case 6:
+        case 7:
             h = HOUSE_7_SVG;
             break;
-        case 7:
+        case 8:
             h = HOUSE_8_SVG;
             break;
-        case 8:
+        case 9:
             h = HOUSE_9_SVG;
             break;
-        case 9:
+        case 10:
             h = HOUSE_10_SVG;
             break;
-        case 10:
+        case 11:
             h = HOUSE_11_SVG;
             break;
-        case 11:
+        case 12:
             h = HOUSE_12_SVG;
             break;
     }
-    return "data:image/svg+xml;base64," + h[house - 1];
+    return "data:image/svg+xml;base64," + h;
 }
 
 const char* House::read_svg_c(int house) {
