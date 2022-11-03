@@ -75,29 +75,29 @@ string House::read_svg(int house) {
 
 const char* House::read_svg_c(int house) {
     switch (house) {
-        case 0:
-            return HOUSE_1_SVG;
         case 1:
-            return HOUSE_2_SVG;
+            return HOUSE_1_SVG;
         case 2:
-            return HOUSE_3_SVG;
+            return HOUSE_2_SVG;
         case 3:
-            return HOUSE_4_SVG;
+            return HOUSE_3_SVG;
         case 4:
-            return HOUSE_5_SVG;
+            return HOUSE_4_SVG;
         case 5:
-            return HOUSE_6_SVG;
+            return HOUSE_5_SVG;
         case 6:
-            return HOUSE_7_SVG;
+            return HOUSE_6_SVG;
         case 7:
-            return HOUSE_8_SVG;
+            return HOUSE_7_SVG;
         case 8:
-            return HOUSE_9_SVG;
+            return HOUSE_8_SVG;
         case 9:
-            return HOUSE_10_SVG;
+            return HOUSE_9_SVG;
         case 10:
-            return HOUSE_11_SVG;
+            return HOUSE_10_SVG;
         case 11:
+            return HOUSE_11_SVG;
+        case 12:
             return HOUSE_12_SVG;
         default:
             return "";
