@@ -98,6 +98,8 @@ namespace sweinterfacelib {
     const int CALANDAR_JULIAN = 0;
     const int CALANDAR_GREGORIAN = 1;
 
+    const double RETROGRADE_DIV = 1.5;
+
     struct CalcUt {
         double longitude;
         double latitude;
@@ -255,7 +257,6 @@ namespace sweinterfacelib {
         };
         class Astre {
         public:
-            static bool replace_string(std::string& str, const std::string& from, const std::string& to);
             static string read_svg(int astre);
             static const char* read_svg_c(int astre);
             static string read_r_svg(int astre);
