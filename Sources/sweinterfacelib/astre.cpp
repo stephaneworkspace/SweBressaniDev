@@ -250,7 +250,7 @@ const char* Astre::read_r_svg_c(int astre) {
 
     }
     std::string result = encoded;
-    auto res = &*encoded.begin();
+    const char* res = &result[0];
     return res;
 }
 
