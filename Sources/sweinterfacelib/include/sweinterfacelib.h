@@ -244,6 +244,7 @@ namespace sweinterfacelib {
         const char *asset_sign(int sign);
         const char *asset_house(int house);
         const char *asset_bodie(int bodie);
+        const char *asset_bodie_r(int bodie);
         class Angle {
         public:
             static string read_svg(int a);

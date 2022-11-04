@@ -26,6 +26,10 @@ const char *a_bodie(int bodie) {
     return sweinterfacelib::asset_bodie(bodie);
 }
 
+const char *a_bodie_r(int bodie) {
+    return sweinterfacelib::asset_bodie_r(bodie);
+}
+
 void swelib_set_ephe_path(char* path) {
     swelib::swe_set_ephe_path(path);
 }
