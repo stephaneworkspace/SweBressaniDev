@@ -11,6 +11,13 @@ double DrawBodieAstre::astre_size() {
     return (((ASTRE_SIZE * ASTRE_RATIO) / 100.0) * CHART_SIZE) / 100.0;
 }
 
+double DrawBodieAstre::astre_r_size() {
+    const double ASTRE_SIZE = 43;
+    const double ASTRE_RATIO = 5;
+    return (((ASTRE_SIZE * ASTRE_RATIO) / 100.0) * CHART_SIZE) / 100.0;
+}
+
+
 Offset DrawBodieAstre::bodie_astre(H house_asc, CalcUt calcul_ut, bool sw_transit) {
     Offset res;
     double pos;

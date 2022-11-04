@@ -254,8 +254,11 @@ namespace sweinterfacelib {
         };
         class Astre {
         public:
+            static bool replace_string(std::string& str, const std::string& from, const std::string& to);
             static string read_svg(int astre);
             static const char* read_svg_c(int astre);
+            static string read_r_svg(int astre);
+            static const char* read_r_svg_c(int astre);
             static string nom(int a);
             static string *sign_name_and_svg(CalcUt calcul_ut);
         };
@@ -287,6 +290,7 @@ namespace sweinterfacelib {
         private:
         public:
             static double astre_size();
+            static double astre_r_size();
             static Offset bodie_astre(H house_asc, CalcUt calcul_ut, bool sw_transit);
         };
         class DrawBodieLines {

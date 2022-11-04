@@ -170,8 +170,8 @@ extern "C" {
         }
 
         // Draw astre image + line
-        double astre_size;
-        astre_size = DrawBodieAstre::astre_size();
+        double astre_size = DrawBodieAstre::astre_size();
+        double astre_r_size = DrawBodieAstre::astre_r_size();
         svg_stroke.stroke = "black";
         svg_stroke.stroke_width = 1;
         svg_line.set_stroke(svg_stroke);
@@ -184,12 +184,29 @@ extern "C" {
             offset = DrawBodieAstre::bodie_astre(house[0], calcul_ut, false);
             lxy = dbl.line(house[0], calcul_ut, false);
             doc << Image::generate(astre_size, astre_size, offset.x, offset.y, Astre::read_svg(astres[i]).c_str());
+            // TODO
+            if (calcul_ut.speed_longitude < 0.0003) {
+                // Stationary
+            } else if (calcul_ut.speed_longitude > 0.0) {
+                // Direct
+            } else {
+                // Retrograde TODO const
+                doc << Image::generate(astre_r_size, astre_r_size, offset.x + astre_size / 1.5, offset.y + astre_size / 1.5, Astre::read_r_svg(astres[i]).c_str());
+            }
             doc << svg_line.generate(lxy.lx1, lxy.ly1, lxy.lx2, lxy.ly2);
             // Transit
             CalcUt calcul_ut_t = Swe03::calc_ut(utc_to_jd_t.julian_day_ut, astres[i], OPTION_FLAG_SPEED);
             offset = DrawBodieAstre::bodie_astre(house[0], calcul_ut_t, true);
             lxy = dbl.line(house[0], calcul_ut_t, true);
             doc << Image::generate(astre_size, astre_size, offset.x, offset.y, Astre::read_svg(astres[i]).c_str());
+            if (calcul_ut_t.speed_longitude < 0.0003) {
+                // Stationary
+            } else if (calcul_ut_t.speed_longitude > 0.0) {
+                // Direct
+            } else {
+                // Retrograde TODO const
+                doc << Image::generate(astre_r_size, astre_r_size, offset.x + astre_size / 1.5, offset.y + astre_size / 1.5, Astre::read_r_svg(astres[i]).c_str());
+            }
             doc << svg_line.generate(lxy.lx1, lxy.ly1, lxy.lx2, lxy.ly2);
         }
 

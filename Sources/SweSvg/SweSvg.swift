@@ -118,9 +118,9 @@ public class SweSvg {
         b_arr.append(Int(cwrapper.ASTRE_NEPTUNE))
         b_arr.append(Int(cwrapper.ASTRE_PLUTON))
         b_arr.append(Int(cwrapper.ASTRE_NOEUD_LUNAIRE))
-        b_arr.append(Int(cwrapper.ASTRE_CHIRON))
-        b_arr.append(Int(cwrapper.ASTRE_CERES))
-        b_arr.append(Int(cwrapper.ASTRE_NOEUD_LUNAIRE_SUD))
+        //b_arr.append(Int(cwrapper.ASTRE_CHIRON)) // TODO
+        //b_arr.append(Int(cwrapper.ASTRE_CERES))
+        //b_arr.append(Int(cwrapper.ASTRE_NOEUD_LUNAIRE_SUD))
         for b in b_arr {
             let calc_ut = cwrapper.swelib_calc_ut(utc_to_jd, Int32(b))
             let calc_ut_t = cwrapper.swelib_calc_ut(utc_to_jd_transit, Int32(b))
