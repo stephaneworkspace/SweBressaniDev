@@ -183,6 +183,12 @@ public class SweSvg {
         return asset_svg(name: "asset_theme_astral.svg", encoded: svg)
     }
 
+    public func theme_astral_url() throws -> URL {
+        // TODO
+        let svg: String = ptrToString(ptr: cwrapper.theme_astral(year, month, day, hour, min, lat, lng, tz, ephemPath))
+        return try asset_svg_url(name: "asset_theme_astral_url.svg", encoded: svg) // TODO
+    }
+
     public func asset_sign(i: Int) throws -> URL {
         let s: String = String(cString: UnsafePointer<CChar>(cwrapper.a_sign(Int32(i))!))
         return try asset_svg_url(name: String(format: "asset_%d_sign.svg", i), encoded: s)
