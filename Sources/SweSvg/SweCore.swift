@@ -175,7 +175,7 @@ public class SweCore {
         self.swec.set(natal: natal, transit: transit, lat: lat, lng: lng, tz: tz, colorMode: colorMode)
     }
 
-    func circles() -> [SweCore.AstroCircle] {
+    public func circles() -> [SweCore.AstroCircle] {
         var res: [SweCore.AstroCircle] = []
         let center = getRadiusTotal()
         for (idx, circleSize) in CIRCLE_SIZE_TRANSIT.enumerated() {
@@ -187,7 +187,7 @@ public class SweCore {
         return res
     }
 
-    func zodiac_lines() -> [SweCore.AstroLine] {
+    public func zodiac_lines() -> [SweCore.AstroLine] {
         var res: [SweCore.AstroLine] = []
         for iIdx in 1...12 {
             // 0°
@@ -229,7 +229,7 @@ public class SweCore {
         return res
     }
 
-    func zodiac_sign(sign: Int) -> SweCore.Object {
+    public func zodiac_sign(sign: Int) -> SweCore.Object {
         let zodiacSize = (((ZODIAC_SIZE * ZODIAC_RATIO) / 100.0) * Double(size)) / 100.0;
         let offPosAsc = CIRCLE - swec.houses[0].longitude
         let signEnum: SweCore.Signs = Signs.init(rawValue: sign) ?? SweCore.Signs.Aries
@@ -248,7 +248,7 @@ public class SweCore {
         return res
     }
 
-    func house(number: Int) -> SweCore.ObjectHouse {
+    public func house(number: Int) -> SweCore.ObjectHouse {
         var houseSize = (((HOUSE_SIZE * HOUSE_RATIO) / 100.0) * Double(size)) / 100.0
         let offPosAsc = CIRCLE - swec.houses[0].longitude
         var posNext: Double
@@ -285,7 +285,7 @@ public class SweCore {
         }
     }
 
-    func bodie(bodie: Bodies, swTransit: Bool) -> SweCore.ObjectBodie {
+    public func bodie(bodie: Bodies, swTransit: Bool) -> SweCore.ObjectBodie {
         var planetRatio: Double
         if swTransit {
             planetRatio = 6.0 // TODO const
@@ -366,7 +366,7 @@ public class SweCore {
         return res
     }
 
-    func bodie_lines(bodie: SweCore.Bodies, swTransit: Bool) -> [SweCore.AstroLine] {
+    public func bodie_lines(bodie: SweCore.Bodies, swTransit: Bool) -> [SweCore.AstroLine] {
         var res: [SweCore.AstroLine] = []
         var pos = 0.0
         if (!swTransit) {
@@ -456,7 +456,7 @@ public class SweCore {
         return res
     }
 
-    func angle_lines(angle: SweCore.Angles) -> [SweCore.AstroLine] {
+    public func angle_lines(angle: SweCore.Angles) -> [SweCore.AstroLine] {
         var res: [SweCore.AstroLine] = []
         var pos: Double = 0.0
         var axyLine: [SweCore.Offset] = []
