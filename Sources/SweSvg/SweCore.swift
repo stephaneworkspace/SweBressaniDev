@@ -86,84 +86,80 @@ public enum Bodies: Int {
          NoeudLunaireSud = 24
 }
 
-//
-// Created by Stéphane on 22.10.22.
-//
+public struct Circle {
+    var center: Double
+    var radius: Double
+}
+
+public struct Line {
+    var lX1: Double
+    var lY1: Double
+    var lX2: Double
+    var lY2: Double
+}
+
+public struct HouseLine {
+    var lX1: Double
+    var lY1: Double
+    var lX2: Double
+    var lY2: Double
+    var lXY3: Bool
+    var lX3: Double
+    var lY3: Double
+}
+
+public struct Offset {
+    var offX: Double
+    var offY: Double
+}
+
+public struct SplitDeg {
+    var print: String
+    var deg: Int32
+    var min: Int32
+    var sec: Int32
+    var cdegfr: Double
+    var sign: Signs
+    var result: Double
+}
+
+public struct HouseResult {
+    var cusps: [Double]
+    var ascmc: [Double]
+    var result: Int32
+}
+
+public struct Object {
+    var sign: Signs
+    var oSx: Double
+    var oSy: Double
+    var oPx: Double
+    var oPy: Double
+}
+
+public struct ObjectHouse {
+    var oSx: Double
+    var oSy: Double
+    var oPx: Double
+    var oPy: Double
+}
+
+public struct ObjectBodie {
+    var swRetrograde: Bool
+    var oSx: Double
+    var oSy: Double
+    var oPx: Double
+    var oPy: Double
+}
+
+public struct ObjectAngle {
+    var oSx: Double
+    var oSy: Double
+    var oPx: Double
+    var oPy: Double
+}
 
 public class SweCore {
-    public struct Circle {
-        var center: Double
-        var radius: Double
-    }
-
-    public struct Line {
-        var lX1: Double
-        var lY1: Double
-        var lX2: Double
-        var lY2: Double
-    }
-
-    public struct HouseLine {
-        var lX1: Double
-        var lY1: Double
-        var lX2: Double
-        var lY2: Double
-        var lXY3: Bool
-        var lX3: Double
-        var lY3: Double
-    }
-
-    public struct Offset {
-        var offX: Double
-        var offY: Double
-    }
-
-    public struct SplitDeg {
-        var print: String
-        var deg: Int32
-        var min: Int32
-        var sec: Int32
-        var cdegfr: Double
-        var sign: Signs
-        var result: Double
-    }
-
-    public struct HouseResult {
-        var cusps: [Double]
-        var ascmc: [Double]
-        var result: Int32
-    }
-
-    public struct Object {
-        var sign: Signs
-        var oSx: Double
-        var oSy: Double
-        var oPx: Double
-        var oPy: Double
-    }
-
-    public struct ObjectHouse {
-        var oSx: Double
-        var oSy: Double
-        var oPx: Double
-        var oPy: Double
-    }
-
-    public struct ObjectBodie {
-        var swRetrograde: Bool
-        var oSx: Double
-        var oSy: Double
-        var oPx: Double
-        var oPy: Double
-    }
-
-    public struct ObjectAngle {
-        var oSx: Double
-        var oSy: Double
-        var oPx: Double
-        var oPy: Double
-    }
-
     public var size: Int // TODO sizeChart: (screenSize.width == 744 && screenSize.height == 1133) ? 630.0 : 390.0)
     public var colorMode: SweSvg.ColorMode
     public var bodies: [Bodies]
