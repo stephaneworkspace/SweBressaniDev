@@ -209,4 +209,10 @@ public class SweSvg {
         let s: String = String(cString: UnsafePointer<CChar>(cwrapper.a_bodie_r(Int32(i))!))
         return try asset_svg_url(name: String(format: "asset_%d_bodie_r.svg", i), encoded: s)
     }
+
+    public func asset_angle(i: Int) throws -> URL {
+        let s: String = String(cString: UnsafePointer<CChar>(cwrapper.a_angle(Int32(i), Int32(colorMode.rawValue))!))
+        return try asset_svg_url(name: String(format: "asset_%d_%d_angle.svg", i, colorMode.rawValue), encoded: s)
+    }
+
 }

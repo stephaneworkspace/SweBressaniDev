@@ -249,7 +249,8 @@ namespace sweinterfacelib {
         const char *asset_house(int house);
         const char *asset_bodie(int bodie);
         const char *asset_bodie_r(int bodie);
-        class Angle {
+        const char *asset_angle(int angle, int color_mode);
+    class Angle {
         public:
             static string read_svg(int a, int color_mode);
             static const char* read_svg_c(int a, int color_mode);
