@@ -13,24 +13,24 @@ Size DrawHouseAngle::angle_size(int angle) {
     double height = 0;
     switch (angle) {
         case ANGLES_ASC:
-            width = 44 * 5.5;
-            height = 44 * 5.5;
+            width = 44 * 6.8;
+            height = 44 * 6.8 ;
             //width = 65 * 5.5;
             //height = 44 * 5.5;
             break;
         case ANGLES_FC:
-            width = 37 * 5.5;
-            height = 44 * 5.5;
+            width = 37 * 5.8;
+            height = 44 * 5.8;
             break;
         case ANGLES_DESC:
-            width = 44 * 5.5;
-            height = 44 * 5.5;
+            width = 44 * 6.8 * 1.3;
+            height = 44 * 6.8 * 1.3;
             //width = 87 * 5.5;
             //height = 44 * 5.5;
             break;
         case ANGLES_MC:
-            width = 53 * 5.5;
-            height = 44 * 5.5;
+            width = 53 * 5.8;
+            height = 44 * 5.8;
             break;
         default:
             width = ANGLE_SIZE * ANGLE_RATIO;
