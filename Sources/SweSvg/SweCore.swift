@@ -38,128 +38,113 @@ let ANGLE_RATIO_FC = 7.0
 let ANGLE_RATIO_DESC = 12.0
 let ANGLE_RATIO_MC = 8.0
 
-enum Angles: Int32 {
-    case Nothing = 0,
-         Asc = 1,
-         Fc = 2,
-         Desc = 3,
-         Mc = 4
-}
-
-enum Calandar: Int32 {
-    case Julian = 0, Gregorian = 1
-}
-
-enum LargerDrawLine {
-    case Large, Small
-}
-
-enum Signs: Int {
-    case Aries = 1,
-         Taurus = 2,
-         Gemini = 3,
-         Cancer = 4,
-         Leo = 5,
-         Virgo = 6,
-         Libra = 7,
-         Scorpio = 8,
-         Sagittarius = 9,
-         Capricorn = 10,
-         Aquarius = 11,
-         Pisces = 12
-}
-
-public enum Bodies: Int {
-    case Soleil = 0,
-         Lune = 1,
-         Mercure = 2,
-         Venus = 3,
-         Mars = 4,
-         Jupiter = 5,
-         Saturn = 6,
-         Uranus = 7,
-         Neptune = 8,
-         Pluto = 9,
-         NoeudLunaire = 11,
-         Chiron = 15,
-         Ceres = 17,
-         NoeudLunaireSud = 24
-}
-
-public struct AstroCircle {
-    var center: Double
-    var radius: Double
-}
-
-public struct AstroLine {
-    var lX1: Double
-    var lY1: Double
-    var lX2: Double
-    var lY2: Double
-}
-
-public struct AstroHouseLine {
-    var lX1: Double
-    var lY1: Double
-    var lX2: Double
-    var lY2: Double
-    var lXY3: Bool
-    var lX3: Double
-    var lY3: Double
-}
-
-public struct Offset {
-    var offX: Double
-    var offY: Double
-}
-
-public struct SplitDeg {
-    var print: String
-    var deg: Int32
-    var min: Int32
-    var sec: Int32
-    var cdegfr: Double
-    var sign: Signs
-    var result: Double
-}
-
-public struct HouseResult {
-    var cusps: [Double]
-    var ascmc: [Double]
-    var result: Int32
-}
-
-public struct Object {
-    var sign: Signs
-    var oSx: Double
-    var oSy: Double
-    var oPx: Double
-    var oPy: Double
-}
-
-public struct ObjectHouse {
-    var oSx: Double
-    var oSy: Double
-    var oPx: Double
-    var oPy: Double
-}
-
-public struct ObjectBodie {
-    var swRetrograde: Bool
-    var oSx: Double
-    var oSy: Double
-    var oPx: Double
-    var oPy: Double
-}
-
-public struct ObjectAngle {
-    var oSx: Double
-    var oSy: Double
-    var oPx: Double
-    var oPy: Double
-}
-
 public class SweCore {
+    public enum Angles: Int32 {
+        case Nothing = 0,
+             Asc = 1,
+             Fc = 2,
+             Desc = 3,
+             Mc = 4
+    }
+    public enum Calandar: Int32 {
+        case Julian = 0, Gregorian = 1
+    }
+    public enum LargerDrawLine {
+        case Large, Small
+    }
+    public enum Signs: Int {
+        case Aries = 1,
+             Taurus = 2,
+             Gemini = 3,
+             Cancer = 4,
+             Leo = 5,
+             Virgo = 6,
+             Libra = 7,
+             Scorpio = 8,
+             Sagittarius = 9,
+             Capricorn = 10,
+             Aquarius = 11,
+             Pisces = 12
+    }
+    public enum Bodies: Int {
+        case Soleil = 0,
+             Lune = 1,
+             Mercure = 2,
+             Venus = 3,
+             Mars = 4,
+             Jupiter = 5,
+             Saturn = 6,
+             Uranus = 7,
+             Neptune = 8,
+             Pluto = 9,
+             NoeudLunaire = 11,
+             Chiron = 15,
+             Ceres = 17,
+             NoeudLunaireSud = 24
+    }
+    public struct AstroCircle {
+        public var center: Double
+        public var radius: Double
+    }
+    public struct AstroLine {
+        public var lX1: Double
+        public var lY1: Double
+        public var lX2: Double
+        public var lY2: Double
+    }
+    public struct AstroHouseLine {
+        public var lX1: Double
+        public var lY1: Double
+        public var lX2: Double
+        public var lY2: Double
+        public var lXY3: Bool
+        public var lX3: Double
+        public var lY3: Double
+    }
+    public struct Offset {
+        public var offX: Double
+        public var offY: Double
+    }
+    public struct SplitDeg {
+        public var print: String
+        public var deg: Int32
+        public var min: Int32
+        public var sec: Int32
+        public var cdegfr: Double
+        public var sign: Signs
+        public var result: Double
+    }
+    public struct HouseResult {
+        public var cusps: [Double]
+        public var ascmc: [Double]
+        public var result: Int32
+    }
+    public struct Object {
+        public var sign: Signs
+        public var oSx: Double
+        public var oSy: Double
+        public var oPx: Double
+        public var oPy: Double
+    }
+    public struct ObjectHouse {
+        public var oSx: Double
+        public var oSy: Double
+        public var oPx: Double
+        public var oPy: Double
+    }
+    public struct ObjectBodie {
+        public var swRetrograde: Bool
+        public var oSx: Double
+        public var oSy: Double
+        public var oPx: Double
+        public var oPy: Double
+    }
+    public struct ObjectAngle {
+        public var oSx: Double
+        public var oSy: Double
+        public var oPx: Double
+        public var oPy: Double
+    }
     public var size: Int // TODO sizeChart: (screenSize.width == 744 && screenSize.height == 1133) ? 630.0 : 390.0)
     public var colorMode: SweSvg.ColorMode
     public var bodies: [Bodies]
@@ -190,20 +175,20 @@ public class SweCore {
         self.swec.set(natal: natal, transit: transit, lat: lat, lng: lng, tz: tz, colorMode: colorMode)
     }
 
-    func circles() -> [AstroCircle] {
-        var res: [AstroCircle] = []
+    func circles() -> [SweCore.AstroCircle] {
+        var res: [SweCore.AstroCircle] = []
         let center = getRadiusTotal()
         for (idx, circleSize) in CIRCLE_SIZE_TRANSIT.enumerated() {
             if circleSize.1 {
                 let radius = getRadiusCircle(occurs: idx).0
-                res.append(AstroCircle(center: center, radius: radius))
+                res.append(SweCore.AstroCircle(center: center, radius: radius))
             }
         }
         return res
     }
 
-    func zodiac_lines() -> [AstroLine] {
-        var res: [AstroLine] = []
+    func zodiac_lines() -> [SweCore.AstroLine] {
+        var res: [SweCore.AstroLine] = []
         for iIdx in 1...12 {
             // 0°
             let offPosAsc = 360.0 - swec.houses[0].longitude
@@ -213,14 +198,14 @@ public class SweCore {
                     angular: pos,
                     radiusCircleBegin: getRadiusCircle(occurs: 2).0,
                     radiusCircleEnd: getRadiusCircle(occurs: 1).0)
-            res.append(AstroLine(
+            res.append(SweCore.AstroLine(
                     lX1: axy[0].offX,
                     lY1: axy[0].offY,
                     lX2: axy[1].offX,
                     lY2: axy[1].offY)
             )
             // 1° to 29°
-            var largerDrawLine: LargerDrawLine = .Large
+            var largerDrawLine: SweCore.LargerDrawLine = .Large
             for jIdx in 1...15 {
                 if jIdx == 5 || jIdx == 10 || jIdx == 15 {
                     largerDrawLine = .Large
@@ -233,7 +218,7 @@ public class SweCore {
                         angular: pos,
                         radiusCircleBegin: getRadiusCircle(occurs: 2).0,
                         radiusCircleEnd: getRadiusRulesInsideCircle(largerDrawLine: largerDrawLine))
-                res.append(AstroLine(
+                res.append(SweCore.AstroLine(
                         lX1: axy[0].offX,
                         lY1: axy[0].offY,
                         lX2: axy[1].offX,
@@ -244,17 +229,17 @@ public class SweCore {
         return res
     }
 
-    func zodiac_sign(sign: Int) -> Object {
+    func zodiac_sign(sign: Int) -> SweCore.Object {
         let zodiacSize = (((ZODIAC_SIZE * ZODIAC_RATIO) / 100.0) * Double(size)) / 100.0;
         let offPosAsc = CIRCLE - swec.houses[0].longitude
-        let signEnum: Signs = Signs.init(rawValue: sign) ?? Signs.Aries
+        let signEnum: SweCore.Signs = Signs.init(rawValue: sign) ?? SweCore.Signs.Aries
         let pos = (Double(signEnum.rawValue - 1) * 30.0) + 15.0 + offPosAsc
         let offset = getCenterItem(
                 size: zodiacSize,
                 offset: getPosTrigo(
                         angular: pos,
                         radiusCircle: getRadiusCircleZodiac()))
-        let res = Object(
+        let res = SweCore.Object(
                 sign: signEnum,
                 oSx: zodiacSize,
                 oSy: zodiacSize,
@@ -263,7 +248,7 @@ public class SweCore {
         return res
     }
 
-    func house(number: Int) -> ObjectHouse {
+    func house(number: Int) -> SweCore.ObjectHouse {
         var houseSize = (((HOUSE_SIZE * HOUSE_RATIO) / 100.0) * Double(size)) / 100.0
         let offPosAsc = CIRCLE - swec.houses[0].longitude
         var posNext: Double
@@ -286,22 +271,21 @@ public class SweCore {
                         angular: pos,
                         radiusCircle: getRadiusCircleHouse()))
         if number > 9 {
-            return ObjectHouse(
+            return SweCore.ObjectHouse(
                     oSx: houseSize,
                     oSy: houseSize,
                     oPx: offset.offX,
                     oPy: offset.offY)
         } else {
-            return ObjectHouse(
+            return SweCore.ObjectHouse(
                     oSx: houseSize / 1.5,
                     oSy: houseSize,
                     oPx: offset.offX,
                     oPy: offset.offY)
-
         }
     }
 
-    func bodie(bodie: Bodies, swTransit: Bool) -> ObjectBodie {
+    func bodie(bodie: Bodies, swTransit: Bool) -> SweCore.ObjectBodie {
         var planetRatio: Double
         if swTransit {
             planetRatio = 6.0 // TODO const
@@ -358,7 +342,7 @@ public class SweCore {
                 }
             }
         }
-        let offset: Offset
+        let offset: SweCore.Offset
         if swTransit {
             offset = getCenterItem(
                     size: planetSize,
@@ -373,7 +357,7 @@ public class SweCore {
                             radiusCircle: getRadiusCircle(occurs: 5).0))
         }
         // TODO deg min line 1336 sw_draw.rs
-        let res = ObjectBodie(
+        let res = SweCore.ObjectBodie(
                 swRetrograde: swRetrograde,
                 oSx: planetSize,
                 oSy: planetSize,
@@ -382,21 +366,21 @@ public class SweCore {
         return res
     }
 
-    func bodie_lines(bodie: Bodies, swTransit: Bool) -> [AstroLine] {
-        var res: [AstroLine] = []
+    func bodie_lines(bodie: SweCore.Bodies, swTransit: Bool) -> [SweCore.AstroLine] {
+        var res: [SweCore.AstroLine] = []
         var pos = 0.0
         if (!swTransit) {
             // natal
             for b in swec.bodiesNatal {
                 if (b.bodie == bodie.rawValue) {
-                    var axy: [Offset]
+                    var axy: [SweCore.Offset]
                     pos = getBodieLongitude(bodie_longitude: b.calc_ut.longitude, swTransit: swTransit)
                     axy =
                             getLineTrigo(
                                     angular: pos,
                                     radiusCircleBegin: getRadiusCircle(occurs: 3).0,
                                     radiusCircleEnd: getRadiusCircle(occurs: 7).0)
-                    res.append(AstroLine(
+                    res.append(SweCore.AstroLine(
                             lX1: axy[0].offX,
                             lY1: axy[0].offY,
                             lX2: axy[1].offX,
@@ -406,7 +390,7 @@ public class SweCore {
                             angular: pos,
                             radiusCircleBegin: getRadiusCircle(occurs: 7).0,
                             radiusCircleEnd: getRadiusCircle(occurs: 8).0)
-                    res.append(AstroLine(
+                    res.append(SweCore.AstroLine(
                             lX1: axy[0].offX,
                             lY1: axy[0].offY,
                             lX2: axy[1].offX,
@@ -418,14 +402,14 @@ public class SweCore {
             // transit
             for b in swec.bodiesTransit {
                 if (b.bodie == bodie.rawValue) {
-                    var axy: [Offset]
+                    var axy: [SweCore.Offset]
                     pos = getBodieLongitude(bodie_longitude: b.calc_ut.longitude, swTransit: swTransit)
                     axy =
                             getLineTrigo(
                                     angular: pos,
                                     radiusCircleBegin: getRadiusCircle(occurs: 1).0,
                                     radiusCircleEnd: getRadiusCircle(occurs: 10).0)
-                    res.append(AstroLine(
+                    res.append(SweCore.AstroLine(
                             lX1: axy[0].offX,
                             lY1: axy[0].offY,
                             lX2: axy[1].offX,
@@ -435,7 +419,7 @@ public class SweCore {
                             angular: pos,
                             radiusCircleBegin: getRadiusCircle(occurs: 10).0,
                             radiusCircleEnd: getRadiusCircle(occurs: 11).0)
-                    res.append(AstroLine(
+                    res.append(SweCore.AstroLine(
                             lX1: axy[0].offX,
                             lY1: axy[0].offY,
                             lX2: axy[1].offX,
@@ -447,7 +431,7 @@ public class SweCore {
         return res
     }
 
-    func angle(a: Angles) -> ObjectAngle {
+    func angle(a: SweCore.Angles) -> SweCore.ObjectAngle {
         var angleRatio = ANGLE_RATIO_DESC
         if (a == .Asc) {
             angleRatio = ANGLE_RATIO_ASC
@@ -464,7 +448,7 @@ public class SweCore {
                 offset: getPosTrigo(
                         angular: pos,
                         radiusCircle: getRadiusCircle(occurs: 5).0))
-        let res = ObjectAngle(
+        let res = SweCore.ObjectAngle(
                 oSx: angleSize,
                 oSy: angleSize,
                 oPx: offAngle.offX,
@@ -472,10 +456,10 @@ public class SweCore {
         return res
     }
 
-    func angle_lines(angle: Angles) -> [AstroLine] {
-        var res: [AstroLine] = []
+    func angle_lines(angle: SweCore.Angles) -> [SweCore.AstroLine] {
+        var res: [SweCore.AstroLine] = []
         var pos: Double = 0.0
-        var axyLine: [Offset] = []
+        var axyLine: [SweCore.Offset] = []
         switch (angle) {
         case .Asc:
             pos = getAngleLongitude(angle: angle)
@@ -483,7 +467,7 @@ public class SweCore {
                     angular: pos,
                     radiusCircleBegin: getRadiusCircle(occurs: 2).0,
                     radiusCircleEnd: getRadiusCircle(occurs: 8).0)
-            res.append(AstroLine(
+            res.append(SweCore.AstroLine(
                     lX1: axyLine[0].offX,
                     lY1: axyLine[0].offY,
                     lX2: axyLine[1].offX,
@@ -495,7 +479,7 @@ public class SweCore {
                     angular: pos,
                     radiusCircleBegin: getRadiusCircle(occurs: 2).0,
                     radiusCircleEnd: getRadiusCircle(occurs: 8).0)
-            res.append(AstroLine(
+            res.append(SweCore.AstroLine(
                     lX1: axyLine[0].offX,
                     lY1: axyLine[0].offY,
                     lX2: axyLine[1].offX,
@@ -507,7 +491,7 @@ public class SweCore {
                     angular: pos,
                     radiusCircleBegin: getRadiusCircle(occurs: 2).0,
                     radiusCircleEnd: getRadiusCircle(occurs: 8).0)
-            res.append(AstroLine(
+            res.append(SweCore.AstroLine(
                     lX1: axyLine[0].offX,
                     lY1: axyLine[0].offY,
                     lX2: axyLine[1].offX,
@@ -519,7 +503,7 @@ public class SweCore {
                     angular: pos,
                     radiusCircleBegin: getRadiusCircle(occurs: 2).0,
                     radiusCircleEnd: getRadiusCircle(occurs: 8).0)
-            res.append(AstroLine(
+            res.append(SweCore.AstroLine(
                     lX1: axyLine[0].offX,
                     lY1: axyLine[0].offY,
                     lX2: axyLine[1].offX,
@@ -556,8 +540,8 @@ public class SweCore {
         return pos
     }
 
-    private func getLineTrigo(angular: Double, radiusCircleBegin: Double, radiusCircleEnd: Double) -> [Offset] {
-        var res: [Offset] = []
+    private func getLineTrigo(angular: Double, radiusCircleBegin: Double, radiusCircleEnd: Double) -> [SweCore.Offset] {
+        var res: [SweCore.Offset] = []
         let dx1: Double = getCenter().offX
                 + cos(angular / CIRCLE * 2.0 * Double.pi)
                 * -1.0
@@ -577,7 +561,7 @@ public class SweCore {
         return res
     }
 
-    func getRadiusRulesInsideCircle(largerDrawLine: LargerDrawLine) -> Double {
+    func getRadiusRulesInsideCircle(largerDrawLine: SweCore.LargerDrawLine) -> Double {
         var size = 0.0
         switch largerDrawLine {
         case .Small:
@@ -589,24 +573,24 @@ public class SweCore {
                 + CIRCLE_SIZE_TRANSIT[1].0) / 100.0
     }
 
-    func house_lines() -> [AstroHouseLine] {
-        var res: [AstroHouseLine] = []
+    func house_lines() -> [SweCore.AstroHouseLine] {
+        var res: [SweCore.AstroHouseLine] = []
         for iIdx in 0...11 {
             let offHouse = 360.0 - swec.houses[0].longitude
             let pos = getFixedPos(pos_value: offHouse + swec.houses[iIdx].longitude)
-            var axyTriangle: [Offset] = []
+            var axyTriangle: [SweCore.Offset] = []
             let angularPointer = -1.0 // TODO CONST
-            if swec.houses[iIdx].angle == Angles.Nothing.rawValue {
+            if swec.houses[iIdx].angle == SweCore.Angles.Nothing.rawValue {
                 axyTriangle = getTriangleTrigo(
                         angular: pos,
                         angularPointer: angularPointer,
                         radiusCircleBegin: getRadiusInsideCircleHouseForPointerBottom(),
                         radiusCircleEnd: getRadiusInsideCircleHouseForPointerTop())
-                let axyLine: [Offset] = getLineTrigo(
+                let axyLine: [SweCore.Offset] = getLineTrigo(
                         angular: pos,
                         radiusCircleBegin: getRadiusCircle(occurs: 3).0,
                         radiusCircleEnd: getRadiusCircle(occurs: 2).0)
-                res.append(AstroHouseLine(
+                res.append(SweCore.AstroHouseLine(
                         lX1: axyLine[0].offX,
                         lY1: axyLine[0].offY,
                         lX2: axyLine[1].offX,
@@ -622,7 +606,7 @@ public class SweCore {
                         radiusCircleBegin: getRadiusCircle(occurs: 3).0,
                         radiusCircleEnd: getRadiusCircle(occurs: 2).0)
             }
-            res.append(AstroHouseLine(
+            res.append(SweCore.AstroHouseLine(
                     lX1: axyTriangle[0].offX,
                     lY1: axyTriangle[0].offY,
                     lX2: axyTriangle[1].offX,
@@ -635,19 +619,19 @@ public class SweCore {
         return res
     }
 
-    private func getCenter() -> Offset {
-        Offset(offX: getRadiusTotal(), offY: getRadiusTotal())
+    private func getCenter() -> SweCore.Offset {
+        SweCore.Offset(offX: getRadiusTotal(), offY: getRadiusTotal())
     }
 
-    private func getCenterItem(size: Double, offset: Offset) -> Offset {
-        Offset(
+    private func getCenterItem(size: Double, offset: SweCore.Offset) -> SweCore.Offset {
+        SweCore.Offset(
                 offX: offset.offX - (size / 2.0),
                 offY: offset.offY - (size / 2.0))
     }
 
-    private func getPosTrigo(angular: Double, radiusCircle: Double) -> Offset {
+    private func getPosTrigo(angular: Double, radiusCircle: Double) -> SweCore.Offset {
         let getCenter = getRadiusTotal()
-        return Offset(
+        return SweCore.Offset(
                 offX: getCenter + cos(angular / CIRCLE * 2.0 * Double.pi) * -1.0 * radiusCircle,
                 offY: getCenter + sin(angular / CIRCLE * 2.0 * Double.pi) * radiusCircle)
     }
@@ -673,8 +657,8 @@ public class SweCore {
                 - CIRCLE_SIZE_TRANSIT[3].0)) / 100.0
     }
 
-    private func getTriangleTrigo(angular: Double, angularPointer: Double, radiusCircleBegin: Double, radiusCircleEnd: Double) -> [Offset] {
-        var res: [Offset] = []
+    private func getTriangleTrigo(angular: Double, angularPointer: Double, radiusCircleBegin: Double, radiusCircleEnd: Double) -> [SweCore.Offset] {
+        var res: [SweCore.Offset] = []
         let angular1 = getFixedPos(pos_value: angular - angularPointer)
         let angular2 = getFixedPos(pos_value: angular + angularPointer)
         let dx1: Double = getCenter().offX
@@ -698,9 +682,9 @@ public class SweCore {
         let dy3: Double = getCenter().offY
                 + sin(angular / CIRCLE * 2.0 * Double.pi)
                 * radiusCircleEnd
-        res.append(Offset(offX: dx1, offY: dy1))
-        res.append(Offset(offX: dx2, offY: dy2))
-        res.append(Offset(offX: dx3, offY: dy3))
+        res.append(SweCore.Offset(offX: dx1, offY: dy1))
+        res.append(SweCore.Offset(offX: dx2, offY: dy2))
+        res.append(SweCore.Offset(offX: dx3, offY: dy3))
         return res
     }
 
@@ -722,7 +706,7 @@ public class SweCore {
         return pos
     }
 
-    private func getAngleLongitude(angle: Angles) -> Double {
+    private func getAngleLongitude(angle: SweCore.Angles) -> Double {
         var pos = 0.0
         for house in swec.houses {
             if house.angle == angle.rawValue {
@@ -734,6 +718,3 @@ public class SweCore {
         return pos
     }
 }
-
-
-
