@@ -91,19 +91,19 @@ public enum Bodies: Int {
 //
 
 public class SweCore {
-    struct Circle {
+    public struct Circle {
         var center: Double
         var radius: Double
     }
 
-    struct Line {
+    public struct Line {
         var lX1: Double
         var lY1: Double
         var lX2: Double
         var lY2: Double
     }
 
-    struct HouseLine {
+    public struct HouseLine {
         var lX1: Double
         var lY1: Double
         var lX2: Double
@@ -113,12 +113,12 @@ public class SweCore {
         var lY3: Double
     }
 
-    struct Offset {
+    public struct Offset {
         var offX: Double
         var offY: Double
     }
 
-    struct SplitDeg {
+    public struct SplitDeg {
         var print: String
         var deg: Int32
         var min: Int32
@@ -128,13 +128,13 @@ public class SweCore {
         var result: Double
     }
 
-    struct HouseResult {
+    public struct HouseResult {
         var cusps: [Double]
         var ascmc: [Double]
         var result: Int32
     }
 
-    struct Object {
+    public struct Object {
         var sign: Signs
         var oSx: Double
         var oSy: Double
@@ -142,14 +142,14 @@ public class SweCore {
         var oPy: Double
     }
 
-    struct ObjectHouse {
+    public struct ObjectHouse {
         var oSx: Double
         var oSy: Double
         var oPx: Double
         var oPy: Double
     }
 
-    struct ObjectBodie {
+    public struct ObjectBodie {
         var swRetrograde: Bool
         var oSx: Double
         var oSy: Double
@@ -157,7 +157,7 @@ public class SweCore {
         var oPy: Double
     }
 
-    struct ObjectAngle {
+    public struct ObjectAngle {
         var oSx: Double
         var oSy: Double
         var oPx: Double
