@@ -86,7 +86,7 @@ public enum Bodies: Int {
          NoeudLunaireSud = 24
 }
 
-public struct Circle {
+public struct AstroCircle {
     var center: Double
     var radius: Double
 }
@@ -190,13 +190,13 @@ public class SweCore {
         self.swec.set(natal: natal, transit: transit, lat: lat, lng: lng, tz: tz, colorMode: colorMode)
     }
 
-    func circles() -> [Circle] {
-        var res: [Circle] = []
+    func circles() -> [AstroCircle] {
+        var res: [AstroCircle] = []
         let center = getRadiusTotal()
         for (idx, circleSize) in CIRCLE_SIZE_TRANSIT.enumerated() {
             if circleSize.1 {
                 let radius = getRadiusCircle(occurs: idx).0
-                res.append(Circle(center: center, radius: radius))
+                res.append(AstroCircle(center: center, radius: radius))
             }
         }
         return res
