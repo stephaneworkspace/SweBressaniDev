@@ -4,16 +4,15 @@
 import PackageDescription
 
 let package = Package(
-        name: "SweSvg",
+        name: "SweBressaniDev",
         platforms: [
-            //.macOS(.v10_15),
             .iOS(.v15)
         ],
         products: [
                 // Products define the executables and libraries a package produces, and make them visible to other packages.
                 .library(
-                        name: "SweSvg",
-                        targets: ["SweSvg"]),
+                        name: "SweBressaniDev",
+                        targets: ["SweBressaniDev"]),
 ],
 targets: [.target(name: "cpplib"),
                   .target(name: "svglib"),
@@ -21,7 +20,7 @@ targets: [.target(name: "cpplib"),
                   .target(name: "sweinterfacelib", dependencies: ["svglib", "swelib"]),
                   .executableTarget(name: "cpp-exec", dependencies: ["cpplib", "swelib", "svglib", "sweinterfacelib"]),
                   .target(name: "cwrapper", dependencies: ["cpplib", "swelib", "svglib", "sweinterfacelib"]),
-                  .target(name: "SweSvg", dependencies: ["cwrapper"]),
-                  .executableTarget(name: "SweSvgExec", dependencies: ["cwrapper", "SweSvg"]),
+                  .target(name: "SweBressaniDev", dependencies: ["cwrapper"]),
+                  .executableTarget(name: "SweBressaniDevExec", dependencies: ["cwrapper", "SweBressaniDev"]),
         ]
 )
