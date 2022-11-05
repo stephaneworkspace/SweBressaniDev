@@ -2,8 +2,8 @@
 import SweSvg
 import Foundation
 
-var sweSvg = SweSvg(ephemPath: "", colorMode: .Light)
-sweSvg.set(natal: Date(), transit: Date(), lat: 16, lng: 26.6, tz: 2)
+var sweSvg = SweSvg(ephemPath: "")
+sweSvg.set(natal: Date(), transit: Date(), lat: 16, lng: 26.6, tz: 2, colorMode: .Light)
 let svg = sweSvg.theme_astral()
 print(svg)
 let sign1 = try! sweSvg.asset_sign(i: 1)

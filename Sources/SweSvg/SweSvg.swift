@@ -32,7 +32,7 @@ public class SweSvg {
     public var bodiesTransit: [cwrapper.SweBodie]
     public var colorMode: ColorMode
 
-    public init(ephemPath: String, colorMode: ColorMode) {
+    public init(ephemPath: String) {
         self.ephemPath = ephemPath
         let pathPtr = UnsafeMutablePointer<Int8>(mutating: (self.ephemPath as NSString).utf8String)
         cwrapper.swelib_set_ephe_path(pathPtr)
@@ -55,10 +55,10 @@ public class SweSvg {
         houses = []
         bodiesNatal = []
         bodiesTransit = []
-        self.colorMode = colorMode
+        colorMode = .Light
     }
 
-    public func set(natal: Date, transit: Date, lat: Double, lng: Double, tz: Int32) {
+    public func set(natal: Date, transit: Date, lat: Double, lng: Double, tz: Int32, colorMode: ColorMode) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "YYYY"
         year = Int32(dateFormatter.string(from: natal)) ?? 1980
@@ -133,6 +133,7 @@ public class SweSvg {
             bodiesNatal.append(SweBodie.init(bodie: Int32(b), calc_ut: calc_ut))
             bodiesTransit.append(SweBodie.init(bodie: Int32(b), calc_ut: calc_ut_t))
         }
+        self.colorMode = colorMode
     }
 
     private func ptrToString(ptr: UnsafePointer<CChar>) -> String {
