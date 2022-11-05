@@ -573,7 +573,7 @@ public class SweCore {
                 + CIRCLE_SIZE_TRANSIT[1].0) / 100.0
     }
 
-    func house_lines() -> [SweCore.AstroHouseLine] {
+    public func house_lines() -> [SweCore.AstroHouseLine] {
         var res: [SweCore.AstroHouseLine] = []
         for iIdx in 0...11 {
             let offHouse = 360.0 - swec.houses[0].longitude
