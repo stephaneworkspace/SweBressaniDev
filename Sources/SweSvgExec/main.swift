@@ -2,7 +2,7 @@
 import SweSvg
 import Foundation
 
-var sweSvg = SweSvg(ephemPath: "")
+var sweSvg = SweSvg(ephemPath: "", colorMode: .Light)
 sweSvg.set(natal: Date(), transit: Date(), lat: 16, lng: 26.6, tz: 2)
 let svg = sweSvg.theme_astral()
 print(svg)

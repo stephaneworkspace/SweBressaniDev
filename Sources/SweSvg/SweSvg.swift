@@ -7,27 +7,32 @@ import cwrapper
 // TODO protocol
 
 public class SweSvg {
+    public enum ColorMode {
+        case Light, Dark
+    }
     public private(set) var text = "Hello, World!"
     public var year: Int32
     public var month: Int32
     public var day: Int32
     public var hour: Int32
     public var min: Int32
-    public var year_transit: Int32
-    public var month_transit: Int32
-    public var day_transit: Int32
-    public var hour_transit: Int32
-    public var min_transit: Int32
+    public var yearTransit: Int32
+    public var monthTransit: Int32
+    public var dayTransit: Int32
+    public var hourTransit: Int32
+    public var minTransit: Int32
     public var lat: Double
     public var lng: Double
     public var tz: Int32
     public var ephemPath: String
     public var utcTimeZone: cwrapper.SweTimeZone
-    public var utcTimeZone_transit: cwrapper.SweTimeZone
+    public var utcTimeZoneTransit: cwrapper.SweTimeZone
     public var houses: [cwrapper.SweHouse]
-    public var bodies_natal: [cwrapper.SweBodie]
-    public var bodies_transit: [cwrapper.SweBodie]
-    public init(ephemPath: String) {
+    public var bodiesNatal: [cwrapper.SweBodie]
+    public var bodiesTransit: [cwrapper.SweBodie]
+    public var colorMode: ColorMode
+
+    public init(ephemPath: String, colorMode: ColorMode) {
         self.ephemPath = ephemPath
         let pathPtr = UnsafeMutablePointer<Int8>(mutating: (self.ephemPath as NSString).utf8String)
         cwrapper.swelib_set_ephe_path(pathPtr)
@@ -37,19 +42,20 @@ public class SweSvg {
         day = 1
         hour = 0
         min = 0
-        year_transit = 1984
-        month_transit = 1
-        day_transit = 1
-        hour_transit = 0
-        min_transit = 0
+        yearTransit = 1984
+        monthTransit = 1
+        dayTransit = 1
+        hourTransit = 0
+        minTransit = 0
         lat = 0
         lng = 0
         tz = 0
         utcTimeZone = cwrapper.SweTimeZone()
-        utcTimeZone_transit = cwrapper.SweTimeZone()
+        utcTimeZoneTransit = cwrapper.SweTimeZone()
         houses = []
-        bodies_natal = []
-        bodies_transit = []
+        bodiesNatal = []
+        bodiesTransit = []
+        self.colorMode = colorMode
     }
 
     public func set(natal: Date, transit: Date, lat: Double, lng: Double, tz: Int32) {
@@ -65,15 +71,15 @@ public class SweSvg {
         dateFormatter.dateFormat = "mm"
         min = Int32(dateFormatter.string(from: natal)) ?? 0
         dateFormatter.dateFormat = "YYYY"
-        year_transit = Int32(dateFormatter.string(from: transit)) ?? 1980
+        yearTransit = Int32(dateFormatter.string(from: transit)) ?? 1980
         dateFormatter.dateFormat = "MM"
-        month_transit = Int32(dateFormatter.string(from: transit)) ?? 1
+        monthTransit = Int32(dateFormatter.string(from: transit)) ?? 1
         dateFormatter.dateFormat = "dd"
-        day_transit = Int32(dateFormatter.string(from: transit)) ?? 1
+        dayTransit = Int32(dateFormatter.string(from: transit)) ?? 1
         dateFormatter.dateFormat = "hh"
-        hour_transit = Int32(dateFormatter.string(from: transit)) ?? 0
+        hourTransit = Int32(dateFormatter.string(from: transit)) ?? 0
         dateFormatter.dateFormat = "mm"
-        min_transit = Int32(dateFormatter.string(from: transit)) ?? 0
+        minTransit = Int32(dateFormatter.string(from: transit)) ?? 0
         self.lat = lat
         self.lng = lng
         self.tz = tz
@@ -89,15 +95,15 @@ public class SweSvg {
         utcTimeZone = cwrapper.swelib_utc_time_zone(utcTimeZone, Double(self.tz))
         let utc_to_jd = cwrapper.swelib_utc_to_jd(utcTimeZone)
         // Transit
-        utcTimeZone_transit = cwrapper.SweTimeZone()
-        utcTimeZone_transit.year = year_transit
-        utcTimeZone_transit.month = month_transit
-        utcTimeZone_transit.day = day_transit
-        utcTimeZone_transit.hour = hour_transit
-        utcTimeZone_transit.min = min_transit
-        utcTimeZone_transit.sec = 0.0
-        utcTimeZone_transit = cwrapper.swelib_utc_time_zone(utcTimeZone_transit, Double(self.tz))
-        let utc_to_jd_transit = cwrapper.swelib_utc_to_jd(utcTimeZone_transit)
+        utcTimeZoneTransit = cwrapper.SweTimeZone()
+        utcTimeZoneTransit.year = yearTransit
+        utcTimeZoneTransit.month = monthTransit
+        utcTimeZoneTransit.day = dayTransit
+        utcTimeZoneTransit.hour = hourTransit
+        utcTimeZoneTransit.min = minTransit
+        utcTimeZoneTransit.sec = 0.0
+        utcTimeZoneTransit = cwrapper.swelib_utc_time_zone(utcTimeZoneTransit, Double(self.tz))
+        let utc_to_jd_transit = cwrapper.swelib_utc_to_jd(utcTimeZoneTransit)
 
         // Houses
         houses = []
@@ -124,8 +130,8 @@ public class SweSvg {
         for b in b_arr {
             let calc_ut = cwrapper.swelib_calc_ut(utc_to_jd, Int32(b))
             let calc_ut_t = cwrapper.swelib_calc_ut(utc_to_jd_transit, Int32(b))
-            bodies_natal.append(SweBodie.init(bodie: Int32(b), calc_ut: calc_ut))
-            bodies_transit.append(SweBodie.init(bodie: Int32(b), calc_ut: calc_ut_t))
+            bodiesNatal.append(SweBodie.init(bodie: Int32(b), calc_ut: calc_ut))
+            bodiesTransit.append(SweBodie.init(bodie: Int32(b), calc_ut: calc_ut_t))
         }
     }
 
