@@ -147,7 +147,7 @@ public class SweCore {
     }
     public var size: Int // TODO sizeChart: (screenSize.width == 744 && screenSize.height == 1133) ? 630.0 : 390.0)
     public var colorMode: SweSvg.ColorMode
-    public var bodies: [Bodies]
+    public var bodies: [SweCore.Bodies]
     public var swec: SweSvg
 
     public init(pathEphe: String) {
