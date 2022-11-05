@@ -5,7 +5,7 @@
 
 using namespace sweinterfacelib;
 extern "C" {
-    const char* theme_astral_svg(int year, int month, int day, int hour, int min, double lat, double lng, int gmt, const char* ephem_path) {
+    const char* theme_astral_svg(int year, int month, int day, int hour, int min, double lat, double lng, int gmt, const char* ephem_path, int color_mode) {
         // Charger le path des ephem, depuis swift il est a préciser, sinon ça utilise de ce répertoire
         string ephem_path_string;
         if (strcmp(ephem_path, "") == 0) {
@@ -71,7 +71,7 @@ extern "C" {
             CircleZod cz = dz.circle(static_cast<CirclePositions>(i));
             if (cz.sw) {
                 svg_fill.fill = "transparent";
-                svg_stroke.stroke = "black";
+                svg_stroke.stroke = color_mode == COLOR_MODE_LIGHT ? "black" : "white";
                 svg_stroke.stroke_width = 1;
                 Circle svg_circle(svg_fill, svg_stroke);
                 doc << svg_circle.generate(CHART_SIZE / 2, CHART_SIZE / 2, cz.radius * 0.8);
@@ -88,13 +88,13 @@ extern "C" {
                 if (i == 3 || i == 6 || i == 9) {
                 } else {
                     // Line
-                    svg_stroke.stroke = "black";
+                    svg_stroke.stroke = color_mode == COLOR_MODE_LIGHT ? "black" : "white";
                     svg_stroke.stroke_width = 1;
                     Line svg_line(svg_stroke);
                     doc << svg_line.generate(lxy3[i].lx1, lxy3[i].ly1, lxy3[i].lx2, lxy3[i].ly2);
                     // Triangle small
                     svg_fill.fill = "black";
-                    svg_stroke.stroke = "black";
+                    svg_stroke.stroke = color_mode == COLOR_MODE_LIGHT ? "black" : "white";
                     svg_stroke.stroke_width = 1;
                     Data svg_data(svg_fill, svg_stroke);
                     svg_data.move_to(lxy3_ts[i].lx3, lxy3_ts[i].ly3);
@@ -105,8 +105,8 @@ extern "C" {
                 }
             } else {
                 // Triangle big (in lines() function)
-                svg_fill.fill = "black";
-                svg_stroke.stroke = "black";
+                svg_fill.fill = color_mode == COLOR_MODE_LIGHT ? "black" : "white";
+                svg_stroke.stroke = color_mode == COLOR_MODE_LIGHT ? "black" : "white";
                 svg_stroke.stroke_width = 1;
                 Data svg_data(svg_fill, svg_stroke);
                 svg_data.move_to(lxy3[i].lx3, lxy3[i].ly3);
@@ -118,7 +118,7 @@ extern "C" {
         }
 
         // Angle line
-        svg_stroke.stroke = "black";
+        svg_stroke.stroke = color_mode == COLOR_MODE_LIGHT ? "black" : "white";
         svg_stroke.stroke_width = STROKE_BOLD;
         Line svg_line(svg_stroke);
         LineXY lxy;
@@ -150,7 +150,7 @@ extern "C" {
         }
 
         // Draw zodiac lines
-        svg_stroke.stroke = "black";
+        svg_stroke.stroke = color_mode == COLOR_MODE_LIGHT ? "black" : "white";
         svg_stroke.stroke_width = 1;
         svg_line.set_stroke(svg_stroke);
         DrawZodiacLines dzl;
@@ -172,7 +172,7 @@ extern "C" {
         // Draw astre image + line
         double astre_size = DrawBodieAstre::astre_size();
         double astre_r_size = DrawBodieAstre::astre_r_size();
-        svg_stroke.stroke = "black";
+        svg_stroke.stroke = color_mode == COLOR_MODE_LIGHT ? "black" : "white";
         svg_stroke.stroke_width = 1;
         svg_line.set_stroke(svg_stroke);
         DrawBodieLines dbl;

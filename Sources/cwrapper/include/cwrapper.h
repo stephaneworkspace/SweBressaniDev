@@ -83,7 +83,7 @@ const int ASTRE_CERES = 17;
 const int ASTRE_NOEUD_LUNAIRE_SUD = 24;
 
 int cwrapperfive();
-const char *theme_astral(int year, int month, int day, int hour, int min, double lat, double lng, int gmt, const char *ephem_path);
+const char *theme_astral(int year, int month, int day, int hour, int min, double lat, double lng, int gmt, const char *ephem_path, int color_mode);
 const char *a_sign(int sign);
 const char *a_house(int house);
 const char *a_bodie(int bodie);

@@ -7,8 +7,8 @@ import cwrapper
 // TODO protocol
 
 public class SweSvg {
-    public enum ColorMode {
-        case Light, Dark
+    public enum ColorMode: Int {
+        case Light = 0, Dark = 1
     }
     public private(set) var text = "Hello, World!"
     public var year: Int32
@@ -186,7 +186,7 @@ public class SweSvg {
 
     public func theme_astral() -> String {
         // TODO
-        let svg: String = ptrToString(ptr: cwrapper.theme_astral(year, month, day, hour, min, lat, lng, tz, ephemPath))
+        let svg: String = ptrToString(ptr: cwrapper.theme_astral(year, month, day, hour, min, lat, lng, tz, ephemPath, Int32(colorMode.rawValue)))
         return asset_svg(name: "asset_theme_astral.svg", encoded: svg)
     }
 

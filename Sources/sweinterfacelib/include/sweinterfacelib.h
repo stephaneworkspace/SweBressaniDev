@@ -241,8 +241,10 @@ namespace sweinterfacelib {
         int min;
         double sec;
     };
+    const int COLOR_MODE_LIGHT = 0;
+    const int COLOR_MODE_DARK = 1;
     extern "C" {
-        const char *theme_astral_svg(int year, int month, int day, int hour, int min, double lat, double lng, int gmt, const char *ephem_path);
+        const char *theme_astral_svg(int year, int month, int day, int hour, int min, double lat, double lng, int gmt, const char *ephem_path, int color_mode);
         const char *asset_sign(int sign);
         const char *asset_house(int house);
         const char *asset_bodie(int bodie);
