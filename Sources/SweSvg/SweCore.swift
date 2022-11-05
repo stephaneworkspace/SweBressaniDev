@@ -91,14 +91,14 @@ public struct AstroCircle {
     var radius: Double
 }
 
-public struct Line {
+public struct AstroLine {
     var lX1: Double
     var lY1: Double
     var lX2: Double
     var lY2: Double
 }
 
-public struct HouseLine {
+public struct AstroHouseLine {
     var lX1: Double
     var lY1: Double
     var lX2: Double
@@ -202,8 +202,8 @@ public class SweCore {
         return res
     }
 
-    func zodiac_lines() -> [Line] {
-        var res: [Line] = []
+    func zodiac_lines() -> [AstroLine] {
+        var res: [AstroLine] = []
         for iIdx in 1...12 {
             // 0°
             let offPosAsc = 360.0 - swec.houses[0].longitude
@@ -213,7 +213,7 @@ public class SweCore {
                     angular: pos,
                     radiusCircleBegin: getRadiusCircle(occurs: 2).0,
                     radiusCircleEnd: getRadiusCircle(occurs: 1).0)
-            res.append(Line(
+            res.append(AstroLine(
                     lX1: axy[0].offX,
                     lY1: axy[0].offY,
                     lX2: axy[1].offX,
@@ -233,7 +233,7 @@ public class SweCore {
                         angular: pos,
                         radiusCircleBegin: getRadiusCircle(occurs: 2).0,
                         radiusCircleEnd: getRadiusRulesInsideCircle(largerDrawLine: largerDrawLine))
-                res.append(Line(
+                res.append(AstroLine(
                         lX1: axy[0].offX,
                         lY1: axy[0].offY,
                         lX2: axy[1].offX,
@@ -382,8 +382,8 @@ public class SweCore {
         return res
     }
 
-    func bodie_lines(bodie: Bodies, swTransit: Bool) -> [Line] {
-        var res: [Line] = []
+    func bodie_lines(bodie: Bodies, swTransit: Bool) -> [AstroLine] {
+        var res: [AstroLine] = []
         var pos = 0.0
         if (!swTransit) {
             // natal
@@ -396,7 +396,7 @@ public class SweCore {
                                     angular: pos,
                                     radiusCircleBegin: getRadiusCircle(occurs: 3).0,
                                     radiusCircleEnd: getRadiusCircle(occurs: 7).0)
-                    res.append(Line(
+                    res.append(AstroLine(
                             lX1: axy[0].offX,
                             lY1: axy[0].offY,
                             lX2: axy[1].offX,
@@ -406,7 +406,7 @@ public class SweCore {
                             angular: pos,
                             radiusCircleBegin: getRadiusCircle(occurs: 7).0,
                             radiusCircleEnd: getRadiusCircle(occurs: 8).0)
-                    res.append(Line(
+                    res.append(AstroLine(
                             lX1: axy[0].offX,
                             lY1: axy[0].offY,
                             lX2: axy[1].offX,
@@ -425,7 +425,7 @@ public class SweCore {
                                     angular: pos,
                                     radiusCircleBegin: getRadiusCircle(occurs: 1).0,
                                     radiusCircleEnd: getRadiusCircle(occurs: 10).0)
-                    res.append(Line(
+                    res.append(AstroLine(
                             lX1: axy[0].offX,
                             lY1: axy[0].offY,
                             lX2: axy[1].offX,
@@ -435,7 +435,7 @@ public class SweCore {
                             angular: pos,
                             radiusCircleBegin: getRadiusCircle(occurs: 10).0,
                             radiusCircleEnd: getRadiusCircle(occurs: 11).0)
-                    res.append(Line(
+                    res.append(AstroLine(
                             lX1: axy[0].offX,
                             lY1: axy[0].offY,
                             lX2: axy[1].offX,
@@ -472,8 +472,8 @@ public class SweCore {
         return res
     }
 
-    func angle_lines(angle: Angles) -> [Line] {
-        var res: [Line] = []
+    func angle_lines(angle: Angles) -> [AstroLine] {
+        var res: [AstroLine] = []
         var pos: Double = 0.0
         var axyLine: [Offset] = []
         switch (angle) {
@@ -483,7 +483,7 @@ public class SweCore {
                     angular: pos,
                     radiusCircleBegin: getRadiusCircle(occurs: 2).0,
                     radiusCircleEnd: getRadiusCircle(occurs: 8).0)
-            res.append(Line(
+            res.append(AstroLine(
                     lX1: axyLine[0].offX,
                     lY1: axyLine[0].offY,
                     lX2: axyLine[1].offX,
@@ -495,7 +495,7 @@ public class SweCore {
                     angular: pos,
                     radiusCircleBegin: getRadiusCircle(occurs: 2).0,
                     radiusCircleEnd: getRadiusCircle(occurs: 8).0)
-            res.append(Line(
+            res.append(AstroLine(
                     lX1: axyLine[0].offX,
                     lY1: axyLine[0].offY,
                     lX2: axyLine[1].offX,
@@ -507,7 +507,7 @@ public class SweCore {
                     angular: pos,
                     radiusCircleBegin: getRadiusCircle(occurs: 2).0,
                     radiusCircleEnd: getRadiusCircle(occurs: 8).0)
-            res.append(Line(
+            res.append(AstroLine(
                     lX1: axyLine[0].offX,
                     lY1: axyLine[0].offY,
                     lX2: axyLine[1].offX,
@@ -519,7 +519,7 @@ public class SweCore {
                     angular: pos,
                     radiusCircleBegin: getRadiusCircle(occurs: 2).0,
                     radiusCircleEnd: getRadiusCircle(occurs: 8).0)
-            res.append(Line(
+            res.append(AstroLine(
                     lX1: axyLine[0].offX,
                     lY1: axyLine[0].offY,
                     lX2: axyLine[1].offX,
@@ -589,8 +589,8 @@ public class SweCore {
                 + CIRCLE_SIZE_TRANSIT[1].0) / 100.0
     }
 
-    func house_lines() -> [HouseLine] {
-        var res: [HouseLine] = []
+    func house_lines() -> [AstroHouseLine] {
+        var res: [AstroHouseLine] = []
         for iIdx in 0...11 {
             let offHouse = 360.0 - swec.houses[0].longitude
             let pos = getFixedPos(pos_value: offHouse + swec.houses[iIdx].longitude)
@@ -606,7 +606,7 @@ public class SweCore {
                         angular: pos,
                         radiusCircleBegin: getRadiusCircle(occurs: 3).0,
                         radiusCircleEnd: getRadiusCircle(occurs: 2).0)
-                res.append(HouseLine(
+                res.append(AstroHouseLine(
                         lX1: axyLine[0].offX,
                         lY1: axyLine[0].offY,
                         lX2: axyLine[1].offX,
@@ -622,7 +622,7 @@ public class SweCore {
                         radiusCircleBegin: getRadiusCircle(occurs: 3).0,
                         radiusCircleEnd: getRadiusCircle(occurs: 2).0)
             }
-            res.append(HouseLine(
+            res.append(AstroHouseLine(
                     lX1: axyTriangle[0].offX,
                     lY1: axyTriangle[0].offY,
                     lX2: axyTriangle[1].offX,
