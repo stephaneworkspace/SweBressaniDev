@@ -431,7 +431,7 @@ public class SweCore {
         return res
     }
 
-    func angle(a: SweCore.Angles) -> SweCore.ObjectAngle {
+    public func angle(a: SweCore.Angles) -> SweCore.ObjectAngle {
         var angleRatio = ANGLE_RATIO_DESC
         if (a == .Asc) {
             angleRatio = ANGLE_RATIO_ASC
