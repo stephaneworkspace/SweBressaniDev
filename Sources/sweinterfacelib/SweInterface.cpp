@@ -146,7 +146,7 @@ extern "C" {
         for (int angle = ANGLES_ASC; angle < ANGLES_MC + 1; ++angle) {
             offset = DrawHouseAngle::angle(house, angle);
             angle_size = DrawHouseAngle::angle_size(angle);
-            doc << Image::generate(angle_size.width, angle_size.height, offset.x, offset.y, Angle::read_svg(angle).c_str());
+            doc << Image::generate(angle_size.width, angle_size.height, offset.x, offset.y, Angle::read_svg(angle, color_mode).c_str());
         }
 
         // Draw zodiac lines

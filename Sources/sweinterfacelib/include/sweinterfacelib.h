@@ -251,7 +251,8 @@ namespace sweinterfacelib {
         const char *asset_bodie_r(int bodie);
         class Angle {
         public:
-            static string read_svg(int a);
+            static string read_svg(int a, int color_mode);
+            static const char* read_svg_c(int a, int color_mode);
         };
         class Aspect {
         public:
