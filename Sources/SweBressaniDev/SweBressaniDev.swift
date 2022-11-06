@@ -215,4 +215,8 @@ public class SweSvg {
         return try asset_svg_url(name: String(format: "asset_%d_%d_angle.svg", i, colorMode.rawValue), encoded: s)
     }
 
+    public func text_bodie(i: Int) -> String {
+        let s: String = String(cString: UnsafePointer<CChar>(cwrapper.t_bodie(Int32(i))!))
+        return s
+    }
 }

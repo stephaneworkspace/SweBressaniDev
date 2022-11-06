@@ -34,6 +34,9 @@ const char *a_angle(int angle, int color_mode) {
     return sweinterfacelib::asset_angle(angle, color_mode);
 }
 
+const char *t_bodie(int bodie) {
+    return sweinterfacelib::text_bodie(bodie);
+}
 
 void swelib_set_ephe_path(char* path) {
     swelib::swe_set_ephe_path(path);

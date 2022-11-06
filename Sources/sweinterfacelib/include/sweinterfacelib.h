@@ -249,6 +249,7 @@ namespace sweinterfacelib {
         const char *asset_house(int house);
         const char *asset_bodie(int bodie);
         const char *asset_bodie_r(int bodie);
+        const char *text_bodie(int bodie);
         const char *asset_angle(int angle, int color_mode);
     class Angle {
         public:
@@ -265,7 +266,7 @@ namespace sweinterfacelib {
             static const char* read_svg_c(int astre);
             static string read_r_svg(int astre);
             static const char* read_r_svg_c(int astre);
-            static string nom(int a);
+            static const char* name(int a);
             static string *sign_name_and_svg(CalcUt calcul_ut);
         };
         class Draw {

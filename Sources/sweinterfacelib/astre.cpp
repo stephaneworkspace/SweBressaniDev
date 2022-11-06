@@ -228,7 +228,7 @@ const char* Astre::read_r_svg_c(int astre) {
     }
 }
 
-string Astre::nom(int a) {
+const char* Astre::name(int a) {
     switch (a) {
         case ASTRE_SOLEIL:
             return "Soleil";
