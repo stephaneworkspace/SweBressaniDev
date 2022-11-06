@@ -545,6 +545,44 @@ public class SweCore {
         return res
     }
 
+    func bodieSign(bodie: SweCore.Bodies, swTransit: Bool) -> Int {
+        var res = 1
+        if (!swTransit) {
+            // Natal
+            for b in swec.bodiesNatal {
+                if b.bodie == bodie.rawValue {
+                    for s in 1...12 {
+                        var pos = Double(s - 1) * 30.0
+                        if pos > 360 {
+                            pos = 360 - pos
+                        }
+                        if b.calc_ut.longitude >= pos && b.calc_ut.longitude <= pos + 30 {
+                            res = s
+                            break
+                        }
+                    }
+                }
+            }
+        } else {
+            // Transit
+            for b in swec.bodiesTransit {
+                if b.bodie == bodie.rawValue {
+                    for s in 1...12 {
+                        var pos = Double(s - 1) * 30.0
+                        if pos > 360 {
+                            pos = 360 - pos
+                        }
+                        if b.calc_ut.longitude >= pos && b.calc_ut.longitude <= pos + 30 {
+                            res = s
+                            break
+                        }
+                    }
+                }
+            }
+        }
+        return res
+    }
+
     private func getRadiusTotal() -> Double {
         Double(size) / 2.0
     }
@@ -702,4 +740,6 @@ public class SweCore {
         pos = getFixedPos(pos_value: pos)
         return pos
     }
+
+
 }
