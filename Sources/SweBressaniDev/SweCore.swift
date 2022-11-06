@@ -152,7 +152,7 @@ public class SweCore {
     public init(pathEphe: String) {
         size = 400
         colorMode = .Light
-        self.swec = SweSvg(ephemPath: pathEphe)
+        swec = SweSvg(ephemPath: pathEphe)
     }
 
     public func set(natal: Date, transit: Date, lat: Double, lng: Double, tz: Int32, bodies: [SweCore.Bodies], colorMode: SweSvg.ColorMode) {
