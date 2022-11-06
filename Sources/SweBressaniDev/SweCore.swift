@@ -583,6 +583,32 @@ public class SweCore {
         return res
     }
 
+    public func bodieDegMinSec(bodie: SweCore.Bodies, swTransit: Bool) -> (Int32, Int32, Int32) {
+        var deg: Int32 = 0
+        var min: Int32 = 0
+        var sec: Int32 = 0
+        if (!swTransit) {
+            // Natal
+            for b in swec.bodiesNatal {
+                if b.bodie == bodie.rawValue {
+                    deg = b.calc_ut.split.deg
+                    min = b.calc_ut.split.min
+                    sec = b.calc_ut.split.sec
+                }
+            }
+        } else {
+            // Transit
+            for b in swec.bodiesTransit {
+                if b.bodie == bodie.rawValue {
+                    deg = b.calc_ut.split.deg
+                    min = b.calc_ut.split.min
+                    sec = b.calc_ut.split.sec
+                }
+            }
+        }
+        return (deg, min, sec)
+    }
+
     private func getRadiusTotal() -> Double {
         Double(size) / 2.0
     }
