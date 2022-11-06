@@ -171,7 +171,7 @@ public class SweCore {
         return res
     }
 
-    public func zodiac_lines() -> [SweCore.AstroLine] {
+    public func zodiacLines() -> [SweCore.AstroLine] {
         var res: [SweCore.AstroLine] = []
         for iIdx in 1...12 {
             // 0°
@@ -213,7 +213,7 @@ public class SweCore {
         return res
     }
 
-    public func zodiac_sign(sign: Int) -> SweCore.Object {
+    public func zodiacSign(sign: Int) -> SweCore.Object {
         let zodiacSize = (((ZODIAC_SIZE * ZODIAC_RATIO) / 100.0) * Double(size)) / 100.0;
         let offPosAsc = CIRCLE - swec.houses[0].longitude
         let signEnum: SweCore.Signs = Signs.init(rawValue: sign) ?? SweCore.Signs.Aries
@@ -440,7 +440,7 @@ public class SweCore {
         return res
     }
 
-    public func angle_lines(angle: SweCore.Angles) -> [SweCore.AstroLine] {
+    public func angleLines(angle: SweCore.Angles) -> [SweCore.AstroLine] {
         var res: [SweCore.AstroLine] = []
         var pos: Double = 0.0
         var axyLine: [SweCore.Offset] = []
@@ -499,7 +499,7 @@ public class SweCore {
         return res
     }
 
-    public func house_lines() -> [SweCore.AstroHouseLine] {
+    public func houseLines() -> [SweCore.AstroHouseLine] {
         var res: [SweCore.AstroHouseLine] = []
         for iIdx in 0...11 {
             let offHouse = 360.0 - swec.houses[0].longitude
