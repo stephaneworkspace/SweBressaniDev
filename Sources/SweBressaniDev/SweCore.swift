@@ -154,6 +154,7 @@ public class SweCore {
         size = 400
         colorMode = .Light
         bodies = []
+        /*
         bodies.append(Bodies.Soleil)
         bodies.append(Bodies.Lune)
         bodies.append(Bodies.Mercure)
@@ -168,11 +169,16 @@ public class SweCore {
         //bodies.append(Bodies.Chiron)
         //bodies.append(Bodies.Ceres)
         //bodies.append(Bodies.NoeudLunaireSud)
+        */
         self.swec = SweSvg(ephemPath: pathEphe)
     }
 
-    public func set(natal: Date, transit: Date, lat: Double, lng: Double, tz: Int32, colorMode: SweSvg.ColorMode) {
-        self.swec.set(natal: natal, transit: transit, lat: lat, lng: lng, tz: tz, colorMode: colorMode)
+    public func set(natal: Date, transit: Date, lat: Double, lng: Double, tz: Int32, bodies: [SweCore.Bodies], colorMode: SweSvg.ColorMode) {
+        self.bodies = []
+        bodies.forEach { b in
+            self.bodies.append(b)
+        }
+        swec.set(natal: natal, transit: transit, lat: lat, lng: lng, tz: tz, colorMode: colorMode)
     }
 
     public func circles() -> [SweCore.AstroCircle] {
