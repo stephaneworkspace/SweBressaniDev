@@ -147,37 +147,15 @@ public class SweCore {
     }
     public var size: Int // TODO sizeChart: (screenSize.width == 744 && screenSize.height == 1133) ? 630.0 : 390.0)
     public var colorMode: SweSvg.ColorMode
-    public var bodies: [SweCore.Bodies]
     public var swec: SweSvg
 
     public init(pathEphe: String) {
         size = 400
         colorMode = .Light
-        bodies = []
-        /*
-        bodies.append(Bodies.Soleil)
-        bodies.append(Bodies.Lune)
-        bodies.append(Bodies.Mercure)
-        bodies.append(Bodies.Venus)
-        bodies.append(Bodies.Mars)
-        bodies.append(Bodies.Jupiter)
-        bodies.append(Bodies.Saturn)
-        bodies.append(Bodies.Uranus)
-        bodies.append(Bodies.Neptune)
-        bodies.append(Bodies.Pluto)
-        bodies.append(Bodies.NoeudLunaire)
-        //bodies.append(Bodies.Chiron)
-        //bodies.append(Bodies.Ceres)
-        //bodies.append(Bodies.NoeudLunaireSud)
-        */
         self.swec = SweSvg(ephemPath: pathEphe)
     }
 
     public func set(natal: Date, transit: Date, lat: Double, lng: Double, tz: Int32, bodies: [SweCore.Bodies], colorMode: SweSvg.ColorMode) {
-        self.bodies = []
-        bodies.forEach { b in
-            self.bodies.append(b)
-        }
         swec.set(natal: natal, transit: transit, lat: lat, lng: lng, tz: tz, colorMode: colorMode)
     }
 
