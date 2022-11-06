@@ -545,7 +545,7 @@ public class SweCore {
         return res
     }
 
-    func bodieSign(bodie: SweCore.Bodies, swTransit: Bool) -> Int {
+    public func bodieSign(bodie: SweCore.Bodies, swTransit: Bool) -> Int {
         var res = 1
         if (!swTransit) {
             // Natal
