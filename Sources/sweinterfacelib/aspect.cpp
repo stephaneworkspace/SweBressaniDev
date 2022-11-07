@@ -82,7 +82,6 @@ string Aspect::read_svg(int a) {
         default:
             return "";
     }
-
 }
 
 const char* Aspect::read_svg_c(int a) {
