@@ -38,6 +38,10 @@ const char *t_bodie(int bodie) {
     return sweinterfacelib::text_bodie(bodie);
 }
 
+const char *a_aspect(int aspect) {
+    return sweinterfacelib::asset_aspect(aspect);
+}
+
 void swelib_set_ephe_path(char* path) {
     swelib::swe_set_ephe_path(path);
 }

@@ -331,4 +331,7 @@ extern "C" {
     const char *text_bodie(int bodie) {
         return sweinterfacelib::Astre::name(bodie);
     }
+    const char *asset_aspect(int aspect) {
+        return sweinterfacelib::Aspect::read_svg_c(aspect);
+    }
 }

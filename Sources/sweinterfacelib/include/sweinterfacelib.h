@@ -88,7 +88,7 @@ namespace sweinterfacelib {
     const int ASTRE_CERES = 17;
     const int ASTRE_NOEUD_LUNAIRE_SUD = 24;
 
-    const int CALANDAR_JULIAN = 0;
+    //const int CALANDAR_JULIAN = 0;
     const int CALANDAR_GREGORIAN = 1;
 
     const double RETROGRADE_DIV = 1.5;
@@ -245,6 +245,7 @@ namespace sweinterfacelib {
         const char *asset_bodie_r(int bodie);
         const char *text_bodie(int bodie);
         const char *asset_angle(int angle, int color_mode);
+        const char *asset_aspect(int aspcet);
     class Angle {
         public:
             static string read_svg(int a, int color_mode);
@@ -253,6 +254,8 @@ namespace sweinterfacelib {
         class Aspect {
         public:
             static int *angle(int a);
+            static string read_svg(int a);
+            static const char* read_svg_c(int a);
         };
         class Astre {
         public:

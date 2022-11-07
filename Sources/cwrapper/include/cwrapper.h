@@ -64,7 +64,7 @@ struct SwePhenoUt {
 struct SweBodie {
     int bodie;
     struct SweCalcUt calc_ut;
-    //struct SwePhenoUt phno_ut; // TODO ?
+    //struct SwePhenoUt phno_ut;
 };
 
 const int ASTRE_SOLEIL = 0;
@@ -90,6 +90,7 @@ const char *a_bodie(int bodie);
 const char *a_bodie_r(int bodie);
 const char *a_angle(int angle, int color_mode);
 const char *t_bodie(int bodie);
+const char *a_aspect(int aspect);
 void swelib_set_ephe_path(char* path);
 struct SweTimeZone swelib_utc_time_zone(struct SweTimeZone time_zone, double timezone);
 struct SweUtcToJd swelib_utc_to_jd(struct SweTimeZone tz);
