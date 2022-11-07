@@ -135,8 +135,8 @@ public class SweSvg {
         for b in b_arr {
             let calc_ut = cwrapper.swelib_calc_ut(utc_to_jd, Int32(b))
             let calc_ut_t = cwrapper.swelib_calc_ut(utc_to_jd_transit, Int32(b))
-            bodiesNatal.append(SweBodie.init(bodie: Int32(b), calc_ut: calc_ut))
-            bodiesTransit.append(SweBodie.init(bodie: Int32(b), calc_ut: calc_ut_t))
+            bodiesNatal.append(cwrapper.SweBodie.init(bodie: Int32(b), calc_ut: calc_ut))
+            bodiesTransit.append(cwrapper.SweBodie.init(bodie: Int32(b), calc_ut: calc_ut_t))
         }
         self.colorMode = colorMode
     }
