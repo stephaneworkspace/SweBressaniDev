@@ -645,7 +645,7 @@ public class SweCore {
         return res
     }
 
-    func getRadiusRulesInsideCircle(largerDrawLine: SweCore.LargerDrawLine) -> Double {
+    private func getRadiusRulesInsideCircle(largerDrawLine: SweCore.LargerDrawLine) -> Double {
         var size = 0.0
         switch largerDrawLine {
         case .Small:
