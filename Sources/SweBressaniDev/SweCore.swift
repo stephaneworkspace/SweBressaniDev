@@ -155,7 +155,7 @@ public class SweCore {
         swec = SweSvg(ephemPath: pathEphe)
     }
 
-    public func set(natal: Date, transit: Date, lat: Double, lng: Double, tz: Int32, bodies: [SweCore.Bodies], colorMode: SweSvg.ColorMode) {
+    public func set(natal: Date, transit: Date, lat: Double, lng: Double, tz: Int32, colorMode: SweSvg.ColorMode) {
         swec.set(natal: natal, transit: transit, lat: lat, lng: lng, tz: tz, colorMode: colorMode)
     }
 
