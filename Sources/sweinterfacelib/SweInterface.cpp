@@ -44,7 +44,7 @@ extern "C" {
             house[i] = Swe14::house(utc_to_jd.julian_day_ut, lat, lng, 'P', i + 1);
         }
 
-        int* astres = new int[11];
+        int* astres = new int[MAX_ASTRES];
         astres[SOLEIL] = ASTRE_SOLEIL;
         astres[LUNE] = ASTRE_LUNE;
         astres[MERCURE] = ASTRE_MERCURE;
@@ -56,10 +56,9 @@ extern "C" {
         astres[NEPTUNE] = ASTRE_NEPTUNE;
         astres[PLUTON] = ASTRE_PLUTON;
         astres[NOEUD_LUNAIRE] = ASTRE_NOEUD_LUNAIRE;
-        // TODO
-        //ASTRE_CHIRON = 15;
-        //ASTRE_CERES = 17;
-        //ASTRE_NOEUD_LUNAIRE_SUD = 24;
+        astres[CHIRON] = ASTRE_CHIRON;
+        astres[CERES] = ASTRE_CERES;
+        astres[NOEUD_LUNAIRE_SUD] = ASTRE_NOEUD_LUNAIRE_SUD;
 
         Document doc(CHART_SIZE, CHART_SIZE);
         Fill svg_fill;
@@ -177,7 +176,7 @@ extern "C" {
         svg_line.set_stroke(svg_stroke);
         DrawBodieLines dbl;
         // LineXY lxy;
-        for (int i = 0; i < 11; ++i) {
+        for (int i = 0; i < MAX_ASTRES; ++i) {
             Offset offset;
             // Natal
             CalcUt calcul_ut = Swe03::calc_ut(utc_to_jd.julian_day_ut, astres[i], OPTION_FLAG_SPEED);
@@ -216,16 +215,16 @@ extern "C" {
         }
 
         // Aspect
-        const int MAX_ITEM = (11 * 2) + 2;
+        const int MAX_ITEM = (MAX_ASTRES * 2) + 2;
         double* item_longitude = new double[MAX_ITEM];
-        for (int i = 0; i < 11; ++i) {
+        for (int i = 0; i < MAX_ASTRES; ++i) {
             item_longitude[i] = Swe03::calc_ut(utc_to_jd.julian_day_ut, astres[i], OPTION_FLAG_SPEED).longitude;
         }
-        for (int i = 1; i < 11; ++i) {
+        for (int i = 1; i < MAX_ASTRES; ++i) {
             //item_longitude[11 + i] = Swe03::calc_ut(utc_to_jd_t.julian_day_ut, astres[i], OptionFlag::speed).longitude;
         }
-        item_longitude[(11 * 2) + 1] = house[0].longitude;
-        item_longitude[(11 * 2) + 2] = house[9].longitude;
+        item_longitude[(MAX_ASTRES * 2) + 1] = house[0].longitude;
+        item_longitude[(MAX_ASTRES * 2) + 2] = house[9].longitude;
 
         /*
         CalcUt* c_ut = new CalcUt[2];
