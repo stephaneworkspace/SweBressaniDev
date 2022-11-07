@@ -41,8 +41,7 @@ public class SweSvg {
         self.ephemPath = ephemPath
         let pathPtr = UnsafeMutablePointer<Int8>(mutating: (self.ephemPath as NSString).utf8String)
         cwrapper.swelib_set_ephe_path(pathPtr)
-        free(pathPtr)
-        //free(pathPtr) TODO comprendre
+        //free(pathPtr) generate error
         year = 1984
         month = 1
         day = 1
