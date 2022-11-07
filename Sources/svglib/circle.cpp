@@ -11,7 +11,7 @@ Circle::Circle(Fill fill, Stroke stroke) {
     properties.stroke.stroke_width = stroke.stroke_width;
 }
 
-string Circle::generate(float x, float y, float r) {
+string Circle::generate(double x, double y, double r) {
     string fill;
     fill.assign(properties.fill.fill);
     string stroke;

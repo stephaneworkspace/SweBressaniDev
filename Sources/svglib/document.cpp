@@ -6,7 +6,7 @@
 
 using namespace svglib;
 
-Document::Document(float w, float h) {
+Document::Document(double w, double h) {
     width = w;
     height = h;
     content = "";

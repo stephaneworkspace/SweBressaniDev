@@ -5,7 +5,7 @@
 
 using namespace svglib;
 
-string Image::generate(float height, float width, float x, float y, const char* href) {
+string Image::generate(double height, double width, double x, double y, const char* href) {
     string h;
     h.assign(href);
     static string output;

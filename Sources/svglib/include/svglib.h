@@ -17,14 +17,14 @@ namespace svglib {
     };
     struct SvgPoint {
         int point_idx;
-        float point;
+        double point;
     };
     struct SvgFill {
         const char *fill;
     };
     struct SvgStroke {
         const char *stroke;
-        float stroke_width;
+        double stroke_width;
     };
     struct SvgProperties {
         SvgFill fill;
@@ -35,7 +35,7 @@ namespace svglib {
     };
     struct Stroke {
         string stroke;
-        float stroke_width;
+        double stroke_width;
     };
     extern "C" {
         class Circle {
@@ -43,7 +43,7 @@ namespace svglib {
                 SvgProperties properties;
             public:
                 Circle(Fill fill, Stroke stroke);
-                string generate(float x, float y, float r);
+                string generate(double x, double y, double r);
         };
         class Data {
         private:
@@ -53,28 +53,28 @@ namespace svglib {
             int idx_point;
             SvgProperties properties;
             static long get_size(string s);
-            static float get_value(string s, int pos);
+            static double get_value(string s, int pos);
             SvgData set_data(char c, int point_size);
             SvgPoint set_point(string point_string, int pos);
             void set_command(char c, string s);
-            string round(float var);
+            string round(double var);
         public:
             Data(Fill fill, Stroke stroke);
-            void move_to(float x, float y);
-            void move_by(float x, float y);
-            void line_to(float x, float y);
-            void line_by(float x, float y);
+            void move_to(double x, double y);
+            void move_by(double x, double y);
+            void line_to(double x, double y);
+            void line_by(double x, double y);
             void close_to();
             void close_by();
             string generate();
         };
         class Document {
         private:
-            float width;
-            float height;
+            double width;
+            double height;
             string content;
         public:
-            Document(float w, float h);
+            Document(double w, double h);
             Document &operator<<(string const &s) {
                 content += s;
                 return *this;
@@ -84,7 +84,7 @@ namespace svglib {
     }
     class Image {
     public:
-        static string generate(float height, float width, float x, float y, const char *href);
+        static string generate(double height, double width, double x, double y, const char *href);
     };
     class Line {
     private:
@@ -92,6 +92,6 @@ namespace svglib {
     public:
         Line(Stroke s);
         void set_stroke(Stroke s);
-        string generate(float x1, float y1, float x2, float y2);
+        string generate(double x1, double y1, double x2, double y2);
     };
 }

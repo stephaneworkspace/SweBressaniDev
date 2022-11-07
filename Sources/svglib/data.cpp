@@ -9,7 +9,7 @@ long Data::get_size(string s) {
     return std::count(s.begin(), s.end(), DELIMITER_CHAR) + 1;
 }
 
-float Data::get_value(string s, int pos) {
+double Data::get_value(string s, int pos) {
     string c = DELIMITER;
     string res = "";
     auto start = 0U;
@@ -61,7 +61,7 @@ void Data::set_command(char c, string s) {
     idx_point += size;
 }
 
-string Data::round(float var){
+string Data::round(double var){
     //char str[40];
     //sprintf(str, "%.1f", var);
     //sscanf(str, "%f", &var);
@@ -77,22 +77,22 @@ Data::Data(Fill fill, Stroke stroke) {
     properties.stroke.stroke_width = stroke.stroke_width;
 }
 
-void Data::move_to(float x, float y) {
+void Data::move_to(double x, double y) {
     char c = 'M';
     Data::set_command(c, to_string(x) + "," + to_string(y));
 }
 
-void Data::move_by(float x, float y) {
+void Data::move_by(double x, double y) {
     char c = 'm';
     Data::set_command(c, to_string(x) + "," + to_string(y));
 }
 
-void Data::line_to(float x, float y) {
+void Data::line_to(double x, double y) {
     char c = 'L';
     Data::set_command(c, to_string(x) + "," + to_string(y));
 }
 
-void Data::line_by(float x, float y) {
+void Data::line_by(double x, double y) {
     char c = 'l';
     Data::set_command(c, to_string(x) + "," + to_string(y));
 }
