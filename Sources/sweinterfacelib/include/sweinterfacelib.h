@@ -37,22 +37,15 @@ namespace sweinterfacelib {
         int sign;
         double result;
     };
+
+    // Angles
     const int ANGLES_NOTHING = 0;
     const int ANGLES_ASC = 1;
     const int ANGLES_FC = 2;
     const int ANGLES_DESC = 3;
     const int ANGLES_MC = 4;
-    enum Aspects {
-        conjunction = 0,
-        opposition = 1,
-        trine = 2,
-        square = 3,
-        sextile = 4,
-        inconjunction = 5,
-        sequisquare = 6,
-        semisquare = 7,
-        semisextile = 8
-    };
+
+    // Aspects
     const int ASPECTS_CONJUNCTION = 0;
     const int ASPECTS_OPPOSITION = 1;
     const int ASPECTS_TRINE = 2;
@@ -146,7 +139,7 @@ namespace sweinterfacelib {
         double lx2;
         double ly2;
         bool sw;
-        Aspects aspect;
+        int aspect;
     };
     struct PairAspect {
         int i;
@@ -259,7 +252,7 @@ namespace sweinterfacelib {
         };
         class Aspect {
         public:
-            static int *angle(Aspects a);
+            static int *angle(int a);
         };
         class Astre {
         public:
