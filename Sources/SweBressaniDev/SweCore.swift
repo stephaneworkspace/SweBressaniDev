@@ -270,17 +270,7 @@ public class SweCore {
     }
 
     public func bodie(bodie: Bodies, swTransit: Bool) -> SweCore.ObjectBodie {
-        var planetRatio: Double
-        if swTransit {
-            planetRatio = 6.0 // TODO const
-        } else {
-            planetRatio = 12.0 // TODO const
-        }
         let planetSize = (((BODIE_SIZE * ZODIAC_RATIO) / 100.0) * Double(size)) / 100.0;
-        let degRatio = 6.0 // TODO const
-        let degSize = (((DEG_SIZE * degRatio) / 100.0) * Double(size))
-        let minRatio = 6.0 // TODO const
-        let minSize = (((MIN_SIZE * degRatio) / 100.0) * Double(size))
         var swRetrograde = false
         if (!swTransit) {
             // natal
