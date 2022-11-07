@@ -196,7 +196,7 @@ public class SweSvg {
     }
 
     public func asset_house(i: Int) throws -> URL {
-        let s: String = String(cString: UnsafePointer<CChar>(cwrapper.a_house(Int32(i))!))
+        let s: String = String(cString: UnsafePointer<CChar>(cwrapper.a_house(Int32(i), Int32(colorMode.rawValue))!))
         return try asset_svg_url(name: String(format: "asset_%d_house.svg", i), encoded: s)
     }
 

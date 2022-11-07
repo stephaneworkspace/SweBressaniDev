@@ -246,7 +246,7 @@ namespace sweinterfacelib {
     extern "C" {
         const char *theme_astral_svg(int year, int month, int day, int hour, int min, double lat, double lng, int gmt, const char *ephem_path, int color_mode);
         const char *asset_sign(int sign);
-        const char *asset_house(int house);
+        const char *asset_house(int house, int color_mode);
         const char *asset_bodie(int bodie);
         const char *asset_bodie_r(int bodie);
         const char *text_bodie(int bodie);
@@ -339,8 +339,8 @@ namespace sweinterfacelib {
         };
         class House {
         public:
-            static string read_svg(int house);
-            static const char* read_svg_c(int house);
+            static string read_svg(int house, int color_mode);
+            static const char* read_svg_c(int house, int color_mode);
             static H init(int object_id, double longitude, int angle);
         };
         class Sign {

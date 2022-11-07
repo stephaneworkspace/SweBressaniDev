@@ -134,7 +134,7 @@ extern "C" {
             Offset offset;
             house_size = DrawHouseNumber::number_size(i);
             offset = DrawHouseNumber::number(i, house);
-            doc << Image::generate(house_size.width, house_size.height, offset.x, offset.y, House::read_svg(i).c_str());
+            doc << Image::generate(house_size.width, house_size.height, offset.x, offset.y, House::read_svg(i, color_mode).c_str());
             //doc << Image::generate(7, 7, offset.x, offset.y, House::read_svg(i).c_str());
         }
 
@@ -317,8 +317,8 @@ extern "C" {
     const char *asset_sign(int sign) {
         return sweinterfacelib::Sign::read_svg_c(sign);
     }
-    const char *asset_house(int house) {
-        return sweinterfacelib::House::read_svg_c(house);
+    const char *asset_house(int house, int color_mode) {
+        return sweinterfacelib::House::read_svg_c(house, color_mode);
     }
     const char *asset_bodie(int bodie) {
         return sweinterfacelib::Astre::read_svg_c(bodie);

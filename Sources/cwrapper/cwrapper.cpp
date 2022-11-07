@@ -18,8 +18,8 @@ const char *a_sign(int sign) {
     return sweinterfacelib::asset_sign(sign);
 }
 
-const char *a_house(int house) {
-    return sweinterfacelib::asset_house(house);
+const char *a_house(int house, int color_mode) {
+    return sweinterfacelib::asset_house(house, color_mode);
 }
 
 const char *a_bodie(int bodie) {
