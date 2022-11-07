@@ -32,10 +32,16 @@ public class SweSvg {
     public var bodiesTransit: [cwrapper.SweBodie]
     public var colorMode: ColorMode
 
+    enum SvgError: Error {
+        case SvgInvalid
+        case SvgWriteError
+    }
+
     public init(ephemPath: String) {
         self.ephemPath = ephemPath
         let pathPtr = UnsafeMutablePointer<Int8>(mutating: (self.ephemPath as NSString).utf8String)
         cwrapper.swelib_set_ephe_path(pathPtr)
+        free(pathPtr)
         //free(pathPtr) TODO comprendre
         year = 1984
         month = 1
@@ -141,29 +147,25 @@ public class SweSvg {
         return s
     }
 
-    private func asset_svg(name: String, encoded: String) -> String {
+    private func asset_svg(name: String, encoded: String) throws -> String {
         guard
                 var documentsURL = (FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)).last,
                 let convertedData = Data(base64Encoded: encoded)
         else {
-            print("error1")
-            return "" // TODO
+            print("Svg pas valide")
+            throw SvgError.SvgInvalid
         }
         documentsURL.appendPathComponent(name)
         do {
             try convertedData.write(to: documentsURL)
         } catch {
-            print("error2")
-            return "" // TODO
+            print("Write error")
+            throw  SvgError.SvgWriteError
         }
         let svg_file = documentsURL.absoluteString
         return svg_file.replacingOccurrences(of: "file://", with: "")
     }
 
-    enum URLError: Error { // TODO
-        case error1
-        case error2
-    }
 
     private func asset_svg_url(name: String, encoded: String) throws -> URL {
         let e = encoded.replacingOccurrences(of:  "data:image/svg+xml;base64,", with: "")
@@ -172,22 +174,21 @@ public class SweSvg {
                 let convertedData = Data(base64Encoded: e)
         else {
             print("Svg pas valide")
-            throw  URLError.error1
+            throw SvgError.SvgInvalid
         }
         documentsURL.appendPathComponent(name)
         do {
             try convertedData.write(to: documentsURL)
         } catch {
-            print("error2")
-            throw  URLError.error2
+            print("Write error")
+            throw  SvgError.SvgWriteError
         }
         return documentsURL.absoluteURL
     }
 
-    public func theme_astral() -> String {
-        // TODO
+    public func theme_astral() throws -> String {
         let svg: String = ptrToString(ptr: cwrapper.theme_astral(year, month, day, hour, min, lat, lng, tz, ephemPath, Int32(colorMode.rawValue)))
-        return asset_svg(name: "asset_theme_astral.svg", encoded: svg)
+        return try asset_svg(name: "asset_theme_astral.svg", encoded: svg)
     }
 
     public func asset_sign(i: Int) throws -> URL {

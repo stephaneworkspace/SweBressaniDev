@@ -64,7 +64,7 @@ struct SwePhenoUt {
 struct SweBodie {
     int bodie;
     struct SweCalcUt calc_ut;
-    //struct SwePhenoUt phno_ut;
+    //public struct SwePhenoUt phno_ut;
 };
 
 const int ASTRE_SOLEIL = 0;

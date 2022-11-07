@@ -9,7 +9,7 @@ extern "C" {
         // Charger le path des ephem, depuis swift il est a préciser, sinon ça utilise de ce répertoire
         string ephem_path_string;
         if (strcmp(ephem_path, "") == 0) {
-            //TODO ephem_path_string = filesystem::current_path().parent_path().parent_path();
+            //ephem_path_string = filesystem::current_path().parent_path().parent_path();
             ephem_path_string += "/ephem";
         } else {
             ephem_path_string = ephem_path;

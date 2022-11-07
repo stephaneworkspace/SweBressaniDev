@@ -37,6 +37,8 @@ let ANGLE_RATIO_ASC = 10.0
 let ANGLE_RATIO_FC = 7.0
 let ANGLE_RATIO_DESC = 12.0
 let ANGLE_RATIO_MC = 8.0
+let ANGULAR_POINTER = -1.0
+let DIV_TRAIT_POINTER = 1.5
 
 public class SweCore {
     public enum Angles: Int32 {
@@ -330,7 +332,6 @@ public class SweCore {
                             angular: pos,
                             radiusCircle: getRadiusCircle(occurs: 5).0))
         }
-        // TODO deg min line 1336 sw_draw.rs
         let res = SweCore.ObjectBodie(
                 swRetrograde: swRetrograde,
                 oSx: planetSize,
@@ -495,7 +496,7 @@ public class SweCore {
             let offHouse = 360.0 - swec.houses[0].longitude
             let pos = getFixedPos(pos_value: offHouse + swec.houses[iIdx].longitude)
             var axyTriangle: [SweCore.Offset] = []
-            let angularPointer = -1.0 // TODO CONST
+            let angularPointer = ANGULAR_POINTER
             if swec.houses[iIdx].angle == SweCore.Angles.Nothing.rawValue {
                 axyTriangle = getTriangleTrigo(
                         angular: pos,
@@ -685,7 +686,7 @@ public class SweCore {
     }
 
     private func getRadiusInsideCircleHouseForPointerBottom() -> Double {
-        let divTraitPointer = 1.5 // TODO CONST
+        let divTraitPointer = DIV_TRAIT_POINTER
         return (getRadiusTotal() * (((CIRCLE_SIZE_TRANSIT[3].0 - CIRCLE_SIZE_TRANSIT[2].0)
                 / divTraitPointer)
                 - CIRCLE_SIZE_TRANSIT[3].0)) / 100.0
