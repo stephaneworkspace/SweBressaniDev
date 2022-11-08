@@ -84,6 +84,17 @@ public class SweCore {
              Ceres = 17,
              NoeudLunaireSud = 24
     }
+    public enum Aspects: Int {
+        case Conjunction = 0,
+             Opposition = 1,
+             Trine = 2,
+             Square = 3,
+             Sextile = 4,
+             Inconjunction = 5,
+             Sequisquare = 6,
+             Semisquare = 7,
+             Semisextile = 8
+    }
     public struct AstroCircle {
         public var center: Double
         public var radius: Double
@@ -169,10 +180,22 @@ public class SweCore {
     public enum BodAng {
         case Bodie(SweCore.Bodies), Angle(SweCore.Angles)
     }
+
     public struct BodAngIdentifiable: Identifiable {
         public var id = UUID()
         public var bodAng: BodAng
         public var pos: Int
+    }
+
+    public struct BodAngAspectIdentifiable: Identifiable {
+        public var id = UUID()
+        public var bodAng1: BodAng
+        public var pos1: Int
+        public var swTransit1: Bool
+        public var bodAng2: BodAng
+        public var pos2: Int
+        public var swTransit2: Bool
+        public var aspect: SweCore.Aspects
     }
 
     public init(pathEphe: String) {
@@ -197,6 +220,26 @@ public class SweCore {
         j += 1
         res.append(BodAngIdentifiable.init(bodAng: BodAng.Angle(.Asc), pos: j))
         res.append(BodAngIdentifiable.init(bodAng: BodAng.Angle(.Mc), pos: j))
+        return res
+    }
+
+    public func bodAngAspect(swBodies: [Bool], swTransit1: Bool, swTransit2: Bool) -> [BodAngAspectIdentifiable] {
+        let resBodAng = bodAng(swBodies: swBodies)
+        var res: [BodAngAspectIdentifiable] = []
+        for ba in resBodAng {
+            for ba2 in resBodAng {
+                if ba.pos != ba2.pos {
+                    res.append(BodAngAspectIdentifiable.init(
+                            bodAng1: ba.bodAng,
+                            pos1: ba.pos,
+                            swTransit1: swTransit1,
+                            bodAng2: ba2.bodAng,
+                            pos2: ba2.pos,
+                            swTransit2: swTransit2,
+                            aspect: .Trine))
+                }
+            }
+        }
         return res
     }
 
