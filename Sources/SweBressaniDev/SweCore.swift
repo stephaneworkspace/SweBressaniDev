@@ -228,12 +228,12 @@ public class SweCore {
         for ba in resBodAng {
             for ba2 in resBodAng {
                 if ba.pos != ba2.pos {
+                    var lon1 = 0.0
+                    var lon2 = 0.0
                     switch ba.bodAng {
                     case .Bodie(let baB):
                         switch ba2.bodAng {
                         case .Bodie(let baB2):
-                                var lon1 = 0.0
-                                var lon2 = 0.0
                                 if swTransit1 == false && swTransit2 == false {
                                     for bod in swec.bodiesNatal {
                                         if bod.bodie == baB.rawValue {
@@ -292,6 +292,16 @@ public class SweCore {
                     case .Angle(let baA):
                         break
                     }
+                    var aspect = SweCore.Aspects.Nothing
+                    let separation = self.getClosestDistance(angle1: lon1, angle2: lon2)
+                    let absSeparation = abs(separation)
+                    for aspectIdx in 0...SweCore.Aspects.Semisextile.rawValue {
+                        let a = Aspects.init(rawValue: aspectIdx)!
+                        if abs(absSeparation - Double(a.angle().0)) <= Double(a.angle().1) {
+                            // .0 asp / .1 orb
+                            aspect = a
+                        }
+                    }
                     res.append(BodAngAspectIdentifiable.init(
                             bodAng1: ba.bodAng,
                             pos1: ba.pos,
@@ -299,7 +309,7 @@ public class SweCore {
                             bodAng2: ba2.bodAng,
                             pos2: ba2.pos,
                             swTransit2: swTransit2,
-                            aspect: .Nothing))
+                            aspect: aspect))
                 }
             }
         }
