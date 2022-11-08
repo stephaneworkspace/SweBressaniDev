@@ -208,14 +208,12 @@ public class SweCore {
         swec.set(natal: natal, transit: transit, lat: lat, lng: lng, tz: tz, colorMode: colorMode)
     }
 
-    public func bodAng(swBodies: [Bool]) -> [BodAngIdentifiable] {
+    public func bodAng() -> [BodAngIdentifiable] {
         var res: [BodAngIdentifiable] = []
         var j = 0
         for (i, b) in bodiesForLoop.enumerated() {
-            if swBodies[i] {
-                j = i
-                res.append(BodAngIdentifiable.init(bodAng: BodAng.Bodie(b), pos: i))
-            }
+            j = i
+            res.append(BodAngIdentifiable.init(bodAng: BodAng.Bodie(b), pos: i))
         }
         j += 1
         res.append(BodAngIdentifiable.init(bodAng: BodAng.Angle(.Asc), pos: j))
@@ -223,8 +221,8 @@ public class SweCore {
         return res
     }
 
-    public func bodAngAspect(swBodies: [Bool], swTransit1: Bool, swTransit2: Bool) -> [BodAngAspectIdentifiable] {
-        let resBodAng = bodAng(swBodies: swBodies)
+    public func bodAngAspect(swTransit1: Bool, swTransit2: Bool) -> [BodAngAspectIdentifiable] {
+        let resBodAng = bodAng()
         var res: [BodAngAspectIdentifiable] = []
         for ba in resBodAng {
             for ba2 in resBodAng {
@@ -243,10 +241,10 @@ public class SweCore {
         return res
     }
 
-    public func bodAngAspectPos(swBodies: [Bool], bodAngPos: Int, swTransit1: Bool, swTransit2: Bool, y: Int) -> (BodAngAspectIdentifiable, Bool) {
+    public func bodAngAspectPos(bodAngPos: Int, swTransit1: Bool, swTransit2: Bool, y: Int) -> (BodAngAspectIdentifiable, Bool) {
         var res: (BodAngAspectIdentifiable, Bool) = (BodAngAspectIdentifiable.init(bodAng1: BodAng.Bodie(.Soleil), pos1: 1, swTransit1: false, bodAng2: BodAng.Bodie(.Lune), pos2: 2, swTransit2: false, aspect: .Square), false)
         var i = 0;
-        let bodAngAspect = bodAngAspect(swBodies: swBodies, swTransit1: false, swTransit2: false)
+        let bodAngAspect = bodAngAspect(swTransit1: false, swTransit2: false)
         for ba in bodAngAspect {
             if ba.pos1 == bodAngPos {
                 if (y == i) {
