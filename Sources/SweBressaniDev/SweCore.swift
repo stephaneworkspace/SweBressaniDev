@@ -167,7 +167,12 @@ public class SweCore {
         SweCore.Bodies.NoeudLunaireSud,
     ]
     public enum BodAng {
-        case Bodie((SweCore.Bodies, Int)), Angle((SweCore.Angles, Int))
+        case Bodie(SweCore.Bodies), Angle(SweCore.Angles)
+    }
+    public struct BodAngIdentifiable: Identifiable {
+        public var id = UUID()
+        public var bodAng: BodAng
+        public var pos: Int
     }
 
     public init(pathEphe: String) {
@@ -180,18 +185,18 @@ public class SweCore {
         swec.set(natal: natal, transit: transit, lat: lat, lng: lng, tz: tz, colorMode: colorMode)
     }
 
-    public func bodAng(swBodies: [Bool]) -> [BodAng] {
-        var res: [BodAng] = []
+    public func bodAng(swBodies: [Bool]) -> [BodAngIdentifiable] {
+        var res: [BodAngIdentifiable] = []
         var j = 0
         for (i, b) in bodiesForLoop.enumerated() {
             if swBodies[i] {
                 j = i
-                res.append(BodAng.Bodie((b, i)))
+                res.append(BodAngIdentifiable.init(bodAng: BodAng.Bodie(b), pos: i))
             }
         }
         j += 1
-        res.append(BodAng.Angle((.Asc, j)))
-        res.append(BodAng.Angle((.Mc, j)))
+        res.append(BodAngIdentifiable.init(bodAng: BodAng.Angle(.Asc), pos: j))
+        res.append(BodAngIdentifiable.init(bodAng: BodAng.Angle(.Mc), pos: j))
         return res
     }
 
