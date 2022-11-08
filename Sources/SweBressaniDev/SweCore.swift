@@ -243,6 +243,21 @@ public class SweCore {
         return res
     }
 
+    public func bodAngAspectPos(swBodies: [Bool], bodAngPos: Int, swTransit1: Bool, swTransit2: Bool, y: Int) -> BodAngAspectIdentifiable {
+        var res: BodAngAspectIdentifiable = BodAngAspectIdentifiable.init(bodAng1: BodAng.Bodie(.Soleil), pos1: 1, swTransit1: false, bodAng2: BodAng.Bodie(.Lune), pos2: 2, swTransit2: false, aspect: .Square)
+        var i = 0;
+        let bodAngAspect = bodAngAspect(swBodies: swBodies, swTransit1: false, swTransit2: false)
+        for ba in bodAngAspect {
+            if ba.pos1 == bodAngPos {
+                if (y == i) {
+                    return ba
+                }
+                i += 1
+            }
+        }
+        return res
+    }
+
     public func circles() -> [SweCore.AstroCircle] {
         var res: [SweCore.AstroCircle] = []
         let center = getRadiusTotal()
