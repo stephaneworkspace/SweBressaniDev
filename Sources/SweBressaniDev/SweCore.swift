@@ -93,7 +93,8 @@ public class SweCore {
              Inconjunction = 5,
              Sequisquare = 6,
              Semisquare = 7,
-             Semisextile = 8
+             Semisextile = 8,
+             Nothing = -1
     }
     public struct AstroCircle {
         public var center: Double
@@ -227,6 +228,70 @@ public class SweCore {
         for ba in resBodAng {
             for ba2 in resBodAng {
                 if ba.pos != ba2.pos {
+                    switch ba.bodAng {
+                    case .Bodie(let baB):
+                        switch ba2.bodAng {
+                        case .Bodie(let baB2):
+                                var lon1 = 0.0
+                                var lon2 = 0.0
+                                if swTransit1 == false && swTransit2 == false {
+                                    for bod in swec.bodiesNatal {
+                                        if bod.bodie == baB.rawValue {
+                                            lon1 = bod.calc_ut.longitude
+                                            break
+                                        }
+                                    }
+                                    for bod in swec.bodiesNatal {
+                                        if bod.bodie == baB2.rawValue {
+                                            lon2 = bod.calc_ut.longitude
+                                        }
+                                    }
+                                } else if swTransit1 == false && swTransit2 == true {
+                                    for bod in swec.bodiesNatal {
+                                        if bod.bodie == baB.rawValue {
+                                            lon1 = bod.calc_ut.longitude
+                                            break
+                                        }
+                                    }
+                                    for bod in swec.bodiesTransit {
+                                        if bod.bodie == baB2.rawValue {
+                                            lon2 = bod.calc_ut.longitude
+                                        }
+                                    }
+                                } else if swTransit1 == true && swTransit2 == false {
+                                    for bod in swec.bodiesTransit {
+                                        if bod.bodie == baB.rawValue {
+                                            lon1 = bod.calc_ut.longitude
+                                            break
+                                        }
+                                    }
+                                    for bod in swec.bodiesNatal {
+                                        if bod.bodie == baB2.rawValue {
+                                            lon2 = bod.calc_ut.longitude
+                                        }
+                                    }
+                                } else if swTransit1 == true && swTransit2 == true {
+                                    for bod in swec.bodiesTransit {
+                                        if bod.bodie == baB.rawValue {
+                                            lon1 = bod.calc_ut.longitude
+                                            break
+                                        }
+                                    }
+                                    for bod in swec.bodiesTransit {
+                                        if bod.bodie == baB2.rawValue {
+                                            lon2 = bod.calc_ut.longitude
+                                        }
+                                    }
+                                }
+                            break
+                        case .Angle(let baA2):
+
+                            break
+                        }
+                        break
+                    case .Angle(let baA):
+                        break
+                    }
                     res.append(BodAngAspectIdentifiable.init(
                             bodAng1: ba.bodAng,
                             pos1: ba.pos,
@@ -234,7 +299,7 @@ public class SweCore {
                             bodAng2: ba2.bodAng,
                             pos2: ba2.pos,
                             swTransit2: swTransit2,
-                            aspect: .Trine))
+                            aspect: .Nothing))
                 }
             }
         }
@@ -853,5 +918,91 @@ public class SweCore {
         return pos
     }
 
+    private func getClosestDistance(angle1: Double, angle2: Double) -> Double {
+        getZnorm(angle: angle2 - angle1)
+    }
 
+    private func getZnorm(angle: Double) -> Double {
+        let ang = Int(angle) % Int(CIRCLE)
+        //let ang = Int(angle) % Int(CIRCLE)
+        if Double(ang) <= (CIRCLE / 2.0) {
+            return Double(ang)
+        } else {
+            return Double(ang) - CIRCLE
+        }
+    }
+}
+
+extension SweCore.Aspects {
+    // Return property (angle, orbe)
+    func angle() -> (Int32, Int32) {
+        switch self {
+        case .Conjunction:
+            return (0, 10)
+        case .Opposition:
+            return (180, 8)
+        case .Trine:
+            return (120, 7)
+        case .Square:
+            return (90, 6)
+        case .Sextile:
+            return (60, 5)
+        case .Inconjunction:
+            return (150, 2)
+        case .Sequisquare:
+            return (135, 1)
+        case .Semisquare:
+            return (45, 1)
+        case .Semisextile:
+            return (30, 1)
+        case .Nothing:
+            return (0,0)
+        }
+    }
+
+    // Return if maj
+
+    func maj() -> Bool {
+        switch self {
+        case .Conjunction:
+            return true
+        case .Opposition:
+            return true
+        case .Trine:
+            return true
+        case .Square:
+            return true
+        case .Sextile:
+            return true
+        default:
+            return false
+        }
+    }
+
+    // Return text
+
+    func text() -> String {
+        switch self {
+        case .Conjunction:
+            return "Conjonction"
+        case .Opposition:
+            return "Opposition"
+        case .Trine:
+            return "Trigone"
+        case .Square:
+            return "Quadrature"
+        case .Sextile:
+            return "Sextile"
+        case .Inconjunction:
+            return "Quinconce"
+        case .Sequisquare:
+            return "Sesqui-carré"
+        case .Semisquare:
+            return "Demi-carré"
+        case .Semisextile:
+            return "Demi-sextile"
+        default:
+            return ""
+        }
+    }
 }
