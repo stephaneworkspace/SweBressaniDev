@@ -234,66 +234,107 @@ public class SweCore {
                     case .Bodie(let baB):
                         switch ba2.bodAng {
                         case .Bodie(let baB2):
-                                if swTransit1 == false && swTransit2 == false {
-                                    for bod in swec.bodiesNatal {
-                                        if bod.bodie == baB.rawValue {
-                                            lon1 = bod.calc_ut.longitude
-                                            break
-                                        }
-                                    }
-                                    for bod in swec.bodiesNatal {
-                                        if bod.bodie == baB2.rawValue {
-                                            lon2 = bod.calc_ut.longitude
-                                        }
-                                    }
-                                } else if swTransit1 == false && swTransit2 == true {
-                                    for bod in swec.bodiesNatal {
-                                        if bod.bodie == baB.rawValue {
-                                            lon1 = bod.calc_ut.longitude
-                                            break
-                                        }
-                                    }
-                                    for bod in swec.bodiesTransit {
-                                        if bod.bodie == baB2.rawValue {
-                                            lon2 = bod.calc_ut.longitude
-                                        }
-                                    }
-                                } else if swTransit1 == true && swTransit2 == false {
-                                    for bod in swec.bodiesTransit {
-                                        if bod.bodie == baB.rawValue {
-                                            lon1 = bod.calc_ut.longitude
-                                            break
-                                        }
-                                    }
-                                    for bod in swec.bodiesNatal {
-                                        if bod.bodie == baB2.rawValue {
-                                            lon2 = bod.calc_ut.longitude
-                                        }
-                                    }
-                                } else if swTransit1 == true && swTransit2 == true {
-                                    for bod in swec.bodiesTransit {
-                                        if bod.bodie == baB.rawValue {
-                                            lon1 = bod.calc_ut.longitude
-                                            break
-                                        }
-                                    }
-                                    for bod in swec.bodiesTransit {
-                                        if bod.bodie == baB2.rawValue {
-                                            lon2 = bod.calc_ut.longitude
-                                        }
+                            if swTransit1 == false && swTransit2 == false {
+                                for bod in swec.bodiesNatal {
+                                    if bod.bodie == baB.rawValue {
+                                        lon1 = bod.calc_ut.longitude
+                                        break
                                     }
                                 }
+                                for bod in swec.bodiesNatal {
+                                    if bod.bodie == baB2.rawValue {
+                                        lon2 = bod.calc_ut.longitude
+                                        break
+                                    }
+                                }
+                            } else if swTransit1 == false && swTransit2 == true {
+                                for bod in swec.bodiesNatal {
+                                    if bod.bodie == baB.rawValue {
+                                        lon1 = bod.calc_ut.longitude
+                                        break
+                                    }
+                                }
+                                for bod in swec.bodiesTransit {
+                                    if bod.bodie == baB2.rawValue {
+                                        lon2 = bod.calc_ut.longitude
+                                        break
+                                    }
+                                }
+                            } else if swTransit1 == true && swTransit2 == false {
+                                for bod in swec.bodiesTransit {
+                                    if bod.bodie == baB.rawValue {
+                                        lon1 = bod.calc_ut.longitude
+                                        break
+                                    }
+                                }
+                                for bod in swec.bodiesNatal {
+                                    if bod.bodie == baB2.rawValue {
+                                        lon2 = bod.calc_ut.longitude
+                                        break
+                                    }
+                                }
+                            } else if swTransit1 == true && swTransit2 == true {
+                                for bod in swec.bodiesTransit {
+                                    if bod.bodie == baB.rawValue {
+                                        lon1 = bod.calc_ut.longitude
+                                        break
+                                    }
+                                }
+                                for bod in swec.bodiesTransit {
+                                    if bod.bodie == baB2.rawValue {
+                                        lon2 = bod.calc_ut.longitude
+                                        break
+                                    }
+                                }
+                            }
                             break
                         case .Angle(let baA2):
-
+                            if swTransit1 == false {
+                                for bod in swec.bodiesNatal {
+                                    if bod.bodie == baB.rawValue {
+                                        lon1 = bod.calc_ut.longitude
+                                        break
+                                    }
+                                }
+                            } else if swTransit1 == true {
+                                for bod in swec.bodiesTransit {
+                                    if bod.bodie == baB.rawValue {
+                                        lon1 = bod.calc_ut.longitude
+                                        break
+                                    }
+                                }
+                            }
+                            lon2 = getAngleLongitude(angle: baA2)
                             break
                         }
-                        break
                     case .Angle(let baA):
-                        break
+                        switch ba2.bodAng {
+                        case .Bodie(let baB2):
+                            lon1 = getAngleLongitude(angle: baA)
+                            if swTransit2 == false {
+                                for bod in swec.bodiesNatal {
+                                    if bod.bodie == baB2.rawValue {
+                                        lon2 = bod.calc_ut.longitude
+                                        break
+                                    }
+                                }
+                            } else if swTransit2 == true {
+                                for bod in swec.bodiesTransit {
+                                    if bod.bodie == baB2.rawValue {
+                                        lon2 = bod.calc_ut.longitude
+                                        break
+                                    }
+                                }
+                            }
+                            break
+                        case .Angle(let baA2):
+                            lon1 = getAngleLongitude(angle: baA)
+                            lon2 = getAngleLongitude(angle: baA2)
+                            break
+                        }
                     }
                     var aspect = SweCore.Aspects.Nothing
-                    let separation = self.getClosestDistance(angle1: lon1, angle2: lon2)
+                    let separation = getClosestDistance(angle1: lon1, angle2: lon2)
                     let absSeparation = abs(separation)
                     for aspectIdx in 0...SweCore.Aspects.Semisextile.rawValue {
                         let a = Aspects.init(rawValue: aspectIdx)!
