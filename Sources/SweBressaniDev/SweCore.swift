@@ -228,7 +228,7 @@ public class SweCore {
         var res: [BodAngAspectIdentifiable] = []
         for ba in resBodAng {
             for ba2 in resBodAng {
-                if ba.pos != ba2.pos && ba.pos != ba2.pos {
+                if ba.pos != ba2.pos {
                     res.append(BodAngAspectIdentifiable.init(
                             bodAng1: ba.bodAng,
                             pos1: ba.pos,
