@@ -199,8 +199,8 @@ public class SweCore {
         public var aspect: SweCore.Aspects
     }
 
-    public init(pathEphe: String) {
-        size = 400
+    public init(pathEphe: String, size: Int) {
+        self.size = size
         colorMode = .Light
         swec = SweSvg(ephemPath: pathEphe)
     }
