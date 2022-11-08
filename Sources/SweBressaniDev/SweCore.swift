@@ -150,6 +150,25 @@ public class SweCore {
     public var size: Int // TODO sizeChart: (screenSize.width == 744 && screenSize.height == 1133) ? 630.0 : 390.0)
     public var colorMode: SweSvg.ColorMode
     public var swec: SweSvg
+    public var bodiesForLoop: [SweCore.Bodies] = [
+        SweCore.Bodies.Soleil,
+        SweCore.Bodies.Lune,
+        SweCore.Bodies.Mercure,
+        SweCore.Bodies.Venus,
+        SweCore.Bodies.Mars,
+        SweCore.Bodies.Jupiter,
+        SweCore.Bodies.Saturn,
+        SweCore.Bodies.Uranus,
+        SweCore.Bodies.Neptune,
+        SweCore.Bodies.Pluto,
+        SweCore.Bodies.NoeudLunaire,
+        SweCore.Bodies.Chiron,
+        SweCore.Bodies.Ceres,
+        SweCore.Bodies.NoeudLunaireSud,
+    ]
+    public enum BodAng {
+        case Bodie((SweCore.Bodies, Int)), Angle((SweCore.Angles, Int))
+    }
 
     public init(pathEphe: String) {
         size = 400
@@ -159,6 +178,21 @@ public class SweCore {
 
     public func set(natal: Date, transit: Date, lat: Double, lng: Double, tz: Int32, colorMode: SweSvg.ColorMode) {
         swec.set(natal: natal, transit: transit, lat: lat, lng: lng, tz: tz, colorMode: colorMode)
+    }
+
+    public func bodAng(swBodies: [Bool]) -> [BodAng] {
+        var res: [BodAng] = []
+        var j = 0
+        for (i, b) in bodiesForLoop.enumerated() {
+            if swBodies[i] {
+                j = i
+                res.append(BodAng.Bodie((b, i)))
+            }
+        }
+        j += 1
+        res.append(BodAng.Angle((.Asc, j)))
+        res.append(BodAng.Angle((.Mc, j)))
+        return res
     }
 
     public func circles() -> [SweCore.AstroCircle] {
