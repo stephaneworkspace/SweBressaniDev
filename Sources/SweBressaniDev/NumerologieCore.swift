@@ -5,61 +5,26 @@
 import Foundation
 import SwiftUI
 
-// Language
-
-var F: Int = 0
-var E: Int = 1
-
-// Default font
-var FONTSIZE: CGFloat = 16
-var FONTSYSTEM: Font = .system(size: FONTSIZE, weight: .light, design: .default)
-
-var FONTSIZETITLE: CGFloat = 17
-var FONTSYSTEMTITLE: Font = .system(size: FONTSIZE, weight: .semibold, design: .default)
-var FONTSYSTEMTITLEMEDIUM: Font = .system(size: FONTSIZE, weight: .medium, design: .default)
-
-var FONTSIZESMALL: CGFloat = 14
-var FONTSYSTEMSMALL: Font = .system(size: FONTSIZESMALL, weight: .light, design: .default)
-
-// Image Scale
-var IMAGESCALE: Image.Scale = .medium
-var FOREGROUNDCOLOR: Color = .accentColor
-
-// Formatter
-var FORMATTER: NumberFormatter = {
-    let formatter = NumberFormatter()
-    formatter.numberStyle = .decimal
-    formatter.allowsFloats = true
-    return formatter
-}()
-
-var FORMATTERWITHOUTFLOAT: NumberFormatter = {
-    let formatter = NumberFormatter()
-    formatter.numberStyle = .decimal
-    formatter.allowsFloats = false
-    return formatter
-}()
-
 // Numérologie
 
-enum ECycle {
+public enum ECycle {
     case Formatif, Productif, Moisson
 }
 
 // Language
 
-enum L {
+public enum L {
     case F, E
 }
 
 // VInput
 
-enum LEData: String {
+public enum LEData: String {
     case F = "Données",
          E = "Datas"
 }
 
-func LData(L: L) -> String {
+public func LData(L: L) -> String {
     switch L {
     case .F:
         return LEData.F.rawValue
@@ -68,12 +33,12 @@ func LData(L: L) -> String {
     }
 }
 
-enum LELocalisation: String {
+public enum LELocalisation: String {
     case F = "Coordonnées",
          E = "Localisation"
 }
 
-func LLocalisation(L: L) -> String {
+public func LLocalisation(L: L) -> String {
     switch L {
     case .F:
         return LELocalisation.F.rawValue
@@ -82,12 +47,12 @@ func LLocalisation(L: L) -> String {
     }
 }
 
-enum LEBirthDate: String {
+public enum LEBirthDate: String {
     case F = "Date de naissance",
          E = "Birthdate"
 }
 
-func LBirthDate(L: L) -> String {
+public func LBirthDate(L: L) -> String {
     switch L {
     case .F:
         return LEBirthDate.F.rawValue
@@ -96,12 +61,12 @@ func LBirthDate(L: L) -> String {
     }
 }
 
-enum LEFirstName: String {
+public enum LEFirstName: String {
     case F = "Prénom",
          E = "First Name"
 }
 
-func LFirstName(L: L) -> String {
+public func LFirstName(L: L) -> String {
     switch L {
     case .F:
         return LEFirstName.F.rawValue
@@ -110,12 +75,12 @@ func LFirstName(L: L) -> String {
     }
 }
 
-enum LESecondName: String {
+public enum LESecondName: String {
     case F = "2ème prénom",
          E = "Second Name"
 }
 
-func LSecondName(L: L) -> String {
+public func LSecondName(L: L) -> String {
     switch L {
     case .F:
         return LESecondName.F.rawValue
@@ -124,12 +89,12 @@ func LSecondName(L: L) -> String {
     }
 }
 
-enum LEThridName: String {
+public enum LEThridName: String {
     case F = "3ème prénom",
          E = "Thrid Name"
 }
 
-func LThirdName(L: L) -> String {
+public func LThirdName(L: L) -> String {
     switch L {
     case .F:
         return LEThridName.F.rawValue
@@ -138,12 +103,12 @@ func LThirdName(L: L) -> String {
     }
 }
 
-enum LELastName: String {
+public enum LELastName: String {
     case F = "Nom de famille",
          E = "Last Name"
 }
 
-func LLastName(L: L) -> String {
+public func LLastName(L: L) -> String {
     switch L {
     case .F:
         return LELastName.F.rawValue
@@ -152,12 +117,12 @@ func LLastName(L: L) -> String {
     }
 }
 
-enum LELastNameAux: String {
+public enum LELastNameAux: String {
     case F = "Nom de famille aux.",
          E = "Last Name Aux."
 }
 
-func LLastNameAux(L: L) -> String {
+public func LLastNameAux(L: L) -> String {
     switch L {
     case .F:
         return LELastNameAux.F.rawValue
@@ -166,7 +131,7 @@ func LLastNameAux(L: L) -> String {
     }
 }
 
-func LLatitude(L: L) -> String {
+public func LLatitude(L: L) -> String {
     switch L {
     case .F:
         return "Latitude"
@@ -175,7 +140,7 @@ func LLatitude(L: L) -> String {
     }
 }
 
-func LLongitude(L: L) -> String {
+public func LLongitude(L: L) -> String {
     switch L {
     case .F:
         return "Longitude"
@@ -186,12 +151,12 @@ func LLongitude(L: L) -> String {
 
 // VNumerologie
 
-enum LENumerologie: String {
+public enum LENumerologie: String {
     case F = "Numerologie",
          E = "Numerology"
 }
 
-func LNumerologie(L: L) -> String {
+public func LNumerologie(L: L) -> String {
     switch L {
     case .F:
         return LENumerologie.F.rawValue
@@ -200,12 +165,12 @@ func LNumerologie(L: L) -> String {
     }
 }
 
-enum LEBorn: String {
+public enum LEBorn: String {
     case F = "La naissance",
          E = "Born"
 }
 
-func LBorn(L: L) -> String {
+public func LBorn(L: L) -> String {
     switch L {
     case .F:
         return LEBorn.F.rawValue
@@ -214,12 +179,12 @@ func LBorn(L: L) -> String {
     }
 }
 
-enum LEAge: String {
+public enum LEAge: String {
     case F = "L'age",
          E = "Age"
 }
 
-func LAge(L: L) -> String {
+public func LAge(L: L) -> String {
     switch L {
     case .F:
         return LEAge.F.rawValue
@@ -228,12 +193,12 @@ func LAge(L: L) -> String {
     }
 }
 
-enum LELifePath: String {
+public enum LELifePath: String {
     case F = "Le chemin de vie",
          E = "The life path"
 }
 
-func LLifePath(L: L) -> String {
+public func LLifePath(L: L) -> String {
     switch L {
     case .F:
         return LELifePath.F.rawValue
@@ -242,7 +207,7 @@ func LLifePath(L: L) -> String {
     }
 }
 
-func LCycle(L: L) -> String {
+public func LCycle(L: L) -> String {
     switch L {
     case .F:
         return "Cycle"
@@ -251,7 +216,7 @@ func LCycle(L: L) -> String {
     }
 }
 
-func LCalcul(L: L) -> String {
+public func LCalcul(L: L) -> String {
     switch L {
     case .F:
         return "Calcul"
@@ -260,12 +225,12 @@ func LCalcul(L: L) -> String {
     }
 }
 
-enum LENumber: String {
+public enum LENumber: String {
     case F = "Nombre",
          E = "Number"
 }
 
-func LNombre(L: L) -> String {
+public func LNombre(L: L) -> String {
     switch L {
     case .F:
         return LENumber.F.rawValue
@@ -274,12 +239,12 @@ func LNombre(L: L) -> String {
     }
 }
 
-enum LECycleRealisation: String {
+public enum LECycleRealisation: String {
     case F = "Cycle de réalisation",
          E = "Realisation cycle"
 }
 
-func LCycleRealisation(L: L) -> String {
+public func LCycleRealisation(L: L) -> String {
     switch L {
     case .F:
         return LECycleRealisation.F.rawValue
@@ -288,191 +253,191 @@ func LCycleRealisation(L: L) -> String {
     }
 }
 
-enum LECycleRealisation1JM: String {
+public enum LECycleRealisation1JM: String {
     case F = "0 à 35 ans",
          E = "0 to 35 year"
 }
 
-enum LECycleRealisation2JM: String {
+public enum LECycleRealisation2JM: String {
     case F = "0 à 34 ans",
          E = "0 to 34 year"
 }
 
-enum LECycleRealisation3JM: String {
+public enum LECycleRealisation3JM: String {
     case F = "0 à 33 ans",
          E = "0 to 33 year"
 }
 
-enum LECycleRealisation4JM: String {
+public enum LECycleRealisation4JM: String {
     case F = "0 à 32 ans",
          E = "0 to 32 year"
 }
 
-enum LECycleRealisation5JM: String {
+public enum LECycleRealisation5JM: String {
     case F = "0 à 31 ans",
          E = "0 to 31 year"
 }
 
-enum LECycleRealisation6JM: String {
+public enum LECycleRealisation6JM: String {
     case F = "0 à 30 ans",
          E = "0 to 30 year"
 }
 
-enum LECycleRealisation7JM: String {
+public enum LECycleRealisation7JM: String {
     case F = "0 à 29 ans",
          E = "0 to 29 year"
 }
 
-enum LECycleRealisation8JM: String {
+public enum LECycleRealisation8JM: String {
     case F = "0 à 28 ans",
          E = "0 to 28 year"
 }
 
-enum LECycleRealisation9JM: String {
+public enum LECycleRealisation9JM: String {
     case F = "0 à 27 ans",
          E = "0 to 27 year"
 }
 
-enum LECycleRealisation1JA: String {
+public enum LECycleRealisation1JA: String {
     case F = "35 à 44 ans",
          E = "35 to 44 year"
 }
 
-enum LECycleRealisation2JA: String {
+public enum LECycleRealisation2JA: String {
     case F = "34 à 43 ans",
          E = "34 to 43 year"
 }
 
-enum LECycleRealisation3JA: String {
+public enum LECycleRealisation3JA: String {
     case F = "33 à 42 ans",
          E = "33 to 42 year"
 }
 
-enum LECycleRealisation4JA: String {
+public enum LECycleRealisation4JA: String {
     case F = "32 à 41 ans",
          E = "32 to 41 year"
 }
 
-enum LECycleRealisation5JA: String {
+public enum LECycleRealisation5JA: String {
     case F = "31 à 40 ans",
          E = "31 to 40 year"
 }
 
-enum LECycleRealisation6JA: String {
+public enum LECycleRealisation6JA: String {
     case F = "30 à 39 ans",
          E = "30 to 39 year"
 }
 
-enum LECycleRealisation7JA: String {
+public enum LECycleRealisation7JA: String {
     case F = "29 à 38 ans",
          E = "29 to 38 year"
 }
 
-enum LECycleRealisation8JA: String {
+public enum LECycleRealisation8JA: String {
     case F = "28 à 37 ans",
          E = "28 to 37 year"
 }
 
-enum LECycleRealisation9JA: String {
+public enum LECycleRealisation9JA: String {
     case F = "27 à 36 ans",
          E = "27 to 36 year"
 }
 
-enum LECycleRealisation112: String {
+public enum LECycleRealisation112: String {
     case F = "44 à 53 ans",
          E = "44 to 53 year"
 }
 
-enum LECycleRealisation212: String {
+public enum LECycleRealisation212: String {
     case F = "43 à 52 ans",
          E = "43 to 52 year"
 }
 
-enum LECycleRealisation312: String {
+public enum LECycleRealisation312: String {
     case F = "42 à 51 ans",
          E = "42 to 51 year"
 }
 
-enum LECycleRealisation412: String {
+public enum LECycleRealisation412: String {
     case F = "41 à 50 ans",
          E = "41 to 50 year"
 }
 
-enum LECycleRealisation512: String {
+public enum LECycleRealisation512: String {
     case F = "40 à 49 ans",
          E = "40 to 49 year"
 }
 
-enum LECycleRealisation612: String {
+public enum LECycleRealisation612: String {
     case F = "39 to 48 ans",
          E = "39 to 48 year"
 }
 
-enum LECycleRealisation712: String {
+public enum LECycleRealisation712: String {
     case F = "38 to 47 ans",
          E = "38 to 47 year"
 }
 
-enum LECycleRealisation812: String {
+public enum LECycleRealisation812: String {
     case F = "37 to 46 ans",
          E = "37 to 46 year"
 }
 
-enum LECycleRealisation912: String {
+public enum LECycleRealisation912: String {
     case F = "36 to 45 ans",
          E = "36 to 45 year"
 }
 
-enum LECycleRealisation1MA: String {
+public enum LECycleRealisation1MA: String {
     case F = "dès 53 ans",
          E = "> 53 year"
 }
 
-enum LECycleRealisation2MA: String {
+public enum LECycleRealisation2MA: String {
     case F = "dès 52 ans",
          E = "> 52 year"
 }
 
-enum LECycleRealisation3MA: String {
+public enum LECycleRealisation3MA: String {
     case F = "dès 51 ans",
          E = "> 51 year"
 }
 
-enum LECycleRealisation4MA: String {
+public enum LECycleRealisation4MA: String {
     case F = "dès 50 ans",
          E = "> 50 year"
 }
 
-enum LECycleRealisation5MA: String {
+public enum LECycleRealisation5MA: String {
     case F = "dès 49 ans",
          E = "> 49 year"
 }
 
-enum LECycleRealisation6MA: String {
+public enum LECycleRealisation6MA: String {
     case F = "dès 48 ans",
          E = "> 48 year"
 }
 
-enum LECycleRealisation7MA: String {
+public enum LECycleRealisation7MA: String {
     case F = "dès 47 ans",
          E = "> 47 year"
 }
 
-enum LECycleRealisation8MA: String {
+public enum LECycleRealisation8MA: String {
     case F = "dès 46 ans",
          E = "> 46 year"
 }
 
-enum LECycleRealisation9MA: String {
+public enum LECycleRealisation9MA: String {
     case F = "dès 45 ans",
          E = "> 45 year"
 }
 
-enum ECycleRealisation {
+public enum ECycleRealisation {
     case JplusM, JplusA, UnplusDeux, MplusA
 }
 
-func LCycleRealisation(L: L, iLivePath: Int, eCycle: ECycleRealisation) -> String {
+public func LCycleRealisation(L: L, iLivePath: Int, eCycle: ECycleRealisation) -> String {
     switch eCycle {
     case .JplusM:
         switch iLivePath {
@@ -769,12 +734,12 @@ func LCycleRealisation(L: L, iLivePath: Int, eCycle: ECycleRealisation) -> Strin
     }
 }
 
-enum LECycleUniversels: String {
+public enum LECycleUniversels: String {
     case F = "Cycle universels",
          E = "Universal Cycle"
 }
 
-func LCycleUniversels(L: L) -> String {
+public func LCycleUniversels(L: L) -> String {
     switch L {
     case .F:
         return LECycleUniversels.F.rawValue
@@ -783,12 +748,12 @@ func LCycleUniversels(L: L) -> String {
     }
 }
 
-enum LEAgeDe: String {
+public enum LEAgeDe: String {
     case F = "Age de/à",
          E = "Age to/bis"
 }
 
-func LAgeDe(L: L) -> String {
+public func LAgeDe(L: L) -> String {
     switch L {
     case .F:
         return LEAgeDe.F.rawValue
@@ -797,52 +762,52 @@ func LAgeDe(L: L) -> String {
     }
 }
 
-enum LECycleUniversel1: String {
+public enum LECycleUniversel1: String {
     case F = "0 à 9 ans",
          E = "0 to 9 year"
 }
 
-enum LECycleUniversel2: String {
+public enum LECycleUniversel2: String {
     case F = "9 à 18 ans",
          E = "9 to 18 year"
 }
 
-enum LECycleUniversel3: String {
+public enum LECycleUniversel3: String {
     case F = "18 à 27 ans",
          E = "18 to 27 year"
 }
 
-enum LECycleUniversel4: String {
+public enum LECycleUniversel4: String {
     case F = "27 à 36 ans",
          E = "27 to 36 year"
 }
 
-enum LECycleUniversel5: String {
+public enum LECycleUniversel5: String {
     case F = "36 à 45 ans",
          E = "36 to 45 year"
 }
 
-enum LECycleUniversel6: String {
+public enum LECycleUniversel6: String {
     case F = "45 à 54 ans",
          E = "45 to 54 year"
 }
 
-enum LECycleUniversel7: String {
+public enum LECycleUniversel7: String {
     case F = "54 à 63 ans",
          E = "54 to 63 year"
 }
 
-enum LECycleUniversel8: String {
+public enum LECycleUniversel8: String {
     case F = "63 à 72 ans",
          E = "63 to 72 year"
 }
 
-enum LECycleUniversel9: String {
+public enum LECycleUniversel9: String {
     case F = "72 à 81 ans",
          E = "72 to 81 year"
 }
 
-func LCycleUniversel(L: L, iNombre: Int) -> String {
+public func LCycleUniversel(L: L, iNombre: Int) -> String {
     switch iNombre {
     case 1:
         switch L {
