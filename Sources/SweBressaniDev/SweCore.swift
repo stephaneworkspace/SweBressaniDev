@@ -360,7 +360,7 @@ public class SweCore {
     public func bodAngAspectPos(bodAngPos: Int, swTransit1: Bool, swTransit2: Bool, y: Int) -> (BodAngAspectIdentifiable, Bool) {
         var res: (BodAngAspectIdentifiable, Bool) = (BodAngAspectIdentifiable.init(bodAng1: BodAng.Bodie(.Soleil), pos1: 1, swTransit1: false, bodAng2: BodAng.Bodie(.Lune), pos2: 2, swTransit2: false, aspect: .Square), false)
         var i = 0;
-        let bodAngAspect = bodAngAspect(swTransit1: false, swTransit2: false)
+        let bodAngAspect = bodAngAspect(swTransit1: swTransit1, swTransit2: swTransit2)
         for ba in bodAngAspect {
             if ba.pos1 == bodAngPos {
                 if (y == i) {
