@@ -23,7 +23,7 @@ public class NumerologieCore {
              E = "Datas"
     }
 
-    public func LData(L: L) -> String {
+    static public func LData(L: L) -> String {
         switch L {
         case .F:
             return LEData.F.rawValue
@@ -37,7 +37,7 @@ public class NumerologieCore {
              E = "Localisation"
     }
 
-    public func LLocalisation(L: L) -> String {
+    static public func LLocalisation(L: L) -> String {
         switch L {
         case .F:
             return LELocalisation.F.rawValue
@@ -51,7 +51,7 @@ public class NumerologieCore {
              E = "Birthdate"
     }
 
-    public func LBirthDate(L: L) -> String {
+    static public func LBirthDate(L: L) -> String {
         switch L {
         case .F:
             return LEBirthDate.F.rawValue
@@ -65,7 +65,7 @@ public class NumerologieCore {
              E = "First Name"
     }
 
-    public func LFirstName(L: L) -> String {
+    static public func LFirstName(L: L) -> String {
         switch L {
         case .F:
             return LEFirstName.F.rawValue
@@ -79,7 +79,7 @@ public class NumerologieCore {
              E = "Second Name"
     }
 
-    public func LSecondName(L: L) -> String {
+    static public func LSecondName(L: L) -> String {
         switch L {
         case .F:
             return LESecondName.F.rawValue
@@ -93,7 +93,7 @@ public class NumerologieCore {
              E = "Thrid Name"
     }
 
-    public func LThirdName(L: L) -> String {
+    static public func LThirdName(L: L) -> String {
         switch L {
         case .F:
             return LEThridName.F.rawValue
@@ -107,7 +107,7 @@ public class NumerologieCore {
              E = "Last Name"
     }
 
-    public func LLastName(L: L) -> String {
+    static public func LLastName(L: L) -> String {
         switch L {
         case .F:
             return LELastName.F.rawValue
@@ -121,7 +121,7 @@ public class NumerologieCore {
              E = "Last Name Aux."
     }
 
-    public func LLastNameAux(L: L) -> String {
+    static public func LLastNameAux(L: L) -> String {
         switch L {
         case .F:
             return LELastNameAux.F.rawValue
@@ -130,7 +130,7 @@ public class NumerologieCore {
         }
     }
 
-    public func LLatitude(L: L) -> String {
+    static public func LLatitude(L: L) -> String {
         switch L {
         case .F:
             return "Latitude"
@@ -139,7 +139,7 @@ public class NumerologieCore {
         }
     }
 
-    public func LLongitude(L: L) -> String {
+    static public func LLongitude(L: L) -> String {
         switch L {
         case .F:
             return "Longitude"
@@ -148,14 +148,14 @@ public class NumerologieCore {
         }
     }
 
-// VNumerologie
+    // VNumerologie
 
     public enum LENumerologie: String {
         case F = "Numerologie",
              E = "Numerology"
     }
 
-    public func LNumerologie(L: L) -> String {
+    static public func LNumerologie(L: L) -> String {
         switch L {
         case .F:
             return LENumerologie.F.rawValue
@@ -169,7 +169,7 @@ public class NumerologieCore {
              E = "Born"
     }
 
-    public func LBorn(L: L) -> String {
+    static public func LBorn(L: L) -> String {
         switch L {
         case .F:
             return LEBorn.F.rawValue
@@ -183,7 +183,7 @@ public class NumerologieCore {
              E = "Age"
     }
 
-    public func LAge(L: L) -> String {
+    static public func LAge(L: L) -> String {
         switch L {
         case .F:
             return LEAge.F.rawValue
@@ -197,7 +197,7 @@ public class NumerologieCore {
              E = "The life path"
     }
 
-    public func LLifePath(L: L) -> String {
+    static public func LLifePath(L: L) -> String {
         switch L {
         case .F:
             return LELifePath.F.rawValue
@@ -206,7 +206,7 @@ public class NumerologieCore {
         }
     }
 
-    public func LCycle(L: L) -> String {
+    static public func LCycle(L: L) -> String {
         switch L {
         case .F:
             return "Cycle"
@@ -215,7 +215,7 @@ public class NumerologieCore {
         }
     }
 
-    public func LCalcul(L: L) -> String {
+    static public func LCalcul(L: L) -> String {
         switch L {
         case .F:
             return "Calcul"
@@ -229,7 +229,7 @@ public class NumerologieCore {
              E = "Number"
     }
 
-    public func LNombre(L: L) -> String {
+    static public func LNombre(L: L) -> String {
         switch L {
         case .F:
             return LENumber.F.rawValue
@@ -243,7 +243,7 @@ public class NumerologieCore {
              E = "Realisation cycle"
     }
 
-    public func LCycleRealisation(L: L) -> String {
+    static public func LCycleRealisation(L: L) -> String {
         switch L {
         case .F:
             return LECycleRealisation.F.rawValue
@@ -436,7 +436,7 @@ public class NumerologieCore {
         case JplusM, JplusA, UnplusDeux, MplusA
     }
 
-    public func LCycleRealisation(L: L, iLivePath: Int, eCycle: ECycleRealisation) -> String {
+    static public func LCycleRealisation(L: L, iLivePath: Int, eCycle: ECycleRealisation) -> String {
         switch eCycle {
         case .JplusM:
             switch iLivePath {
@@ -738,7 +738,7 @@ public class NumerologieCore {
              E = "Universal Cycle"
     }
 
-    public func LCycleUniversels(L: L) -> String {
+    static public func LCycleUniversels(L: L) -> String {
         switch L {
         case .F:
             return LECycleUniversels.F.rawValue
@@ -752,7 +752,7 @@ public class NumerologieCore {
              E = "Age to/bis"
     }
 
-    public func LAgeDe(L: L) -> String {
+    static public func LAgeDe(L: L) -> String {
         switch L {
         case .F:
             return LEAgeDe.F.rawValue
@@ -806,7 +806,7 @@ public class NumerologieCore {
              E = "72 to 81 year"
     }
 
-    public func LCycleUniversel(L: L, iNombre: Int) -> String {
+    static public func LCycleUniversel(L: L, iNombre: Int) -> String {
         switch iNombre {
         case 1:
             switch L {
