@@ -1,7 +1,7 @@
 //import cwrapper
 import Foundation
 import SweBressaniDev
-import TPPDF
+//import TPPDF
 
 var sweSvg = SweSvg(ephemPath: "")
 sweSvg.set(natal: Date(), transit: Date(), lat: 16, lng: 26.6, tz: 2, colorMode: .Light)
@@ -11,7 +11,7 @@ let sign1 = try! sweSvg.asset_sign(i: 1)
 let sign2 = try! sweSvg.asset_sign(i: 2)
 //print(cwrapperfive())
 
-
+/*
 let document = PDFDocument(format: .a4)
 document.add(.contentCenter, text: "Create PDF documents easily.")
 let table = PDFTable(rows: 3, columns: 4)
@@ -21,3 +21,9 @@ document.add(table: table)
 let generator = PDFGenerator(document: document)
 let url = try generator.generateURL(filename: "Example.pdf")
 print(url)
+*/
+//.macOS(.v10_14)
+
+//dependencies: [
+//    .package(url: "https://github.com/techprimate/TPPDF", .upToNextMajor(from: "2.0.0"))
+//],
