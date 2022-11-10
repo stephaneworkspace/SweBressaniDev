@@ -800,7 +800,7 @@ public class NumerologieCore {
         }
     }
 
-    func cycleUniversel(iNombre: Int) -> String {
+    public func cycleUniversel(iNombre: Int) -> String {
         switch iNombre {
         case 1:
             switch langue {
