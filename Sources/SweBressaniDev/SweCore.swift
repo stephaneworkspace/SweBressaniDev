@@ -1058,7 +1058,7 @@ extension SweCore.Aspects {
     }
 }
 
-public class NumerologieCore {
+public class TextCore {
     public enum L {
         case F, E
     }
