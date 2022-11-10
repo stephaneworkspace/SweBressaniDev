@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "tppdf",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/techprimate/TPPDF",
+      "state" : {
+        "revision" : "e4577f5ac161d35fd4ad41e401b639ef68b81315",
+        "version" : "2.3.5"
+      }
+    }
+  ],
+  "version" : 2
+}
