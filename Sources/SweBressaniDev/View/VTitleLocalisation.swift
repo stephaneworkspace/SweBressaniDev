@@ -6,7 +6,7 @@ import Foundation
 import SwiftUI
 
 @available(iOS 15, macOS 12.0, *)
-public struct VTitleLocalisationIOs: View {
+public struct VTitleLocalisation: View {
     @State var stText: TextCore
 
     public init(stText: TextCore) {
