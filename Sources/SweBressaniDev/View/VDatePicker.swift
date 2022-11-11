@@ -6,8 +6,8 @@ import Foundation
 import SwiftUI
 
 public struct VDatePicker: View {
-    @Binding var bdNatal: Date
-    @State var text: TextCore
+    @Binding public var bdNatal: Date
+    @State public var text: TextCore
 
     public var body: some View {
         VStack {
