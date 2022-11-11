@@ -102,6 +102,69 @@ table[2,2].content = try! PDFTableContent(content: NumerologieCore.cycleAdjacent
 table[3,2].content = try! PDFTableContent(content: NumerologieCore.cycleAdjacents(dBornDate: natal, eCycle: .Moisson))
 document.add(table: table)
 
+// Cycle de réalisation
+document.add(.contentCenter, text: text.cycleRealisation())
+table = PDFTable(rows: 5, columns: 3)
+style = PDFTableStyle()
+style.rowHeaderCount = 0
+style.columnHeaderCount = 0
+table.style = style
+lineStyle = PDFLineStyle(width: 1)
+cellStyle = PDFTableCellStyle(borders: PDFTableCellBorders(left: lineStyle, top: lineStyle, right: lineStyle, bottom: lineStyle))
+table[0,0].style = cellStyle
+cellStyle = PDFTableCellStyle(borders: PDFTableCellBorders(left: lineStyle, right: lineStyle, bottom: lineStyle))
+table[1,0].style = cellStyle
+table[2,0].style = cellStyle
+table[3,0].style = cellStyle
+table[4,0].style = cellStyle
+cellStyle = PDFTableCellStyle(borders: PDFTableCellBorders(top: lineStyle, right: lineStyle, bottom: lineStyle))
+table[0,1].style = cellStyle
+table[0,2].style = cellStyle
+cellStyle = PDFTableCellStyle(borders: PDFTableCellBorders(right: lineStyle, bottom: lineStyle))
+table[1,1].style = cellStyle
+table[2,1].style = cellStyle
+table[3,1].style = cellStyle
+table[4,1].style = cellStyle
+table[1,2].style = cellStyle
+table[2,2].style = cellStyle
+table[3,2].style = cellStyle
+table[4,2].style = cellStyle
+table[0,0].alignment = .left
+table[1,0].alignment = .left
+table[2,0].alignment = .left
+table[3,0].alignment = .left
+table[4,0].alignment = .left
+table[0,1].alignment = .center
+table[1,1].alignment = .center
+table[2,1].alignment = .center
+table[3,1].alignment = .center
+table[4,1].alignment = .center
+table[0,2].alignment = .right
+table[1,2].alignment = .right
+table[2,2].alignment = .right
+table[3,2].alignment = .right
+table[4,2].alignment = .right
+table[0,0].content = try! PDFTableContent(content: "Age de à") // TODO
+table[0,1].content = try! PDFTableContent(content: text.calcul())
+table[0,2].content = try! PDFTableContent(content: text.nombre())
+table[1,0].content = try! PDFTableContent(content: text.cycleRealisation(
+        iLivePath: NumerologieCore.cheminDeVieInt(dBornDate: natal), eCycle: .JplusM))
+table[2,0].content = try! PDFTableContent(content: text.cycleRealisation(
+        iLivePath: NumerologieCore.cheminDeVieInt(dBornDate: natal), eCycle: .JplusA))
+table[3,0].content = try! PDFTableContent(content: text.cycleRealisation(
+        iLivePath: NumerologieCore.cheminDeVieInt(dBornDate: natal), eCycle: .UnplusDeux))
+table[4,0].content = try! PDFTableContent(content: text.cycleRealisation(
+        iLivePath: NumerologieCore.cheminDeVieInt(dBornDate: natal), eCycle: .MplusA))
+table[1,1].content = try! PDFTableContent(content: "J + M") // TODO
+table[2,1].content = try! PDFTableContent(content: "J + A") // TODO
+table[3,1].content = try! PDFTableContent(content: "1 + 2") // TODO
+table[4,1].content = try! PDFTableContent(content: "M + A") // TODO
+table[1,2].content = try! PDFTableContent(content: NumerologieCore.jPlusMInt(dBornDate: natal))
+table[2,2].content = try! PDFTableContent(content: NumerologieCore.jPlusAInt(dBornDate: natal))
+table[3,2].content = try! PDFTableContent(content: NumerologieCore.unPlusDeuxInt(dBornDate: natal))
+table[4,2].content = try! PDFTableContent(content: NumerologieCore.mPlusAInt(dBornDate: natal))
+document.add(table: table)
+
 let generator = PDFGenerator(document: document)
 let url = try generator.generateURL(filename: "Example.pdf")
 print(url)
