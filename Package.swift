@@ -7,6 +7,7 @@ let package = Package(
         name: "SweBressaniDev",
         platforms: [
             .iOS(.v15),
+            .macOS(.v10_14)
         ],
         products: [
                 // Products define the executables and libraries a package produces, and make them visible to other packages.
@@ -14,13 +15,16 @@ let package = Package(
                         name: "SweBressaniDev",
                         targets: ["SweBressaniDev"]),
         ],
+        dependencies: [
+            .package(url: "https://github.com/techprimate/TPPDF", .upToNextMajor(from: "2.0.0"))
+        ],
         targets: [.target(name: "cpplib"),
                   .target(name: "svglib"),
                   .target(name: "swelib"),
                   .target(name: "sweinterfacelib", dependencies: ["svglib", "swelib"]),
                   .executableTarget(name: "cpp-exec", dependencies: ["cpplib", "swelib", "svglib", "sweinterfacelib"]),
                   .target(name: "cwrapper", dependencies: ["cpplib", "swelib", "svglib", "sweinterfacelib"]),
-                  .target(name: "SweBressaniDev", dependencies: ["cwrapper"]),
-                  .executableTarget(name: "SweBressaniDevExec", dependencies: ["cwrapper", "SweBressaniDev"]),
+                  .target(name: "SweBressaniDev", dependencies: ["cwrapper", "TPPDF"]),
+                  .executableTarget(name: "SweBressaniDevExec", dependencies: ["cwrapper", "SweBressaniDev", "TPPDF"]),
         ]
 )

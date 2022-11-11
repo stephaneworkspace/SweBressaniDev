@@ -22,8 +22,4 @@ let generator = PDFGenerator(document: document)
 let url = try generator.generateURL(filename: "Example.pdf")
 print(url)
 */
-//.macOS(.v10_14)
 
-//dependencies: [
-//    .package(url: "https://github.com/techprimate/TPPDF", .upToNextMajor(from: "2.0.0"))
-//],
