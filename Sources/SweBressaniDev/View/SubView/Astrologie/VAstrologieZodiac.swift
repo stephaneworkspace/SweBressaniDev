@@ -17,11 +17,9 @@ public struct VAstrologieZodiac: View {
         let colorStroke: Color = colorScheme == .light ? .black : .white
         VStack {
             DrawCircle(circles: bsSwe.circles()).stroke(colorStroke, lineWidth: 1.0)
-        }
-                .frame(width: CGFloat(bsSwe.size), height: CGFloat(bsSwe.size))
+        }.frame(width: CGFloat(bsSwe.size), height: CGFloat(bsSwe.size))
         VStack {
             DrawLine(lines: bsSwe.zodiacLines()).stroke(colorStroke, lineWidth: 1.0)
-        }
-                .frame(width: CGFloat(bsSwe.size), height: CGFloat(bsSwe.size))
+        }.frame(width: CGFloat(bsSwe.size), height: CGFloat(bsSwe.size))
     }
 }

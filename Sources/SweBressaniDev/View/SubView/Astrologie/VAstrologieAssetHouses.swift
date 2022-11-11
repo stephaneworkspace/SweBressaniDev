@@ -5,6 +5,7 @@
 import SwiftUI
 import SVGView
 
+@available(iOS 15, macOS 12.0, *)
 public struct VAstrologieAssetHouses: View {
     @Binding var bsSwe: SweCore
     @State var siHouse: Int

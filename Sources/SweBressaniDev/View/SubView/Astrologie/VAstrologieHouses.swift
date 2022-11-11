@@ -17,11 +17,9 @@ public struct VAstrologieHouses: View {
         let colorStroke: Color = colorScheme == .light ? .black : .white
         VStack {
             DrawHouseTriangle(lines: bsSwe.houseLines()).fill(colorStroke)
-        }
-                .frame(width: CGFloat(bsSwe.size), height: CGFloat(bsSwe.size))
+        }.frame(width: CGFloat(bsSwe.size), height: CGFloat(bsSwe.size))
         VStack {
             DrawHouseLine(lines: bsSwe.houseLines()).stroke(colorStroke, lineWidth: 1.0)
-        }
-                .frame(width: CGFloat(bsSwe.size), height: CGFloat(bsSwe.size))
+        }.frame(width: CGFloat(bsSwe.size), height: CGFloat(bsSwe.size))
     }
 }
