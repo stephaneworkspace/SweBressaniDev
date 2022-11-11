@@ -5,15 +5,20 @@
 import Foundation
 import SwiftUI
 
+@available(iOS 15, macOS 12.0, *)
 public struct VTitleNumerologie: View {
-    @State var text: TextCore
+    @State var stText: TextCore
+
+    public init(stText: TextCore) {
+        self._stText = .init(initialValue: stText)
+    }
 
     public var body: some View {
         HStack {
             Image(systemName: "plus")
                     .imageScale(IMAGESCALE)
                     .foregroundColor(FOREGROUNDCOLOR)
-            Text("\(text.numerologie())")
+            Text("\(stText.numerologie())")
                     .font(FONTSYSTEMTITLEMEDIUM)
                     .clipped()
             Spacer()

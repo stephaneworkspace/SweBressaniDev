@@ -8,16 +8,16 @@ import SwiftUI
 @available(iOS 15, macOS 12.0, *)
 public struct VDatePicker: View {
     @Binding var bdNatal: Date
-    @State var text: TextCore
+    @State var stText: TextCore
 
-    public init(bdNatal: Binding<Date>, text: TextCore) {
+    public init(bdNatal: Binding<Date>, stText: TextCore) {
         self._bdNatal = bdNatal
-        self._text = .init(initialValue: text)
+        self._stText = .init(initialValue: stText)
     }
 
     public var body: some View {
         VStack {
-            DatePicker("\(text.birthDate())",
+            DatePicker("\(stText.birthDate())",
                     selection: $bdNatal,
                     displayedComponents: [.date, .hourAndMinute]
             )

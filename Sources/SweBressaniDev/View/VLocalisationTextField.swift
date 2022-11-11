@@ -13,18 +13,25 @@ public struct VLocalisationTextFieldIOs: View {
     @Binding var bdLat: Double
     @Binding var bdLng: Double
     @Binding var biTimeZone: Int
-    @State var text: TextCore
+    @State var stText: TextCore
     @FocusState private var fbLat: Bool
     @FocusState private var fbLng: Bool
+
+    public init(bdLat: Binding<Double>, bdLng: Binding<Double>, biTimeZone: Binding<Int>, stText: TextCore) {
+        self._bdLat = bdLat
+        self._bdLng = bdLng
+        self._biTimeZone = biTimeZone
+        self._stText = .init(initialValue: stText)
+    }
 
     public var body: some View {
         VStack {
             HStack {
-                Text("\(text.latitude())")
+                Text("\(stText.latitude())")
                         .font(FONTSYSTEM)
                         .clipped()
                 TextField(
-                        "\(text.latitude())",
+                        "\(stText.latitude())",
                         value: $bdLat,
                         formatter: FORMATTER
                 )
@@ -33,11 +40,11 @@ public struct VLocalisationTextFieldIOs: View {
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .font(FONTSYSTEM)
                         .clipped()
-                Text("\(text.longitude())")
+                Text("\(stText.longitude())")
                         .font(FONTSYSTEM)
                         .clipped()
                 TextField(
-                        "\(text.longitude())",
+                        "\(stText.longitude())",
                         value: $bdLng,
                         formatter: FORMATTER
                 )

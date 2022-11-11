@@ -5,15 +5,20 @@
 import Foundation
 import SwiftUI
 
+@available(iOS 15, macOS 12.0, *)
 public struct VTitleData: View {
-    @State var text: TextCore
+    @State var stText: TextCore
+
+    public init(stText: TextCore) {
+        self._stText = .init(initialValue: stText)
+    }
 
     public var body: some View {
         HStack {
             Image(systemName: "person")
                     .imageScale(IMAGESCALE)
                     .foregroundColor(FOREGROUNDCOLOR)
-            Text("\(text.data())")
+            Text("\(stText.data())")
                     .font(FONTSYSTEMTITLEMEDIUM)
                     .clipped()
             Spacer()

@@ -5,12 +5,17 @@
 import Foundation
 import SwiftUI
 
+@available(iOS 15, macOS 12.0, *)
 public struct VTitleLocalisation: View {
-    @State var text: TextCore
+    @State var stText: TextCore
+
+    public init(stText: TextCore) {
+        self._stText = .init(initialValue: stText)
+    }
 
     public var body: some View {
         HStack {
-            Text("\(text.localisation())")
+            Text("\(stText.localisation())")
             Spacer()
         }
                 .font(FONTSYSTEM)
