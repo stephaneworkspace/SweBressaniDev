@@ -16,7 +16,7 @@ let package = Package(
                         targets: ["SweBressaniDev"]),
         ],
         dependencies: [
-            .package(url: "https://github.com/techprimate/TPPDF", .upToNextMajor(from: "2.0.0")),
+            .package(url: "https://github.com/stephaneworkspace/TPPDF.git", branch: "master"),
             .package(url: "https://github.com/stephaneworkspace/SVGView.git", branch: "main")
         ],
         targets: [.target(name: "cpplib"),

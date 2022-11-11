@@ -1062,6 +1062,7 @@ public class TextCore {
     public enum L {
         case F, E
     }
+
     public var langue : L
 
     public enum LEData: String {
