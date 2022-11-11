@@ -9,7 +9,7 @@ import SwiftUI
 public struct DrawCircle: Shape {
     var circles: [SweCore.AstroCircle]
 
-    init(circles: [SweCore.AstroCircle]) {
+    public init(circles: [SweCore.AstroCircle]) {
         self.circles = circles
     }
 
@@ -35,7 +35,7 @@ public struct DrawCircle: Shape {
 public struct DrawLine: Shape {
     var lines: [SweCore.AstroLine]
 
-    init(lines: [SweCore.AstroLine]) {
+    public init(lines: [SweCore.AstroLine]) {
         self.lines = lines
     }
 
@@ -54,7 +54,7 @@ public struct DrawLine: Shape {
 public struct DrawHouseLine: Shape {
     var lines: [SweCore.AstroHouseLine]
 
-    init(lines: [SweCore.AstroHouseLine]) {
+    public init(lines: [SweCore.AstroHouseLine]) {
         self.lines = lines
     }
 
@@ -75,7 +75,7 @@ public struct DrawHouseLine: Shape {
 public struct DrawHouseTriangle: Shape {
     var lines: [SweCore.AstroHouseLine]
 
-    init(lines: [SweCore.AstroHouseLine]) {
+    public init(lines: [SweCore.AstroHouseLine]) {
         self.lines = lines
     }
 
@@ -98,7 +98,7 @@ public struct DrawHouseTriangle: Shape {
 public struct DrawBodieLine: Shape {
     var lines: [SweCore.AstroLine]
 
-    init(lines: [SweCore.AstroLine]) {
+    public init(lines: [SweCore.AstroLine]) {
         self.lines = lines
     }
 
@@ -117,7 +117,7 @@ public struct DrawBodieLine: Shape {
 public struct DrawAngleLine: Shape {
     var lines: [SweCore.AstroLine]
 
-    init(lines: [SweCore.AstroLine]) {
+    public init(lines: [SweCore.AstroLine]) {
         self.lines = lines
     }
 
