@@ -9,9 +9,9 @@ public struct VDatePicker: View {
     @Binding var bdNatal: Date
     @State var text: TextCore
 
-    public init(bdNatal: Binding<Date>, text: State<TextCore>) {
+    public init(bdNatal: Binding<Date>, text: TextCore) {
         self._bdNatal = bdNatal
-        self._text = text
+        self._text = .init(initialValue: text)
     }
 
     public var body: some View {
