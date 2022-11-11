@@ -8,17 +8,17 @@ import SwiftUI
 public struct VAstrologieTableau1: View {
     @Environment(\.colorScheme) var colorScheme: ColorScheme
     @Binding var bsSwe: SweCore
-    @State var saBodie: [Bool]
+    @State var saBodies: [Bool]
 
-    public init(bsSwe: Binding<SweCore>, saBodie: [Bool]) {
+    public init(bsSwe: Binding<SweCore>, saBodies: [Bool]) {
         self._bsSwe = bsSwe
-        self._saBodie = .init(initialValue: saBodie)
+        self._saBodies = .init(initialValue: saBodies)
     }
 
     public var body: some View {
         VStack(spacing: 0) {
             ForEach(Array(zip(bsSwe.bodiesForLoop.indices, bsSwe.bodiesForLoop)), id: \.1) { i, b in
-                if (saBodie[i]) {
+                if (saBodies[i]) {
                     ZStack(alignment: .topLeading) {
                         VAstrologieTableau1Bodies(bsSwe: $bsSwe, sbBodie: b)
                         VAstrologieTableau1Signs(bsSwe: $bsSwe, sbBodie: b, stTransit: false)
