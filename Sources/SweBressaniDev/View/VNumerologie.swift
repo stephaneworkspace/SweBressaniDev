@@ -319,10 +319,3 @@ public struct VNumerologie: View {
         }
     }
 }
-
-struct Cycle: Identifiable {
-    let sCycle: String
-    let sCalcul: String
-    let sNumber: String
-    let id = UUID()
-}
