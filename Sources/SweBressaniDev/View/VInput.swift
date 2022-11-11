@@ -5,6 +5,7 @@
 import Foundation
 import SwiftUI
 
+@available(iOS 15, macOS 12.0, *)
 public struct VInput: View {
     @Binding var bdNatal: Date
     @Binding var bsFirstName: String
