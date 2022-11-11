@@ -6,7 +6,7 @@ import SwiftUI
 import SVGView
 
 @available(iOS 15, macOS 12.0, *)
-struct VAstrologieAssetBodies: View {
+public struct VAstrologieAssetBodies: View {
     @Binding var bsSwe: SweCore
     @State var sbBodie: SweCore.Bodies
     @State var sbTransit: Bool
@@ -17,7 +17,7 @@ struct VAstrologieAssetBodies: View {
         self._sbTransit = .init(initialValue: sbTransit)
     }
 
-    var body: some View {
+    public var body: some View {
         VStack {
             let b = bsSwe.bodie(bodie: sbBodie, swTransit: sbTransit)
             GeometryReader { geometry in
