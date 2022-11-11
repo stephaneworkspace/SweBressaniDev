@@ -22,12 +22,12 @@ let document = PDFDocument(format: .a4)
 
 // Numérologie
 document.add(.contentCenter, text: text.numerologie())
-let table = PDFTable(rows: 3, columns: 2)
-let style = PDFTableStyle()
+var table = PDFTable(rows: 3, columns: 2)
+var style = PDFTableStyle()
 style.rowHeaderCount = 0
 style.columnHeaderCount = 0
 table.style = style
-let lineStyle = PDFLineStyle(width: 1)
+var lineStyle = PDFLineStyle(width: 1)
 var cellStyle = PDFTableCellStyle(borders: PDFTableCellBorders(left: lineStyle, top: lineStyle, right: lineStyle, bottom: lineStyle))
 table[0,0].style = cellStyle
 cellStyle = PDFTableCellStyle(borders: PDFTableCellBorders(left: lineStyle, right: lineStyle, bottom: lineStyle))
@@ -49,6 +49,41 @@ table[0,1].content = try! PDFTableContent(content: String(NumerologieCore.date(d
 table[1,0].content = try! PDFTableContent(content: text.age())
 table[1,1].content = try! PDFTableContent(content: String(NumerologieCore.age(dBornDate: natal)))
 table[2,0].content = try! PDFTableContent(content: text.lifePath())
+table[2,1].content = try! PDFTableContent(content: String(NumerologieCore.cheminDeVie(dBornDate: natal)))
+document.add(table: table)
+
+// Cycle adjacents
+document.add(.contentCenter, text: "Cycle adjacents") // TODO
+table = PDFTable(rows: 4, columns: 3)
+style = PDFTableStyle()
+style.rowHeaderCount = 0
+style.columnHeaderCount = 0
+table.style = style
+lineStyle = PDFLineStyle(width: 1)
+cellStyle = PDFTableCellStyle(borders: PDFTableCellBorders(left: lineStyle, top: lineStyle, right: lineStyle, bottom: lineStyle))
+table[0,0].style = cellStyle
+cellStyle = PDFTableCellStyle(borders: PDFTableCellBorders(left: lineStyle, right: lineStyle, bottom: lineStyle))
+table[1,0].style = cellStyle
+table[2,0].style = cellStyle
+cellStyle = PDFTableCellStyle(borders: PDFTableCellBorders(top: lineStyle, right: lineStyle, bottom: lineStyle))
+table[0,1].style = cellStyle
+table[0,2].style = cellStyle
+cellStyle = PDFTableCellStyle(borders: PDFTableCellBorders(right: lineStyle, bottom: lineStyle))
+table[1,1].style = cellStyle
+table[2,1].style = cellStyle
+table[3,1].style = cellStyle
+table[0,0].alignment = .left
+table[1,0].alignment = .left
+table[2,0].alignment = .left
+table[0,1].alignment = .center
+table[1,1].alignment = .center
+table[2,1].alignment = .center
+table[0,2].alignment = .right
+table[1,2].alignment = .right
+table[2,2].alignment = .right
+table[0,0].content = try! PDFTableContent(content: text.cycle())
+table[0,1].content = try! PDFTableContent(content: text.calcul())
+table[0,2].content = try! PDFTableContent(content: text.nombre())
 document.add(table: table)
 
 let generator = PDFGenerator(document: document)
