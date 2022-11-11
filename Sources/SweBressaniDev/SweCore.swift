@@ -358,7 +358,7 @@ public class SweCore {
     }
 
     public func bodAngAspectPos(bodAngPos: Int, swTransit1: Bool, swTransit2: Bool, y: Int) -> (BodAngAspectIdentifiable, Bool) {
-        var res: (BodAngAspectIdentifiable, Bool) = (BodAngAspectIdentifiable.init(bodAng1: BodAng.Bodie(.Soleil), pos1: 1, swTransit1: false, bodAng2: BodAng.Bodie(.Lune), pos2: 2, swTransit2: false, aspect: .Square), false)
+        let res: (BodAngAspectIdentifiable, Bool) = (BodAngAspectIdentifiable.init(bodAng1: BodAng.Bodie(.Soleil), pos1: 1, swTransit1: false, bodAng2: BodAng.Bodie(.Lune), pos2: 2, swTransit2: false, aspect: .Square), false)
         var i = 0;
         let bodAngAspect = bodAngAspect(swTransit1: swTransit1, swTransit2: swTransit2)
         for ba in bodAngAspect {
@@ -446,7 +446,7 @@ public class SweCore {
     }
 
     public func house(number: Int) -> SweCore.ObjectHouse {
-        var houseSize = (((HOUSE_SIZE * HOUSE_RATIO) / 100.0) * Double(size)) / 100.0
+        let houseSize = (((HOUSE_SIZE * HOUSE_RATIO) / 100.0) * Double(size)) / 100.0
         let offPosAsc = CIRCLE - swec.houses[0].longitude
         var posNext: Double
         if number > 11 {
@@ -2109,3 +2109,34 @@ public class NumerologieCore {
         return sTemp
     }
 }
+
+// Default font
+
+var FONTSIZE: CGFloat = 16
+var FONTSYSTEM: Font = .system(size: FONTSIZE, weight: .light, design: .default)
+
+var FONTSIZETITLE: CGFloat = 17
+var FONTSYSTEMTITLE: Font = .system(size: FONTSIZE, weight: .semibold, design: .default)
+var FONTSYSTEMTITLEMEDIUM: Font = .system(size: FONTSIZE, weight: .medium, design: .default)
+
+var FONTSIZESMALL: CGFloat = 14
+var FONTSYSTEMSMALL: Font = .system(size: FONTSIZESMALL, weight: .light, design: .default)
+
+// Image Scale
+var IMAGESCALE: Image.Scale = .medium
+var FOREGROUNDCOLOR: Color = .accentColor
+
+// Formatter
+var FORMATTER: NumberFormatter = {
+    let formatter = NumberFormatter()
+    formatter.numberStyle = .decimal
+    formatter.allowsFloats = true
+    return formatter
+}()
+
+var FORMATTERWITHOUTFLOAT: NumberFormatter = {
+    let formatter = NumberFormatter()
+    formatter.numberStyle = .decimal
+    formatter.allowsFloats = false
+    return formatter
+}()
