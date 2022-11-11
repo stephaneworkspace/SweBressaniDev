@@ -5,7 +5,7 @@
 import SwiftUI
 
 @available(iOS 15, macOS 12.0, *)
-struct VAstrologieHouses: View {
+public struct VAstrologieHouses: View {
     @Environment(\.colorScheme) var colorScheme: ColorScheme
     @Binding var bsSwe: SweCore
 
@@ -13,7 +13,7 @@ struct VAstrologieHouses: View {
         self._bsSwe = bsSwe
     }
 
-    var body: some View {
+    public var body: some View {
         let colorStroke: Color = colorScheme == .light ? .black : .white
         VStack {
             DrawHouseTriangle(lines: bsSwe.houseLines()).fill(colorStroke)
