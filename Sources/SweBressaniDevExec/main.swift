@@ -16,6 +16,7 @@ let sign2 = try! sweSvg.asset_sign(i: 2)
 //print(cwrapperfive())
 
 let text = TextCore(langue: .F)
+let natal = Date()
 
 let document = PDFDocument(format: .a4)
 
@@ -40,8 +41,13 @@ table[2,1].style = cellStyle
 table[0,0].alignment = .left
 table[1,0].alignment = .left
 table[2,0].alignment = .left
+table[0,1].alignment = .right
+table[1,1].alignment = .right
+table[2,1].alignment = .right
 table[0,0].content = try! PDFTableContent(content: text.born())
+table[0,1].content = try! PDFTableContent(content: String(NumerologieCore.date(dBornDate: natal)))
 table[1,0].content = try! PDFTableContent(content: text.age())
+table[1,1].content = try! PDFTableContent(content: String(NumerologieCore.age(dBornDate: natal)))
 table[2,0].content = try! PDFTableContent(content: text.lifePath())
 document.add(table: table)
 

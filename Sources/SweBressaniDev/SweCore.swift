@@ -1936,6 +1936,17 @@ public class NumerologieCore {
         case Formatif, Productif, Moisson
     }
 
+    public static func date(dBornDate: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "YYYY"
+        let iYear = Int(dateFormatter.string(from: dBornDate)) ?? 1980
+        dateFormatter.dateFormat = "MM"
+        let iMonth = Int(dateFormatter.string(from: dBornDate)) ?? 1
+        dateFormatter.dateFormat = "dd"
+        let iDay = Int(dateFormatter.string(from: dBornDate)) ?? 1
+        return String(iDay) + "." + String(iMonth) + "." + String(iYear)
+    }
+
     public static func reduction(iNumber: Int) -> [Int] {
         var aiRes = [Int]()
         var iTemp: Int = iNumber
