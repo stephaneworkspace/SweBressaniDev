@@ -8,7 +8,7 @@ import Foundation
 import SwiftUI
 import CoreLocation
 
-#if os(iOS)
+@available(iOS 15, macOS 12.0, *)
 public struct VLocalisationTextFieldIOs: View {
     @Binding var bdLat: Double
     @Binding var bdLng: Double
@@ -25,6 +25,7 @@ public struct VLocalisationTextFieldIOs: View {
     }
 
     public var body: some View {
+        #if os(iOS)
         VStack {
             HStack {
                 Text("\(stText.latitude())")
@@ -95,6 +96,6 @@ public struct VLocalisationTextFieldIOs: View {
             Spacer()
         }
                 .padding()
+        #endif
     }
 }
-#endif
