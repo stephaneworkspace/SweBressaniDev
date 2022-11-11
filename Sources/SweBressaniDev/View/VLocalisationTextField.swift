@@ -9,7 +9,7 @@ import SwiftUI
 import CoreLocation
 
 #if os(iOS)
-struct VLocalisationTextFieldiOs: View {
+public struct VLocalisationTextFieldIOs: View {
     @Binding var bdLat: Double
     @Binding var bdLng: Double
     @Binding var biTimeZone: Int
@@ -17,7 +17,7 @@ struct VLocalisationTextFieldiOs: View {
     @FocusState private var fbLat: Bool
     @FocusState private var fbLng: Bool
 
-    var body: some View {
+    public var body: some View {
         VStack {
             HStack {
                 Text("\(text.latitude())")

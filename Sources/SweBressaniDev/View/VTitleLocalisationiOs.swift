@@ -5,10 +5,10 @@
 import Foundation
 import SwiftUI
 
-struct VTitleLocalisation: View {
+public struct VTitleLocalisation: View {
     @State var text: TextCore
 
-    var body: some View {
+    public var body: some View {
         HStack {
             Text("\(text.localisation())")
             Spacer()

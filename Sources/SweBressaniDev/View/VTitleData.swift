@@ -5,10 +5,10 @@
 import Foundation
 import SwiftUI
 
-struct VTitleData: View {
+public struct VTitleData: View {
     @State var text: TextCore
 
-    var body: some View {
+    public var body: some View {
         HStack {
             Image(systemName: "person")
                     .imageScale(IMAGESCALE)

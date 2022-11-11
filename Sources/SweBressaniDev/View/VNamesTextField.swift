@@ -5,7 +5,7 @@
 import Foundation
 import SwiftUI
 
-struct VNamesTextField: View {
+public struct VNamesTextField: View {
     @State var text: TextCore
     @State var ssFirstName: String
     @State var ssSecondName: String
@@ -14,7 +14,7 @@ struct VNamesTextField: View {
     @State var ssLastName2: String
     @State var ssLastName3: String
 
-    var body: some View {
+    public var body: some View {
         VStack {
             HStack {
                 Text("\(text.firstName())")

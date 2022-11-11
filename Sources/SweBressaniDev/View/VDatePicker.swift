@@ -5,11 +5,11 @@
 import Foundation
 import SwiftUI
 
-struct VDatePicker: View {
+public struct VDatePicker: View {
     @Binding var bdNatal: Date
     @State var text: TextCore
 
-    var body: some View {
+    public var body: some View {
         VStack {
             DatePicker("\(text.birthDate())",
                     selection: $bdNatal,
