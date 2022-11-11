@@ -16,7 +16,8 @@ let package = Package(
                         targets: ["SweBressaniDev"]),
         ],
         dependencies: [
-            .package(url: "https://github.com/techprimate/TPPDF", .upToNextMajor(from: "2.0.0"))
+            .package(url: "https://github.com/techprimate/TPPDF", .upToNextMajor(from: "2.0.0")),
+            .package(url: "https://github.com/stephaneworkspace/SVGView.git", branch: "main")
         ],
         targets: [.target(name: "cpplib"),
                   .target(name: "svglib"),
@@ -24,7 +25,7 @@ let package = Package(
                   .target(name: "sweinterfacelib", dependencies: ["svglib", "swelib"]),
                   .executableTarget(name: "cpp-exec", dependencies: ["cpplib", "swelib", "svglib", "sweinterfacelib"]),
                   .target(name: "cwrapper", dependencies: ["cpplib", "swelib", "svglib", "sweinterfacelib"]),
-                  .target(name: "SweBressaniDev", dependencies: ["cwrapper", "TPPDF"]),
+                  .target(name: "SweBressaniDev", dependencies: ["cwrapper", "SVGView", "TPPDF"]),
                   .executableTarget(name: "SweBressaniDevExec", dependencies: ["cwrapper", "SweBressaniDev", "TPPDF"]),
         ]
 )
