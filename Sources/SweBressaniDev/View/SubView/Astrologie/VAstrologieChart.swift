@@ -7,11 +7,11 @@ import SwiftUI
 @available(iOS 15, macOS 12.0, *)
 public struct VAstrologieChart: View {
     @Binding var bsSwe: SweCore
-    @Binding var saBodies: [Bool]
+    @Binding var baBodies: [Bool]
 
-    public init(bsSwe: Binding<SweCore>, saBodies: Binding<[Bool]>) {
+    public init(bsSwe: Binding<SweCore>, baBodies: Binding<[Bool]>) {
         self._bsSwe = bsSwe
-        self._saBodies = saBodies
+        self._baBodies = baBodies
     }
 
     public var body: some View {
@@ -31,7 +31,7 @@ public struct VAstrologieChart: View {
             }
             //
             ForEach(Array(zip(bsSwe.bodiesForLoop.indices, bsSwe.bodiesForLoop)), id: \.1) { i, b in
-                if (saBodies[i]) {
+                if (baBodies[i]) {
                     VAstrologieBodies(bsSwe: $bsSwe, sbBodie: b, sbTransit: false)
                     VAstrologieBodies(bsSwe: $bsSwe, sbBodie: b, sbTransit: true)
                     VAstrologieAssetBodies(bsSwe: $bsSwe, sbBodie: b, sbTransit: false)
