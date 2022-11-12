@@ -26,6 +26,6 @@ let package = Package(
                   .executableTarget(name: "cpp-exec", dependencies: ["cpplib", "swelib", "svglib", "sweinterfacelib"]),
                   .target(name: "cwrapper", dependencies: ["cpplib", "swelib", "svglib", "sweinterfacelib"]),
                   .target(name: "SweBressaniDev", dependencies: ["cwrapper", "SVGView", "TPPDF"]),
-                  .executableTarget(name: "SweBressaniDevExec", dependencies: ["cwrapper", "SweBressaniDev"]),
+                  .executableTarget(name: "SweBressaniDevExec", dependencies: ["cwrapper", "SweBressaniDev", "TPPDF"]),
         ]
 )
