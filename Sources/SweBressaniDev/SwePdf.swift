@@ -290,7 +290,7 @@ extension SweSvg {
             table[i,1].content = try! PDFTableContent(content: swe.swec.text_bodie(i: b.rawValue))
         }
         let image_0 = try! SweSvg.png(type: .Astre(SweCore.Bodies.init(rawValue: 0)!))
-        table[row: 0].content = [image_0]
+        table[0,0].content = [image_0]
         document.add(table: table)
 
         let generator = PDFGenerator(document: document)
