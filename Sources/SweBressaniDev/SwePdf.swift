@@ -9,7 +9,7 @@ import UIKit
 #endif
 #if os(iOS)
 extension SweSvg {
-    public static func png(type: TypePng) throws -> PDFImage {
+    public static func png(type: TypePng) throws -> UIImage {
         var png = ""
         var file = ""
         switch (type) {
@@ -182,7 +182,8 @@ extension SweSvg {
         guard let image = image else {
             throw PngError.UIImageInvalid
         }
-        return PDFImage(image: image)
+        return image
+        //return PDFImage(image: image)
     }
 
     public static func pdf(swe: SweCore) -> Data {
@@ -191,6 +192,7 @@ extension SweSvg {
         document.add(.contentCenter, text: "Thème astral")
 
         let image = try! SweSvg.png(type: .Astre(SweCore.Bodies.init(rawValue: 0)!))
+        let pdfImage = PDFImage(image: image, size: CGSize(width: 14, height: 14))
         document.add(.contentLeft, image: image)
 
         // Tableau 1
@@ -284,6 +286,8 @@ extension SweSvg {
         table[12,5].alignment = .right
         table[13,5].alignment = .right
         for (i, b) in swe.bodiesForLoop.enumerated() {
+            let image = try! SweSvg.png(type: .Astre(SweCore.Bodies.init(rawValue: b.rawValue)!))
+            table[i,0].content = image
             //table[i,0].content = try! SweSvg.png(type: .Astre(SweCore.Bodies.init(rawValue: 0)!))
             table[i,1].content = try! PDFTableContent(content: swe.swec.text_bodie(i: b.rawValue))
         }
