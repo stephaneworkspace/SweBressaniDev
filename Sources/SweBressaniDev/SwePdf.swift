@@ -177,7 +177,8 @@ extension SweSvg {
         } catch {
             throw PngError.PngWriteError
         }
-        let image = UIImage(contentsOfFile: documentsURL.absoluteURL.path)
+        let image = UIImage(data: convertedData)
+        //let image = UIImage(contentsOfFile: documentsURL.absoluteURL.path)
         guard let image = image else {
             throw PngError.UIImageInvalid
         }
