@@ -289,7 +289,7 @@ extension SweSvg {
         for (i, b) in swe.bodiesForLoop.enumerated() {
             let image = try! SweSvg.png(type: .Astre(SweCore.Bodies.init(rawValue: 0)!))
             let pdfImage = PDFImage(image: image, size: CGSize(width: 14, height: 14), quality: 1.0, options: .none)
-            table[i,0].content = try! PDFTableContent(content: pdfImage)
+            table[i,0].content = try! PDFTableContent(content: Image(uiImage: image))
             //aUIImage.append(try! SweSvg.png(type: .Astre(SweCore.Bodies.init(rawValue: b.rawValue)!)))
             table[i,1].content = try! PDFTableContent(content: swe.swec.text_bodie(i: b.rawValue))
         }
