@@ -282,11 +282,11 @@ extension SweSvg {
             table[i,1].content = try! PDFTableContent(content: swe.swec.text_bodie(i: b.rawValue))
         }
         document.add(table: table)
-        let image = try! SweSvg.png(type: .Astre(SweCore.Bodies.init(rawValue: 0)))
+        let image = try! SweSvg.png(type: .Astre(SweCore.Bodies.init(rawValue: 0)!))
         document.add(image: image)
 
         let generator = PDFGenerator(document: document)
-        let data = try generator.generateData()
+        let data = try! generator.generateData()
         return data
     }
 }
