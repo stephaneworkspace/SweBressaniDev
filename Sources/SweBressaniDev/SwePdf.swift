@@ -4,8 +4,10 @@
 
 import Foundation
 import SwiftUI
-#if canImport(UIKit)
+#if os(iOS)
 import UIKit
+#elseif os(macOS)
+import AppKit
 #endif
 import TPPDF
 #if os(iOS)
