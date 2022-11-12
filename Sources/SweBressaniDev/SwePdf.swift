@@ -286,16 +286,14 @@ extension SweSvg {
         table[11,5].alignment = .right
         table[12,5].alignment = .right
         table[13,5].alignment = .right
-        //var aUIImage: [UIImage] = []
+        var aUIImage: [UIImage] = []
         for (i, b) in swe.bodiesForLoop.enumerated() {
-            let image = try! SweSvg.png(type: .Astre(SweCore.Bodies.init(rawValue: 0)!))
-            let pdfImage = PDFImage(image: image, size: CGSize(width: 14, height: 14), quality: 1.0, options: .none)
-            table[i,0].content = try! PDFTableContent(content: Image(uiImage: image))
-            //aUIImage.append(try! SweSvg.png(type: .Astre(SweCore.Bodies.init(rawValue: b.rawValue)!)))
+            aUIImage.append(try! SweSvg.png(type: .Astre(SweCore.Bodies.init(rawValue: b.rawValue)!)))
             table[i,1].content = try! PDFTableContent(content: swe.swec.text_bodie(i: b.rawValue))
         }
-        //table[column: 0].content = aUIImage
-        //document.add(table: table)
+        table[column: 0].content = aUIImage
+        table.padding = 0.0
+        document.add(table: table)
 
 
 
