@@ -191,8 +191,8 @@ extension SweSvg {
 
         document.add(.contentCenter, text: "Thème astral")
 
-        let image = try! SweSvg.png(type: .Astre(SweCore.Bodies.init(rawValue: 0)!))
-        let pdfImage = PDFImage(image: image, size: CGSize(width: 14, height: 14), quality: 1.0, options: .none)
+        //let image = try! SweSvg.png(type: .Astre(SweCore.Bodies.init(rawValue: 0)!))
+        //let pdfImage = PDFImage(image: image, size: CGSize(width: 14, height: 14), quality: 1.0, options: .none)
         document.add(.contentLeft, image: pdfImage)
 
         // Tableau 1
@@ -285,12 +285,12 @@ extension SweSvg {
         table[11,5].alignment = .right
         table[12,5].alignment = .right
         table[13,5].alignment = .right
+        let aUIImage: [UIImage] = []
         for (i, b) in swe.bodiesForLoop.enumerated() {
-            //table[i,0].content = try! SweSvg.png(type: .Astre(SweCore.Bodies.init(rawValue: 0)!))
+            aUIImage.append(try! SweSvg.png(type: .Astre(SweCore.Bodies.init(rawValue: b.rawValue)!)))
             table[i,1].content = try! PDFTableContent(content: swe.swec.text_bodie(i: b.rawValue))
         }
-        //let image_0 = try! SweSvg.png(type: .Astre(SweCore.Bodies.init(rawValue: 0)!))
-        //table[0,0].content = [image_0]
+        table[column: 0].content = aUIImage
         document.add(table: table)
 
         let generator = PDFGenerator(document: document)
