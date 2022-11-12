@@ -289,7 +289,7 @@ extension SweSvg {
             //table[i,0].content = try! SweSvg.png(type: .Astre(SweCore.Bodies.init(rawValue: 0)!))
             table[i,1].content = try! PDFTableContent(content: swe.swec.text_bodie(i: b.rawValue))
         }
-        let image = try! SweSvg.png(type: .Astre(SweCore.Bodies.init(rawValue: b.rawValue)!))
+        let image = try! SweSvg.png(type: .Astre(SweCore.Bodies.init(rawValue: 0)!))
         table[row: 0].content = [image]
         document.add(table: table)
 
