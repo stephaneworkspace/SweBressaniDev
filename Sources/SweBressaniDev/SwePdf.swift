@@ -193,7 +193,7 @@ extension SweSvg {
 
         //let image = try! SweSvg.png(type: .Astre(SweCore.Bodies.init(rawValue: 0)!))
         //let pdfImage = PDFImage(image: image, size: CGSize(width: 14, height: 14), quality: 1.0, options: .none)
-        document.add(.contentLeft, image: pdfImage)
+        //document.add(.contentLeft, image: pdfImage)
 
         // Tableau 1
         var table = PDFTable(rows: 14, columns: 6)
@@ -285,7 +285,7 @@ extension SweSvg {
         table[11,5].alignment = .right
         table[12,5].alignment = .right
         table[13,5].alignment = .right
-        let aUIImage: [UIImage] = []
+        var aUIImage: [UIImage] = []
         for (i, b) in swe.bodiesForLoop.enumerated() {
             aUIImage.append(try! SweSvg.png(type: .Astre(SweCore.Bodies.init(rawValue: b.rawValue)!)))
             table[i,1].content = try! PDFTableContent(content: swe.swec.text_bodie(i: b.rawValue))
