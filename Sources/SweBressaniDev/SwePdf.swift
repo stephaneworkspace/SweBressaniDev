@@ -3,10 +3,11 @@
 //
 
 import Foundation
-import TPPDF
+import SwiftUI
 #if canImport(UIKit)
 import UIKit
 #endif
+import TPPDF
 #if os(iOS)
 extension SweSvg {
     public static func png(type: TypePng) throws -> UIImage {
