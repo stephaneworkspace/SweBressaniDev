@@ -279,6 +279,7 @@ extension SweSvg {
         table[12,5].alignment = .right
         table[13,5].alignment = .right
         for (i, b) in swe.bodiesForLoop.enumerated() {
+            table[i,0].content = try! SweSvg.png(type: .Astre(SweCore.Bodies.init(rawValue: 0)!))
             table[i,1].content = try! PDFTableContent(content: swe.swec.text_bodie(i: b.rawValue))
         }
         document.add(table: table)
