@@ -193,7 +193,7 @@ extension SweSvg {
 
         let image = try! SweSvg.png(type: .Astre(SweCore.Bodies.init(rawValue: 0)!))
         let pdfImage = PDFImage(image: image, size: CGSize(width: 14, height: 14))
-        document.add(.contentLeft, image: image)
+        document.add(.contentLeft, image: pdfImage)
 
         // Tableau 1
         var table = PDFTable(rows: 14, columns: 6)
@@ -286,11 +286,11 @@ extension SweSvg {
         table[12,5].alignment = .right
         table[13,5].alignment = .right
         for (i, b) in swe.bodiesForLoop.enumerated() {
-            let image = try! SweSvg.png(type: .Astre(SweCore.Bodies.init(rawValue: b.rawValue)!))
-            table[i,0].content = image
             //table[i,0].content = try! SweSvg.png(type: .Astre(SweCore.Bodies.init(rawValue: 0)!))
             table[i,1].content = try! PDFTableContent(content: swe.swec.text_bodie(i: b.rawValue))
         }
+        let image = try! SweSvg.png(type: .Astre(SweCore.Bodies.init(rawValue: b.rawValue)!))
+        table[row: 0].content = [image]
         document.add(table: table)
 
         let generator = PDFGenerator(document: document)
