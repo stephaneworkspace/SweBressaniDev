@@ -302,7 +302,6 @@ public struct VNumerologie: View {
                 printController.printingItem = try! NumerologieCore.pdf(natal: bdNatal)
                 printController.present(animated: true, completionHandler: nil)
                 #endif
-
             }, label: {
                 VStack {
                     Text("Imprimer") // TODO
