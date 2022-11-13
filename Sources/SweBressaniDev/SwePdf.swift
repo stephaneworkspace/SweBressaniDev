@@ -189,14 +189,16 @@ extension SweSvg {
         //return PDFImage(image: image)
     }
 
-    public static func pdf(swe: SweCore) -> Data {
+    public static func pdf(swe: SweCore, chart: UIImage, tableau1: UIImage) -> Data {
         let document = PDFDocument(format: .a4)
 
         document.add(.contentCenter, text: "Thème astral")
 
         //let image = try! SweSvg.png(type: .Astre(SweCore.Bodies.init(rawValue: 0)!))
-        //let pdfImage = PDFImage(image: image, size: CGSize(width: 14, height: 14), quality: 1.0, options: .none)
-        //document.add(.contentLeft, image: pdfImage)
+        let pdfImage = PDFImage(image: chart, size: CGSize(width: 400, height: 400), quality: 1.0, options: .none)
+        document.add(.contentLeft, image: pdfImage)
+        pdfImage = PDFImage(image: tableau1, size: CGSize(width: 400, height: 400), quality: 1.0, options: .none)
+        document.add(.contentLeft, image: pdfImage)
 
         // Tableau 1
         var table = PDFTable(rows: 14, columns: 6)
