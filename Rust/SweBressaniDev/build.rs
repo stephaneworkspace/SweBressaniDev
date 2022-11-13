@@ -6,9 +6,9 @@ fn main() {
     //cc::Build::new().file("src/multiply.c").compile("multiply");
     let dir = env::var("CARGO_MANIFEST_DIR").unwrap();
     cc::Build::new()
-        .include("/Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/System/Library/Frameworks/Kernel.framework/Versions/A/Headers")
-        .include("/Applications/Unity/Hub/Editor/2020.3.28f1/PlaybackEngines/WebGLSupport/BuildTools/Emscripten/system/include/libc")
-        .include("/Applications/Unity/Hub/Editor/2020.3.28f1/PlaybackEngines/WebGLSupport/BuildTools/Emscripten/system/lib/libc/musl/arch/emscripten")
+              .include("/Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/System/Library/Frameworks/Kernel.framework/Versions/A/Headers")
+            .include("/Applications/Unity/Hub/Editor/2020.3.28f1/PlaybackEngines/WebGLSupport/BuildTools/Emscripten/system/include/libc")
+            .include("/Applications/Unity/Hub/Editor/2020.3.28f1/PlaybackEngines/WebGLSupport/BuildTools/Emscripten/system/lib/libc/musl/arch/emscripten")
         .file(Path::new(&dir).join("../../Sources/swelib/swecl.c"))
         .file(Path::new(&dir).join("../../Sources/swelib/swedate.c"))
         .file(Path::new(&dir).join("../../Sources/swelib/swehel.c"))

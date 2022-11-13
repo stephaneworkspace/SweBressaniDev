@@ -297,6 +297,21 @@ extension SweSvg {
         table.padding = 0.0
         document.add(table: table)
 
+        //let image = try! SweSvg.png(type: .Astre(SweCore.Bodies.init(rawValue: 0)!))
+        //let pdfImage = PDFImage(image: image, size: CGSize(width: 14, height: 14), quality: 1.0, options: .none)
+        //document.add(.contentLeft, image: pdfImage)
+
+        for i in 0..<10 {
+            document.addText(text: "Text \(i)")
+        }
+        document.enable(columns: 4, widths: [0.2, 0.3, 0.4, 0.1], spacings: [10, 50, 20]);
+        for i in 0..<200 {
+            document.addText(text: "\(i)-A-B-C-D-E-F-G-H-I-J-K-L-M-N-O-P-Q-R")
+        }
+        document.disableColumns();
+        for i in 0..<10 {
+            document.addText(text: "Text \(i)")
+        }
 
 
         let generator = PDFGenerator(document: document)
