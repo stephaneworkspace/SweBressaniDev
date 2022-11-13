@@ -297,10 +297,17 @@ extension SweSvg {
         table.padding = 0.0
         document.add(table: table)
 
-        //let image = try! SweSvg.png(type: .Astre(SweCore.Bodies.init(rawValue: 0)!))
-        //let pdfImage = PDFImage(image: image, size: CGSize(width: 14, height: 14), quality: 1.0, options: .none)
-        //document.add(.contentLeft, image: pdfImage)
-
+        document.enable(columns: 4, widths: [0.2, 0.3, 0.4, 0.1], spacings: [10, 50, 20]);
+        for (i, b) in swe.bodiesForLoop.enumerated() {
+            let image = try! SweSvg.png(type: .Astre(SweCore.Bodies.init(rawValue: b.rawValue)!))
+            let pdfImage = PDFImage(image: image, size: CGSize(width: 20, height: 20), quality: 1.0, options: .none)
+            document.add(.contentLeft, image: pdfImage)
+            document.add(.contentLeft, text: swe.swec.text_bodie(i: b.rawValue))
+            document.add(.contentLeft, text: swe.swec.text_bodie(i: b.rawValue))
+            document.add(.contentLeft, text: swe.swec.text_bodie(i: b.rawValue))
+        }
+        document.disableColumns();
+/*
         for i in 0..<10 {
             document.add(.contentCenter, text: "Text \(i)")
         }
@@ -312,7 +319,7 @@ extension SweSvg {
         for i in 0..<10 {
             document.add(.contentCenter, text: "Text \(i)")
         }
-
+*/
 
         let generator = PDFGenerator(document: document)
         let data = try! generator.generateData()
