@@ -12,6 +12,7 @@ import AppKit
 import TPPDF
 #if os(iOS)
 extension SweSvg {
+    /*
     public static func png(type: TypePng) throws -> UIImage {
         var png = ""
         var file = ""
@@ -187,7 +188,7 @@ extension SweSvg {
         }
         return image
         //return PDFImage(image: image)
-    }
+    }*/
 
     public static func pdf(swe: SweCore, chart: UIImage, tableau1: UIImage) -> Data {
         let document = PDFDocument(format: .a4)
