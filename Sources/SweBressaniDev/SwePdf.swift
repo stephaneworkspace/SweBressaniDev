@@ -195,11 +195,12 @@ extension SweSvg {
         document.add(.contentCenter, text: "Thème astral")
 
         //let image = try! SweSvg.png(type: .Astre(SweCore.Bodies.init(rawValue: 0)!))
-        var pdfImage = PDFImage(image: chart, size: CGSize(width: 400, height: 400), quality: 1.0, options: .none)
+        var pdfImage = PDFImage(image: chart, size: CGSize(width: 500, height: 500), quality: 1.0, options: .none)
         document.add(.contentLeft, image: pdfImage)
-        pdfImage = PDFImage(image: tableau1, size: CGSize(width: 400, height: 400), quality: 1.0, options: .none)
+        pdfImage = PDFImage(image: tableau1, quality: 1.0, options: .none)
         document.add(.contentLeft, image: pdfImage)
 
+        /*
         // Tableau 1
         var table = PDFTable(rows: 14, columns: 6)
         var style = PDFTableStyle()
@@ -309,7 +310,6 @@ extension SweSvg {
             document.add(.contentLeft, text: swe.swec.text_bodie(i: b.rawValue))
         }
         document.disableColumns();
-/*
         for i in 0..<10 {
             document.add(.contentCenter, text: "Text \(i)")
         }
