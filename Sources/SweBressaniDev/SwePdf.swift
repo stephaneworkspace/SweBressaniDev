@@ -197,9 +197,10 @@ extension SweSvg {
         //let image = try! SweSvg.png(type: .Astre(SweCore.Bodies.init(rawValue: 0)!))
         //var pdfImage = PDFImage(image: chart, size: CGSize(width: 500, height: 500), quality: 1.0, options: .none)
         var pdfImage = PDFImage(image: chart, quality: 1.0, options: .none)
-        document.add(.contentLeft, image: pdfImage)
+        document.add(.contentCenter, image: pdfImage)
+        document.createNewPage()
         pdfImage = PDFImage(image: tableau1, quality: 1.0, options: .none)
-        document.add(.contentLeft, image: pdfImage)
+        document.add(.contentCenter, image: pdfImage)
 
         /*
         // Tableau 1
