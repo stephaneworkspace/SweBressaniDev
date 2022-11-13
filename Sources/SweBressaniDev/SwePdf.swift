@@ -195,7 +195,7 @@ extension SweSvg {
         document.add(.contentCenter, text: "Thème astral")
 
         //let image = try! SweSvg.png(type: .Astre(SweCore.Bodies.init(rawValue: 0)!))
-        let pdfImage = PDFImage(image: chart, size: CGSize(width: 400, height: 400), quality: 1.0, options: .none)
+        var pdfImage = PDFImage(image: chart, size: CGSize(width: 400, height: 400), quality: 1.0, options: .none)
         document.add(.contentLeft, image: pdfImage)
         pdfImage = PDFImage(image: tableau1, size: CGSize(width: 400, height: 400), quality: 1.0, options: .none)
         document.add(.contentLeft, image: pdfImage)
