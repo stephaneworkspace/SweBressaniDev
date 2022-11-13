@@ -18,13 +18,13 @@ public struct VAstrologieTableau1: View {
     public var body: some View {
         VStack(spacing: 0) { // TODO tout prendre
             ForEach(Array(zip(bsSwe.bodiesForLoop.indices, bsSwe.bodiesForLoop)), id: \.1) { i, b in
-                if (saBodies[i]) {
+                //if (saBodies[i]) {
                     ZStack(alignment: .topLeading) {
                         VAstrologieTableau1Bodies(bsSwe: $bsSwe, sbBodie: b)
                         VAstrologieTableau1Signs(bsSwe: $bsSwe, sbBodie: b, stTransit: false)
                         VAstrologieTableau1Signs(bsSwe: $bsSwe, sbBodie: b, stTransit: true)
                     }
-                }
+                //}
             }
         }
     }
