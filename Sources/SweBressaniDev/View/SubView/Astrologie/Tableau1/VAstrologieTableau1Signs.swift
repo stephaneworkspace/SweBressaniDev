@@ -36,21 +36,21 @@ public struct VAstrologieTableau1Signs: View {
         let degMinSec = bsSwe.bodieDegMinSec(bodie: sbBodie, swTransit: stTransit)
         VStack {
             Text("°")
-        }.frame(maxWidth: .infinity, alignment: .leading).offset(x: stTransit ? 195 : 195 + offset)
+        }.frame(maxWidth: .infinity, alignment: .leading).offset(x: !stTransit ? 195 : 195 + offset)
         VStack {
             Text(degMinSec.0.formatted())
-        }.frame(maxWidth: 25, alignment: .trailing).offset(x: stTransit ? 170 : 170 + offset)
+        }.frame(maxWidth: 25, alignment: .trailing).offset(x: !stTransit ? 170 : 170 + offset)
         VStack {
             Text("'")
-        }.frame(maxWidth: .infinity, alignment: .leading).offset(x: stTransit ? 225 : 225 + offset)
+        }.frame(maxWidth: .infinity, alignment: .leading).offset(x: !stTransit ? 225 : 225 + offset)
         VStack {
             Text(degMinSec.1.formatted())
-        }.frame(maxWidth: 25, alignment: .trailing).offset(x: stTransit ? 200 : 200 + offset)
+        }.frame(maxWidth: 25, alignment: .trailing).offset(x: !stTransit ? 200 : 200 + offset)
         VStack {
             Text("\"")
-        }.frame(maxWidth: .infinity, alignment: .leading).offset(x: stTransit ? 255 : 255 + offset)
+        }.frame(maxWidth: .infinity, alignment: .leading).offset(x: !stTransit ? 255 : 255 + offset)
         VStack {
             Text(degMinSec.2.formatted())
-        }.frame(maxWidth: 25, alignment: .trailing).offset(x: stTransit ? 230 : 230 + offset)
+        }.frame(maxWidth: 25, alignment: .trailing).offset(x: !stTransit ? 230 : 230 + offset)
     }
 }
