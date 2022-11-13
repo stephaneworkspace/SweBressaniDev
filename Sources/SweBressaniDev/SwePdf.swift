@@ -302,15 +302,15 @@ extension SweSvg {
         //document.add(.contentLeft, image: pdfImage)
 
         for i in 0..<10 {
-            document.addText(text: "Text \(i)")
+            document.add(.contentCenter, text: "Text \(i)")
         }
         document.enable(columns: 4, widths: [0.2, 0.3, 0.4, 0.1], spacings: [10, 50, 20]);
         for i in 0..<200 {
-            document.addText(text: "\(i)-A-B-C-D-E-F-G-H-I-J-K-L-M-N-O-P-Q-R")
+            document.add(.contentCenter, text: "\(i)-A-B-C-D-E-F-G-H-I-J-K-L-M-N-O-P-Q-R")
         }
         document.disableColumns();
         for i in 0..<10 {
-            document.addText(text: "Text \(i)")
+            document.add(.contentCenter, text: "Text \(i)")
         }
 
 
