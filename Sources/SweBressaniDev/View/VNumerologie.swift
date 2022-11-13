@@ -304,8 +304,13 @@ public struct VNumerologie: View {
                 #endif
             }, label: {
                 VStack {
-                    Text("Imprimer") // TODO
-                            .padding()
+                    HStack {
+                        Image(systemName: "printer")
+                                .font(.largeTitle)
+                                .foregroundColor(.blue)
+                        Text("Imprimer") // TODO
+                                .padding()
+                    }
                             .foregroundColor(.black)
                             .background(Color.white)
                             .mask(RoundedRectangle(cornerRadius: 30, style: .continuous))
