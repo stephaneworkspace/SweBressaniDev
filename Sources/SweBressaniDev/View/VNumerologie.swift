@@ -308,6 +308,7 @@ public struct VNumerologie: View {
                         Image(systemName: "printer")
                                 .font(.largeTitle)
                                 .foregroundColor(.blue)
+                                .padding()
                         Text("Imprimer") // TODO
                                 .padding()
                     }
