@@ -884,13 +884,10 @@ public class SweCore {
                     break
                 case .Natal:
                     for (j, bodPair) in bodiesForLoop.enumerated() {
-                        if bodPair == bodie {
-                            break
-                        }
-                        if bodie.rawValue == SweCore.Bodies.Jupiter.rawValue && bodPair.rawValue == SweCore.Bodies.Saturn.rawValue {
+                        //if bodie.rawValue == SweCore.Bodies.Jupiter.rawValue && bodPair.rawValue == SweCore.Bodies.Saturn.rawValue {
                             // debug
-                        }
-                        if swBodies[j] {
+                        //}
+                        if swBodies[j] && bodPair != bodie {
                             var bod2NatalLongitude = 0.0
                             for b in swec.bodiesNatal {
                                 if b.bodie == bodPair.rawValue {
@@ -949,10 +946,7 @@ public class SweCore {
                     break
                 case .Transit:
                     for (j, bodPair) in bodiesForLoop.enumerated() {
-                        if bodPair == bodie {
-                            break
-                        }
-                        if swBodies[j] {
+                        if swBodies[j] && bodPair != bodie {
                             var bod2TransitLongitude = 0.0
                             for b in swec.bodiesTransit {
                                 if b.bodie == bodPair.rawValue {
