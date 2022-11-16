@@ -47,6 +47,9 @@ public struct VAstrologieChart: View {
                     let aspectType = SweCore.AspectType.init(rawValue: j)!
                     let aspectColor = aspect.color()
                     let aspectStyle = aspect.style()
+                    if aspect == .Square {
+                        // debug
+                    }
                     let lines = bsSwe.aspectLines(swBodies: baBodies, aspect: aspect, aspectType: aspectType)
                     if lines.count > 0 {
                         VStack {
