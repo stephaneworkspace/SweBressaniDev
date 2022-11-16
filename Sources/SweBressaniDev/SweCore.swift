@@ -116,6 +116,16 @@ public class SweCore {
         public var lX3: Double
         public var lY3: Double
     }
+    public struct AspectLine {
+        public var aspect: SweCore.Aspects
+        public var lX1: Double
+        public var lY1: Double
+        public var lX2: Double
+        public var lY2: Double
+    }
+    public enum AspectType: Int {
+        case Natal = 0, Transit = 1, NatalAndTransit = 2
+    }
     public struct Offset {
         public var offX: Double
         public var offY: Double
@@ -519,14 +529,14 @@ public class SweCore {
             // natal
             for b in swec.bodiesNatal {
                 if b.bodie == bodie.rawValue {
-                    pos = getBodieLongitude(bodie_longitude: b.calc_ut.longitude, swTransit: swTransit)
+                    pos = getBodieLongitude(bodie_longitude: b.calc_ut.longitude)
                 }
             }
         } else {
             // transit
             for b in swec.bodiesTransit {
                 if b.bodie == bodie.rawValue {
-                    pos = getBodieLongitude(bodie_longitude: b.calc_ut.longitude, swTransit: swTransit)
+                    pos = getBodieLongitude(bodie_longitude: b.calc_ut.longitude)
                 }
             }
         }
@@ -561,7 +571,7 @@ public class SweCore {
             for b in swec.bodiesNatal {
                 if (b.bodie == bodie.rawValue) {
                     var axy: [SweCore.Offset]
-                    pos = getBodieLongitude(bodie_longitude: b.calc_ut.longitude, swTransit: swTransit)
+                    pos = getBodieLongitude(bodie_longitude: b.calc_ut.longitude)
                     axy =
                             getLineTrigo(
                                     angular: pos,
@@ -590,7 +600,7 @@ public class SweCore {
             for b in swec.bodiesTransit {
                 if (b.bodie == bodie.rawValue) {
                     var axy: [SweCore.Offset]
-                    pos = getBodieLongitude(bodie_longitude: b.calc_ut.longitude, swTransit: swTransit)
+                    pos = getBodieLongitude(bodie_longitude: b.calc_ut.longitude)
                     axy =
                             getLineTrigo(
                                     angular: pos,
@@ -812,6 +822,170 @@ public class SweCore {
         return (deg, min, sec)
     }
 
+    public func aspectLines(swBodies: [Bool], aspect: SweCore.Aspects, aspectType: SweCore.AspectType) -> [SweCore.AspectLine] {
+        var res: [AspectLine] = []
+        for (i, bodie) in bodiesForLoop.enumerated() {
+            if swBodies[i] {
+                var bodNatalLongitude = 0.0
+                var bodTransitLongitude = 0.0
+                for b in swec.bodiesNatal {
+                    if b.bodie == bodie.rawValue {
+                        bodNatalLongitude = getBodieLongitude(bodie_longitude: b.calc_ut.longitude)
+                    }
+                }
+                for b in swec.bodiesTransit {
+                    if b.bodie == bodie.rawValue {
+                        bodTransitLongitude = getBodieLongitude(bodie_longitude: b.calc_ut.longitude)
+                    }
+                }
+                switch aspectType {
+                case .NatalAndTransit:
+                    let separation = getClosestDistance(angle1: bodNatalLongitude, angle2: bodTransitLongitude)
+                    let absSeparation = abs(separation)
+                    let asp = aspect.angle().0
+                    let orb = aspect.angle().1
+                    if abs(absSeparation - Double(asp)) <= Double(orb) {
+                        let pos1 = getPosTrigo(angular: bodNatalLongitude, radiusCircle: getRadiusCircle(occurs: 0).0)
+                        let pos2 = getPosTrigo(angular: bodTransitLongitude, radiusCircle: getRadiusCircle(occurs: 0).0)
+                        let line: AspectLine = AspectLine(
+                                aspect: aspect,
+                                lX1: pos1.offX,
+                                lY1: pos1.offY,
+                                lX2: pos2.offX,
+                                lY2: pos2.offY)
+                        res.append(line)
+                        // angle
+                        let angleArray: [SweCore.Angles] = [.Asc, .Mc]
+                        for angle in angleArray {
+                            let angleLongitude = getAngleLongitude(angle: angle)
+                            let separation = getClosestDistance(
+                                    angle1: bodTransitLongitude,
+                                    angle2: angleLongitude)
+                            let absSeparation = abs(separation)
+                            let asp = aspect.angle().0
+                            let orb = aspect.angle().1
+                            if abs(absSeparation - Double(asp)) <= Double(orb) {
+                                let pos1: Offset = getPosTrigo(
+                                        angular: bodTransitLongitude,
+                                        radiusCircle: getRadiusCircle(occurs: 0).0)
+                                let pos2: Offset = getPosTrigo(
+                                        angular: angleLongitude,
+                                        radiusCircle: getRadiusCircle(occurs: 0).0)
+                                let line: AspectLine = AspectLine(
+                                        aspect: aspect,
+                                        lX1: pos1.offX,
+                                        lY1: pos1.offY,
+                                        lX2: pos2.offX,
+                                        lY2: pos2.offY)
+                                res.append(line)
+                            }
+                        }
+                    }
+                    break
+                case .Natal:
+                    for (j, bodPair) in bodiesForLoop.enumerated() {
+                        if bodPair == bodie {
+                            break
+                        }
+                        if swBodies[j] {
+                            var bod2NatalLongitude = 0.0
+                            for b in swec.bodiesNatal {
+                                if b.bodie == bodie.rawValue {
+                                    bod2NatalLongitude = getBodieLongitude(bodie_longitude: b.calc_ut.longitude)
+                                }
+                            }
+                            let separation = getClosestDistance(
+                                    angle1: bodNatalLongitude,
+                                    angle2: bod2NatalLongitude)
+                            let absSeparation = abs(separation)
+                            let asp = aspect.angle().0
+                            let orb = aspect.angle().1
+                            if abs(absSeparation - Double(asp)) <= Double(orb) {
+                                let pos1: Offset = getPosTrigo(
+                                        angular: bodNatalLongitude,
+                                        radiusCircle: getRadiusCircle(occurs: 0).0)
+                                let pos2: Offset = getPosTrigo(
+                                        angular: bod2NatalLongitude,
+                                        radiusCircle: getRadiusCircle(occurs: 0).0)
+                                let line: AspectLine = AspectLine(
+                                        aspect: aspect,
+                                        lX1: pos1.offX,
+                                        lY1: pos1.offY,
+                                        lX2: pos2.offX,
+                                        lY2: pos2.offY)
+                                res.append(line)
+                            }
+                            // angle
+                            let angleArray: [SweCore.Angles] = [.Asc, .Mc]
+                            for angle in angleArray {
+                                let angleLongitude = getAngleLongitude(angle: angle)
+                                let separation = getClosestDistance(
+                                        angle1: bodNatalLongitude,
+                                        angle2: angleLongitude)
+                                let absSeparation = abs(separation)
+                                let asp = aspect.angle().0
+                                let orb = aspect.angle().1
+                                if abs(absSeparation - Double(asp)) <= Double(orb) {
+                                    let pos1: Offset = getPosTrigo(
+                                            angular: bodNatalLongitude,
+                                            radiusCircle: getRadiusCircle(occurs: 0).0)
+                                    let pos2: Offset = getPosTrigo(
+                                            angular: angleLongitude,
+                                            radiusCircle: getRadiusCircle(occurs: 0).0)
+                                    let line: AspectLine = AspectLine(
+                                            aspect: aspect,
+                                            lX1: pos1.offX,
+                                            lY1: pos1.offY,
+                                            lX2: pos2.offX,
+                                            lY2: pos2.offY)
+                                    res.append(line)
+                                }
+                            }
+                        }
+                    }
+                    break
+                case .Transit:
+                    for (j, bodPair) in bodiesForLoop.enumerated() {
+                        if bodPair == bodie {
+                            break
+                        }
+                        if swBodies[j] {
+                            var bod2TransitLongitude = 0.0
+                            for b in swec.bodiesTransit {
+                                if b.bodie == bodie.rawValue {
+                                    bod2TransitLongitude = getBodieLongitude(bodie_longitude: b.calc_ut.longitude)
+                                }
+                            }
+                            let separation = getClosestDistance(
+                                    angle1: bodTransitLongitude,
+                                    angle2: bod2TransitLongitude)
+                            let absSeparation = abs(separation)
+                            let asp = aspect.angle().0
+                            let orb = aspect.angle().1
+                            if abs(absSeparation - Double(asp)) <= Double(orb) {
+                                let pos1: Offset = getPosTrigo(
+                                        angular: bodTransitLongitude,
+                                        radiusCircle: getRadiusCircle(occurs: 0).0)
+                                let pos2: Offset = getPosTrigo(
+                                        angular: bod2TransitLongitude,
+                                        radiusCircle: getRadiusCircle(occurs: 0).0)
+                                let line: AspectLine = AspectLine(
+                                        aspect: aspect,
+                                        lX1: pos1.offX,
+                                        lY1: pos1.offY,
+                                        lX2: pos2.offX,
+                                        lY2: pos2.offY)
+                                res.append(line)
+                            }
+                        }
+                    }
+                    break
+                }
+            }
+        }
+        return res
+    }
+
     private func getRadiusTotal() -> Double {
         Double(size) / 2.0
     }
@@ -947,13 +1121,9 @@ public class SweCore {
                 / 100.0
     }
 
-    private func getBodieLongitude(bodie_longitude: Double, swTransit: Bool) -> Double {
+    private func getBodieLongitude(bodie_longitude: Double) -> Double {
         var pos = 0.0
-        if swTransit {
-            pos = CIRCLE - swec.houses[0].longitude + bodie_longitude
-        } else {
-            pos = CIRCLE - swec.houses[0].longitude + bodie_longitude
-        }
+        pos = CIRCLE - swec.houses[0].longitude + bodie_longitude
         pos = getFixedPos(pos_value: pos)
         return pos
     }
