@@ -893,7 +893,7 @@ public class SweCore {
                         if swBodies[j] {
                             var bod2NatalLongitude = 0.0
                             for b in swec.bodiesNatal {
-                                if b.bodie == bodie.rawValue {
+                                if b.bodie == bodPair.rawValue {
                                     bod2NatalLongitude = getBodieLongitude(bodie_longitude: b.calc_ut.longitude)
                                 }
                             }
@@ -955,7 +955,7 @@ public class SweCore {
                         if swBodies[j] {
                             var bod2TransitLongitude = 0.0
                             for b in swec.bodiesTransit {
-                                if b.bodie == bodie.rawValue {
+                                if b.bodie == bodPair.rawValue {
                                     bod2TransitLongitude = getBodieLongitude(bodie_longitude: b.calc_ut.longitude)
                                 }
                             }
