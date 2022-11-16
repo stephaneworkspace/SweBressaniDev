@@ -41,7 +41,8 @@ public struct VAstrologieChart: View {
             // aspect
             ForEach(SweCore.Aspects.Conjunction.rawValue...SweCore.Aspects.Semisextile.rawValue, id: \.self) { i in
                 // aspect type
-                ForEach(SweCore.AspectType.Natal.rawValue...SweCore.AspectType.NatalAndTransit.rawValue, id: \.self) { j in
+                let j = SweCore.AspectType.Natal.rawValue
+                //ForEach(SweCore.AspectType.Natal.rawValue...SweCore.AspectType.NatalAndTransit.rawValue, id: \.self) { j in
                     let aspect = SweCore.Aspects.init(rawValue: i)!
                     let aspectType = SweCore.AspectType.init(rawValue: j)!
                     let aspectColor = aspect.color()
@@ -52,7 +53,7 @@ public struct VAstrologieChart: View {
                             DrawAspectLines(lines: lines).stroke(aspectColor, style: aspectStyle)
                         }.frame(width: CGFloat(bsSwe.size), height: CGFloat(bsSwe.size))
                     }
-                }
+                //}
             }
         }
     }
