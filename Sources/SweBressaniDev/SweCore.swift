@@ -887,6 +887,9 @@ public class SweCore {
                         if bodPair == bodie {
                             break
                         }
+                        if bodie.rawValue == SweCore.Bodies.Jupiter.rawValue && bodPair.rawValue == SweCore.Bodies.Saturn.rawValue {
+                            // debug
+                        }
                         if swBodies[j] {
                             var bod2NatalLongitude = 0.0
                             for b in swec.bodiesNatal {
