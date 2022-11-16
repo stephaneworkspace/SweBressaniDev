@@ -131,3 +131,22 @@ public struct DrawAngleLine: Shape {
         return path
     }
 }
+
+@available(iOS 15, macOS 12.0, *)
+public struct DrawAspectLines: Shape {
+    var lines: [SweCore.AspectLine]
+
+    public init(lines: [SweCore.AspectLine]) {
+        self.lines = lines
+    }
+
+    public func path(in rect: CGRect) -> Path {
+        var path = Path()
+        for line in lines {
+            path.move(to: CGPoint(x: line.lX1, y: line.lY1))
+            path.addLine(to: CGPoint(x: line.lX2, y: line.lY2))
+            path.closeSubpath()
+        }
+        return path
+    }
+}

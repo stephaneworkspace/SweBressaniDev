@@ -1227,6 +1227,46 @@ extension SweCore.Aspects {
             return ""
         }
     }
+
+    func color() -> SwiftUI.Color {
+        switch self {
+        case .Conjunction:
+            return .red
+        case .Opposition:
+            return .red
+        case .Trine:
+            return .blue
+        case .Square:
+            return .red
+        case .Sextile:
+            return .blue
+        case .Inconjunction:
+            return .green
+        case .Sequisquare:
+            return .indigo
+        case .Semisquare:
+            return .indigo
+        case .Semisextile:
+            return .green
+        case .Nothing:
+            return .black
+        }
+    }
+
+    func style() -> StrokeStyle {
+        var stroke = StrokeStyle.init(lineWidth: 0.5)
+        switch self {
+        case .Sequisquare:
+            stroke.dash = [7]
+        case .Semisquare:
+            stroke.dash = [7]
+        case .Semisextile:
+            stroke.dash = [7]
+        default:
+            return stroke
+        }
+        return stroke
+    }
 }
 
 public class TextCore {

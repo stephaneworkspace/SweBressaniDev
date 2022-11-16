@@ -38,6 +38,22 @@ public struct VAstrologieChart: View {
                     VAstrologieAssetBodies(bsSwe: $bsSwe, sbBodie: b, sbTransit: true)
                 }
             }
+            // aspect
+            ForEach(SweCore.Aspects.Conjunction.rawValue...SweCore.Aspects.Semisextile.rawValue, id: \.self) { i in
+                // aspect type
+                ForEach(SweCore.AspectType.Natal.rawValue...SweCore.AspectType.NatalAndTransit.rawValue, id: \.self) { j in
+                    let aspect = SweCore.Aspects.init(rawValue: i)!
+                    let aspectType = SweCore.AspectType.init(rawValue: j)!
+                    let aspectColor = aspect.color()
+                    let aspectStyle = aspect.style()
+                    let lines = bsSwe.aspectLines(swBodies: baBodies, aspect: aspect, aspectType: aspectType)
+                    if lines.count > 0 {
+                        VStack {
+                            DrawAspectLines(lines: lines).stroke(aspectColor, style: aspectStyle)
+                        }.frame(width: CGFloat(bsSwe.size), height: CGFloat(bsSwe.size))
+                    }
+                }
+            }
         }
     }
 }
