@@ -42,21 +42,18 @@ public struct VAstrologieChart: View {
             ForEach(SweCore.Aspects.Conjunction.rawValue...SweCore.Aspects.Semisextile.rawValue, id: \.self) { i in
                 // aspect type
                 let j = SweCore.AspectType.Natal.rawValue
-                //ForEach(SweCore.AspectType.Natal.rawValue...SweCore.AspectType.NatalAndTransit.rawValue, id: \.self) { j in
+                ForEach(SweCore.AspectType.Natal.rawValue...SweCore.AspectType.NatalAndTransit.rawValue, id: \.self) { j in
                     let aspect = SweCore.Aspects.init(rawValue: i)!
                     let aspectType = SweCore.AspectType.init(rawValue: j)!
                     let aspectColor = aspect.color()
                     let aspectStyle = aspect.style()
-                    if aspect == .Square {
-                        // debug
-                    }
                     let lines = bsSwe.aspectLines(swBodies: baBodies, aspect: aspect, aspectType: aspectType)
                     if lines.count > 0 {
                         VStack {
                             DrawAspectLines(lines: lines).stroke(aspectColor, style: aspectStyle)
                         }.frame(width: CGFloat(bsSwe.size), height: CGFloat(bsSwe.size))
                     }
-                //}
+                }
             }
         }
     }
