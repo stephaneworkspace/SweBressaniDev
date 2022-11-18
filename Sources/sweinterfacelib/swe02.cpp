@@ -7,7 +7,7 @@ using namespace sweinterfacelib;
 
 void Swe02::set_ephe_path(string path) {
     char* path_p = new char[255];
-    std::strcpy(path_p, path.c_str());
+    strcpy(path_p, path.c_str());
     swe_set_ephe_path(path_p);
 }
 
