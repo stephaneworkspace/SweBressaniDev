@@ -294,7 +294,7 @@ public struct VNumerologie: View {
             }
             Button(action: {
                 let pdf = try! NumerologieCore.pdf(natal: bdNatal)
-                let size = (595.0, 842.0)
+                //let size = (595.0, 842.0)
                 #if os(iOS)
                 let printInfo = UIPrintInfo(dictionary: nil)
                 printInfo.outputType = UIPrintInfo.OutputType.general
@@ -302,8 +302,8 @@ public struct VNumerologie: View {
                 let printController = UIPrintInteractionController.shared
                 printController.printInfo = printInfo
                 printController.printingItem = pdf
-                let paper = UIPrintPaper.bestPaperForPageSize(CGSize(size), withPapersFromArray: [UIPrintPaper])
-                printController.choosePaper = paper
+                //let paper = UIPrintPaper.bestPaperForPageSize(CGSize(size), withPapersFromArray: [UIPrintPaper])
+                //printController.choosePaper = paper
                 printController.present(animated: true, completionHandler: nil)
                 #endif
             }, label: {
