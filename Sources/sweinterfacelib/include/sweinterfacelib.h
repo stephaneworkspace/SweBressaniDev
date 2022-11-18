@@ -4,6 +4,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <cstring>
 #include <cmath>
 #include "base64.h"
 #include "svglib.h"
