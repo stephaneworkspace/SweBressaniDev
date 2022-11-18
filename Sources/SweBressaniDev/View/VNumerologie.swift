@@ -293,13 +293,17 @@ public struct VNumerologie: View {
                 }
             }
             Button(action: {
+                let pdf = try! NumerologieCore.pdf(natal: bdNatal)
+                let size = (595.0, 842.0)
                 #if os(iOS)
                 let printInfo = UIPrintInfo(dictionary: nil)
                 printInfo.outputType = UIPrintInfo.OutputType.general
                 printInfo.jobName = "Theme de numérologie" // TODO
                 let printController = UIPrintInteractionController.shared
                 printController.printInfo = printInfo
-                printController.printingItem = try! NumerologieCore.pdf(natal: bdNatal)
+                printController.printingItem = pdf
+                let paper = UIPrintPaper.bestPaperForPageSize(CGSize(size), withPapersFromArray: [UIPrintPaper])
+                printController.choosePaper = paper
                 printController.present(animated: true, completionHandler: nil)
                 #endif
             }, label: {
