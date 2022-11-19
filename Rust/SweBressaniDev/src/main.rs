@@ -1,5 +1,5 @@
 //use crate::swe;
-//mod swe;
+mod swe;
 mod sweinterface;
 use std::ffi::{c_double, CStr, CString};
 use std::os::raw::{c_char, c_int};
@@ -43,6 +43,7 @@ async fn chart(req: HttpRequest) -> impl Responder {
 
 async fn greet(req: HttpRequest) -> impl Responder {
     let name = req.match_info().get("name").unwrap_or("World");
+    unsafe { sweinterface::asset_sign(1) };
     format!("Hello {}!", &name)
 }
 

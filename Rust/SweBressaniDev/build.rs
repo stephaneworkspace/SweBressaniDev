@@ -44,6 +44,7 @@ fn main() {
         .file(Path::new(&dir).join("../../Sources/sweinterfacelib/draw_zodiac_circle.cpp"))
         .file(Path::new(&dir).join("../../Sources/sweinterfacelib/draw_zodiac_line.cpp"))
         .file(Path::new(&dir).join("../../Sources/sweinterfacelib/draw_zodiac_sign.cpp"))
+        .file(Path::new(&dir).join("../../Sources/sweinterfacelib/sign.cpp"))
         .file(Path::new(&dir).join("../../Sources/sweinterfacelib/swe02.cpp"))
         .file(Path::new(&dir).join("../../Sources/sweinterfacelib/swe03.cpp"))
         .file(Path::new(&dir).join("../../Sources/sweinterfacelib/swe08.cpp"))
