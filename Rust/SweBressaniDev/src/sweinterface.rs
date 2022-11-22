@@ -12,6 +12,43 @@ mod ffi {
     }
 }
 
+#[cxx::bridge(namespace = "svglib")]
+mod ffisvg {
+    struct SvgFill {
+        fill: *const i8
+    }
+
+    struct SvgStroke {
+        stroke: *const i8,
+        stroke_width: f32
+    }
+
+    struct SvgProperties {
+        fill: SvgFill,
+        stroke: SvgStroke
+    }
+
+    struct Fill {
+        fill: String
+    }
+
+    struct Stroke {
+        stroke: String,
+        stroke_width: f32
+    }
+
+    struct Circle {
+        properties: SvgProperties
+    }
+
+    unsafe extern "C++" {
+        include!("../../../Sources/svglib/include/svglib.h");
+        type Circle;
+        pub fn Circle(fill: Fill, stroke: Stroke) -> Circle;
+        pub fn generate(x: f32, y: f32, r: f32) -> String;
+    }
+}
+
 #[link(name = "sweinterfacelib", kind = "static")]
 extern "C" {
     pub fn theme_astral_svg(year: c_int, month: c_int, day: c_int, hour: c_int, min: c_int, lat: c_double, lng: c_double, gmt: c_int, ephem_path: *const c_char, color_mode: c_int) -> *const c_char;
