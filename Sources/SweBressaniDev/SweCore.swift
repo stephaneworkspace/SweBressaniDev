@@ -191,23 +191,6 @@ public class SweCore {
         SweCore.Bodies.NoeudLunaireSud,
         SweCore.Bodies.PartChance
     ]
-    public var bodiesSwForLoop: [Bool] = [
-        true,
-        true,
-        true,
-        true,
-        true,
-        true,
-        true,
-        true,
-        true,
-        true,
-        true,
-        false,
-        false,
-        false,
-        false
-    ]
     public enum BodAng {
         case Bodie(SweCore.Bodies), Angle(SweCore.Angles)
     }
@@ -1002,6 +985,26 @@ public class SweCore {
             }
         }
         return res
+    }
+
+    public static func bodieArrBoolForLoop() -> [Bool] {
+        [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            false,
+            false,
+            false
+        ]
     }
 
     private func getRadiusTotal() -> Double {
