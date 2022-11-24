@@ -83,8 +83,7 @@ public class SweCore {
              NoeudLunaire = 11,
              Chiron = 15,
              Ceres = 17,
-             NoeudLunaireSud = 24,
-             PartChance = 25
+             NoeudLunaireSud = 24
     }
     public enum Aspects: Int {
         case Conjunction = 0,
@@ -189,7 +188,6 @@ public class SweCore {
         SweCore.Bodies.Chiron,
         SweCore.Bodies.Ceres,
         SweCore.Bodies.NoeudLunaireSud,
-        SweCore.Bodies.PartChance
     ]
     public enum BodAng {
         case Bodie(SweCore.Bodies), Angle(SweCore.Angles)
@@ -226,10 +224,8 @@ public class SweCore {
         var res: [BodAngIdentifiable] = []
         var j = 0
         for (i, b) in bodiesForLoop.enumerated() {
-            if b != SweCore.Bodies.PartChance {
-                j = i
-                res.append(BodAngIdentifiable.init(bodAng: BodAng.Bodie(b), pos: i))
-            }
+            j = i
+            res.append(BodAngIdentifiable.init(bodAng: BodAng.Bodie(b), pos: i))
         }
         j += 1
         res.append(BodAngIdentifiable.init(bodAng: BodAng.Angle(.Asc), pos: j))
@@ -1003,7 +999,6 @@ public class SweCore {
             false,
             false,
             false,
-            false
         ]
     }
 

@@ -24,10 +24,8 @@ public struct VAstrologieTableau2: View {
                 ForEach(bsSwe.bodAng(), id: \.id) { b in
                     switch (b.bodAng) {
                     case .Bodie(let bodie):
-                        if bodie != SweCore.Bodies.PartChance {
-                            ZStack(alignment: .topLeading) {
-                                VAstrologieTableau2Bodies(bsSwe: $bsSwe, sbBodie: bodie, siI: b.pos)
-                            }
+                        ZStack(alignment: .topLeading) {
+                            VAstrologieTableau2Bodies(bsSwe: $bsSwe, sbBodie: bodie, siI: b.pos)
                         }
                     case .Angle(let angle):
                         ZStack(alignment: .topLeading) {
