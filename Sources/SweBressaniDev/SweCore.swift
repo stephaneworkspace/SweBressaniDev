@@ -659,6 +659,71 @@ public class SweCore {
         return res
     }
 
+    public func partSecondaireBodieLines(bodie: SweCore.Bodies, swTransit: Bool) -> [SweCore.AstroLine] {
+        var res: [SweCore.AstroLine] = []
+        var pos = 0.0
+        if (!swTransit) {
+            // natal
+            for b in swec.bodiesNatal {
+                if (b.bodie == bodie.rawValue) {
+                    var axy: [SweCore.Offset]
+                    pos = getBodieLongitude(bodie_longitude: b.calc_ut.longitude)
+                    axy =
+                            getLineTrigo(
+                                    angular: pos,
+                                    radiusCircleBegin: partSecondaireGetRadiusCircle(occurs: 3).0,
+                                    radiusCircleEnd: partSecondaireGetRadiusCircle(occurs: 7).0)
+                    res.append(SweCore.AstroLine(
+                            lX1: axy[0].offX,
+                            lY1: axy[0].offY,
+                            lX2: axy[1].offX,
+                            lY2: axy[1].offY)
+                    )
+                    axy = getLineTrigo(
+                            angular: pos,
+                            radiusCircleBegin: partSecondaireGetRadiusCircle(occurs: 7).0,
+                            radiusCircleEnd: partSecondaireGetRadiusCircle(occurs: 8).0)
+                    res.append(SweCore.AstroLine(
+                            lX1: axy[0].offX,
+                            lY1: axy[0].offY,
+                            lX2: axy[1].offX,
+                            lY2: axy[1].offY)
+                    )
+                }
+            }
+        } else {
+            // transit
+            for b in swec.bodiesTransit {
+                if (b.bodie == bodie.rawValue) {
+                    var axy: [SweCore.Offset]
+                    pos = getBodieLongitude(bodie_longitude: b.calc_ut.longitude)
+                    axy =
+                            getLineTrigo(
+                                    angular: pos,
+                                    radiusCircleBegin: partSecondaireGetRadiusCircle(occurs: 1).0,
+                                    radiusCircleEnd: partSecondaireGetRadiusCircle(occurs: 10).0)
+                    res.append(SweCore.AstroLine(
+                            lX1: axy[0].offX,
+                            lY1: axy[0].offY,
+                            lX2: axy[1].offX,
+                            lY2: axy[1].offY)
+                    )
+                    axy = getLineTrigo(
+                            angular: pos,
+                            radiusCircleBegin: partSecondaireGetRadiusCircle(occurs: 10).0,
+                            radiusCircleEnd: partSecondaireGetRadiusCircle(occurs: 11).0)
+                    res.append(SweCore.AstroLine(
+                            lX1: axy[0].offX,
+                            lY1: axy[0].offY,
+                            lX2: axy[1].offX,
+                            lY2: axy[1].offY)
+                    )
+                }
+            }
+        }
+        return res
+    }
+
     public func angle(a: SweCore.Angles) -> SweCore.ObjectAngle {
         var angleRatio = ANGLE_RATIO_DESC
         if (a == .Asc) {
@@ -1040,6 +1105,11 @@ public class SweCore {
     private func getRadiusCircle(occurs: Int) -> (Double, Bool) {
         let res = getRadiusTotal() * CIRCLE_SIZE_TRANSIT[occurs].0 / 100
         return (res, CIRCLE_SIZE_TRANSIT[occurs].1)
+    }
+
+    private func partSecondaireGetRadiusCircle(occurs: Int) -> (Double, Bool) {
+        let res = getRadiusTotal() * PART_SECONDAIRE_CIRCLE_SIZE_TRANSIT[occurs].0 / 100
+        return (res, PART_SECONDAIRE_CIRCLE_SIZE_TRANSIT[occurs].1)
     }
 
     private func getFixedPos(pos_value: Double) -> Double {
