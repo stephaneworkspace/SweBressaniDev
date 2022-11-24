@@ -29,8 +29,8 @@ let PART_SECONDAIRE_CIRCLE_SIZE_TRANSIT: [(Double, Bool)] = [
     (59.0, true), // 1 CIRCLE TRANSIT
     (75.0, true), // 2 CIRCLE ZODIAC END
     (80.0, true), // 3 CIRCLE HOUSE
-    (92.0, false), // 4 CIRCLE INVISIBLE -
-    (100.0, false), // 5 CIRCLE INVISIBLE PLANET
+    (96.0, false), // 4 CIRCLE INVISIBLE -
+    (96.0, false), // 5 CIRCLE INVISIBLE PLANET
     //    (0.0, false), // 5
     (0.0, false), // 6
     (82.0, false), // 7 between 2 and 3
