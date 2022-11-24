@@ -671,7 +671,7 @@ public class SweCore {
                     axy =
                             getLineTrigo(
                                     angular: pos,
-                                    radiusCircleBegin: partSecondaireGetRadiusCircle(occurs: 3).0,
+                                    radiusCircleBegin: partSecondaireGetRadiusCircle(occurs: 2).0,
                                     radiusCircleEnd: partSecondaireGetRadiusCircle(occurs: 7).0)
                     res.append(SweCore.AstroLine(
                             lX1: axy[0].offX,
