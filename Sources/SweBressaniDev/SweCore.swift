@@ -226,8 +226,10 @@ public class SweCore {
         var res: [BodAngIdentifiable] = []
         var j = 0
         for (i, b) in bodiesForLoop.enumerated() {
-            j = i
-            res.append(BodAngIdentifiable.init(bodAng: BodAng.Bodie(b), pos: i))
+            if b != SweCore.Bodies.PartChance {
+                j = i
+                res.append(BodAngIdentifiable.init(bodAng: BodAng.Bodie(b), pos: i))
+            }
         }
         j += 1
         res.append(BodAngIdentifiable.init(bodAng: BodAng.Angle(.Asc), pos: j))
