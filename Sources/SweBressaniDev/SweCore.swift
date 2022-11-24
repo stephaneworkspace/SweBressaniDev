@@ -191,6 +191,23 @@ public class SweCore {
         SweCore.Bodies.NoeudLunaireSud,
         SweCore.Bodies.PartChance
     ]
+    public var bodiesSwForLoop: [Bool] = [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        false,
+        false,
+        false,
+        false
+    ]
     public enum BodAng {
         case Bodie(SweCore.Bodies), Angle(SweCore.Angles)
     }
