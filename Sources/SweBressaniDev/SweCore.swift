@@ -25,7 +25,7 @@ let CIRCLE_SIZE_TRANSIT: [(Double, Bool)] = [
 ]
 let PART_SECONDAIRE_CIRCLE = 360.0
 let PART_SECONDAIRE_CIRCLE_SIZE_TRANSIT: [(Double, Bool)] = [
-    (42.0, true), // 0 CIRCLE ASPECT
+    (42.0, false), // 0 CIRCLE ASPECT
     (59.0, true), // 1 CIRCLE TRANSIT
     (75.0, true), // 2 CIRCLE ZODIAC END
     (80.0, true), // 3 CIRCLE HOUSE
@@ -33,7 +33,7 @@ let PART_SECONDAIRE_CIRCLE_SIZE_TRANSIT: [(Double, Bool)] = [
     (96.0, false), // 5 CIRCLE INVISIBLE PLANET
     //    (0.0, false), // 5
     (0.0, false), // 6
-    (84.5, false), // 7 between 2 and 3
+    (86.5, false), // 7 between 2 and 3
     (89.0, false), // 8 correction planet between 2 and 3
     (49.0, false), // 9 Planet pos transit
     (57.5, false), // 10 - 7 transit
