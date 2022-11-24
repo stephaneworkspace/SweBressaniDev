@@ -24,8 +24,10 @@ public struct VAstrologieTableau2: View {
                 ForEach(bsSwe.bodAng(), id: \.id) { b in
                     switch (b.bodAng) {
                     case .Bodie(let bodie):
-                        ZStack(alignment: .topLeading) {
-                            VAstrologieTableau2Bodies(bsSwe: $bsSwe, sbBodie: bodie, siI: b.pos)
+                        if bodie != SweCore.Bodies.PartChance {
+                            ZStack(alignment: .topLeading) {
+                                VAstrologieTableau2Bodies(bsSwe: $bsSwe, sbBodie: bodie, siI: b.pos)
+                            }
                         }
                     case .Angle(let angle):
                         ZStack(alignment: .topLeading) {
@@ -40,7 +42,7 @@ public struct VAstrologieTableau2: View {
             let ba = bsSwe.bodAng()
             ForEach(ba, id: \.id) { b in
                 ZStack(alignment: .topLeading) {
-                    ForEach(b.pos...ba.count, id: \.self) { i in
+                    ForEach(b.pos...ba.count - 1, id: \.self) { i in // - 1 = - la part chance, car il y a 12 sous parts
                         let bodAng = bsSwe.bodAngAspectPos(bodAngPos: b.pos, swTransit1: sbTransit1, swTransit2: sbTransit2, y: i)
                         if bodAng.1 {
                             if (bodAng.0.pos1 >= ba.count - 2) {
