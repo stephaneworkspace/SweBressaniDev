@@ -83,7 +83,8 @@ public class SweCore {
              NoeudLunaire = 11,
              Chiron = 15,
              Ceres = 17,
-             NoeudLunaireSud = 24
+             NoeudLunaireSud = 24,
+             PartChance = 25
     }
     public enum Aspects: Int {
         case Conjunction = 0,
@@ -188,6 +189,7 @@ public class SweCore {
         SweCore.Bodies.Chiron,
         SweCore.Bodies.Ceres,
         SweCore.Bodies.NoeudLunaireSud,
+        SweCore.Bodies.PartChance
     ]
     public enum BodAng {
         case Bodie(SweCore.Bodies), Angle(SweCore.Angles)

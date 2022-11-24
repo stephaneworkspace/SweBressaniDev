@@ -81,6 +81,7 @@ const int ASTRE_NOEUD_LUNAIRE = 11;
 const int ASTRE_CHIRON = 15;
 const int ASTRE_CERES = 17;
 const int ASTRE_NOEUD_LUNAIRE_SUD = 24;
+const int ASTRE_PART_FORTUNE = 25;
 
 int cwrapperfive();
 const char *theme_astral(int year, int month, int day, int hour, int min, double lat, double lng, int gmt, const char *ephem_path, int color_mode);
