@@ -45,7 +45,7 @@ public struct VAstrologieTableau2: View {
                     ForEach(b.pos...ba.count - 1, id: \.self) { i in // - 1 = - la part chance, car il y a 12 sous parts
                         let bodAng = bsSwe.bodAngAspectPos(bodAngPos: b.pos, swTransit1: sbTransit1, swTransit2: sbTransit2, y: i)
                         if bodAng.1 {
-                            if (bodAng.0.pos1 >= ba.count - 2) {
+                            if (bodAng.0.pos1 >= ba.count - 3) { // -1 - voir commentaire au dessus
                             } else {
                                 VAstrologieTableau2AspectsBodies(bsSwe: $bsSwe, saAspect: bodAng.0.aspect, siI: bodAng.0.pos1, sdY: Double(i))
                             }
