@@ -22,6 +22,22 @@ let CIRCLE_SIZE_TRANSIT: [(Double, Bool)] = [
     (57.5, false), // 10 - 7 transit
     (54.5, false), // 11 - 8 transit
 ]
+let PART_SECONDAIRE_CIRCLE = 360.0
+let PART_SECONDAIRE_CIRCLE_SIZE_TRANSIT: [(Double, Bool)] = [
+    (42.0, true), // 0 CIRCLE ASPECT
+    (59.0, true), // 1 CIRCLE TRANSIT
+    (75.0, true), // 2 CIRCLE ZODIAC END
+    (80.0, true), // 3 CIRCLE HOUSE
+    (92.0, false), // 4 CIRCLE INVISIBLE -
+    (92.0, false), // 5 CIRCLE INVISIBLE PLANET
+    //    (0.0, false), // 5
+    (0.0, false), // 6
+    (82.0, false), // 7 between 2 and 3
+    (85.0, false), // 8 correction planet between 2 and 3
+    (49.0, false), // 9 Planet pos transit
+    (57.5, false), // 10 - 7 transit
+    (54.5, false), // 11 - 8 transit
+]
 let LARGER_DRAW_LINE_RULES_SMALL = 0.1
 let LARGER_DRAW_LINE_RULES_LARGE = 0.2
 let ZODIAC_RATIO = 10.0
@@ -387,6 +403,19 @@ public class SweCore {
         var res: [SweCore.AstroCircle] = []
         let center = getRadiusTotal()
         for (idx, circleSize) in CIRCLE_SIZE_TRANSIT.enumerated() {
+            if circleSize.1 {
+                let radius = getRadiusCircle(occurs: idx).0
+                res.append(SweCore.AstroCircle(center: center, radius: radius))
+            }
+        }
+        return res
+    }
+
+    // N'est pas utilisé dans astronumerologie sur mon github stephaneworkspace
+    public func partSecondaireCircles() -> [SweCore.AstroCircle] {
+        var res: [SweCore.AstroCircle] = []
+        let center = getRadiusTotal()
+        for (idx, circleSize) in PART_SECONDAIRE_CIRCLE_SIZE_TRANSIT.enumerated() {
             if circleSize.1 {
                 let radius = getRadiusCircle(occurs: idx).0
                 res.append(SweCore.AstroCircle(center: center, radius: radius))
