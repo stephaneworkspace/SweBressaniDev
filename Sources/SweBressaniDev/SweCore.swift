@@ -33,11 +33,11 @@ let PART_SECONDAIRE_CIRCLE_SIZE_TRANSIT: [(Double, Bool)] = [
     //    (0.0, false), // 5
     (0.0, false), // 6
     (82.0, false), // 7 between 2 and 3
-    (85.0, false), // 8 correction planet between 2 and 3
+    (89.0, false), // 8 correction planet between 2 and 3
     (49.0, false), // 9 Planet pos transit
     (57.5, false), // 10 - 7 transit
     (54.5, false), // 11 - 8 transit
-    (84.5, false), // 12 part secondaire
+    (84.5, true), // 12 part secondaire
 ]
 let LARGER_DRAW_LINE_RULES_SMALL = 0.1
 let LARGER_DRAW_LINE_RULES_LARGE = 0.2
