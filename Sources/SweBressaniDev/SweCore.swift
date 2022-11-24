@@ -21,6 +21,7 @@ let CIRCLE_SIZE_TRANSIT: [(Double, Bool)] = [
     (49.0, false), // 9 Planet pos transit
     (57.5, false), // 10 - 7 transit
     (54.5, false), // 11 - 8 transit
+    (84.5, false), // 12 part secondaire non activé
 ]
 let PART_SECONDAIRE_CIRCLE = 360.0
 let PART_SECONDAIRE_CIRCLE_SIZE_TRANSIT: [(Double, Bool)] = [
