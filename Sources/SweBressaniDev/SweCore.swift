@@ -1283,7 +1283,7 @@ public class SweCore {
     private func getRadiusCirclePartSecondaire() -> Double {
         (getRadiusTotal() * (((
                 (PART_SECONDAIRE_CIRCLE_SIZE_TRANSIT[7].0 - PART_SECONDAIRE_CIRCLE_SIZE_TRANSIT[3].0)))
-                + PART_SECONDAIRE_CIRCLE_SIZE_TRANSIT[7].0))
+                + PART_SECONDAIRE_CIRCLE_SIZE_TRANSIT[3].0))
                 / 100.0
     }
 
