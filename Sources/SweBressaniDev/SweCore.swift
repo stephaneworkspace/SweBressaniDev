@@ -899,7 +899,7 @@ public class SweCore {
     public func partSecondaireLines() -> [SweCore.AstroHouseLine] {
         var res: [SweCore.AstroHouseLine] = []
         for iIdx in 0...11 {
-            let offHouse = 360.0 - swec.partSecondaire[0].calc_ut.longitude
+            let offHouse = 30 * iIdx
             let pos = getFixedPos(pos_value: offHouse + swec.partSecondaire[0].calc_ut.longitude)
             var axyTriangle: [SweCore.Offset] = []
             let angularPointer = ANGULAR_POINTER
