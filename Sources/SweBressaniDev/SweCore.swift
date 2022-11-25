@@ -926,9 +926,9 @@ public class SweCore {
                     lY1: axyTriangle[0].offY,
                     lX2: axyTriangle[1].offX,
                     lY2: axyTriangle[1].offY,
-                    lXY3: true,
-                    lX3: axyTriangle[2].offX,
-                    lY3: axyTriangle[2].offY)
+                    lXY3: false,
+                    lX3: 0.0,
+                    lY3: 0.0)
             )
         }
         return res
