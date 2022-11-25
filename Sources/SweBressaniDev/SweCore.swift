@@ -900,35 +900,27 @@ public class SweCore {
         var res: [SweCore.AstroHouseLine] = []
         for iIdx in 0...11 {
             let offHouse = 360.0 - swec.partSecondaire[0].calc_ut.longitude
-            let pos = getFixedPos(pos_value: offHouse + swec.houses[iIdx].longitude)
+            let pos = getFixedPos(pos_value: offHouse + swec.partSecondaire[0].calc_ut.longitude)
             var axyTriangle: [SweCore.Offset] = []
             let angularPointer = ANGULAR_POINTER
-            if swec.houses[iIdx].angle == SweCore.Angles.Nothing.rawValue {
-                axyTriangle = getTriangleTrigo(
-                        angular: pos,
-                        angularPointer: angularPointer,
-                        radiusCircleBegin: getRadiusInsideCircleHouseForPointerBottom(),
-                        radiusCircleEnd: getRadiusInsideCircleHouseForPointerTop())
-                let axyLine: [SweCore.Offset] = getLineTrigo(
-                        angular: pos,
-                        radiusCircleBegin: getRadiusCircle(occurs: 8).0,
-                        radiusCircleEnd: getRadiusCircle(occurs: 3).0)
-                res.append(SweCore.AstroHouseLine(
-                        lX1: axyLine[0].offX,
-                        lY1: axyLine[0].offY,
-                        lX2: axyLine[1].offX,
-                        lY2: axyLine[1].offY,
-                        lXY3: false,
-                        lX3: 0.0,
-                        lY3: 0.0)
-                )
-            } else {
-                axyTriangle = getTriangleTrigo(
-                        angular: pos,
-                        angularPointer: angularPointer,
-                        radiusCircleBegin: getRadiusCircle(occurs: 8).0,
-                        radiusCircleEnd: getRadiusCircle(occurs: 3).0)
-            }
+            axyTriangle = getTriangleTrigo(
+                    angular: pos,
+                    angularPointer: angularPointer,
+                    radiusCircleBegin: getRadiusInsideCircleHouseForPointerBottom(),
+                    radiusCircleEnd: getRadiusInsideCircleHouseForPointerTop())
+            let axyLine: [SweCore.Offset] = getLineTrigo(
+                    angular: pos,
+                    radiusCircleBegin: getRadiusCircle(occurs: 8).0,
+                    radiusCircleEnd: getRadiusCircle(occurs: 3).0)
+            res.append(SweCore.AstroHouseLine(
+                    lX1: axyLine[0].offX,
+                    lY1: axyLine[0].offY,
+                    lX2: axyLine[1].offX,
+                    lY2: axyLine[1].offY,
+                    lXY3: false,
+                    lX3: 0.0,
+                    lY3: 0.0)
+            )
             res.append(SweCore.AstroHouseLine(
                     lX1: axyTriangle[0].offX,
                     lY1: axyTriangle[0].offY,
