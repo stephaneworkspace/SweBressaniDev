@@ -549,7 +549,7 @@ public class SweCore {
                 size: partSize,
                 offset: getPosTrigo(
                         angular: pos,
-                        radiusCircle: getRadiusCircleHouse()))
+                        radiusCircle: getRadiusCirclePartSecondaire()))
         if number > 9 {
             return SweCore.ObjectHouse(
                     oSx: partSize,
@@ -1277,6 +1277,13 @@ public class SweCore {
         (getRadiusTotal() * (((
                 (CIRCLE_SIZE_TRANSIT[3].0 - CIRCLE_SIZE_TRANSIT[2].0) / 2.0))
                 + CIRCLE_SIZE_TRANSIT[2].0))
+                / 100.0
+    }
+
+    private func getRadiusCirclePartSecondaire() -> Double {
+        (getRadiusTotal() * (((
+                (PART_SECONDAIRE_CIRCLE_SIZE_TRANSIT[3].0 - PART_SECONDAIRE_CIRCLE_SIZE_TRANSIT[7].0) / 2.0))
+                + PART_SECONDAIRE_CIRCLE_SIZE_TRANSIT[2].0))
                 / 100.0
     }
 
