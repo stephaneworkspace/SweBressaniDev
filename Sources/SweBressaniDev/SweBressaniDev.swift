@@ -32,6 +32,7 @@ public class SweSvg {
     public var houses: [cwrapper.SweHouse]
     public var bodiesNatal: [cwrapper.SweBodie]
     public var bodiesTransit: [cwrapper.SweBodie]
+    public var partSecondaire: [cwrapper.SweBodie]
     public var colorMode: ColorMode
 
     enum SvgError: Error {
@@ -68,6 +69,7 @@ public class SweSvg {
         houses = []
         bodiesNatal = []
         bodiesTransit = []
+        partSecondaire = []
         colorMode = .Light
     }
 
@@ -145,6 +147,11 @@ public class SweSvg {
             let calc_ut_t = cwrapper.swelib_calc_ut(utc_to_jd_transit, Int32(b))
             bodiesNatal.append(cwrapper.SweBodie.init(bodie: Int32(b), calc_ut: calc_ut))
             bodiesTransit.append(cwrapper.SweBodie.init(bodie: Int32(b), calc_ut: calc_ut_t))
+        }
+        for i in 0...12 {
+            partSecondaire.append(cwrapper.SweBodie.init(
+                    bodie: cwrapper.ASTRE_PART_FORTUNE,
+                    calc_ut: cwrapper.swelib_calc_ut_part_secondaire(utc_to_jd, Int32(i))))
         }
         self.colorMode = colorMode
     }

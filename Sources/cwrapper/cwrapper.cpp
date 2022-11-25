@@ -123,3 +123,26 @@ SweCalcUt swelib_calc_ut(SweUtcToJd utc_to_jd, int ipl) {
     c_ut.split.result = calcul_ut.split.result;
     return c_ut;
 }
+
+SweCalcUt swelib_calc_ut_part_secondaire(struct SweUtcToJd utc_to_jd, int part) {
+    sweinterfacelib::CalcUt calcul_ut = sweinterfacelib::Swe03::calc_ut_part_secondaire(
+            utc_to_jd.julian_day_ut,
+            sweinterfacelib::OPTION_FLAG_SPEED, part);
+    SweCalcUt c_ut;
+    c_ut.longitude = calcul_ut.longitude;
+    c_ut.latitude = calcul_ut.latitude;
+    c_ut.distance_au = calcul_ut.distance_au;
+    c_ut.speed_longitude = calcul_ut.speed_longitude;
+    c_ut.speed_latitude = calcul_ut.speed_latitude;
+    c_ut.speed_distance_au = calcul_ut.speed_distance_au;
+    c_ut.status = calcul_ut.status;
+    c_ut.serr = calcul_ut.serr.c_str();
+    c_ut.split.print = calcul_ut.split.print.c_str();
+    c_ut.split.deg = calcul_ut.split.deg;
+    c_ut.split.min = calcul_ut.split.min;
+    c_ut.split.sec = calcul_ut.split.sec;
+    c_ut.split.cdegfr = calcul_ut.split.cdegfr;
+    c_ut.split.sign = calcul_ut.split.sign;
+    c_ut.split.result = calcul_ut.split.result;
+    return c_ut;
+}

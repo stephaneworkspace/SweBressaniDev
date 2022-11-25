@@ -101,7 +101,8 @@ public class SweCore {
              NoeudLunaire = 11,
              Chiron = 15,
              Ceres = 17,
-             NoeudLunaireSud = 24
+             NoeudLunaireSud = 24,
+             PartSecondaire = 25 // Distance Lune-Soleil
     }
     public enum Aspects: Int {
         case Conjunction = 0,

@@ -357,6 +357,7 @@ namespace sweinterfacelib {
         class Swe03 {
         public:
             static CalcUt calc_ut(double tjd_ut, int ipl, int iflag);
+            static CalcUt calc_ut_part_secondaire(double tjd_ut, int part, int iflag);
             static void display(CalcUt calcul_ut);
         };
         class Swe07 {

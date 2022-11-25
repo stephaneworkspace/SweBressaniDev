@@ -97,6 +97,7 @@ struct SweTimeZone swelib_utc_time_zone(struct SweTimeZone time_zone, double tim
 struct SweUtcToJd swelib_utc_to_jd(struct SweTimeZone tz);
 struct SweHouse swelib_house_ex(struct SweUtcToJd utc_to_jd, double lat, double lng, int house);
 struct SweCalcUt swelib_calc_ut(struct SweUtcToJd utc_to_jd, int ipl);
+struct SweCalcUt swelib_calc_ut_part_secondaire(struct SweUtcToJd utc_to_jd, int part);
 #ifdef __cplusplus
 }
 #endif

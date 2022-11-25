@@ -37,6 +37,42 @@ CalcUt Swe03::calc_ut(double tjd_ut, int ipl, int iflag) {
     return res;
 }
 
+CalcUt Swe03::calc_ut_part_secondaire(double tjd_ut, int part, int iflag) {
+    double* xx_ptr = new double[6];
+    char* serr_ptr = new char[255];
+    int ipl = ASTRE_SOLEIL;
+    int status = swe_calc_ut(tjd_ut, ipl, iflag, xx_ptr, serr_ptr);
+    double* xx_ptr_2 = new double[6];
+    char* serr_ptr_2 = new char[255];
+    ipl = ASTRE_LUNE;
+    status = swe_calc_ut(tjd_ut, ipl, iflag, xx_ptr, serr_ptr);
+    int longitude = xx_ptr[0] - xx_ptr[1];
+    if (longitude >= 360) {
+        longitude -= 360;
+    }
+    longitude = longitude + (30 * part);
+    if (longitude >= 360) {
+        longitude -= 360;
+    }
+    Swe17 swe17;
+    SplitDeg splitdeg = swe17.split_deg(longitude, 0);
+    CalcUt res;
+    res.longitude = longitude;
+    //res.latitude = xx_ptr[1];
+    //res.distance_au = xx_ptr[2];
+    //res.speed_longitude = xx_ptr[3];
+    //res.speed_latitude = xx_ptr[4];
+    //res.speed_distance_au = xx_ptr[5];
+    //res.status = status;
+    //res.serr = serr_ptr;
+    res.split = splitdeg;
+    free(xx_ptr);
+    free(serr_ptr);
+    free(xx_ptr_2);
+    free(serr_ptr_2);
+    return res;
+}
+
 void Swe03::display(CalcUt calcul_ut) {
     cout << "struct CalcUt {" << endl;
     cout << "longitude "              << calcul_ut.longitude << endl;
