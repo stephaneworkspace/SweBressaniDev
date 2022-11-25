@@ -525,6 +525,47 @@ public class SweCore {
         }
     }
 
+    // J'utilise l'objet ObjectHouse car c'est presque parail que les parts
+    // dans le cas d'un cercle entre les astres natal et les maisons
+    public func partSecondaire(number: Int) -> SweCore.ObjectHouse {
+        //
+        let partSize = (((HOUSE_SIZE * HOUSE_RATIO) / 100.0) * Double(size)) / 100.0
+        let offPosAsc = CIRCLE - swec.partSecondaire[0].calc_ut.longitude
+        var posNext: Double
+        if number > 11 {
+            posNext = swec.houses[0].longitude + offPosAsc
+        } else {
+            posNext = swec.houses[Int(number)].longitude + offPosAsc
+        }
+        let posNow = swec.houses[Int(number - 1)].longitude + offPosAsc
+        var pos: Double
+        if posNow > posNext {
+            pos = posNow + ((posNext - posNow - CIRCLE) / 2.0)
+        } else {
+            pos = posNow + ((posNext - posNow) / 2.0)
+        }
+        pos = getFixedPos(pos_value: pos)
+        let offset = getCenterItem(
+                size: partSize,
+                offset: getPosTrigo(
+                        angular: pos,
+                        radiusCircle: getRadiusCircleHouse()))
+        if number > 9 {
+            return SweCore.ObjectHouse(
+                    oSx: partSize,
+                    oSy: partSize,
+                    oPx: offset.offX,
+                    oPy: offset.offY)
+        } else {
+            return SweCore.ObjectHouse(
+                    oSx: partSize / 1.5,
+                    oSy: partSize,
+                    oPx: offset.offX,
+                    oPy: offset.offY)
+        }
+    }
+
+
     public func bodie(bodie: Bodies, swTransit: Bool) -> SweCore.ObjectBodie {
         let planetSize = (((BODIE_SIZE * ZODIAC_RATIO) / 100.0) * Double(size)) / 100.0;
         var swRetrograde = false
