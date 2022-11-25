@@ -896,6 +896,52 @@ public class SweCore {
         return res
     }
 
+    public func partSecondaireLines() -> [SweCore.AstroHouseLine] {
+        var res: [SweCore.AstroHouseLine] = []
+        for iIdx in 0...11 {
+            let offHouse = 360.0 - swec.partSecondaire[0].calc_ut.longitude
+            let pos = getFixedPos(pos_value: offHouse + swec.houses[iIdx].longitude)
+            var axyTriangle: [SweCore.Offset] = []
+            let angularPointer = ANGULAR_POINTER
+            if swec.houses[iIdx].angle == SweCore.Angles.Nothing.rawValue {
+                axyTriangle = getTriangleTrigo(
+                        angular: pos,
+                        angularPointer: angularPointer,
+                        radiusCircleBegin: getRadiusInsideCircleHouseForPointerBottom(),
+                        radiusCircleEnd: getRadiusInsideCircleHouseForPointerTop())
+                let axyLine: [SweCore.Offset] = getLineTrigo(
+                        angular: pos,
+                        radiusCircleBegin: getRadiusCircle(occurs: 3).0,
+                        radiusCircleEnd: getRadiusCircle(occurs: 2).0)
+                res.append(SweCore.AstroHouseLine(
+                        lX1: axyLine[0].offX,
+                        lY1: axyLine[0].offY,
+                        lX2: axyLine[1].offX,
+                        lY2: axyLine[1].offY,
+                        lXY3: false,
+                        lX3: 0.0,
+                        lY3: 0.0)
+                )
+            } else {
+                axyTriangle = getTriangleTrigo(
+                        angular: pos,
+                        angularPointer: angularPointer,
+                        radiusCircleBegin: getRadiusCircle(occurs: 3).0,
+                        radiusCircleEnd: getRadiusCircle(occurs: 2).0)
+            }
+            res.append(SweCore.AstroHouseLine(
+                    lX1: axyTriangle[0].offX,
+                    lY1: axyTriangle[0].offY,
+                    lX2: axyTriangle[1].offX,
+                    lY2: axyTriangle[1].offY,
+                    lXY3: true,
+                    lX3: axyTriangle[2].offX,
+                    lY3: axyTriangle[2].offY)
+            )
+        }
+        return res
+    }
+
     public func bodieSign(bodie: SweCore.Bodies, swTransit: Bool) -> Int {
         var res = 1
         if (!swTransit) {
