@@ -2459,6 +2459,74 @@ public class NumerologieCore {
         }
     }
 
+    public static func cm(nom: String) -> [[Int]] {
+        var gauche: [(Int, Int)] = []
+        var droite: [(Int, Int)] = []
+        var total = 0;
+        var _total_reduit = 0;
+        for l in nom {
+            let n: (Int, Bool) = NumerologieCore.lettre(lettre: String(l))
+            if n.0 > 0 {
+                let nombre_non_reduit = n.0
+                let nombre_reduit = NumerologieCore.reduction(iNumber: nombre_non_reduit)
+                if n.1 {
+                    droite.append((nombre_non_reduit, nombre_reduit.last ?? nombre_non_reduit))
+                } else {
+                    gauche.append((nombre_non_reduit, nombre_reduit.last ?? nombre_non_reduit))
+                }
+            }
+        }
+        for d in droite {
+            total += d.0
+        }
+        _total_reduit = NumerologieCore.reduction(iNumber: total).last ?? total
+        total = 0
+        for g in gauche {
+            total += g.0
+        }
+        _total_reduit = NumerologieCore.reduction(iNumber: total).last ?? total
+        var arr_cm: [Int] = []
+        for d in droite {
+            var swTrouve = false
+            for n in arr_cm {
+                if d.1 == n {
+                    swTrouve = true
+                    break
+                }
+            }
+            if !swTrouve {
+                arr_cm.append(d.1)
+            }
+        }
+        for g in gauche {
+            var swTrouve = false
+            for n in arr_cm {
+                if g.1 == n {
+                    swTrouve = true
+                    break
+                }
+            }
+            if !swTrouve {
+                arr_cm.append(g.1)
+            }
+        }
+        let CASE_CM: [[Int]] = [[8, 1, 6], [3, 5, 7], [4, 9, 2]]
+        var case_cm_final: [[Int]] = [[], [], []]
+        for (i, x) in CASE_CM.enumerated() {
+            for y in x {
+                var nombre = 0
+                for z in arr_cm {
+                    if z == y {
+                        nombre = z
+                        break
+                    }
+                }
+                case_cm_final[i].append(nombre)
+            }
+        }
+        return case_cm_final
+    }
+
     public static func date(dBornDate: Date) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "YYYY"
