@@ -292,6 +292,21 @@ public struct VNumerologie: View {
                             .clipped()
                 }
             }
+            VStack {
+                let cm = NumerologieCore.cm(nom: bsFirstName
+                        + " " + bsSecondName
+                        + " " + bsThirdName
+                        + " " + bsLastName1
+                        + " " + bsLastName2
+                        + " " + bsLastName3)
+                ForEach(0..<3, id: \.self) { idx in
+                    HStack {
+                        ForEach(0..<3, id: \.self) { jdx in
+                            Text(String(cm[idx][jdx]))
+                        }
+                    }
+                }
+            }
             Button(action: {
                 let pdf = try! NumerologieCore.pdf(natal: bdNatal)
                 //let size = (595.0, 842.0)
