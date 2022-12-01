@@ -2969,6 +2969,9 @@ public class NumerologieCore {
         table[0,1].alignment = .center
         table[1,1].alignment = .center
         table[2,1].alignment = .center
+        table[0,2].alignment = .center
+        table[1,2].alignment = .center
+        table[2,2].alignment = .center
         table[0,0].content = try! PDFTableContent(content: cm[0][0])
         table[0,1].content = try! PDFTableContent(content: cm[0][1])
         table[0,2].content = try! PDFTableContent(content: cm[0][2])
