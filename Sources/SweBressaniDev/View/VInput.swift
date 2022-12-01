@@ -49,12 +49,12 @@ public struct VInput: View {
             VDatePicker(bdNatal: $bdNatal, stText: stText)
             VNamesTextField(
                     stText: stText,
-                    ssFirstName: bsFirstName,
-                    ssSecondName: bsSecondName,
-                    ssThirdName: bsThirdName,
-                    ssLastName1: bsLastName1,
-                    ssLastName2: bsLastName2,
-                    ssLastName3: bsLastName3
+                    bsFirstName: $bsFirstName,
+                    bsSecondName: $bsSecondName,
+                    bsThirdName: $bsThirdName,
+                    bsLastName1: $bsLastName1,
+                    bsLastName2: $bsLastName2,
+                    bsLastName3: $bsLastName3
             )
             VTitleLocalisation(stText: stText)
             VLocalisationTextFieldIOs(bdLat: $bdLat, bdLng: $bdLng, biTimeZone: $biTimeZone, stText: stText)

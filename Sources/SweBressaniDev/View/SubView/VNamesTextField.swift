@@ -8,27 +8,27 @@ import SwiftUI
 @available(iOS 15, macOS 12.0, *)
 public struct VNamesTextField: View {
     @State var stText: TextCore
-    @State var ssFirstName: String
-    @State var ssSecondName: String
-    @State var ssThirdName: String
-    @State var ssLastName1: String
-    @State var ssLastName2: String
-    @State var ssLastName3: String
+    @Binding var bsFirstName: String
+    @Binding var bsSecondName: String
+    @Binding var bsThirdName: String
+    @Binding var bsLastName1: String
+    @Binding var bsLastName2: String
+    @Binding var bsLastName3: String
 
     public init(stText: TextCore,
-                ssFirstName: String,
-                ssSecondName: String,
-                ssThirdName: String,
-                ssLastName1: String,
-                ssLastName2: String,
-                ssLastName3: String) {
+                bsFirstName: Binding<String>,
+                bsSecondName: Binding<String>,
+                bsThirdName: Binding<String>,
+                bsLastName1: Binding<String>,
+                bsLastName2: Binding<String>,
+                bsLastName3: Binding<String>) {
         self._stText = .init(initialValue: stText)
-        self._ssFirstName = .init(initialValue: ssFirstName)
-        self._ssSecondName = .init(initialValue: ssSecondName)
-        self._ssThirdName = .init(initialValue: ssThirdName)
-        self._ssLastName1 = .init(initialValue: ssLastName1)
-        self._ssLastName2 = .init(initialValue: ssLastName2)
-        self._ssLastName3 = .init(initialValue: ssLastName3)
+        self._bsFirstName = bsFirstName
+        self._bsSecondName = bsSecondName
+        self._bsThirdName = bsThirdName
+        self._bsLastName1 = bsLastName1
+        self._bsLastName2 = bsLastName2
+        self._bsLastName3 = bsLastName3
     }
 
     public var body: some View {
@@ -39,11 +39,11 @@ public struct VNamesTextField: View {
                         .clipped()
                 Spacer()
             }
-            TextField("\(stText.firstName())", text: $ssFirstName)
+            TextField("\(stText.firstName())", text: $bsFirstName)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
-            TextField("\(stText.secondName())", text: $ssSecondName)
+            TextField("\(stText.secondName())", text: $bsSecondName)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
-            TextField("\(stText.thirdName())", text: $ssThirdName)
+            TextField("\(stText.thirdName())", text: $bsThirdName)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
             HStack {
                 Text("\(stText.lastName())")
@@ -51,11 +51,11 @@ public struct VNamesTextField: View {
                         .clipped()
                 Spacer()
             }
-            TextField("\(stText.lastName())", text: $ssLastName1)
+            TextField("\(stText.lastName())", text: $bsLastName1)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
-            TextField("\(stText.lastNameAux())", text: $ssLastName2)
+            TextField("\(stText.lastNameAux())", text: $bsLastName2)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
-            TextField("\(stText.lastNameAux())", text: $ssLastName3)
+            TextField("\(stText.lastNameAux())", text: $bsLastName3)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
         }
                 .font(FONTSYSTEM)
