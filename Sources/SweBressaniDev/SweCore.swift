@@ -2957,10 +2957,10 @@ public class NumerologieCore {
         table[2,0].style = cellStyle
         cellStyle = PDFTableCellStyle(borders: PDFTableCellBorders(top: lineStyle, right: lineStyle, bottom: lineStyle))
         table[0,1].style = cellStyle
+        table[0,2].style = cellStyle
         cellStyle = PDFTableCellStyle(borders: PDFTableCellBorders(right: lineStyle, bottom: lineStyle))
         table[1,1].style = cellStyle
         table[1,2].style = cellStyle
-        table[2,0].style = cellStyle
         table[2,1].style = cellStyle
         table[2,2].style = cellStyle
         table[0,0].alignment = .center
