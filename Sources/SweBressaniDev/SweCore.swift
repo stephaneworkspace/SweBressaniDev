@@ -2351,6 +2351,114 @@ public class NumerologieCore {
         case Formatif, Productif, Moisson
     }
 
+    public static func lettre(lettre: String) -> (Int, Bool) {
+        let l: String = lettre.uppercased()
+        switch l {
+        case "A":
+            return (1, true)
+        case "À":
+            return (1, true)
+        case "Á":
+            return (1, true)
+        case "Â":
+            return (1, true)
+        case "Ã":
+            return (1, true)
+        case "B":
+            return (2, false)
+        case "C":
+            return (3, false)
+        case "D":
+            return (4, false)
+        case "E":
+            return (5, true)
+        case "È":
+            return (5, true)
+        case "É":
+            return (5, true)
+        case "Ê":
+            return (5, true)
+        case "Ë":
+            return (5, true)
+        case "F":
+            return (6, false)
+        case "G":
+            return (7, false)
+        case "H":
+            return (8, false)
+        case "I":
+            return (9, true)
+        case "Í":
+            return (9, true)
+        case "Ì":
+            return (9, true)
+        case "Î":
+            return (9, true)
+        case "Ï":
+            return (9, true)
+        case "J":
+            return (10, false)
+        case "K":
+            return (11, false)
+        case "L":
+            return (12, false)
+        case "M":
+            return (13, false)
+        case "N":
+            return (14, false)
+        case "Ñ":
+            return (14, false)
+        case "O":
+            return (15, true)
+        case "Ó":
+            return (15, true)
+        case "Ò":
+            return (15, true)
+        case "Ô":
+            return (15, true)
+        case "Ö":
+            return (15, true)
+        case "Ø":
+            return (15, true)
+        case "Õ":
+            return (15, true)
+        case "P":
+            return (16, false)
+        case "Q":
+            return (17, false)
+        case "R":
+            return (18, false)
+        case "S":
+            return (19, false)
+        case "T":
+            return (20, false)
+        case "U":
+            return (21, true)
+        case "Ú":
+            return (21, true)
+        case "Ù":
+            return (21, true)
+        case "Û":
+            return (21, true)
+        case "Ü":
+            return (21, true)
+        case "V":
+            return (22, false)
+        case "W":
+            return (23, false)
+        case "X":
+            return (24, false)
+        case "Y":
+            return (25, true)
+        case "Ý":
+            return (25, true)
+        case "Z":
+            return (26, false)
+        default:
+            return (0, false)
+        }
+    }
+
     public static func date(dBornDate: Date) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "YYYY"
