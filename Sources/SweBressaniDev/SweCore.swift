@@ -2712,7 +2712,7 @@ public class NumerologieCore {
         return sTemp
     }
 
-    public static func pdf(natal: Date) throws -> Data {
+    public static func pdf(natal: Date, nom: String) throws -> Data {
         let text = TextCore(langue: .F)
 
         let document = PDFDocument(format: .a4)
@@ -2938,6 +2938,43 @@ public class NumerologieCore {
         table[8,1].content = try! PDFTableContent(content: "8")
         table[9,0].content = try! PDFTableContent(content: text.cycleUniversel(iNombre: 9))
         table[9,1].content = try! PDFTableContent(content: "9")
+        document.add(table: table)
+
+// CM
+        let cm = NumerologieCore.cm(nom: nom)
+        document.add(.contentCenter, text: "CM-PJ") // TODO
+        table = PDFTable(rows: 3, columns: 3)
+        style = PDFTableStyle()
+        style.rowHeaderCount = 0
+        style.columnHeaderCount = 0
+        table.style = style
+        lineStyle = PDFLineStyle(width: 1)
+        cellStyle = PDFTableCellStyle(
+                borders: PDFTableCellBorders(left: lineStyle, top: lineStyle, right: lineStyle, bottom: lineStyle))
+        table[0,0].style = cellStyle
+        cellStyle = PDFTableCellStyle(borders: PDFTableCellBorders(left: lineStyle, right: lineStyle, bottom: lineStyle))
+        table[1,0].style = cellStyle
+        table[2,0].style = cellStyle
+        cellStyle = PDFTableCellStyle(borders: PDFTableCellBorders(top: lineStyle, right: lineStyle, bottom: lineStyle))
+        table[0,1].style = cellStyle
+        cellStyle = PDFTableCellStyle(borders: PDFTableCellBorders(right: lineStyle, bottom: lineStyle))
+        table[1,1].style = cellStyle
+        table[2,1].style = cellStyle
+        table[0,0].alignment = .center
+        table[1,0].alignment = .center
+        table[2,0].alignment = .center
+        table[0,1].alignment = .center
+        table[1,1].alignment = .center
+        table[2,1].alignment = .center
+        table[0,0].content = try! PDFTableContent(content: cm[0][0])
+        table[0,1].content = try! PDFTableContent(content: cm[0][1])
+        table[0,2].content = try! PDFTableContent(content: cm[0][2])
+        table[1,0].content = try! PDFTableContent(content: cm[1][0])
+        table[1,1].content = try! PDFTableContent(content: cm[1][1])
+        table[1,2].content = try! PDFTableContent(content: cm[1][2])
+        table[2,0].content = try! PDFTableContent(content: cm[2][0])
+        table[2,1].content = try! PDFTableContent(content: cm[2][1])
+        table[2,2].content = try! PDFTableContent(content: cm[2][2])
         document.add(table: table)
 
         let generator = PDFGenerator(document: document)

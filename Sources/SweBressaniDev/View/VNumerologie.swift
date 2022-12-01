@@ -308,7 +308,12 @@ public struct VNumerologie: View {
                 }
             }
             Button(action: {
-                let pdf = try! NumerologieCore.pdf(natal: bdNatal)
+                let pdf = try! NumerologieCore.pdf(natal: bdNatal, nom: bsFirstName
+                        + " " + bsSecondName
+                        + " " + bsThirdName
+                        + " " + bsLastName1
+                        + " " + bsLastName2
+                        + " " + bsLastName3)
                 //let size = (595.0, 842.0)
                 #if os(iOS)
                 let printInfo = UIPrintInfo(dictionary: nil)
