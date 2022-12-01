@@ -2959,10 +2959,9 @@ public class NumerologieCore {
         table[0,1].style = cellStyle
         cellStyle = PDFTableCellStyle(borders: PDFTableCellBorders(right: lineStyle, bottom: lineStyle))
         table[1,1].style = cellStyle
+        table[1,2].style = cellStyle
         table[2,1].style = cellStyle
-        table[3,0].style = cellStyle
-        table[3,1].style = cellStyle
-        table[3,2].style = cellStyle
+        table[2,2].style = cellStyle
         table[0,0].alignment = .center
         table[1,0].alignment = .center
         table[2,0].alignment = .center
