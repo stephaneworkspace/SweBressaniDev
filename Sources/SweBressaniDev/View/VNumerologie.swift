@@ -326,6 +326,9 @@ public struct VNumerologie: View {
                                 }
                             }
                         }
+                        HStack {
+                            Text("=")
+                        }
                     }
                     VStack {
                         let prenom = NumerologieCore.lettres(nom: prenom)
@@ -349,6 +352,9 @@ public struct VNumerologie: View {
                                 }
                             }
                         }
+                        HStack {
+                            Text("=")
+                        }
                     }
                 }
                 Divider()
@@ -368,6 +374,9 @@ public struct VNumerologie: View {
                                     }
                                 }
                             }
+                        }
+                        HStack {
+                            Text("=")
                         }
                     }
                     VStack {
@@ -391,6 +400,9 @@ public struct VNumerologie: View {
                                     }
                                 }
                             }
+                        }
+                        HStack {
+                            Text("=")
                         }
                     }
                 }
