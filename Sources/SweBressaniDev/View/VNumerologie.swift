@@ -310,14 +310,20 @@ public struct VNumerologie: View {
             Divider()
             VStack {
                 HStack {
-                    var prenom = concat(un: bsFirstName, deux: bsSecondName, trois: bsThirdName)
+                    let prenom = concat(un: bsFirstName, deux: bsSecondName, trois: bsThirdName)
                     VStack {
                         let cmGauche = NumerologieCore.cmGauche(nom: prenom)
                         Text("Voyelle(s)")
                         ForEach(0..<prenom.count, id: \.self) { idx in
                             HStack {
-                                Text(String(cmGauche.0[idx].0))
-                                Text(String(cmGauche.0[idx].1))
+                                if cmGauche.0[idx].0 == 0 {
+                                    Text("")
+                                } else {
+                                    Text(String(cmGauche.0[idx].0))
+                                    if cmGauche.0[idx].0 != cmGauche.0[idx].1 {
+                                        Text(String(cmGauche.0[idx].1))
+                                    }
+                                }
                             }
                         }
                     }
@@ -333,22 +339,34 @@ public struct VNumerologie: View {
                         Text("Consonne(s)")
                         ForEach(0..<prenom.count, id: \.self) { idx in
                             HStack {
-                                Text(String(cmDroite.0[idx].0))
-                                Text(String(cmDroite.0[idx].1))
+                                if cmDroite.0[idx].0 == 0 {
+                                    Text("")
+                                } else {
+                                    Text(String(cmDroite.0[idx].0))
+                                    if cmDroite.0[idx].0 != cmDroite.0[idx].1 {
+                                        Text(String(cmDroite.0[idx].1))
+                                    }
+                                }
                             }
                         }
                     }
                 }
                 Divider()
                 HStack {
-                    var nom = concat(un: bsLastName1, deux: bsLastName2, trois: bsLastName3)
+                    let nom = concat(un: bsLastName1, deux: bsLastName2, trois: bsLastName3)
                     VStack {
                         let cmGauche = NumerologieCore.cmGauche(nom: nom)
                         Text("Voyelle(s)")
                         ForEach(0..<nom.count, id: \.self) { idx in
                             HStack {
-                                Text(String(cmGauche.0[idx].0))
-                                Text(String(cmGauche.0[idx].1))
+                                if cmGauche.0[idx].0 == 0 {
+                                    Text("")
+                                } else {
+                                    Text(String(cmGauche.0[idx].0))
+                                    if cmGauche.0[idx].1 != cmGauche.0[idx].1 {
+                                        Text(String(cmGauche.0[idx].1))
+                                    }
+                                }
                             }
                         }
                     }
@@ -364,8 +382,14 @@ public struct VNumerologie: View {
                         Text("Consonne(s)")
                         ForEach(0..<nom.count, id: \.self) { idx in
                             HStack {
-                                Text(String(cmDroite.0[idx].0))
-                                Text(String(cmDroite.0[idx].1))
+                                if cmDroite.0[idx].0 == 0 {
+                                    Text("")
+                                } else {
+                                    Text(String(cmDroite.0[idx].0))
+                                    if cmDroite.0[idx].0 != cmDroite.0[idx].1 {
+                                        Text(String(cmDroite.0[idx].1))
+                                    }
+                                }
                             }
                         }
                     }
