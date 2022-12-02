@@ -363,7 +363,7 @@ public struct VNumerologie: View {
                                     Text("_")
                                 } else {
                                     Text(String(cmGauche.0[idx].0))
-                                    if cmGauche.0[idx].1 != cmGauche.0[idx].1 {
+                                    if cmGauche.0[idx].0 != cmGauche.0[idx].1 {
                                         Text(String(cmGauche.0[idx].1))
                                     }
                                 }
