@@ -317,7 +317,7 @@ public struct VNumerologie: View {
                         ForEach(0..<prenom.count, id: \.self) { idx in
                             HStack {
                                 if cmGauche.0[idx].0 == 0 {
-                                    Text("")
+                                    Text("_")
                                 } else {
                                     Text(String(cmGauche.0[idx].0))
                                     if cmGauche.0[idx].0 != cmGauche.0[idx].1 {
@@ -340,7 +340,7 @@ public struct VNumerologie: View {
                         ForEach(0..<prenom.count, id: \.self) { idx in
                             HStack {
                                 if cmDroite.0[idx].0 == 0 {
-                                    Text("")
+                                    Text("_")
                                 } else {
                                     Text(String(cmDroite.0[idx].0))
                                     if cmDroite.0[idx].0 != cmDroite.0[idx].1 {
@@ -360,7 +360,7 @@ public struct VNumerologie: View {
                         ForEach(0..<nom.count, id: \.self) { idx in
                             HStack {
                                 if cmGauche.0[idx].0 == 0 {
-                                    Text("")
+                                    Text("_")
                                 } else {
                                     Text(String(cmGauche.0[idx].0))
                                     if cmGauche.0[idx].1 != cmGauche.0[idx].1 {
@@ -383,7 +383,7 @@ public struct VNumerologie: View {
                         ForEach(0..<nom.count, id: \.self) { idx in
                             HStack {
                                 if cmDroite.0[idx].0 == 0 {
-                                    Text("")
+                                    Text("_")
                                 } else {
                                     Text(String(cmDroite.0[idx].0))
                                     if cmDroite.0[idx].0 != cmDroite.0[idx].1 {
