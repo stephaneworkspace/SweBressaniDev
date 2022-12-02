@@ -307,6 +307,70 @@ public struct VNumerologie: View {
                     }
                 }
             }
+            Divider()
+            VStack {
+                HStack {
+                    let prenom = bsFirstName + " " + bsSecondName + " " + bsThirdName
+                    VStack {
+                        let cmGauche = NumerologieCore.cmGauche(nom: prenom)
+                        Text("Voyelle(s)")
+                        ForEach(0..<prenom.count, id: \.self) { idx in
+                            HStack {
+                                Text(String(cmGauche.0[idx].0))
+                                Text(String(cmGauche.0[idx].1))
+                            }
+                        }
+                    }
+                    VStack {
+                        let prenom = NumerologieCore.lettres(nom: prenom)
+                        Text("Prénom")
+                        ForEach(0..<prenom.count, id: \.self) { idx in
+                            Text(prenom[idx])
+                        }
+                    }
+                    VStack {
+                        let cmDroite = NumerologieCore.cmDroite(nom: prenom)
+                        Text("Consonne(s)")
+                        ForEach(0..<prenom.count, id: \.self) { idx in
+                            HStack {
+                                Text(String(cmDroite.0[idx].0))
+                                Text(String(cmDroite.0[idx].1))
+                            }
+                        }
+                    }
+                }
+                Divider()
+                HStack {
+                    let nom = bsLastName1 + " " + bsLastName2 + " " + bsLastName3
+                    VStack {
+                        let cmGauche = NumerologieCore.cmGauche(nom: nom)
+                        Text("Voyelle(s)")
+                        ForEach(0..<nom.count, id: \.self) { idx in
+                            HStack {
+                                Text(String(cmGauche.0[idx].0))
+                                Text(String(cmGauche.0[idx].1))
+                            }
+                        }
+                    }
+                    VStack {
+                        let nom = NumerologieCore.lettres(nom: nom)
+                        Text("Nom")
+                        ForEach(0..<nom.count, id: \.self) { idx in
+                            Text(nom[idx])
+                        }
+                    }
+                    VStack {
+                        let cmDroite = NumerologieCore.cmDroite(nom: nom)
+                        Text("Consonne(s)")
+                        ForEach(0..<nom.count, id: \.self) { idx in
+                            HStack {
+                                Text(String(cmDroite.0[idx].0))
+                                Text(String(cmDroite.0[idx].1))
+                            }
+                        }
+                    }
+                }
+            }
             Button(action: {
                 let pdf = try! NumerologieCore.pdf(natal: bdNatal, nom: bsFirstName
                         + " " + bsSecondName

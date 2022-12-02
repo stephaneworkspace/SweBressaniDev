@@ -30,11 +30,17 @@ for l in nom {
         let nombre_reduit = NumerologieCore.reduction(iNumber: nombre_non_reduit)
         if n.1 {
             droite.append((nombre_non_reduit, nombre_reduit.last ?? nombre_non_reduit))
+            gauche.append((0,0))
         } else {
+            droite.append((0,0))
             gauche.append((nombre_non_reduit, nombre_reduit.last ?? nombre_non_reduit))
         }
+    } else {
+        droite.append((0,0))
+        gauche.append((0,0))
     }
 }
+print("droite")
 print(droite)
 for d in droite {
     total += d.0
@@ -42,6 +48,7 @@ for d in droite {
 total_reduit = NumerologieCore.reduction(iNumber: total).last ?? total
 print((total, total_reduit))
 total = 0
+print("gauche")
 print(gauche)
 for g in gauche {
     total += g.0

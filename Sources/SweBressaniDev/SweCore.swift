@@ -2459,11 +2459,69 @@ public class NumerologieCore {
         }
     }
 
+    public static func lettres(nom: String) -> [String] {
+        var res: [String] = []
+        for l in nom {
+            res.append(String(l))
+        }
+        return res
+    }
+
+    public static func cmGauche(nom: String) -> ([(Int, Int)], (Int, Int)) {
+        var gauche: [(Int, Int)] = []
+        var total = 0;
+        var total_reduit = 0;
+        for l in nom {
+            let n: (Int, Bool) = NumerologieCore.lettre(lettre: String(l))
+            if n.0 > 0 {
+                let nombre_non_reduit = n.0
+                let nombre_reduit = NumerologieCore.reduction(iNumber: nombre_non_reduit)
+                if !n.1 {
+                    gauche.append((nombre_non_reduit, nombre_reduit.last ?? nombre_non_reduit))
+                } else {
+                    gauche.append((0,0))
+                }
+            } else {
+                gauche.append((0,0))
+            }
+        }
+        for g in gauche {
+            total += g.0
+        }
+        total_reduit = NumerologieCore.reduction(iNumber: total).last ?? total
+        return (gauche, (total, total_reduit))
+    }
+
+    public static func cmDroite(nom: String) -> ([(Int, Int)], (Int, Int)) {
+        var droite: [(Int, Int)] = []
+        var total = 0;
+        var total_reduit = 0;
+        for l in nom {
+            let n: (Int, Bool) = NumerologieCore.lettre(lettre: String(l))
+            if n.0 > 0 {
+                let nombre_non_reduit = n.0
+                let nombre_reduit = NumerologieCore.reduction(iNumber: nombre_non_reduit)
+                if n.1 {
+                    droite.append((nombre_non_reduit, nombre_reduit.last ?? nombre_non_reduit))
+                } else {
+                    droite.append((0, 0))
+                }
+            } else {
+                droite.append((0, 0))
+            }
+        }
+        for d in droite {
+            total += d.0
+        }
+        total_reduit = NumerologieCore.reduction(iNumber: total).last ?? total
+        return (droite, (total, total_reduit))
+    }
+
     public static func cm(nom: String) -> [[Int]] {
         var gauche: [(Int, Int)] = []
         var droite: [(Int, Int)] = []
         var total = 0;
-        var _total_reduit = 0;
+        //var _total_reduit = 0;
         for l in nom {
             let n: (Int, Bool) = NumerologieCore.lettre(lettre: String(l))
             if n.0 > 0 {
@@ -2479,12 +2537,12 @@ public class NumerologieCore {
         for d in droite {
             total += d.0
         }
-        _total_reduit = NumerologieCore.reduction(iNumber: total).last ?? total
+        //_total_reduit = NumerologieCore.reduction(iNumber: total).last ?? total
         total = 0
         for g in gauche {
             total += g.0
         }
-        _total_reduit = NumerologieCore.reduction(iNumber: total).last ?? total
+        //_total_reduit = NumerologieCore.reduction(iNumber: total).last ?? total
         var arr_cm: [Int] = []
         for d in droite {
             var swTrouve = false
