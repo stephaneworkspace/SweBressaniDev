@@ -310,7 +310,7 @@ public struct VNumerologie: View {
             Divider()
             VStack {
                 HStack {
-                    let prenom = bsFirstName + " " + bsSecondName + " " + bsThirdName
+                    var prenom = concat(un: bsFirstName, deux: bsSecondName, trois: bsThirdName)
                     VStack {
                         let cmGauche = NumerologieCore.cmGauche(nom: prenom)
                         Text("Voyelle(s)")
@@ -341,7 +341,7 @@ public struct VNumerologie: View {
                 }
                 Divider()
                 HStack {
-                    let nom = bsLastName1 + " " + bsLastName2 + " " + bsLastName3
+                    var nom = concat(un: bsLastName1, deux: bsLastName2, trois: bsLastName3)
                     VStack {
                         let cmGauche = NumerologieCore.cmGauche(nom: nom)
                         Text("Voyelle(s)")
@@ -404,5 +404,27 @@ public struct VNumerologie: View {
             })
             Spacer()
         }
+    }
+
+    func concat(un: String, deux: String, trois: String) -> String {
+        var res = ""
+        if un != "" {
+            res = un
+        }
+        if deux != "" {
+            if res == "" {
+                res = deux
+            } else {
+                res = res + " " + deux
+            }
+        }
+        if trois != "" {
+            if res == "" {
+                res = trois
+            } else {
+                res = res + " " + trois
+            }
+        }
+        return res
     }
 }
