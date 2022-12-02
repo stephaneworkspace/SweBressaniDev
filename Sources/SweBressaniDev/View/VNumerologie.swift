@@ -387,8 +387,16 @@ public struct VNumerologie: View {
                             Text("=")
                         }
                         HStack {
-                            Text(String(cmGauche.1.0))
-                            Text(String(cmGauche.1.1))
+                            if cmGauche.1.2 {
+                                Text(String(cmGauche.1.0) + "*")
+                            } else {
+                                Text(String(cmGauche.1.0))
+                            }
+                            if cmGauche.1.3 {
+                                Text(String(cmGauche.1.1) + "*")
+                            } else {
+                                Text(String(cmGauche.1.1))
+                            }
                         }
                     }
                     VStack {
@@ -417,8 +425,16 @@ public struct VNumerologie: View {
                             Text("=")
                         }
                         HStack {
-                            Text(String(cmDroite.1.0))
-                            Text(String(cmDroite.1.1))
+                            if cmDroite.1.2 {
+                                Text(String(cmDroite.1.0) + "*")
+                            } else {
+                                Text(String(cmDroite.1.0))
+                            }
+                            if cmDroite.1.3 {
+                                Text(String(cmDroite.1.1) + "*")
+                            } else {
+                                Text(String(cmDroite.1.1))
+                            }
                         }
                     }
                 }

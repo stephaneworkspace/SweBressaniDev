@@ -2467,7 +2467,7 @@ public class NumerologieCore {
         return res
     }
 
-    public static func cmGauche(nom: String) -> ([(Int, Int)], (Int, Int)) {
+    public static func cmGauche(nom: String) -> ([(Int, Int)], (Int, Int, Bool, Bool)) {
         var gauche: [(Int, Int)] = []
         var total = 0;
         var total_reduit = 0;
@@ -2489,10 +2489,26 @@ public class NumerologieCore {
             total += g.0
         }
         total_reduit = NumerologieCore.reduction(iNumber: total).last ?? total
-        return (gauche, (total, total_reduit))
+        var bool1 = false
+        var bool2 = false
+        if total < 10 {
+            for g in gauche {
+                if g.1 == total {
+                    bool1 = true
+                    break
+                }
+            }
+        }
+        for g in gauche {
+            if g.1 == total_reduit {
+                bool2 = true
+                break
+            }
+        }
+        return (gauche, (total, total_reduit, bool1, bool2))
     }
 
-    public static func cmDroite(nom: String) -> ([(Int, Int)], (Int, Int)) {
+    public static func cmDroite(nom: String) -> ([(Int, Int)], (Int, Int, Bool, Bool)) {
         var droite: [(Int, Int)] = []
         var total = 0;
         var total_reduit = 0;
@@ -2514,7 +2530,23 @@ public class NumerologieCore {
             total += d.0
         }
         total_reduit = NumerologieCore.reduction(iNumber: total).last ?? total
-        return (droite, (total, total_reduit))
+        var bool1 = false
+        var bool2 = false
+        if total < 10 {
+            for d in droite {
+                if d.1 == total {
+                    bool1 = true
+                    break
+                }
+            }
+        }
+        for d in droite {
+            if d.1 == total_reduit {
+                bool2 = true
+                break
+            }
+        }
+        return (droite, (total, total_reduit, bool1, bool2))
     }
 
     public static func cm(nom: String) -> [[Int]] {
