@@ -293,6 +293,7 @@ public struct VNumerologie: View {
                 }
             }
             VStack {
+                Text("Carré magique")
                 let cm = NumerologieCore.cm(nom: bsFirstName
                         + " " + bsSecondName
                         + " " + bsThirdName
@@ -308,6 +309,7 @@ public struct VNumerologie: View {
                 }
             }
             VStack {
+                Text("Équilibre")
                 let cm2 = NumerologieCore.cm2(nom: bsFirstName
                         + " " + bsSecondName
                         + " " + bsThirdName
