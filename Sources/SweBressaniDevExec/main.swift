@@ -103,35 +103,35 @@ print(case_cm_final[0])
 print(case_cm_final[1])
 print(case_cm_final[2])
 
-var CASE_CM_2: [[Int]] = [[0,0,0],[0,0,0],[0,0,0]]
+var case_cm2: [[Int]] = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
 for d in droite {
     switch d.1 {
     case 1:
-        CASE_CM_2[0][0] =  CASE_CM_2[0][0] + 1
+        case_cm2[0][0] =  case_cm2[0][0] + 1
         break
     case 2:
-        CASE_CM_2[0][1] =  CASE_CM_2[0][1] + 1
+        case_cm2[0][1] =  case_cm2[0][1] + 1
         break
     case 3:
-        CASE_CM_2[0][2] =  CASE_CM_2[0][2] + 1
+        case_cm2[0][2] =  case_cm2[0][2] + 1
         break
     case 4:
-        CASE_CM_2[1][0] =  CASE_CM_2[1][0] + 1
+        case_cm2[1][0] =  case_cm2[1][0] + 1
         break
     case 5:
-        CASE_CM_2[1][1] =  CASE_CM_2[1][1] + 1
+        case_cm2[1][1] =  case_cm2[1][1] + 1
         break
     case 6:
-        CASE_CM_2[1][2] =  CASE_CM_2[1][2] + 1
+        case_cm2[1][2] =  case_cm2[1][2] + 1
         break
     case 7:
-        CASE_CM_2[2][0] =  CASE_CM_2[2][0] + 1
+        case_cm2[2][0] =  case_cm2[2][0] + 1
         break
     case 8:
-        CASE_CM_2[2][1] =  CASE_CM_2[2][1] + 1
+        case_cm2[2][1] =  case_cm2[2][1] + 1
         break
     case 9:
-        CASE_CM_2[2][2] =  CASE_CM_2[2][2] + 1
+        case_cm2[2][2] =  case_cm2[2][2] + 1
         break
     default:
         break
@@ -140,37 +140,37 @@ for d in droite {
 for g in gauche {
     switch g.1 {
     case 1:
-        CASE_CM_2[0][0] =  CASE_CM_2[0][0] + 1
+        case_cm2[0][0] =  case_cm2[0][0] + 1
         break
     case 2:
-        CASE_CM_2[0][1] =  CASE_CM_2[0][1] + 1
+        case_cm2[0][1] =  case_cm2[0][1] + 1
         break
     case 3:
-        CASE_CM_2[0][2] =  CASE_CM_2[0][2] + 1
+        case_cm2[0][2] =  case_cm2[0][2] + 1
         break
     case 4:
-        CASE_CM_2[1][0] =  CASE_CM_2[1][0] + 1
+        case_cm2[1][0] =  case_cm2[1][0] + 1
         break
     case 5:
-        CASE_CM_2[1][1] =  CASE_CM_2[1][1] + 1
+        case_cm2[1][1] =  case_cm2[1][1] + 1
         break
     case 6:
-        CASE_CM_2[1][2] =  CASE_CM_2[1][2] + 1
+        case_cm2[1][2] =  case_cm2[1][2] + 1
         break
     case 7:
-        CASE_CM_2[2][0] =  CASE_CM_2[2][0] + 1
+        case_cm2[2][0] =  case_cm2[2][0] + 1
         break
     case 8:
-        CASE_CM_2[2][1] =  CASE_CM_2[2][1] + 1
+        case_cm2[2][1] =  case_cm2[2][1] + 1
         break
     case 9:
-        CASE_CM_2[2][2] =  CASE_CM_2[2][2] + 1
+        case_cm2[2][2] =  case_cm2[2][2] + 1
         break
     default:
         break
     }
 }
 print("")
-print(CASE_CM_2[0])
-print(CASE_CM_2[1])
-print(CASE_CM_2[2])
+print(case_cm2[0])
+print(case_cm2[1])
+print(case_cm2[2])

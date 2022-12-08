@@ -2617,6 +2617,125 @@ public class NumerologieCore {
         return case_cm_final
     }
 
+    public static func cm2(nom: String) -> [[Int]] {
+        var gauche: [(Int, Int)] = []
+        var droite: [(Int, Int)] = []
+        var total = 0;
+        //var _total_reduit = 0;
+        for l in nom {
+            let n: (Int, Bool) = NumerologieCore.lettre(lettre: String(l))
+            if n.0 > 0 {
+                let nombre_non_reduit = n.0
+                let nombre_reduit = NumerologieCore.reduction(iNumber: nombre_non_reduit)
+                if n.1 {
+                    droite.append((nombre_non_reduit, nombre_reduit.last ?? nombre_non_reduit))
+                } else {
+                    gauche.append((nombre_non_reduit, nombre_reduit.last ?? nombre_non_reduit))
+                }
+            }
+        }
+        for d in droite {
+            total += d.0
+        }
+        total = 0
+        for g in gauche {
+            total += g.0
+        }
+        var arr_cm: [Int] = []
+        for d in droite {
+            var swTrouve = false
+            for n in arr_cm {
+                if d.1 == n {
+                    swTrouve = true
+                    break
+                }
+            }
+            if !swTrouve {
+                arr_cm.append(d.1)
+            }
+        }
+        for g in gauche {
+            var swTrouve = false
+            for n in arr_cm {
+                if g.1 == n {
+                    swTrouve = true
+                    break
+                }
+            }
+            if !swTrouve {
+                arr_cm.append(g.1)
+            }
+        }
+        var case_cm2: [[Int]] = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
+        for d in droite {
+            switch d.1 {
+            case 1:
+                case_cm2[0][0] =  case_cm2[0][0] + 1
+                break
+            case 2:
+                case_cm2[0][1] =  case_cm2[0][1] + 1
+                break
+            case 3:
+                case_cm2[0][2] =  case_cm2[0][2] + 1
+                break
+            case 4:
+                case_cm2[1][0] =  case_cm2[1][0] + 1
+                break
+            case 5:
+                case_cm2[1][1] =  case_cm2[1][1] + 1
+                break
+            case 6:
+                case_cm2[1][2] =  case_cm2[1][2] + 1
+                break
+            case 7:
+                case_cm2[2][0] =  case_cm2[2][0] + 1
+                break
+            case 8:
+                case_cm2[2][1] =  case_cm2[2][1] + 1
+                break
+            case 9:
+                case_cm2[2][2] =  case_cm2[2][2] + 1
+                break
+            default:
+                break
+            }
+        }
+        for g in gauche {
+            switch g.1 {
+            case 1:
+                case_cm2[0][0] =  case_cm2[0][0] + 1
+                break
+            case 2:
+                case_cm2[0][1] =  case_cm2[0][1] + 1
+                break
+            case 3:
+                case_cm2[0][2] =  case_cm2[0][2] + 1
+                break
+            case 4:
+                case_cm2[1][0] =  case_cm2[1][0] + 1
+                break
+            case 5:
+                case_cm2[1][1] =  case_cm2[1][1] + 1
+                break
+            case 6:
+                case_cm2[1][2] =  case_cm2[1][2] + 1
+                break
+            case 7:
+                case_cm2[2][0] =  case_cm2[2][0] + 1
+                break
+            case 8:
+                case_cm2[2][1] =  case_cm2[2][1] + 1
+                break
+            case 9:
+                case_cm2[2][2] =  case_cm2[2][2] + 1
+                break
+            default:
+                break
+            }
+        }
+        return case_cm2
+    }
+
     public static func date(dBornDate: Date) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "YYYY"
