@@ -2921,6 +2921,27 @@ public class NumerologieCore {
         return sTemp
     }
 
+    public static func ap(dBornDate: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "YY"
+        let iAp = Int(dateFormatter.string(from: Date())) ?? 0
+        dateFormatter.dateFormat = "MM"
+        let iMonth = Int(dateFormatter.string(from: dBornDate)) ?? 1
+        dateFormatter.dateFormat = "dd"
+        let iDay = Int(dateFormatter.string(from: dBornDate)) ?? 1
+        let iTemp = iDay + iMonth + iAp
+        let aiTempReduction = reduction(iNumber: iTemp)
+        var sTemp: String = ""
+        for ai in aiTempReduction {
+            //if sTemp == "" {
+                sTemp = String(ai)
+            //} else {
+            //    sTemp = sTemp + " / " + String(ai)
+            //}
+        }
+        return sTemp
+    }
+
     public static func pdf(natal: Date, nom: String) throws -> Data {
         let text = TextCore(langue: .F)
 

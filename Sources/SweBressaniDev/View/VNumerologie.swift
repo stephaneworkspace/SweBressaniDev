@@ -292,6 +292,22 @@ public struct VNumerologie: View {
                             .clipped()
                 }
             }
+            //Divider()
+            HStack {
+                TextField("", text: .constant("Année personelle"))
+                        .textFieldStyle(.plain)
+                        .multilineTextAlignment(.leading)
+                        .clipped()
+                Spacer()
+                TextField("", text: .constant(NumerologieCore.ap(dBornDate: bdNatal)))
+                        .disabled(true)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .multilineTextAlignment(.trailing)
+                        .clipped()
+            }
+                    .font(FONTSYSTEMSMALL)
+                    .clipped()
+            //Divider()
             VStack {
                 Text("Carré magique")
                 let cm = NumerologieCore.cm(nom: bsFirstName
@@ -308,6 +324,7 @@ public struct VNumerologie: View {
                     }
                 }
             }
+            Divider()
             VStack {
                 Text("Équilibre")
                 let cm2 = NumerologieCore.cm2(nom: bsFirstName
@@ -487,7 +504,7 @@ public struct VNumerologie: View {
                             .frame(maxWidth: 300)
                 }
             })
-            Spacer()
+            //Spacer()
         }
     }
 
