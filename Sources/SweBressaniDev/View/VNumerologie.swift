@@ -254,44 +254,7 @@ public struct VNumerologie: View {
                         .font(FONTSYSTEMSMALL)
                         .clipped()
             }
-            VStack {
-                Text("\(stText.cycleUniversels())")
-                        .multilineTextAlignment(.center)
-                        .font(FONTSYSTEMTITLEMEDIUM)
-                        .clipped()
-                HStack {
-                    TextField("", text: .constant("\(stText.ageDe())"))
-                            .disabled(true)
-                            .textFieldStyle(.plain)
-                            .multilineTextAlignment(.leading)
-                            .clipped()
-                    Spacer()
-                    TextField("", text: .constant("\(stText.nombre())"))
-                            .disabled(true)
-                            .textFieldStyle(.plain)
-                            .multilineTextAlignment(.trailing)
-                            .clipped()
-                }
-                        .font(FONTSYSTEM)
-                        .clipped()
-                ForEach(1...9, id: \.self) { idx in
-                    HStack {
-                        TextField("", text: .constant(stText.cycleUniversel(iNombre: idx)))
-                                .disabled(true)
-                                .textFieldStyle(.plain)
-                                .multilineTextAlignment(.leading)
-                                .clipped()
-                        Spacer()
-                        TextField("", text: .constant(String(idx)))
-                                .disabled(true)
-                                .textFieldStyle(RoundedBorderTextFieldStyle())
-                                .multilineTextAlignment(.trailing)
-                                .clipped()
-                    }
-                            .font(FONTSYSTEMSMALL)
-                            .clipped()
-                }
-            }
+            VNumerologieCyclesUniversels(bdNatal: $bdNatal, stText: stText)
             //Divider()
             HStack {
                 TextField("", text: .constant("Année personelle"))
