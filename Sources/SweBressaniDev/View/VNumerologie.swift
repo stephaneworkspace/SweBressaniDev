@@ -74,7 +74,7 @@ public struct VNumerologie: View {
             }
                     .font(FONTSYSTEMSMALL)
                     .clipped()
-            //Divider()
+            Divider()
             VStack {
                 Text("Carré magique")
                 let cm = NumerologieCore.cm(nom: bsFirstName

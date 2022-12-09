@@ -2923,7 +2923,7 @@ public class NumerologieCore {
 
     public static func ap(dBornDate: Date) -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "YY"
+        dateFormatter.dateFormat = "YYYY"
         let iAp = Int(dateFormatter.string(from: Date())) ?? 0
         dateFormatter.dateFormat = "MM"
         let iMonth = Int(dateFormatter.string(from: dBornDate)) ?? 1
