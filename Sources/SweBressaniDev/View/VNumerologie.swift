@@ -56,6 +56,12 @@ public struct VNumerologie: View {
                         Spacer()
                         Text("\(NumerologieCore.cheminDeVie(dBornDate: bdNatal))")
                     }
+                    HStack {
+                        let iAp = anneeEnCours()
+                        Text("Année personelle " + String(iAp))
+                        Spacer()
+                        Text("\(NumerologieCore.ap(dBornDate: bdNatal))")
+                    }
                 }
                 Spacer()
             }
@@ -103,5 +109,11 @@ public struct VNumerologie: View {
             })
             //Spacer()
         }
+    }
+    func anneeEnCours() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "YYYY"
+        let iyyyy = Int(dateFormatter.string(from: Date())) ?? 0
+        return String(iyyyy)
     }
 }
