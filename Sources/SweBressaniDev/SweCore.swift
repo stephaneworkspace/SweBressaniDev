@@ -3213,6 +3213,49 @@ public class NumerologieCore {
         table[2,2].content = try! PDFTableContent(content: cm[2][2])
         document.add(table: table)
 
+// CM2
+        let cm2 = NumerologieCore.cm2(nom: nom)
+        document.add(.contentCenter, text: "CM-PJ 123 Feu/456 Eau/789 Air") // TODO
+        table = PDFTable(rows: 3, columns: 3)
+        style = PDFTableStyle()
+        style.rowHeaderCount = 0
+        style.columnHeaderCount = 0
+        table.style = style
+        lineStyle = PDFLineStyle(width: 1)
+        cellStyle = PDFTableCellStyle(
+                borders: PDFTableCellBorders(left: lineStyle, top: lineStyle, right: lineStyle, bottom: lineStyle))
+        table[0,0].style = cellStyle
+        cellStyle = PDFTableCellStyle(borders: PDFTableCellBorders(left: lineStyle, right: lineStyle, bottom: lineStyle))
+        table[1,0].style = cellStyle
+        table[2,0].style = cellStyle
+        cellStyle = PDFTableCellStyle(borders: PDFTableCellBorders(top: lineStyle, right: lineStyle, bottom: lineStyle))
+        table[0,1].style = cellStyle
+        table[0,2].style = cellStyle
+        cellStyle = PDFTableCellStyle(borders: PDFTableCellBorders(right: lineStyle, bottom: lineStyle))
+        table[1,1].style = cellStyle
+        table[1,2].style = cellStyle
+        table[2,1].style = cellStyle
+        table[2,2].style = cellStyle
+        table[0,0].alignment = .center
+        table[1,0].alignment = .center
+        table[2,0].alignment = .center
+        table[0,1].alignment = .center
+        table[1,1].alignment = .center
+        table[2,1].alignment = .center
+        table[0,2].alignment = .center
+        table[1,2].alignment = .center
+        table[2,2].alignment = .center
+        table[0,0].content = try! PDFTableContent(content: cm2[0][0])
+        table[0,1].content = try! PDFTableContent(content: cm2[0][1])
+        table[0,2].content = try! PDFTableContent(content: cm2[0][2])
+        table[1,0].content = try! PDFTableContent(content: cm2[1][0])
+        table[1,1].content = try! PDFTableContent(content: cm2[1][1])
+        table[1,2].content = try! PDFTableContent(content: cm2[1][2])
+        table[2,0].content = try! PDFTableContent(content: cm2[2][0])
+        table[2,1].content = try! PDFTableContent(content: cm2[2][1])
+        table[2,2].content = try! PDFTableContent(content: cm2[2][2])
+        document.add(table: table)
+
         let generator = PDFGenerator(document: document)
         //let url = try generator.generateURL(filename: "Example.pdf")
         let data = try generator.generateData()
