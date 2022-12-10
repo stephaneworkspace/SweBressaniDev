@@ -142,8 +142,13 @@ public struct VNumerologieCarreMagique: View {
                     ForEach(0..<nom.count, id: \.self) { idx in
                         HStack {
                             Text(String(cmGauche.0[idx].1))
+                                    .multilineTextAlignment(.leading)
+                            Spacer()
                             Text(nomL[idx])
+                                    .multilineTextAlignment(.center)
+                            Spacer()
                             Text(String(cmDroite.0[idx].1))
+                                    .multilineTextAlignment(.trailing)
                         }
                     }
                     HStack {
