@@ -37,6 +37,40 @@ public struct VNumerologieCarreMagique: View {
 
     public var body: some View {
         VStack {
+            Text("Carré magique")
+            let cm = NumerologieCore.cm(nom: bsFirstName
+                    + " " + bsSecondName
+                    + " " + bsThirdName
+                    + " " + bsLastName1
+                    + " " + bsLastName2
+                    + " " + bsLastName3)
+            ForEach(0..<3, id: \.self) { idx in
+                HStack {
+                    ForEach(0..<3, id: \.self) { jdx in
+                        Text(String(cm[idx][jdx]))
+                    }
+                }
+            }
+        }
+        Divider()
+        VStack {
+            Text("Équilibre")
+            let cm2 = NumerologieCore.cm2(nom: bsFirstName
+                    + " " + bsSecondName
+                    + " " + bsThirdName
+                    + " " + bsLastName1
+                    + " " + bsLastName2
+                    + " " + bsLastName3)
+            ForEach(0..<3, id: \.self) { idx in
+                HStack {
+                    ForEach(0..<3, id: \.self) { jdx in
+                        Text(String(cm2[idx][jdx]))
+                    }
+                }
+            }
+        }
+        Divider()
+        VStack {
             HStack {
                 let prenom = concat(un: bsFirstName, deux: bsSecondName, trois: bsThirdName)
                 VStack {
