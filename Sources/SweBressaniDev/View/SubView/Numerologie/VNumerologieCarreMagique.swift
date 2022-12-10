@@ -138,10 +138,8 @@ public struct VNumerologieCarreMagique: View {
                         Spacer()
                         Text("Voyelle(s)")
                                 .multilineTextAlignment(.leading)
-                        Spacer()
                         Text("Nom")
                                 .multilineTextAlignment(.center)
-                        Spacer()
                         Text("Consonne(s)")
                                 .multilineTextAlignment(.trailing)
                         Spacer()
@@ -167,32 +165,32 @@ public struct VNumerologieCarreMagique: View {
                         Spacer()
                         if cmGauche.1.2 {
                             Text(String(cmGauche.1.0) + "*")
-                                    .multilineTextAlignment(.leading)
+                                    .multilineTextAlignment(.center)
                         } else {
                             Text(String(cmGauche.1.0))
-                                    .multilineTextAlignment(.leading)
+                                    .multilineTextAlignment(.center)
                         }
                         if cmGauche.1.3 {
                             Text(String(cmGauche.1.1) + "*")
-                                    .multilineTextAlignment(.leading)
+                                    .multilineTextAlignment(.center)
                         } else {
                             Text(String(cmGauche.1.1))
-                                    .multilineTextAlignment(.leading)
+                                    .multilineTextAlignment(.center)
                         }
                         Spacer()
                         if cmDroite.1.2 {
                             Text(String(cmDroite.1.0) + "*")
-                                    .multilineTextAlignment(.trailing)
+                                    .multilineTextAlignment(.center)
                         } else {
                             Text(String(cmDroite.1.0))
-                                    .multilineTextAlignment(.trailing)
+                                    .multilineTextAlignment(.center)
                         }
                         if cmDroite.1.3 {
                             Text(String(cmDroite.1.1) + "*")
-                                    .multilineTextAlignment(.trailing)
+                                    .multilineTextAlignment(.center)
                         } else {
                             Text(String(cmDroite.1.1))
-                                    .multilineTextAlignment(.trailing)
+                                    .multilineTextAlignment(.center)
                         }
                         Spacer()
                     }
