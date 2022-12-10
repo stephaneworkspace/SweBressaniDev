@@ -2,7 +2,6 @@
 // Created by Stéphane on 09.12.22.
 //
 
-
 import Foundation
 import SwiftUI
 
