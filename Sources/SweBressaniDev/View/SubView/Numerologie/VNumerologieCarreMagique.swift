@@ -135,12 +135,20 @@ public struct VNumerologieCarreMagique: View {
                     let cmDroite = NumerologieCore.cmDroite(nom: nom)
                     let nomL = NumerologieCore.lettres(nom: nom)
                     HStack {
+                        Spacer()
                         Text("Voyelle(s)")
+                                .multilineTextAlignment(.leading)
+                        Spacer()
                         Text("Nom")
+                                .multilineTextAlignment(.center)
+                        Spacer()
                         Text("Consonne(s)")
+                                .multilineTextAlignment(.trailing)
+                        Spacer()
                     }
                     ForEach(0..<nom.count, id: \.self) { idx in
                         HStack {
+                            Spacer()
                             Text(String(cmGauche.0[idx].1))
                                     .multilineTextAlignment(.leading)
                             Spacer()
@@ -149,33 +157,44 @@ public struct VNumerologieCarreMagique: View {
                             Spacer()
                             Text(String(cmDroite.0[idx].1))
                                     .multilineTextAlignment(.trailing)
+                            Spacer()
                         }
                     }
                     HStack {
                         Text("=")
                     }
                     HStack {
+                        Spacer()
                         if cmGauche.1.2 {
                             Text(String(cmGauche.1.0) + "*")
+                                    .multilineTextAlignment(.leading)
                         } else {
                             Text(String(cmGauche.1.0))
+                                    .multilineTextAlignment(.leading)
                         }
                         if cmGauche.1.3 {
                             Text(String(cmGauche.1.1) + "*")
+                                    .multilineTextAlignment(.leading)
                         } else {
                             Text(String(cmGauche.1.1))
+                                    .multilineTextAlignment(.leading)
                         }
-                        Text("---")
+                        Spacer()
                         if cmDroite.1.2 {
                             Text(String(cmDroite.1.0) + "*")
+                                    .multilineTextAlignment(.trailing)
                         } else {
                             Text(String(cmDroite.1.0))
+                                    .multilineTextAlignment(.trailing)
                         }
                         if cmDroite.1.3 {
                             Text(String(cmDroite.1.1) + "*")
+                                    .multilineTextAlignment(.trailing)
                         } else {
                             Text(String(cmDroite.1.1))
+                                    .multilineTextAlignment(.trailing)
                         }
+                        Spacer()
                     }
                 }
             }
