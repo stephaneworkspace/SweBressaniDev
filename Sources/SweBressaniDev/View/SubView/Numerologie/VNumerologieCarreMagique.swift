@@ -89,14 +89,22 @@ public struct VNumerologieCarreMagique: View {
                     ForEach(0..<nom.count, id: \.self) { idx in
                         HStack {
                             Spacer()
-                            Text(String(cmGauche.0[idx].1))
-                                    .multilineTextAlignment(.leading)
+                            if cmGauche.0[idx].1 == 0 {
+                                Text("")
+                            } else {
+                                Text(String(cmGauche.0[idx].1))
+                                        .multilineTextAlignment(.leading)
+                            }
                             Spacer()
                             Text(nomL[idx])
                                     .multilineTextAlignment(.center)
                             Spacer()
-                            Text(String(cmDroite.0[idx].1))
-                                    .multilineTextAlignment(.trailing)
+                            if cmDroite.0[idx].1 == 0 {
+                                Text("")
+                            } else {
+                                Text(String(cmDroite.0[idx].1))
+                                        .multilineTextAlignment(.trailing)
+                            }
                             Spacer()
                         }
                     }
@@ -155,14 +163,22 @@ public struct VNumerologieCarreMagique: View {
                     ForEach(0..<nom.count, id: \.self) { idx in
                         HStack {
                             Spacer()
-                            Text(String(cmGauche.0[idx].1))
-                                    .multilineTextAlignment(.leading)
+                            if cmGauche.0[idx].1 == 0 {
+                                Text("")
+                            } else {
+                                Text(String(cmGauche.0[idx].1))
+                                        .multilineTextAlignment(.leading)
+                            }
                             Spacer()
                             Text(nomL[idx])
                                     .multilineTextAlignment(.center)
                             Spacer()
-                            Text(String(cmDroite.0[idx].1))
-                                    .multilineTextAlignment(.trailing)
+                            if cmDroite.0[idx].1 == 0 {
+                                Text("")
+                            } else {
+                                Text(String(cmDroite.0[idx].1))
+                                        .multilineTextAlignment(.trailing)
+                            }
                             Spacer()
                         }
                     }
