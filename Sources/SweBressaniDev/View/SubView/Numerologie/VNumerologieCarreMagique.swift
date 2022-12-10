@@ -134,9 +134,11 @@ public struct VNumerologieCarreMagique: View {
                     let cmGauche = NumerologieCore.cmGauche(nom: nom)
                     let cmDroite = NumerologieCore.cmDroite(nom: nom)
                     let nomL = NumerologieCore.lettres(nom: nom)
-                    Text("Voyelle(s)")
-                    Text("Nom")
-                    Text("Consonne(s)")
+                    HStack {
+                        Text("Voyelle(s)")
+                        Text("Nom")
+                        Text("Consonne(s)")
+                    }
                     ForEach(0..<nom.count, id: \.self) { idx in
                         HStack {
                             Text(String(cmGauche.0[idx].1))
@@ -157,6 +159,17 @@ public struct VNumerologieCarreMagique: View {
                             Text(String(cmGauche.1.1) + "*")
                         } else {
                             Text(String(cmGauche.1.1))
+                        }
+                        Text("---")
+                        if cmDroite.1.2 {
+                            Text(String(cmDroite.1.0) + "*")
+                        } else {
+                            Text(String(cmDroite.1.0))
+                        }
+                        if cmDroite.1.3 {
+                            Text(String(cmDroite.1.1) + "*")
+                        } else {
+                            Text(String(cmDroite.1.1))
                         }
                     }
                 }
