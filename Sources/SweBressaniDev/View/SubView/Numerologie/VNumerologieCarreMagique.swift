@@ -90,7 +90,7 @@ public struct VNumerologieCarreMagique: View {
                         HStack {
                             Spacer()
                             if cmGauche.0[idx].1 == 0 {
-                                Text("")
+                                Text("/")
                             } else {
                                 Text(String(cmGauche.0[idx].1))
                                         .multilineTextAlignment(.leading)
@@ -100,7 +100,7 @@ public struct VNumerologieCarreMagique: View {
                                     .multilineTextAlignment(.center)
                             Spacer()
                             if cmDroite.0[idx].1 == 0 {
-                                Text("")
+                                Text("/")
                             } else {
                                 Text(String(cmDroite.0[idx].1))
                                         .multilineTextAlignment(.trailing)
@@ -164,7 +164,7 @@ public struct VNumerologieCarreMagique: View {
                         HStack {
                             Spacer()
                             if cmGauche.0[idx].1 == 0 {
-                                Text("")
+                                Text("/")
                             } else {
                                 Text(String(cmGauche.0[idx].1))
                                         .multilineTextAlignment(.leading)
@@ -174,7 +174,7 @@ public struct VNumerologieCarreMagique: View {
                                     .multilineTextAlignment(.center)
                             Spacer()
                             if cmDroite.0[idx].1 == 0 {
-                                Text("")
+                                Text("/")
                             } else {
                                 Text(String(cmDroite.0[idx].1))
                                         .multilineTextAlignment(.trailing)
