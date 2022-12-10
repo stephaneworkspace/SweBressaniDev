@@ -106,6 +106,7 @@ public struct VNumerologieCarreMagique: View {
                 VStack {
                     let cmDroite = NumerologieCore.cmDroite(nom: prenom)
                     Text("Consonne(s)")
+                    Text("/")
                     ForEach(0..<prenom.count, id: \.self) { idx in
                         HStack {
                             if cmDroite.0[idx].0 == 0 {
@@ -133,6 +134,7 @@ public struct VNumerologieCarreMagique: View {
                 VStack {
                     let cmGauche = NumerologieCore.cmGauche(nom: nom)
                     Text("Voyelle(s)")
+                    Text("/")
                     ForEach(0..<nom.count, id: \.self) { idx in
                         HStack {
                             if cmGauche.0[idx].0 == 0 {
