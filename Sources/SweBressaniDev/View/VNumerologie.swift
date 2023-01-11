@@ -16,6 +16,8 @@ public struct VNumerologie: View {
     @Binding var bsLastName1: String
     @Binding var bsLastName2: String
     @Binding var bsLastName3: String
+    @Binding var bsTel: String
+    @Binding var bsMobile: String
     @State var stText: TextCore
 
     public init(bdNatal: Binding<Date>,
@@ -25,6 +27,8 @@ public struct VNumerologie: View {
                 bsLastName1: Binding<String>,
                 bsLastName2: Binding<String>,
                 bsLastName3: Binding<String>,
+                bsTel: Binding<String>,
+                bsMobile: Binding<String>,
                 stText: TextCore) {
         self._bdNatal = bdNatal
         self._bsFirstName = bsFirstName
@@ -33,6 +37,8 @@ public struct VNumerologie: View {
         self._bsLastName1 = bsLastName1
         self._bsLastName2 = bsLastName2
         self._bsLastName3 = bsLastName3
+        self._bsTel = bsTel
+        self._bsMobile = bsMobile
         self._stText = .init(initialValue: stText)
     }
 
@@ -75,6 +81,8 @@ public struct VNumerologie: View {
                     bsLastName1: $bsLastName1,
                     bsLastName2: $bsLastName2,
                     bsLastName3: $bsLastName3,
+                    bsTel: $bsTel,
+                    bsMobile: $bsMobile,
                     stText: stText)
             Button(action: {
                 let pdf = try! NumerologieCore.pdf(natal: bdNatal, nom: bsFirstName

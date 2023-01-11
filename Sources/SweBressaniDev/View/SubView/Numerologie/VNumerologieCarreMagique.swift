@@ -15,6 +15,8 @@ public struct VNumerologieCarreMagique: View {
     @Binding var bsLastName1: String
     @Binding var bsLastName2: String
     @Binding var bsLastName3: String
+    @Binding var bsTel: String
+    @Binding var bsMobile: String
     @State var stText: TextCore
 
     public init(bdNatal: Binding<Date>,
@@ -24,6 +26,8 @@ public struct VNumerologieCarreMagique: View {
                 bsLastName1: Binding<String>,
                 bsLastName2: Binding<String>,
                 bsLastName3: Binding<String>,
+                bsTel: Binding<String>,
+                bsMobile: Binding<String>,
                 stText: TextCore) {
         self._bdNatal = bdNatal
         self._bsFirstName = bsFirstName
@@ -32,6 +36,8 @@ public struct VNumerologieCarreMagique: View {
         self._bsLastName1 = bsLastName1
         self._bsLastName2 = bsLastName2
         self._bsLastName3 = bsLastName3
+        self._bsTel = bsTel
+        self._bsMobile = bsMobile
         self._stText = .init(initialValue: stText)
     }
 
@@ -54,13 +60,48 @@ public struct VNumerologieCarreMagique: View {
         }
         Divider()
         VStack {
-            Text("Équilibre")
+            Text("Équilibre - Personalité Juridique")
             let cm2 = NumerologieCore.cm2(nom: bsFirstName
                     + " " + bsSecondName
                     + " " + bsThirdName
                     + " " + bsLastName1
                     + " " + bsLastName2
                     + " " + bsLastName3)
+            ForEach(0..<3, id: \.self) { idx in
+                HStack {
+                    ForEach(0..<3, id: \.self) { jdx in
+                        Text(String(cm2[idx][jdx]))
+                    }
+                }
+            }
+        }
+        VStack {
+            Text("Équilibre - Prenom(s)")
+            let cm2 = NumerologieCore.cm2(nom: bsFirstName
+                    + " " + bsSecondName
+                    + " " + bsThirdName)
+            ForEach(0..<3, id: \.self) { idx in
+                HStack {
+                    ForEach(0..<3, id: \.self) { jdx in
+                        Text(String(cm2[idx][jdx]))
+                    }
+                }
+            }
+        }
+        VStack {
+            Text("Équilibre - Numéro de téléphone")
+            let cm2 = NumerologieCore.cm2(nom: bsTel)
+            ForEach(0..<3, id: \.self) { idx in
+                HStack {
+                    ForEach(0..<3, id: \.self) { jdx in
+                        Text(String(cm2[idx][jdx]))
+                    }
+                }
+            }
+        }
+        VStack {
+            Text("Équilibre - Numéro de mobile")
+            let cm2 = NumerologieCore.cm2(nom: bsMobile)
             ForEach(0..<3, id: \.self) { idx in
                 HStack {
                     ForEach(0..<3, id: \.self) { jdx in
