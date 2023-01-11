@@ -2483,6 +2483,26 @@ public class NumerologieCore {
             return (25, true)
         case "Z":
             return (26, false)
+        case "0":
+            return (0, false)
+        case "1":
+            return (1, false)
+        case "2":
+            return (2, false)
+        case "3":
+            return (3, false)
+        case "4":
+            return (4, false)
+        case "5":
+            return (5, false)
+        case "6":
+            return (6, false)
+        case "7":
+            return (7, false)
+        case "8":
+            return (8, false)
+        case "9":
+            return (9, false)
         default:
             return (0, false)
         }
