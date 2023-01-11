@@ -1520,6 +1520,17 @@ public class TextCore {
              E = "Last Name Aux."
     }
 
+    /*
+    public enum LETel: String {
+        case F = "Tel.",
+             E = "Tel."
+    }
+
+    public enum LEMobile: String {
+        case F = "Tel. Mobile",
+             E = "Tel. Mobile"
+    }*/
+
     public enum LENumerologie: String {
         case F = "Numerologie",
              E = "Numerology"
@@ -1862,6 +1873,24 @@ public class TextCore {
             return LELastNameAux.F.rawValue
         case .E:
             return LELastNameAux.E.rawValue
+        }
+    }
+
+    public func tel() -> String {
+        switch langue {
+        case .F:
+            return "Tel."
+        case .E:
+            return "Tel."
+        }
+    }
+
+    public func mobile() -> String {
+        switch langue {
+        case .F:
+            return "Mobile"
+        case .E:
+            return "Mobile"
         }
     }
 

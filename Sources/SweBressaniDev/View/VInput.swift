@@ -14,6 +14,8 @@ public struct VInput: View {
     @Binding var bsLastName1: String
     @Binding var bsLastName2: String
     @Binding var bsLastName3: String
+    @Binding var bsTel: String
+    @Binding var bsMobile: String
     @Binding var bdLat: Double
     @Binding var bdLng: Double
     @Binding var biTimeZone: Int
@@ -26,6 +28,8 @@ public struct VInput: View {
                 bsLastName1: Binding<String>,
                 bsLastName2: Binding<String>,
                 bsLastName3: Binding<String>,
+                bsTel: Binding<String>,
+                bsMobile: Binding<String>,
                 bdLat: Binding<Double>,
                 bdLng: Binding<Double>,
                 biTimeZone: Binding<Int>,
@@ -37,6 +41,8 @@ public struct VInput: View {
         self._bsLastName1 = bsLastName1
         self._bsLastName2 = bsLastName2
         self._bsLastName3 = bsLastName3
+        self._bsTel = bsTel
+        self._bsMobile = bsMobile
         self._bdLat = bdLat
         self._bdLng = bdLng
         self._biTimeZone = biTimeZone
@@ -56,6 +62,7 @@ public struct VInput: View {
                     bsLastName2: $bsLastName2,
                     bsLastName3: $bsLastName3
             )
+            VTelField(stText: stText, bsTel: $bsTel, bsMobile: $bsMobile)
             VTitleLocalisation(stText: stText)
             VLocalisationTextFieldIOs(bdLat: $bdLat, bdLng: $bdLng, biTimeZone: $biTimeZone, stText: stText)
         }
