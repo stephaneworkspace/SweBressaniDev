@@ -14,6 +14,7 @@ let sign1 = try! sweSvg.asset_sign(i: 1)
 let sign2 = try! sweSvg.asset_sign(i: 2)
 //print(cwrapperfive())
 
+
 //var swe = SweCore(pathEphe: "", size: 400)
 //swe.set(natal: Date(), transit: Date(), lat: 16, lng: 26.6, tz: 2, colorMode: .Light)
 //print(swe.bodieDegMinSec(bodie: .Soleil, swTransit: true))
