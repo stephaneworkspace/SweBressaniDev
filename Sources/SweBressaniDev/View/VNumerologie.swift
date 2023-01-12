@@ -70,6 +70,15 @@ public struct VNumerologie: View {
                     }
                 }
                 Spacer()
+                VTitlePersonaliteJuridique(stText: stText)
+                VStack {
+                    HStack {
+                        let n: Int = NumerologieCore.chaineDeCaractereVersNombre(chars: bsFirstName)
+                        Text("\(stText.firstName())")
+                        Spacer()
+                        Text("\(String(n))")
+                    }
+                }
             }
             Divider()
             VNumerologieCycles(bdNatal: $bdNatal, stText: stText)
