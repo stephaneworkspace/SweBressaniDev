@@ -76,6 +76,48 @@ public struct VNumerologie: View {
                         let n: Int = NumerologieCore.chaineDeCaractereVersNombre(chars: bsFirstName)
                         Text("\(stText.firstName())")
                         Spacer()
+                        Text("\(bsFirstName)")
+                        Spacer()
+                        Text("\(String(n))")
+                    }
+                    HStack {
+                        let n: Int = NumerologieCore.chaineDeCaractereVersNombre(chars: bsSecondName)
+                        Text("\(stText.secondName())")
+                        Spacer()
+                        Text("\(bsSecondName)")
+                        Spacer()
+                        Text("\(String(n))")
+                    }
+                    HStack {
+                        let n: Int = NumerologieCore.chaineDeCaractereVersNombre(chars: bsThirdName)
+                        Text("\(stText.thirdName())")
+                        Spacer()
+                        Text("\(bsThirdName)")
+                        Spacer()
+                        Text("\(String(n))")
+                    }
+                    HStack {
+                        let n: Int = NumerologieCore.chaineDeCaractereVersNombre(chars: bsLastName1)
+                        Text("\(stText.lastName())")
+                        Spacer()
+                        Text("\(bsLastName1)")
+                        Spacer()
+                        Text("\(String(n))")
+                    }
+                    HStack {
+                        let n: Int = NumerologieCore.chaineDeCaractereVersNombre(chars: bsLastName2)
+                        Text("\(stText.lastNameAux())")
+                        Spacer()
+                        Text("\(bsSecondName)")
+                        Spacer()
+                        Text("\(String(n))")
+                    }
+                    HStack {
+                        let n: Int = NumerologieCore.chaineDeCaractereVersNombre(chars: bsLastName3)
+                        Text("\(stText.lastNameAux())")
+                        Spacer()
+                        Text("\(bsThirdName)")
+                        Spacer()
                         Text("\(String(n))")
                     }
                 }
