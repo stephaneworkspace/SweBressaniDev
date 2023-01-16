@@ -1879,7 +1879,7 @@ public class TextCore {
     public func tel() -> String {
         switch langue {
         case .F:
-            return "Tel."
+            return "Téléphone"
         case .E:
             return "Tel."
         }
@@ -1927,6 +1927,15 @@ public class TextCore {
             return "Personalité juridique"
         case .E:
             return "Legal Person"
+        }
+    }
+    
+    public func phone() -> String {
+        switch langue {
+        case .F:
+            return "Téléphone"
+        case .E:
+            return "Tel."
         }
     }
 

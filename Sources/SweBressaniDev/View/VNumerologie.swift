@@ -199,6 +199,47 @@ public struct VNumerologie: View {
                             .font(FONTSYSTEM)
                             .clipped()
                 }
+                VTitlePhone(stText: stText)
+                VStack {
+                    HStack {
+                        TextField("", text: .constant("\(stText.tel())"))
+                                .disabled(true)
+                                .textFieldStyle(.plain)
+                                .multilineTextAlignment(.leading)
+                                .clipped()
+                        Spacer()
+                        TextField("", text: .constant("\(bsTel)"))
+                                .disabled(true)
+                                .textFieldStyle(.plain)
+                                .multilineTextAlignment(.center)
+                                .clipped()
+                        Spacer()
+                        TextField("", text: .constant(NumerologieCore.chaineDeCaractereVersNombreReduction(chars: bsTel)))
+                                .disabled(true)
+                                .textFieldStyle(RoundedBorderTextFieldStyle())
+                                .multilineTextAlignment(.trailing)
+                                .clipped()
+                    }
+                    HStack {
+                        TextField("", text: .constant("\(stText.mobile())"))
+                                .disabled(true)
+                                .textFieldStyle(.plain)
+                                .multilineTextAlignment(.leading)
+                                .clipped()
+                        Spacer()
+                        TextField("", text: .constant("\(bsMobile)"))
+                                .disabled(true)
+                                .textFieldStyle(.plain)
+                                .multilineTextAlignment(.center)
+                                .clipped()
+                        Spacer()
+                        TextField("", text: .constant(NumerologieCore.chaineDeCaractereVersNombreReduction(chars: bsMobile)))
+                                .disabled(true)
+                                .textFieldStyle(RoundedBorderTextFieldStyle())
+                                .multilineTextAlignment(.trailing)
+                                .clipped()
+                    }
+                }
             }
             Divider()
             VNumerologieCycles(bdNatal: $bdNatal, stText: stText)
