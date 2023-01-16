@@ -18,7 +18,7 @@ public struct VTitlePhone: View {
 
     public var body: some View {
         HStack {
-            Image(systemName: "teletype.answere")
+            Image(systemName: "teletype.answer")
                     .imageScale(IMAGESCALE)
                     .foregroundColor(FOREGROUNDCOLOR)
             Text("\(stText.phone())")
