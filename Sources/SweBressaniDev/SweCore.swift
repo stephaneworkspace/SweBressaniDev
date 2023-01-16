@@ -2633,6 +2633,20 @@ public class NumerologieCore {
         }
         return nombre
     }
+    
+    public static func chaineDeCaractereVersNombreReduction(chars: String) -> String {
+        let n: Int = NumerologieCore.chaineDeCaractereVersNombre(chars: chars)
+        let nTempReduction = NumerologieCore.reduction(iNumber: n)
+        var sTemp: String = ""
+        for ai in nTempReduction {
+            if sTemp == "" {
+                sTemp = String(ai)
+            } else {
+                sTemp = sTemp + " / " + String(ai)
+            }
+        }
+        return sTemp
+    }
 
     public static func lettres(nom: String) -> [String] {
         var res: [String] = []

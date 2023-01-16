@@ -73,7 +73,6 @@ public struct VNumerologie: View {
                 VTitlePersonaliteJuridique(stText: stText)
                 VStack {
                     HStack {
-                        let n: Int = NumerologieCore.chaineDeCaractereVersNombre(chars: bsFirstName)
                         TextField("", text: .constant("\(stText.firstName())"))
                                 .disabled(true)
                                 .textFieldStyle(.plain)
@@ -86,9 +85,9 @@ public struct VNumerologie: View {
                                 .multilineTextAlignment(.center)
                                 .clipped()
                         Spacer()
-                        TextField("", text: .constant("\(String(n))"))
+                        TextField("", text: .constant(NumerologieCore.chaineDeCaractereVersNombreReduction(chars: bsFirstName)))
                                 .disabled(true)
-                                .textFieldStyle(.plain)
+                                .textFieldStyle(RoundedBorderTextFieldStyle())
                                 .multilineTextAlignment(.trailing)
                                 .clipped()
                     }
