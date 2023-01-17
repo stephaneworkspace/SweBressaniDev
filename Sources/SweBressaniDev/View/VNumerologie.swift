@@ -100,9 +100,9 @@ public struct VNumerologie: View {
                             .multilineTextAlignment(.trailing)
                             .clipped()
                     }
+                }
                         .font(FONTSYSTEM)
                         .clipped()
-                }
                 Spacer()
                 VTitlePersonaliteJuridique(stText: stText)
                 VStack {
