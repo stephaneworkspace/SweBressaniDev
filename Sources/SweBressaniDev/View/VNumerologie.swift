@@ -49,25 +49,59 @@ public struct VNumerologie: View {
                 VStack {
                     HStack {
                         Text("\(stText.born())")
+                            .disabled(true)
+                            .textFieldStyle(.plain)
+                            .multilineTextAlignment(.leading)
+                            .clipped()
                         Spacer()
                         Text("\(String(NumerologieCore.date(dBornDate: bdNatal)))")
+                            .disabled(true)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .multilineTextAlignment(.trailing)
+                            .clipped()
                     }
                     HStack {
                         Text("\(stText.age())")
+                            .disabled(true)
+                            .textFieldStyle(.plain)
+                            .multilineTextAlignment(.leading)
+                            .clipped()
                         Spacer()
                         Text("\(String(NumerologieCore.age(dBornDate: bdNatal)))")
+                            .disabled(true)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .multilineTextAlignment(.trailing)
+                            .clipped()
                     }
                     HStack {
                         Text("\(stText.lifePath())")
+                            .disabled(true)
+                            .textFieldStyle(.plain)
+                            .multilineTextAlignment(.leading)
+                            .clipped()
                         Spacer()
                         Text("\(NumerologieCore.cheminDeVie(dBornDate: bdNatal))")
+                            .disabled(true)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .multilineTextAlignment(.trailing)
+                            .clipped()
                     }
                     HStack {
                         let iAp = anneeEnCours()
                         Text("Année personelle " + String(iAp))
+                            .disabled(true)
+                            .textFieldStyle(.plain)
+                            .multilineTextAlignment(.leading)
+                            .clipped()
                         Spacer()
                         Text("\(NumerologieCore.ap(dBornDate: bdNatal))")
+                            .disabled(true)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .multilineTextAlignment(.trailing)
+                            .clipped()
                     }
+                        .font(FONTSYSTEM)
+                        .clipped()
                 }
                 Spacer()
                 VTitlePersonaliteJuridique(stText: stText)
@@ -91,8 +125,8 @@ public struct VNumerologie: View {
                             .multilineTextAlignment(.trailing)
                             .clipped()
                     }
-                    .font(FONTSYSTEM)
-                    .clipped()
+                        .font(FONTSYSTEM)
+                        .clipped()
                     HStack {
                         TextField("", text: .constant("\(stText.secondName())"))
                             .disabled(true)
