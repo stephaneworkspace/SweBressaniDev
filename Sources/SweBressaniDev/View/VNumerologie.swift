@@ -60,6 +60,8 @@ public struct VNumerologie: View {
                             .multilineTextAlignment(.trailing)
                             .clipped()
                     }
+                        .font(FONTSYSTEM)
+                        .clipped()
                     HStack {
                         Text("\(stText.age())")
                             .disabled(true)
@@ -73,6 +75,8 @@ public struct VNumerologie: View {
                             .multilineTextAlignment(.trailing)
                             .clipped()
                     }
+                        .font(FONTSYSTEM)
+                        .clipped()
                     HStack {
                         Text("\(stText.lifePath())")
                             .disabled(true)
@@ -86,6 +90,8 @@ public struct VNumerologie: View {
                             .multilineTextAlignment(.trailing)
                             .clipped()
                     }
+                        .font(FONTSYSTEM)
+                        .clipped()
                     HStack {
                         let iAp = anneeEnCours()
                         Text("Année personelle " + String(iAp))
@@ -100,9 +106,9 @@ public struct VNumerologie: View {
                             .multilineTextAlignment(.trailing)
                             .clipped()
                     }
-                }
                         .font(FONTSYSTEM)
                         .clipped()
+                }
                 Spacer()
                 VTitlePersonaliteJuridique(stText: stText)
                 VStack {
