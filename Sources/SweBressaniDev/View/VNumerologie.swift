@@ -239,9 +239,9 @@ public struct VNumerologie: View {
                             .multilineTextAlignment(.trailing)
                             .clipped()
                     }
-                    .font(FONTSYSTEM)
-                    .clipped()
                 }
+                .font(FONTSYSTEM)
+                .clipped()
             }
             Divider()
             VNumerologieCycles(bdNatal: $bdNatal, stText: stText)
