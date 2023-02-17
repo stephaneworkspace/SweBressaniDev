@@ -75,19 +75,16 @@ public struct VNumerologieCarreMagique: View {
                 }
             }
         }
-        VStack {
-            Text("Équilibre - Prenom(s)")
-            let cm2 = NumerologieCore.cm2(nom: bsFirstName
-                    + " " + bsSecondName
-                    + " " + bsThirdName)
-            ForEach(0..<3, id: \.self) { idx in
-                HStack {
-                    ForEach(0..<3, id: \.self) { jdx in
-                        Text(String(cm2[idx][jdx]))
-                    }
-                }
-            }
-        }
+        VNumerologieCarreMagiqueNom(
+                bsLastName1: $bsLastName1,
+                bsLastName2: $bsLastName2,
+                bsLastName3: $bsLastName3,
+                stText: stText)
+        VNumerologieCarreMagiquePrenom(
+                bsFirstName: $bsFirstName,
+                bsSecondName: $bsSecondName,
+                bsThirdName: $bsThirdName,
+                stText: stText)
         VStack {
             Text("Équilibre - Numéro de téléphone")
             let cm2 = NumerologieCore.cm2(nom: bsTel)
