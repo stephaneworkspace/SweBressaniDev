@@ -73,7 +73,17 @@ int main () {
     char *path = (char *) malloc(255);
     //free(path);
 
-    cout << sweinterfacelib::theme_astral_svg(1984, 1, 4, 0, 0, 16, 26, 2, path, 0) << endl;
+    string svg = sweinterfacelib::theme_astral_svg(1984, 1, 4, 0, 0, 16, 26, 2, path, 0);
+
+    static std::string decode;
+    if(!Base64::Decode(svg, &decode)) {
+        std::cout << "Failed to decode" << std::endl;
+        //return false;
+    } else {
+
+    }
+
+    cout << decode << "\n";
 
     cout << "</table>\n";
     cout << "</body>\n";

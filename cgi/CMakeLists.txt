@@ -5,9 +5,6 @@ include_directories("../Sources/swelib/include")
 include_directories("../Sources/svglib/include")
 include_directories("../Sources/sweinterfacelib/include")
 
-
-
-
 add_executable(SweInterfaceCgi
         main.cpp
         ../Sources/swelib/include/swelib.h
