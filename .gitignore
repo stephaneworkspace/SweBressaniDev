@@ -8,3 +8,7 @@ DerivedData/
 .swiftpm/xcode/package.xcworkspace/contents.xcworkspacedata
 .netrc
 Package.resolved
+/cgi/CMakeFiles/
+/cgi/cmake_install.cmake
+/cgi/Makefile
+/cgi/CMakeCache.txt
