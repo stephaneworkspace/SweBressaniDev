@@ -62,7 +62,8 @@ int main () {
     }
     if (sw_find) {
         if (sw_chart) {
-            string svg = sweinterfacelib::theme_astral_svg(1984, 1, 4, 0, 0, 16, 26, 2, "/home/ubuntu/ephem/", 0);
+            const char *path = "/home/ubuntu/ephem";
+            string svg = sweinterfacelib::theme_astral_svg(1984, 1, 4, 0, 0, 16, 26, 2, path, 0);
             static std::string decode;
             if(!Base64::Decode(svg, &decode)) {
                 std::cout << "Failed to decode" << std::endl;
