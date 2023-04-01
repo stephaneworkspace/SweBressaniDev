@@ -61,48 +61,37 @@ int main () {
         if (param_split[0] == "sw_chart" && param_split[1] == "true") {
             sw_chart = true;
             sw_find = true;
-            break;
         }
         if (param_split[0] == "sw_debug" && param_split[1] == "true") {
             sw_find = true;
             sw_debug = true;
-            break;
         }
         if (param_split[0] == "year") {
             year = stoi(param_split[1]);
-            break;
         }
         if (param_split[0] == "month") {
             month = stoi(param_split[1]);
-            break;
         }
         if (param_split[0] == "day") {
             day = stoi(param_split[1]);
-            break;
         }
         if (param_split[0] == "hour") {
             hour = stoi(param_split[1]);
-            break;
         }
         if (param_split[0] == "min") {
             min = stoi(param_split[1]);
-            break;
         }
         if (param_split[0] == "lat") {
             lat = stof(param_split[1]);
-            break;
         }
         if (param_split[0] == "lng") {
             lng = stof(param_split[1]);
-            break;
         }
         if (param_split[0] == "gmt") {
             gmt = stoi(param_split[1]);
-            break;
         }
         if (param_split[0] == "color") {
             color = stoi(param_split[1]);
-            break;
         }
     }
     if (sw_find) {
