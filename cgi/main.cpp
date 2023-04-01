@@ -43,51 +43,54 @@ const string ENV[ 24 ] = {
         "SERVER_SIGNATURE","SERVER_SOFTWARE" };
 
 int main () {
-    cout << "Content-type:text/html\r\n\r\n";
-    cout << "<html>\n";
-    cout << "<head>\n";
-    cout << "<title>CGI Environment Variables</title>\n";
-    cout << "</head>\n";
-    cout << "<body>\n";
-    cout << "<table border = \"0\" cellspacing = \"2\">";
+    vector<string> param = tokenize(getenv(ENV[10].c_str()), '&');
+    for (int i = 0; i < param.size(); ++i) {
+        vector<string> param_split = tokenize(param[i], '=');
+        if (param_split[0] == "sw_chart" && param_split[1] == "true") {
 
-    for ( int i = 0; i < 24; i++ ) {
-        cout << "<tr><td>" << ENV[ i ] << "</td><td>";
+            vector<string> s = tokenize(getenv(ENV[10].c_str()), '&');
+            for (int i = 0; i < s.size(); ++i) {
+                vector<string> sp = tokenize(s[i], '=');
+                cout << "<tr><td>" << sp[0] << "</td><td>" << sp[1] << "</td></tr>\n";
+            }
 
-        // attempt to retrieve value of environment variable
-        char *value = getenv( ENV[ i ].c_str() );
-        if ( value != 0 ) {
-            cout << value;
-        } else {
-            cout << "Environment variable does not exist.";
+            string svg = sweinterfacelib::theme_astral_svg(1984, 1, 4, 0, 0, 16, 26, 2, "/home/ubuntu/ephem/", 0);
+
+            static std::string decode;
+            if(!Base64::Decode(svg, &decode)) {
+                std::cout << "Failed to decode" << std::endl;
+            } else {
+                cout << "Content-type:image/svg+xml\r\n\r\n";
+                cout << decode << "\n";
+            }
+            break;
         }
-        cout << "</td></tr>\n";
+        if (param_split[0] == "sw_debug" && param_split[1] == "true") {
+            cout << "Content-type:text/html\r\n\r\n";
+            cout << "<html>\n";
+            cout << "<head>\n";
+            cout << "<title>CGI Environment Variables</title>\n";
+            cout << "</head>\n";
+            cout << "<body>\n";
+            cout << "<table border = \"0\" cellspacing = \"2\">";
+
+            for ( int i = 0; i < 24; i++ ) {
+                cout << "<tr><td>" << ENV[ i ] << "</td><td>";
+
+                // attempt to retrieve value of environment variable
+                char *value = getenv( ENV[ i ].c_str() );
+                if ( value != 0 ) {
+                    cout << value;
+                } else {
+                    cout << "Environment variable does not exist.";
+                }
+                cout << "</td></tr>\n";
+            }
+            cout << "</table>\n";
+            cout << "</body>\n";
+            cout << "</html>\n";
+            break;
+        }
     }
-
-    vector<string> s = tokenize(getenv(ENV[10].c_str()), '&');
-    for (int i = 0; i < s.size(); ++i) {
-        vector<string> sp = tokenize(s[i], '=');
-        cout << "<tr><td>" << sp[0] << "</td><td>" << sp[1] << "</td></tr>\n";
-    }
-
-    char *path = (char *) malloc(255);
-    //free(path);
-
-    string svg = sweinterfacelib::theme_astral_svg(1984, 1, 4, 0, 0, 16, 26, 2, path, 0);
-
-    static std::string decode;
-    if(!Base64::Decode(svg, &decode)) {
-        std::cout << "Failed to decode" << std::endl;
-        //return false;
-    } else {
-
-    }
-
-    cout << decode << "\n";
-
-    cout << "</table>\n";
-    cout << "</body>\n";
-    cout << "</html>\n";
-
     return 0;
 }
