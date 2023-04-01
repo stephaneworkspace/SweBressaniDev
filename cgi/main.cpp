@@ -97,7 +97,7 @@ int main () {
     if (sw_find) {
         if (sw_chart) {
             const char *path = "./";
-            string svg = sweinterfacelib::theme_astral_svg(year, day, month, min, 0, lat, lng, gmt, path, color);
+            string svg = sweinterfacelib::theme_astral_svg(year, month, day, hour, min, lat, lng, gmt, path, color);
             static std::string decode;
             if(!Base64::Decode(svg, &decode)) {
                 std::cout << "Failed to decode" << std::endl;
