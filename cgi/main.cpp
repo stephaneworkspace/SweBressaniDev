@@ -62,7 +62,7 @@ int main () {
     }
     if (sw_find) {
         if (sw_chart) {
-            const char *path = "/home/ubuntu/ephem";
+            const char *path = "./";
             string svg = sweinterfacelib::theme_astral_svg(1984, 1, 4, 0, 0, 16, 26, 2, path, 0);
             static std::string decode;
             if(!Base64::Decode(svg, &decode)) {
