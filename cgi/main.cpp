@@ -46,6 +46,15 @@ int main () {
     bool sw_find = false;
     bool sw_chart = false;
     bool sw_debug = false;
+    int year = 1984;
+    int month = 4;
+    int day = 1;
+    int hour = 0;
+    int min = 0;
+    float lat = 46.12;
+    float lng = 6.09;
+    int gmt = 2;
+    int color = 0;
     vector<string> param = tokenize(getenv(ENV[10].c_str()), '&');
     for (int i = 0; i < param.size(); ++i) {
         vector<string> param_split = tokenize(param[i], '=');
@@ -59,11 +68,47 @@ int main () {
             sw_debug = true;
             break;
         }
+        if (param_split[0] == "year") {
+            year = stoi(param_split[1]);
+            break;
+        }
+        if (param_split[0] == "month") {
+            month = stoi(param_split[1]);
+            break;
+        }
+        if (param_split[0] == "day") {
+            day = stoi(param_split[1]);
+            break;
+        }
+        if (param_split[0] == "hour") {
+            hour = stoi(param_split[1]);
+            break;
+        }
+        if (param_split[0] == "min") {
+            min = stoi(param_split[1]);
+            break;
+        }
+        if (param_split[0] == "lat") {
+            lat = stof(param_split[1]);
+            break;
+        }
+        if (param_split[0] == "lng") {
+            lng = stof(param_split[1]);
+            break;
+        }
+        if (param_split[0] == "gmt") {
+            gmt = stoi(param_split[1]);
+            break;
+        }
+        if (param_split[0] == "color") {
+            color = stoi(param_split[1]);
+            break;
+        }
     }
     if (sw_find) {
         if (sw_chart) {
             const char *path = "./";
-            string svg = sweinterfacelib::theme_astral_svg(1984, 1, 4, 0, 0, 16, 26, 2, path, 0);
+            string svg = sweinterfacelib::theme_astral_svg(year, day, month, min, 0, lat, lng, gmt, path, color);
             static std::string decode;
             if(!Base64::Decode(svg, &decode)) {
                 std::cout << "Failed to decode" << std::endl;
