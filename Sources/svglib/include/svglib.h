@@ -21,10 +21,10 @@ namespace svglib {
         double point;
     };
     struct SvgFill {
-        const char *fill;
+        const char *fill_cchar;
     };
     struct SvgStroke {
-        const char *stroke;
+        const char *stroke_cchar;
         double stroke_width;
     };
     struct SvgProperties {
@@ -32,10 +32,10 @@ namespace svglib {
         SvgStroke stroke;
     };
     struct Fill {
-        string fill;
+        string fill_str;
     };
     struct Stroke {
-        string stroke;
+        string stroke_str;
         double stroke_width;
     };
     extern "C" {

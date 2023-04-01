@@ -72,8 +72,8 @@ string Data::round(double var){
 Data::Data(Fill fill, Stroke stroke) {
     idx_data = 0;
     idx_point = 0;
-    properties.fill.fill = fill.fill.c_str();
-    properties.stroke.stroke = stroke.stroke.c_str();
+    properties.fill.fill_cchar = fill.fill_str.c_str();
+    properties.stroke.stroke_cchar = stroke.stroke_str.c_str();
     properties.stroke.stroke_width = stroke.stroke_width;
 }
 
@@ -111,9 +111,9 @@ void Data::close_by() {
 
 string Data::generate() {
     string fill;
-    fill.assign(properties.fill.fill);
+    fill.assign(properties.fill.fill_cchar);
     string stroke;
-    stroke.assign(properties.stroke.stroke);
+    stroke.assign(properties.stroke.stroke_cchar);
     string d;
 
     int l = 0;
