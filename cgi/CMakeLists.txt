@@ -1,5 +1,10 @@
-project(SweInterfaceCgi)
+project(SweInterface)
 set(CMAKE_CXX_STANDARD 20)
+
+include(FetchContent)
+FetchContent_Declare(json URL https://github.com/nlohmann/json/releases/download/v3.11.2/json.tar.xz)
+FetchContent_MakeAvailable(json)
+
 include_directories( BEFORE . )
 include_directories("../Sources/swelib/include")
 include_directories("../Sources/svglib/include")
@@ -47,7 +52,7 @@ add_executable(SweInterfaceCgi
        ../Sources/sweinterfacelib/sign.cpp
        ../Sources/sweinterfacelib/timezone.cpp
        ../Sources/sweinterfacelib/SweInterface.cpp)
-
+target_link_libraries(SweInterfaceCgi PRIVATE nlohmann_json::nlohmann_json)
 include_directories(BEFORE ../Sources/swelib)
 include_directories(BEFORE ../Sources/svglib)
 include_directories( BEFORE ../Sources/sweinterfacelib)

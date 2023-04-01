@@ -7,6 +7,8 @@
 #include <sstream>
 #include "swelib.h"
 #include "sweinterfacelib.h"
+#include <nlohmann/json.hpp>
+using json = nlohmann::json;
 
 using namespace std;
 
@@ -45,6 +47,7 @@ const string ENV[ 24 ] = {
 int main () {
     bool sw_find = false;
     bool sw_chart = false;
+    bool sw_json = false;
     bool sw_debug = false;
     int year = 1984;
     int month = 4;
@@ -61,6 +64,10 @@ int main () {
         if (param_split[0] == "sw_chart" && param_split[1] == "true") {
             sw_chart = true;
             sw_find = true;
+        }
+        if (param_split[0] == "sw_json" && param_split[1] == "true") {
+            sw_find = true;
+            sw_json = true;
         }
         if (param_split[0] == "sw_debug" && param_split[1] == "true") {
             sw_find = true;
@@ -99,12 +106,24 @@ int main () {
             const char *path = "./";
             string svg = sweinterfacelib::theme_astral_svg(year, month, day, hour, min, lat, lng, gmt, path, color);
             static std::string decode;
-            if(!Base64::Decode(svg, &decode)) {
+            if (!Base64::Decode(svg, &decode)) {
                 std::cout << "Failed to decode" << std::endl;
             } else {
                 cout << "Content-type:image/svg+xml\r\n\r\n";
                 cout << decode << "\n";
             }
+        } else if (sw_json) {
+            cout << "Content-type:application/json\r\n\r\n";
+            // create an empty structure (null)
+            json j;
+            j["pi"] = 3.141;
+            j["happy"] = true;
+            j["name"] = "Niels";
+            j["nothing"] = nullptr;
+            j["answer"]["everything"] = 42;
+            j["list"] = { 1, 0, 2 };
+            j["object"] = { {"currency", "USD"}, {"value", 42.99} };
+            cout << j << "\n";
         } else if (sw_debug) {
             cout << "Content-type:text/html\r\n\r\n";
             cout << "<html>\n";
