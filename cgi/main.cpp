@@ -43,19 +43,26 @@ const string ENV[ 24 ] = {
         "SERVER_SIGNATURE","SERVER_SOFTWARE" };
 
 int main () {
+    bool sw_find = false;
+    bool sw_chart = false;
+    bool sw_debug = false;
     vector<string> param = tokenize(getenv(ENV[10].c_str()), '&');
     for (int i = 0; i < param.size(); ++i) {
         vector<string> param_split = tokenize(param[i], '=');
         if (param_split[0] == "sw_chart" && param_split[1] == "true") {
-
-            vector<string> s = tokenize(getenv(ENV[10].c_str()), '&');
-            for (int i = 0; i < s.size(); ++i) {
-                vector<string> sp = tokenize(s[i], '=');
-                cout << "<tr><td>" << sp[0] << "</td><td>" << sp[1] << "</td></tr>\n";
-            }
-
+            sw_chart = true;
+            sw_find = true;
+            break;
+        }
+        if (param_split[0] == "sw_debug" && param_split[1] == "true") {
+            sw_find = true;
+            sw_debug = true;
+            break;
+        }
+    }
+    if (sw_find) {
+        if (sw_chart) {
             string svg = sweinterfacelib::theme_astral_svg(1984, 1, 4, 0, 0, 16, 26, 2, "/home/ubuntu/ephem/", 0);
-
             static std::string decode;
             if(!Base64::Decode(svg, &decode)) {
                 std::cout << "Failed to decode" << std::endl;
@@ -63,9 +70,7 @@ int main () {
                 cout << "Content-type:image/svg+xml\r\n\r\n";
                 cout << decode << "\n";
             }
-            break;
-        }
-        if (param_split[0] == "sw_debug" && param_split[1] == "true") {
+        } else if (sw_debug) {
             cout << "Content-type:text/html\r\n\r\n";
             cout << "<html>\n";
             cout << "<head>\n";
@@ -89,8 +94,14 @@ int main () {
             cout << "</table>\n";
             cout << "</body>\n";
             cout << "</html>\n";
-            break;
         }
+    } else {
+        cout << "Content-type:text/html\r\n\r\n";
+        cout << "<html>\n";
+        cout << "<head>\n";
+        cout << "<title>CGI Environment Variables</title>\n";
+        cout << "</head>\n";
+        cout << "<body>bressani.dev</body></html>\n";
     }
     return 0;
 }
