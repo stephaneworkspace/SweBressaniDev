@@ -166,7 +166,7 @@ int main () {
                     CalcUt calcul_ut = Swe03::calc_ut(utc_to_jd.julian_day_ut, astres[i], OPTION_FLAG_SPEED);
                     j["bodie"][i]["nom"] = astre;
                     j["bodie"][i]["asset"] = asset_bodie(astres[i]);
-                    j["bodie"][i]["deg-min-sec"] = calcul_ut.split.print;
+                    j["bodie"][i]["deg_min_sec"] = calcul_ut.split.print;
                     j["bodie"][i]["deg"] = calcul_ut.split.deg;
                     j["bodie"][i]["min"] = calcul_ut.split.min;
                     j["bodie"][i]["sec"] = calcul_ut.split.sec;
