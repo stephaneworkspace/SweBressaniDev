@@ -160,6 +160,9 @@ int main () {
             astres[NOEUD_LUNAIRE_SUD] = ASTRE_NOEUD_LUNAIRE_SUD;
 
             cout << "Content-type:application/json\r\n\r\n";
+            cout << "Access-Control-Allow-Origin: *\r\n\r\n";
+            cout << "Access-Control-Allow-Methods: GET\r\n\r\n";
+
             json j;
             for (int i = 0; i < MAX_ASTRES; ++i) {
                     string astre = Astre::name(astres[i]);
