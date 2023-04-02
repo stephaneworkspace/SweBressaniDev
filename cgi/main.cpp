@@ -177,6 +177,15 @@ int main () {
                     string sign = Sign::nom(calcul_ut.split.sign + 1);
                     j["bodie"][i]["sign"]["nom"] = sign;
                     j["bodie"][i]["sign"]["asset"] = asset_sign(calcul_ut.split.sign + 1);
+                    CalcUt calcul_ut_t= Swe03::calc_ut(utc_to_jd_t.julian_day_ut, astres[i], OPTION_FLAG_SPEED);
+                    j["bodie"][i]["deg_min_sec_transit"] = calcul_ut_t.split.print;
+                    j["bodie"][i]["deg_transit"] = calcul_ut_t.split.deg;
+                    j["bodie"][i]["min_transit"] = calcul_ut_t.split.min;
+                    j["bodie"][i]["sec_transit"] = calcul_ut_t.split.sec;
+                    j["bodie"][i]["sign_transit"]["id"] = calcul_ut_t.split.sign;
+                    string sign_transit = Sign::nom(calcul_ut_t.split.sign + 1);
+                    j["bodie"][i]["sign_transit"]["nom"] = sign_transit;
+                    j["bodie"][i]["sign_transit"]["asset"] = asset_sign(calcul_ut_t.split.sign + 1);
             }
             cout << j << "\n";
         } else if (sw_debug) {
