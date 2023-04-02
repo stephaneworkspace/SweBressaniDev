@@ -13,11 +13,11 @@ using json = nlohmann::json;
 using namespace std;
 using namespace sweinterfacelib;
 
-std::vector<std::string> tokenize(const std::string& s, char c) {
+vector<string> tokenize(const std::string& s, char c) {
     auto end = s.cend();
     auto start = end;
 
-    std::vector<std::string> v;
+    vector<string> v;
     for( auto it = s.cbegin(); it != end; ++it ) {
         if( *it != c ) {
             if( start == end )
@@ -159,27 +159,22 @@ int main () {
             astres[CERES] = ASTRE_CERES;
             astres[NOEUD_LUNAIRE_SUD] = ASTRE_NOEUD_LUNAIRE_SUD;
 
-
-
             cout << "Content-type:application/json\r\n\r\n";
-            // create an empty structure (null)
-
             json j;
             for (int i = 0; i < MAX_ASTRES; ++i) {
-                string astre = Astre::name(i);
-                if (astre != "") {
+                    string astre = Astre::name(astres[i]);
                     CalcUt calcul_ut = Swe03::calc_ut(utc_to_jd.julian_day_ut, astres[i], OPTION_FLAG_SPEED);
-                    j["bodie"][astre]["asset"] = asset_bodie(i);
-                    j["bodie"][astre]["deg"] = calcul_ut.split.print;
-                }
+                    j["bodie"][i]["nom"] = astre;
+                    j["bodie"][i]["asset"] = asset_bodie(astres[i]);
+                    j["bodie"][i]["deg-min-sec"] = calcul_ut.split.print;
+                    j["bodie"][i]["deg"] = calcul_ut.split.deg;
+                    j["bodie"][i]["min"] = calcul_ut.split.min;
+                    j["bodie"][i]["sec"] = calcul_ut.split.sec;
+                    j["bodie"][i]["sign"]["id"] = calcul_ut.split.sign;
+                    string sign = Sign::nom(calcul_ut.split.sign + 1);
+                    j["bodie"][i]["sign"]["nom"] = sign;
+                    j["bodie"][i]["sign"]["asset"] = asset_sign(calcul_ut.split.sign + 1);
             }
-            j["pi"] = 3.141;
-            j["happy"] = true;
-            j["name"] = "Niels";
-            j["nothing"] = nullptr;
-            j["answer"]["everything"] = 42;
-            j["list"] = { 1, 0, 2 };
-            j["object"] = { {"currency", "USD"}, {"value", 42.99} };
             cout << j << "\n";
         } else if (sw_debug) {
             cout << "Content-type:text/html\r\n\r\n";
