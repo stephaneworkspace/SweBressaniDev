@@ -168,7 +168,9 @@ int main () {
             for (int i = 0; i < MAX_ASTRES; ++i) {
                 string astre = Astre::name(i);
                 if (astre != "") {
+                    CalcUt calcul_ut = Swe03::calc_ut(utc_to_jd.julian_day_ut, astres[i], OPTION_FLAG_SPEED);
                     j["bodie"][astre]["asset"] = asset_bodie(i);
+                    j["bodie"][astre]["deg"] = calcul_ut.split.print;
                 }
             }
             j["pi"] = 3.141;
