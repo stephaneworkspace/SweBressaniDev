@@ -159,8 +159,8 @@ int main () {
             astres[CERES] = ASTRE_CERES;
             astres[NOEUD_LUNAIRE_SUD] = ASTRE_NOEUD_LUNAIRE_SUD;
 
-            cout << "Content-type:application/json\r\n\r\n";
-            cout << "Access-Control-Allow-Origin: *\r\n\r\n";
+            cout << "Content-type:application/json\r\n";
+            cout << "Access-Control-Allow-Origin: *\r\n";
             cout << "Access-Control-Allow-Methods: GET\r\n\r\n";
 
             json j;
