@@ -11,6 +11,7 @@
 using json = nlohmann::json;
 
 using namespace std;
+using namespace sweinterfacelib;
 
 std::vector<std::string> tokenize(const std::string& s, char c) {
     auto end = s.cend();
@@ -113,9 +114,63 @@ int main () {
                 cout << decode << "\n";
             }
         } else if (sw_json) {
+            Swe02::set_ephe_path("./");
+            // TimeZone
+            TimeZone time_zone;
+            time_zone.year = year;
+            time_zone.month = month;
+            time_zone.day = day;
+            time_zone.hour = hour;
+            time_zone.min = min;
+            time_zone.sec = 0;
+            TimeZone utc_time_zone = TZ::utc_time_zone(time_zone, gmt);
+            UtcToJd utc_to_jd = Swe08::utc_to_jd(utc_time_zone, CALANDAR_GREGORIAN);
+            time_t t = time(0);
+            tm* now = localtime(&t);
+            TimeZone time_zone_t;
+            time_zone_t.year = now->tm_year + 1900;
+            time_zone_t.month = now->tm_mon + 1;
+            time_zone_t.day = now->tm_mday;
+            time_zone_t.hour = now->tm_hour;
+            time_zone_t.min = now->tm_min;
+            time_zone_t.sec = now->tm_sec;
+            double gmt_t = gmt;
+            TimeZone utc_time_zone_t = TZ::utc_time_zone(time_zone_t, gmt_t);
+            UtcToJd utc_to_jd_t = Swe08::utc_to_jd(utc_time_zone_t, CALANDAR_GREGORIAN);
+
+            H* house = new H[12];
+            for (int i = 0; i < 12; ++i) {
+                house[i] = Swe14::house(utc_to_jd.julian_day_ut, lat, lng, 'P', i + 1);
+            }
+
+            int* astres = new int[MAX_ASTRES];
+            astres[SOLEIL] = ASTRE_SOLEIL;
+            astres[LUNE] = ASTRE_LUNE;
+            astres[MERCURE] = ASTRE_MERCURE;
+            astres[VENUS] = ASTRE_VENUS;
+            astres[MARS] = ASTRE_MARS;
+            astres[JUPITER] = ASTRE_JUPITER;
+            astres[SATURN] = ASTRE_SATURN;
+            astres[URANUS] = ASTRE_URANUS;
+            astres[NEPTUNE] = ASTRE_NEPTUNE;
+            astres[PLUTON] = ASTRE_PLUTON;
+            astres[NOEUD_LUNAIRE] = ASTRE_NOEUD_LUNAIRE;
+            astres[CHIRON] = ASTRE_CHIRON;
+            astres[CERES] = ASTRE_CERES;
+            astres[NOEUD_LUNAIRE_SUD] = ASTRE_NOEUD_LUNAIRE_SUD;
+
+
+
             cout << "Content-type:application/json\r\n\r\n";
             // create an empty structure (null)
+
             json j;
+            for (int i = 0; i < MAX_ASTRES; ++i) {
+                string astre = Astre::name(i);
+                if (astre != "") {
+                    j["bodie"][astre]["asset"] = asset_bodie(i);
+                }
+            }
             j["pi"] = 3.141;
             j["happy"] = true;
             j["name"] = "Niels";
