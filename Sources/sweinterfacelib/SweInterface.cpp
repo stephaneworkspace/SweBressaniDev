@@ -231,8 +231,8 @@ extern "C" {
         PairAspect* pair = new PairAspect[MAX_PAIR];
         int k = 0;
         svg_stroke.stroke_width = STROKE_FINE;
-        for (int i = 0; i < MAX_ASTRES; ++i) {
-            for (int j = 0; j < MAX_ASTRES; ++j) {
+        for (int i = 0; i < 10; ++i) { // noeud lunaire sud
+            for (int j = 0; j < 10; ++j) {
                 bool swl = false;
                 for (int l = 0; l < MAX_PAIR; ++l) {
                     if (pair[l].i == j && pair[l].j == i) {
