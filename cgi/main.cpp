@@ -272,6 +272,7 @@ int main () {
                                 aspect = k;
                             }
                         }
+                        js["aspect"][i]["id"] = astresAngle[i];
                         if (astresAngle[i] == 98) {
                             js["aspect"][i]["nom"] = "Asc";
                         } else if (astresAngle[i] == 99) {
@@ -280,7 +281,7 @@ int main () {
                             string astre = Astre::name(astresAngle[i]);
                             js["aspect"][i]["nom"] = astre;
                         }
-                        js["aspect"][i]["liens"][j]["id"] = j;
+                        js["aspect"][i]["liens"][j]["id"] = astresAngle[j];
                         if (astresAngle[j] == 98) {
                             js["aspect"][i]["liens"][j]["nom"] = "Asc";
                         } else if (astresAngle[j] == 99) {
