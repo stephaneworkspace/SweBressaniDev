@@ -20,7 +20,7 @@ LineXYAspect DrawAspectLines::line(H house_asc, double* item_longitude) {
         int* angle = Aspect::angle(a);
         int asp = angle[0];
         int orb = angle[1];
-        int abs_calc = abs(abs_separation - asp) ;
+        int abs_calc = abs(abs_separation - asp);
         if (abs_calc <= orb) {
             Offset* pos = new Offset[2];
             for (int j = 0; j < 2; ++j) {

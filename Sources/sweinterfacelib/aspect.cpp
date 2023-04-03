@@ -108,3 +108,28 @@ const char* Aspect::read_svg_c(int a) {
             return "";
     }
 }
+
+const char* Aspect::name(int a) {
+    switch (a) {
+        case ASPECTS_CONJUNCTION:
+            return "Conjunction";
+        case ASPECTS_OPPOSITION:
+            return "Opposition";
+        case ASPECTS_TRINE:
+            return "Trine";
+        case ASPECTS_SQUARE:
+            return "Square";
+        case ASPECTS_SEXTILE:
+            return "Sextile";
+        case ASPECTS_INCONJUNCTION:
+            return "Inconjunction";
+        case ASPECTS_SEQUISQUARE:
+            return "Sequisquare";
+        case ASPECTS_SEMISQUARE:
+            return "Semisquare";
+        case ASPECTS_SEMISEXTILE:
+            return "Semisextile";
+        default:
+            return "";
+    }
+}
