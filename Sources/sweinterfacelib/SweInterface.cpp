@@ -226,14 +226,13 @@ extern "C" {
         item_longitude[(MAX_ASTRES * 2) + 1] = house[0].longitude;
         item_longitude[(MAX_ASTRES * 2) + 2] = house[9].longitude;
 
-        /*
         CalcUt* c_ut = new CalcUt[2];
-        const int MAX_PAIR = MAX_ITEM * (11 * 2);
+        const int MAX_PAIR = MAX_ASTRES;
         PairAspect* pair = new PairAspect[MAX_PAIR];
         int k = 0;
         svg_stroke.stroke_width = STROKE_FINE;
-        for (int i = 0; i < MAX_ITEM; ++i) {
-            for (int j = 0; j < (11 * 2); ++j) {
+        for (int i = 0; i < MAX_ASTRES; ++i) {
+            for (int j = 0; j < MAX_ASTRES + 2; ++j) {
                 bool swl = false;
                 for (int l = 0; l < MAX_PAIR; ++l) {
                     if (pair[l].i == j && pair[l].j == i) {
@@ -247,48 +246,48 @@ extern "C" {
                     LineXYAspect lxya = DrawAspectLines::line(house[0], c_ut_longitude);
                     if (lxya.sw) {
                         switch (lxya.aspect) {
-                            case Aspects::conjunction:
-                                svg_stroke.stroke = "red";
+                            case ASPECTS_CONJUNCTION:
+                                svg_stroke.stroke_str = "red";
                                 svg_line.set_stroke(svg_stroke);
                                 doc << svg_line.generate(lxya.lx1, lxya.ly1, lxya.lx2, lxya.ly2);
                                 break;
-                            case Aspects::opposition:
-                                svg_stroke.stroke = "red";
+                            case ASPECTS_OPPOSITION:
+                                svg_stroke.stroke_str = "red";
                                 svg_line.set_stroke(svg_stroke);
                                 doc << svg_line.generate(lxya.lx1, lxya.ly1, lxya.lx2, lxya.ly2);
                                 break;
-                            case Aspects::trine:
-                                svg_stroke.stroke = "red";
+                            case ASPECTS_TRINE:
+                                svg_stroke.stroke_str = "red";
                                 svg_line.set_stroke(svg_stroke);
                                 doc << svg_line.generate(lxya.lx1, lxya.ly1, lxya.lx2, lxya.ly2);
                                 break;
-                            case Aspects::square:
-                                svg_stroke.stroke = "red";
+                            case ASPECTS_SQUARE:
+                                svg_stroke.stroke_str = "red";
                                 svg_line.set_stroke(svg_stroke);
                                 doc << svg_line.generate(lxya.lx1, lxya.ly1, lxya.lx2, lxya.ly2);
                                 break;
-                            case Aspects::sextile:
-                                svg_stroke.stroke = "blue";
+                            case ASPECTS_SEXTILE:
+                                svg_stroke.stroke_str = "blue";
                                 svg_line.set_stroke(svg_stroke);
                                 doc << svg_line.generate(lxya.lx1, lxya.ly1, lxya.lx2, lxya.ly2);
                                 break;
-                            case Aspects::inconjunction:
-                                svg_stroke.stroke = "green";
+                            case ASPECTS_INCONJUNCTION:
+                                svg_stroke.stroke_str = "green";
                                 svg_line.set_stroke(svg_stroke);
                                 doc << svg_line.generate(lxya.lx1, lxya.ly1, lxya.lx2, lxya.ly2);
                                 break;
-                            case Aspects::sequisquare:
-                                svg_stroke.stroke = "purple";
+                            case ASPECTS_SEQUISQUARE:
+                                svg_stroke.stroke_str = "purple";
                                 svg_line.set_stroke(svg_stroke);
                                 doc << svg_line.generate(lxya.lx1, lxya.ly1, lxya.lx2, lxya.ly2);
                                 break;
-                            case Aspects::semisquare:
-                                svg_stroke.stroke = "purple";
+                            case ASPECTS_SEMISQUARE:
+                                svg_stroke.stroke_str = "purple";
                                 svg_line.set_stroke(svg_stroke);
                                 doc << svg_line.generate(lxya.lx1, lxya.ly1, lxya.lx2, lxya.ly2);
                                 break;
-                            case Aspects::semisextile:
-                                svg_stroke.stroke = "green";
+                            case ASPECTS_SEMISEXTILE:
+                                svg_stroke.stroke_str = "green";
                                 svg_line.set_stroke(svg_stroke);
                                 doc << svg_line.generate(lxya.lx1, lxya.ly1, lxya.lx2, lxya.ly2);
                                 break;
@@ -301,7 +300,7 @@ extern "C" {
                     }
                 }
             }
-        }*/
+        }
 
         static std::string encoded;
         if(!Base64::Encode(doc.generate(), &encoded)) {

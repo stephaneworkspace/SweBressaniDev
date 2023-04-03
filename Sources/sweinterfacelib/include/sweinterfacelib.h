@@ -109,7 +109,7 @@ namespace sweinterfacelib {
     const int CHART_SIZE = 600;
     const double CHART_SIZE_MULTI = 1.6;
     const double CHART_SIZE_DIVID = 0.6;
-    double const STROKE_FINE = 0.5;
+    double const STROKE_FINE = 1;
     double const STROKE_BOLD = 2;
     struct Size {
         double width;
