@@ -232,7 +232,7 @@ extern "C" {
         int k = 0;
         svg_stroke.stroke_width = STROKE_FINE;
         for (int i = 0; i < MAX_ASTRES; ++i) {
-            for (int j = 0; j < MAX_ASTRES + 2; ++j) {
+            for (int j = 0; j < MAX_ASTRES; ++j) {
                 bool swl = false;
                 for (int l = 0; l < MAX_PAIR; ++l) {
                     if (pair[l].i == j && pair[l].j == i) {
