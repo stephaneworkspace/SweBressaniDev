@@ -310,6 +310,8 @@ extern "C" {
 
         }
         free(astres);
+        free(item_longitude);
+        free(pair);
         return encoded.c_str();
     }
     const char *asset_sign(int sign) {
