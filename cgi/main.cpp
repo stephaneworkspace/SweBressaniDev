@@ -275,10 +275,10 @@ int main () {
                         js["aspect"][i]["id"] = astresAngle[i];
                         if (astresAngle[i] == 98) {
                             js["aspect"][i]["nom"] = "Asc";
-                            js["aspect"][i]["asset"] = nullptr;
+                            js["aspect"][i]["asset"] = asset_angle(1, color);
                         } else if (astresAngle[i] == 99) {
                             js["aspect"][i]["nom"] = "Mc";
-                            js["aspect"][i]["asset"] = nullptr;
+                            js["aspect"][i]["asset"] = asset_angle(4, color);
                         } else {
                             string astre = Astre::name(astresAngle[i]);
                             js["aspect"][i]["nom"] = astre;
@@ -306,10 +306,10 @@ int main () {
                         js["aspect"][i]["id"] = astresAngle[i];
                         if (astresAngle[i] == 98) {
                             js["aspect"][i]["nom"] = "Asc";
-                            js["aspect"][i]["asset"] = nullptr;
+                            js["aspect"][i]["asset"] = asset_angle(1, color);
                         } else if (astresAngle[i] == 99) {
                             js["aspect"][i]["nom"] = "Mc";
-                            js["aspect"][i]["asset"] = nullptr;
+                            js["aspect"][i]["asset"] = asset_angle(4, color);
                         } else {
                             string astre = Astre::name(astresAngle[i]);
                             js["aspect"][i]["nom"] = astre;
