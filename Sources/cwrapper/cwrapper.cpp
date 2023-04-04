@@ -10,8 +10,8 @@ int cwrapperfive() {
     return cpplib::five();
 }
 
-const char *theme_astral(int year, int month, int day, int hour, int min, double lat, double lng, int gmt, const char *ephem_path, int color_mode) {
-    return sweinterfacelib::theme_astral_svg(year, month, day, hour, min, lat, lng, gmt, ephem_path, color_mode);
+const char *theme_astral(int year, int month, int day, int hour, int min, double lat, double lng, int gmt, const char *ephem_path, int color_mode, const char *aspect_option) {
+    return sweinterfacelib::theme_astral_svg(year, month, day, hour, min, lat, lng, gmt, ephem_path, color_mode, aspect_option);
 }
 
 const char *a_sign(int sign) {
