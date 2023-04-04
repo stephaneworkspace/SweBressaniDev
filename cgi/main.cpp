@@ -74,6 +74,8 @@ int main () {
     float lng = 6.09;
     int gmt = 2;
     int color = 0;
+    string aspect_option = "0,1,2,3,4,5,6,7,8,9,10";
+    vector<string> v_aspect_option = tokenize(aspect_option, ',');
     vector<string> param = tokenize(getenv(ENV[10].c_str()), '&');
     for (int i = 0; i < param.size(); ++i) {
         vector<string> param_split = tokenize(param[i], '=');
@@ -116,11 +118,19 @@ int main () {
         if (param_split[0] == "color") {
             color = stoi(param_split[1]);
         }
+        if (param_split[0] == "aspect_option") {
+            aspect_option = param_split[1];
+            v_aspect_option = tokenize(aspect_option, ',');
+        }
     }
     if (sw_find) {
         if (sw_chart) {
+            int *ptr_aspect_option = new int[v_aspect_option.size()];
+            for (int i = 0; i < v_aspect_option.size(); ++i) {
+                ptr_aspect_option[i] = stoi(v_aspect_option[i]);
+            }
             const char *path = "./";
-            string svg = sweinterfacelib::theme_astral_svg(year, month, day, hour, min, lat, lng, gmt, path, color);
+            string svg = sweinterfacelib::theme_astral_svg(year, month, day, hour, min, lat, lng, gmt, path, color, v_aspect_option.size(), ptr_aspect_option);
             static std::string decode;
             if (!Base64::Decode(svg, &decode)) {
                 std::cout << "Failed to decode" << std::endl;
@@ -128,6 +138,7 @@ int main () {
                 cout << "Content-type:image/svg+xml\r\n\r\n";
                 cout << decode << "\n";
             }
+            free(ptr_aspect_option);
         } else if (sw_json) {
             Swe02::set_ephe_path("./");
             // TimeZone

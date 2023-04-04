@@ -5,7 +5,7 @@
 
 using namespace sweinterfacelib;
 extern "C" {
-    const char* theme_astral_svg(int year, int month, int day, int hour, int min, double lat, double lng, int gmt, const char* ephem_path, int color_mode) {
+    const char* theme_astral_svg(int year, int month, int day, int hour, int min, double lat, double lng, int gmt, const char* ephem_path, int color_mode, int size_aspect_option, int* aspect_option) {
         // Charger le path des ephem, depuis swift il est a préciser, sinon ça utilise de ce répertoire
         string ephem_path_string;
         if (strcmp(ephem_path, "") == 0) {
@@ -220,11 +220,8 @@ extern "C" {
         for (int i = 0; i < MAX_ASTRES; ++i) {
             item_longitude[i] = Swe03::calc_ut(utc_to_jd.julian_day_ut, astres[i], OPTION_FLAG_SPEED).longitude;
         }
-        for (int i = 1; i < MAX_ASTRES; ++i) {
-            //item_longitude[11 + i] = Swe03::calc_ut(utc_to_jd_t.julian_day_ut, astres[i], OptionFlag::speed).longitude;
-        }
-        item_longitude[(MAX_ASTRES * 2) + 1] = house[0].longitude;
-        item_longitude[(MAX_ASTRES * 2) + 2] = house[9].longitude;
+        item_longitude[MAX_ASTRES + 1] = house[0].longitude;
+        item_longitude[MAX_ASTRES + 2] = house[9].longitude;
 
         CalcUt* c_ut = new CalcUt[2];
         const int MAX_PAIR = MAX_ASTRES;
@@ -232,71 +229,80 @@ extern "C" {
         int k = 0;
         svg_stroke.stroke_width = STROKE_FINE;
         for (int i = 0; i < 10; ++i) { // noeud lunaire sud
-            for (int j = 0; j < 10; ++j) {
-                bool swl = false;
-                for (int l = 0; l < MAX_PAIR; ++l) {
-                    if (pair[l].i == j && pair[l].j == i) {
-                        swl = true;
+            for (int j = 0; j < MAX_ASTRES + 2; ++j) {
+                bool sw_aspect = false;
+                for (int l = 0; l < size_aspect_option; ++l) {
+                    if (aspect_option[l] == j) {
+                        sw_aspect = true;
+                        break;
                     }
                 }
-                if (i != j && !swl) {
-                    double *c_ut_longitude = new double[2];
-                    c_ut_longitude[0] = item_longitude[i];
-                    c_ut_longitude[1] = item_longitude[j];
-                    LineXYAspect lxya = DrawAspectLines::line(house[0], c_ut_longitude);
-                    if (lxya.sw) {
-                        switch (lxya.aspect) {
-                            case ASPECTS_CONJUNCTION:
-                                svg_stroke.stroke_str = "red";
-                                svg_line.set_stroke(svg_stroke);
-                                doc << svg_line.generate(lxya.lx1, lxya.ly1, lxya.lx2, lxya.ly2);
-                                break;
-                            case ASPECTS_OPPOSITION:
-                                svg_stroke.stroke_str = "red";
-                                svg_line.set_stroke(svg_stroke);
-                                doc << svg_line.generate(lxya.lx1, lxya.ly1, lxya.lx2, lxya.ly2);
-                                break;
-                            case ASPECTS_TRINE:
-                                svg_stroke.stroke_str = "red";
-                                svg_line.set_stroke(svg_stroke);
-                                doc << svg_line.generate(lxya.lx1, lxya.ly1, lxya.lx2, lxya.ly2);
-                                break;
-                            case ASPECTS_SQUARE:
-                                svg_stroke.stroke_str = "red";
-                                svg_line.set_stroke(svg_stroke);
-                                doc << svg_line.generate(lxya.lx1, lxya.ly1, lxya.lx2, lxya.ly2);
-                                break;
-                            case ASPECTS_SEXTILE:
-                                svg_stroke.stroke_str = "blue";
-                                svg_line.set_stroke(svg_stroke);
-                                doc << svg_line.generate(lxya.lx1, lxya.ly1, lxya.lx2, lxya.ly2);
-                                break;
-                            case ASPECTS_INCONJUNCTION:
-                                svg_stroke.stroke_str = "green";
-                                svg_line.set_stroke(svg_stroke);
-                                doc << svg_line.generate(lxya.lx1, lxya.ly1, lxya.lx2, lxya.ly2);
-                                break;
-                            case ASPECTS_SEQUISQUARE:
-                                svg_stroke.stroke_str = "purple";
-                                svg_line.set_stroke(svg_stroke);
-                                doc << svg_line.generate(lxya.lx1, lxya.ly1, lxya.lx2, lxya.ly2);
-                                break;
-                            case ASPECTS_SEMISQUARE:
-                                svg_stroke.stroke_str = "purple";
-                                svg_line.set_stroke(svg_stroke);
-                                doc << svg_line.generate(lxya.lx1, lxya.ly1, lxya.lx2, lxya.ly2);
-                                break;
-                            case ASPECTS_SEMISEXTILE:
-                                svg_stroke.stroke_str = "green";
-                                svg_line.set_stroke(svg_stroke);
-                                doc << svg_line.generate(lxya.lx1, lxya.ly1, lxya.lx2, lxya.ly2);
-                                break;
+                if (sw_aspect) {
+                    bool swl = false;
+                    for (int l = 0; l < MAX_PAIR; ++l) {
+                        if (pair[l].i == j && pair[l].j == i) {
+                            swl = true;
                         }
-                        PairAspect p;
-                        p.i = i;
-                        p.j = j;
-                        pair[k] = p;
-                        k++;
+                    }
+                    if (i != j && !swl) {
+                        double *c_ut_longitude = new double[2];
+                        c_ut_longitude[0] = item_longitude[i];
+                        c_ut_longitude[1] = item_longitude[j];
+                        LineXYAspect lxya = DrawAspectLines::line(house[0], c_ut_longitude);
+                        if (lxya.sw) {
+                            switch (lxya.aspect) {
+                                case ASPECTS_CONJUNCTION:
+                                    svg_stroke.stroke_str = "red";
+                                    svg_line.set_stroke(svg_stroke);
+                                    doc << svg_line.generate(lxya.lx1, lxya.ly1, lxya.lx2, lxya.ly2);
+                                    break;
+                                case ASPECTS_OPPOSITION:
+                                    svg_stroke.stroke_str = "red";
+                                    svg_line.set_stroke(svg_stroke);
+                                    doc << svg_line.generate(lxya.lx1, lxya.ly1, lxya.lx2, lxya.ly2);
+                                    break;
+                                case ASPECTS_TRINE:
+                                    svg_stroke.stroke_str = "red";
+                                    svg_line.set_stroke(svg_stroke);
+                                    doc << svg_line.generate(lxya.lx1, lxya.ly1, lxya.lx2, lxya.ly2);
+                                    break;
+                                case ASPECTS_SQUARE:
+                                    svg_stroke.stroke_str = "red";
+                                    svg_line.set_stroke(svg_stroke);
+                                    doc << svg_line.generate(lxya.lx1, lxya.ly1, lxya.lx2, lxya.ly2);
+                                    break;
+                                case ASPECTS_SEXTILE:
+                                    svg_stroke.stroke_str = "blue";
+                                    svg_line.set_stroke(svg_stroke);
+                                    doc << svg_line.generate(lxya.lx1, lxya.ly1, lxya.lx2, lxya.ly2);
+                                    break;
+                                case ASPECTS_INCONJUNCTION:
+                                    svg_stroke.stroke_str = "green";
+                                    svg_line.set_stroke(svg_stroke);
+                                    doc << svg_line.generate(lxya.lx1, lxya.ly1, lxya.lx2, lxya.ly2);
+                                    break;
+                                case ASPECTS_SEQUISQUARE:
+                                    svg_stroke.stroke_str = "purple";
+                                    svg_line.set_stroke(svg_stroke);
+                                    doc << svg_line.generate(lxya.lx1, lxya.ly1, lxya.lx2, lxya.ly2);
+                                    break;
+                                case ASPECTS_SEMISQUARE:
+                                    svg_stroke.stroke_str = "purple";
+                                    svg_line.set_stroke(svg_stroke);
+                                    doc << svg_line.generate(lxya.lx1, lxya.ly1, lxya.lx2, lxya.ly2);
+                                    break;
+                                case ASPECTS_SEMISEXTILE:
+                                    svg_stroke.stroke_str = "green";
+                                    svg_line.set_stroke(svg_stroke);
+                                    doc << svg_line.generate(lxya.lx1, lxya.ly1, lxya.lx2, lxya.ly2);
+                                    break;
+                            }
+                            PairAspect p;
+                            p.i = i;
+                            p.j = j;
+                            pair[k] = p;
+                            k++;
+                        }
                     }
                 }
             }
