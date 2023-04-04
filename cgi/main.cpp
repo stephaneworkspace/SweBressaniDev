@@ -122,7 +122,7 @@ int main () {
         }
     }
     if (aspect_option == "") {
-        aspect_option = "0,1,2,3,4,5,6,7,8,9,10";
+        aspect_option = "0,1,2,3,4,5,6,7,8,9,11";
     }
     vector<string> v_aspect_option = tokenize(aspect_option, ',');
     if (sw_find) {

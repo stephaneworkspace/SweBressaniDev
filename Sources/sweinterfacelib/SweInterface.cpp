@@ -215,31 +215,49 @@ extern "C" {
         }
 
         // Aspect
-        const int MAX_ITEM = (MAX_ASTRES * 2) + 2;
+        const int MAX_ITEM = NOEUD_LUNAIRE_SUD + 2;
         double* item_longitude = new double[MAX_ITEM];
-        for (int i = 0; i < MAX_ASTRES; ++i) {
+        for (int i = 0; i < NOEUD_LUNAIRE_SUD; ++i) {
             item_longitude[i] = Swe03::calc_ut(utc_to_jd.julian_day_ut, astres[i], OPTION_FLAG_SPEED).longitude;
         }
-        item_longitude[MAX_ASTRES + 1] = house[0].longitude;
-        item_longitude[MAX_ASTRES + 2] = house[9].longitude;
+        item_longitude[NOEUD_LUNAIRE_SUD + 1] = house[0].longitude;
+        item_longitude[NOEUD_LUNAIRE_SUD + 2] = house[9].longitude;
+
+        int* astres_aspect = new int[MAX_ASTRES];
+        astres_aspect[SOLEIL] = ASTRE_SOLEIL;
+        astres_aspect[LUNE] = ASTRE_LUNE;
+        astres_aspect[MERCURE] = ASTRE_MERCURE;
+        astres_aspect[VENUS] = ASTRE_VENUS;
+        astres_aspect[MARS] = ASTRE_MARS;
+        astres_aspect[JUPITER] = ASTRE_JUPITER;
+        astres_aspect[SATURN] = ASTRE_SATURN;
+        astres_aspect[URANUS] = ASTRE_URANUS;
+        astres_aspect[NEPTUNE] = ASTRE_NEPTUNE;
+        astres_aspect[PLUTON] = ASTRE_PLUTON;
+        astres_aspect[NOEUD_LUNAIRE] = ASTRE_NOEUD_LUNAIRE;
+        astres_aspect[CHIRON] = ASTRE_CHIRON;
+        astres_aspect[CERES] = ASTRE_CERES;
+        astres_aspect[NOEUD_LUNAIRE_SUD] = ASTRE_NOEUD_LUNAIRE_SUD;
+        astres_aspect[NOEUD_LUNAIRE_SUD + 1] = 98;
+        astres_aspect[NOEUD_LUNAIRE_SUD + 2] = 99;
 
         CalcUt* c_ut = new CalcUt[2];
-        const int MAX_PAIR = MAX_ASTRES;
+        const int MAX_PAIR = NOEUD_LUNAIRE_SUD + 2;
         PairAspect* pair = new PairAspect[MAX_PAIR];
         int k = 0;
         svg_stroke.stroke_width = STROKE_FINE;
-        for (int i = 0; i < MAX_ASTRES; ++i) { // noeud lunaire sud
+        for (int i = 0; i < NOEUD_LUNAIRE_SUD + 2; ++i) { // noeud lunaire sud
             bool sw_aspect_i = false;
             for (auto& l : v_aspect_option) {
-                if (stoi(l) == i) {
+                if (stoi(l) == astres_aspect[i]) {
                     sw_aspect_i = true;
                     break;
                 }
             }
-            for (int j = 0; j < MAX_ASTRES + 2; ++j) {
+            for (int j = 0; j < NOEUD_LUNAIRE_SUD + 2; ++j) {
                 bool sw_aspect_j = false;
                 for (auto& l : v_aspect_option) {
-                    if (stoi(l) == j) {
+                    if (stoi(l) == astres_aspect[j]) {
                         sw_aspect_j = true;
                         break;
                     }
@@ -269,7 +287,7 @@ extern "C" {
                                     doc << svg_line.generate(lxya.lx1, lxya.ly1, lxya.lx2, lxya.ly2);
                                     break;
                                 case ASPECTS_TRINE:
-                                    svg_stroke.stroke_str = "red";
+                                    svg_stroke.stroke_str = "blue";
                                     svg_line.set_stroke(svg_stroke);
                                     doc << svg_line.generate(lxya.lx1, lxya.ly1, lxya.lx2, lxya.ly2);
                                     break;
