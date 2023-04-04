@@ -241,7 +241,6 @@ extern "C" {
         astres_aspect[NOEUD_LUNAIRE_SUD + 1] = 98;
         astres_aspect[NOEUD_LUNAIRE_SUD + 2] = 99;
 
-        int k = 0;
         svg_stroke.stroke_width = STROKE_FINE;
         for (int i = 0; i < NOEUD_LUNAIRE_SUD + 2; ++i) { // noeud lunaire sud
             bool sw_aspect_i = false;
@@ -313,7 +312,6 @@ extern "C" {
                                     doc << svg_line.generate(lxya.lx1, lxya.ly1, lxya.lx2, lxya.ly2);
                                     break;
                             }
-                            k++;
                         }
                         free(c_ut_longitude);
                     }
