@@ -124,11 +124,11 @@ int main () {
     if (aspect_option == "") {
         aspect_option = "0,1,2,3,4,5,6,7,8,9,11";
     }
-    vector<string> v_aspect_option = tokenize(aspect_option, ',');
     if (sw_find) {
         if (sw_chart) {
             const char *path = "./";
-            string svg = sweinterfacelib::theme_astral_svg(year, month, day, hour, min, lat, lng, gmt, path, color, v_aspect_option);
+            const char *a_o = aspect_option.c_str();
+            string svg = sweinterfacelib::theme_astral_svg(year, month, day, hour, min, lat, lng, gmt, path, color, a_o);
             static std::string decode;
             if (!Base64::Decode(svg, &decode)) {
                 std::cout << "Failed to decode" << std::endl;

@@ -5,7 +5,7 @@
 
 using namespace sweinterfacelib;
 extern "C" {
-    const char* theme_astral_svg(int year, int month, int day, int hour, int min, double lat, double lng, int gmt, const char* ephem_path, int color_mode, vector<string> v_aspect_option) {
+    const char* theme_astral_svg(int year, int month, int day, int hour, int min, double lat, double lng, int gmt, const char* ephem_path, int color_mode, const char* aspect_option) {
         // Charger le path des ephem, depuis swift il est a préciser, sinon ça utilise de ce répertoire
         string ephem_path_string;
         if (strcmp(ephem_path, "") == 0) {
@@ -240,6 +240,27 @@ extern "C" {
         astres_aspect[NOEUD_LUNAIRE_SUD] = ASTRE_NOEUD_LUNAIRE_SUD;
         astres_aspect[NOEUD_LUNAIRE_SUD + 1] = 98;
         astres_aspect[NOEUD_LUNAIRE_SUD + 2] = 99;
+
+        // aspect_option
+        string s;
+        s = s.assign(aspect_option);
+        auto end = s.cend();
+        auto start = end;
+        vector<string> v_aspect_option;
+        for( auto it = s.cbegin(); it != end; ++it ) {
+            if( *it != ',' ) {
+                if( start == end )
+                    start = it;
+                continue;
+            }
+            if( start != end ) {
+                v_aspect_option.emplace_back(start, it);
+                start = end;
+            }
+        }
+        if( start != end )
+            v_aspect_option.emplace_back(start, end);
+        //
 
         svg_stroke.stroke_width = STROKE_FINE;
         for (int i = 0; i < NOEUD_LUNAIRE_SUD + 2; ++i) { // noeud lunaire sud
