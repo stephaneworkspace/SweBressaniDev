@@ -217,13 +217,13 @@ extern "C" {
         // Aspect
         const int MAX_ITEM = NOEUD_LUNAIRE_SUD + 2;
         double* item_longitude = new double[MAX_ITEM];
-        for (int i = 0; i < NOEUD_LUNAIRE_SUD; ++i) {
+        for (int i = 0; i <= MAX_ASTRES; ++i) {
             item_longitude[i] = Swe03::calc_ut(utc_to_jd.julian_day_ut, astres[i], OPTION_FLAG_SPEED).longitude;
         }
         item_longitude[NOEUD_LUNAIRE_SUD + 1] = house[0].longitude;
         item_longitude[NOEUD_LUNAIRE_SUD + 2] = house[9].longitude;
 
-        int* astres_aspect = new int[MAX_ASTRES];
+        int* astres_aspect = new int[MAX_ASTRES + 2];
         astres_aspect[SOLEIL] = ASTRE_SOLEIL;
         astres_aspect[LUNE] = ASTRE_LUNE;
         astres_aspect[MERCURE] = ASTRE_MERCURE;
@@ -251,6 +251,7 @@ extern "C" {
             for (auto& l : v_aspect_option) {
                 if (stoi(l) == astres_aspect[i]) {
                     sw_aspect_i = true;
+                    break;
                 }
             }
             for (int j = 0; j < NOEUD_LUNAIRE_SUD + 2; ++j) {
@@ -258,6 +259,7 @@ extern "C" {
                 for (auto& l : v_aspect_option) {
                     if (stoi(l) == astres_aspect[j]) {
                         sw_aspect_j = true;
+                        break;
                     }
                 }
                 if (sw_aspect_i && sw_aspect_j) {
@@ -326,6 +328,7 @@ extern "C" {
                             pair[k] = p;
                             k++;
                         }
+                        free(c_ut_longitude);
                     }
                 }
             }
