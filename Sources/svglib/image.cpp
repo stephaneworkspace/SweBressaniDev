@@ -15,7 +15,7 @@ string Image::generate(double height, double width, double x, double y, const ch
         return s;
     }*/
     //string s = "<g><svg viewBox=\"0 0 " + to_string((int) width) + " " + to_string((int) height) + "\" height=\"" + to_string(height) + "\" width=\"" + to_string(width) + "\" x=\"" + to_string(x) + "\" y=\"" + to_string(y) + "\"></svg></g>";
-    string s = "<image height=\"" + to_string(height) + "\" href=\"" + h + "\" width=\"" + to_string(width) + "\" x=\"" + to_string(x) + "\" y=\"" + to_string(y) + "\"/>";
+    string s = "<image height=\"" + to_string(height) + "\" href=\"" + h + "\" width=\"" + to_string(width) + "\" x=\"" + to_string(x) + "\" y=\"" + to_string(y) + "\"/>\n";
     //s += "<rect x=\"" + to_string(x) + "\" y=\"" + to_string(y) + "\" width=\"" + to_string(width) + "\" height=\"" + to_string(height) + "\"/>";
     //s += "<rect x=\"" + to_string(x) + "\" y=\"" + to_string(y) + "\" width=\"" + to_string(1) + "\" height=\""+ to_string(1) + "\"/>";
     return s;
