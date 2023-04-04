@@ -254,55 +254,46 @@ extern "C" {
                                 case ASPECTS_CONJUNCTION:
                                     svg_stroke.stroke_str = "red";
                                     svg_line.set_stroke(svg_stroke);
-                                    doc << "\r\n";
                                     doc << svg_line.generate(lxya.lx1, lxya.ly1, lxya.lx2, lxya.ly2);
                                     break;
                                 case ASPECTS_OPPOSITION:
                                     svg_stroke.stroke_str = "red";
                                     svg_line.set_stroke(svg_stroke);
-                                    doc << "\r\n";
                                     doc << svg_line.generate(lxya.lx1, lxya.ly1, lxya.lx2, lxya.ly2);
                                     break;
                                 case ASPECTS_TRINE:
                                     svg_stroke.stroke_str = "red";
                                     svg_line.set_stroke(svg_stroke);
-                                    doc << "\r\n";
                                     doc << svg_line.generate(lxya.lx1, lxya.ly1, lxya.lx2, lxya.ly2);
                                     break;
                                 case ASPECTS_SQUARE:
                                     svg_stroke.stroke_str = "red";
                                     svg_line.set_stroke(svg_stroke);
-                                    doc << "\r\n";
                                     doc << svg_line.generate(lxya.lx1, lxya.ly1, lxya.lx2, lxya.ly2);
                                     break;
                                 case ASPECTS_SEXTILE:
                                     svg_stroke.stroke_str = "blue";
                                     svg_line.set_stroke(svg_stroke);
-                                    doc << "\r\n";
                                     doc << svg_line.generate(lxya.lx1, lxya.ly1, lxya.lx2, lxya.ly2);
                                     break;
                                 case ASPECTS_INCONJUNCTION:
                                     svg_stroke.stroke_str = "green";
                                     svg_line.set_stroke(svg_stroke);
-                                    doc << "\r\n";
                                     doc << svg_line.generate(lxya.lx1, lxya.ly1, lxya.lx2, lxya.ly2);
                                     break;
                                 case ASPECTS_SEQUISQUARE:
                                     svg_stroke.stroke_str = "purple";
                                     svg_line.set_stroke(svg_stroke);
-                                    doc << "\r\n";
                                     doc << svg_line.generate(lxya.lx1, lxya.ly1, lxya.lx2, lxya.ly2);
                                     break;
                                 case ASPECTS_SEMISQUARE:
                                     svg_stroke.stroke_str = "purple";
                                     svg_line.set_stroke(svg_stroke);
-                                    doc << "\r\n";
                                     doc << svg_line.generate(lxya.lx1, lxya.ly1, lxya.lx2, lxya.ly2);
                                     break;
                                 case ASPECTS_SEMISEXTILE:
                                     svg_stroke.stroke_str = "green";
                                     svg_line.set_stroke(svg_stroke);
-                                    doc << "\r\n";
                                     doc << svg_line.generate(lxya.lx1, lxya.ly1, lxya.lx2, lxya.ly2);
                                     break;
                             }
