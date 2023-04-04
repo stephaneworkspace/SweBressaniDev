@@ -1,5 +1,6 @@
 project(SweInterface)
 set(CMAKE_CXX_STANDARD 20)
+cmake_minimum_required(VERSION 3.22)
 
 include(FetchContent)
 FetchContent_Declare(json URL https://github.com/nlohmann/json/releases/download/v3.11.2/json.tar.xz)
@@ -9,9 +10,9 @@ include_directories( BEFORE . )
 include_directories("../Sources/swelib/include")
 include_directories("../Sources/svglib/include")
 include_directories("../Sources/sweinterfacelib/include")
-
+set(Sources ./main.cpp)
 add_executable(SweInterfaceCgi
-        main.cpp
+        ${Sources}
         ../Sources/swelib/include/swelib.h
         ../Sources/swelib/swecl.c
         ../Sources/swelib/swedate.c

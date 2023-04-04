@@ -3,6 +3,8 @@
 //
 #include <iostream>
 #include <stdlib.h>
+#include <unistd.h>     // sleep
+#include <fstream>      // std::ifstream
 #include <vector>
 #include <sstream>
 #include <stdlib.h>
@@ -60,7 +62,15 @@ const string ENV[ 24 ] = {
         "SERVER_NAME","SERVER_PORT","SERVER_PROTOCOL",
         "SERVER_SIGNATURE","SERVER_SOFTWARE" };
 
-int main () {
+bool file_exists(const char *filename)
+{
+    ifstream ifile(filename);
+    return ifile.good();
+}
+
+int main() {
+    while (file_exists("/usr/lib/cgi-bin/cgi"))
+       sleep(5000);
     bool sw_find = false;
     bool sw_chart = false;
     bool sw_json = false;
