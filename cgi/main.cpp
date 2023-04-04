@@ -131,9 +131,9 @@ int main() {
             aspect_option = param_split[1];
         }
     }
-    if (aspect_option == "") {
+    /*if (aspect_option == "") {
         aspect_option = "0,1,2,3,4,5,6,7,8,9,11";
-    }
+    }*/
     if (sw_find) {
         if (sw_chart) {
             const char *path = "./";
