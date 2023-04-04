@@ -74,7 +74,7 @@ int main () {
     float lng = 6.09;
     int gmt = 2;
     int color = 0;
-    string aspect_option = "0,1,2,3,4,5,6,7,8,9,10";
+    string aspect_option = "";
     vector<string> param = tokenize(getenv(ENV[10].c_str()), '&');
     for (int i = 0; i < param.size(); ++i) {
         vector<string> param_split = tokenize(param[i], '=');
@@ -120,6 +120,9 @@ int main () {
         if (param_split[0] == "aspect_option") {
             aspect_option = param_split[1];
         }
+    }
+    if (aspect_option == "") {
+        aspect_option = "0,1,2,3,4,5,6,7,8,9,10";
     }
     vector<string> v_aspect_option = tokenize(aspect_option, ',');
     if (sw_find) {
