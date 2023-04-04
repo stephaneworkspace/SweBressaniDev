@@ -138,7 +138,6 @@ int main () {
                 cout << "Content-type:image/svg+xml\r\n\r\n";
                 cout << decode << "\n";
             }
-            free(ptr_aspect_option);
         } else if (sw_json) {
             Swe02::set_ephe_path("./");
             // TimeZone
