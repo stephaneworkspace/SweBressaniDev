@@ -241,9 +241,6 @@ extern "C" {
         astres_aspect[NOEUD_LUNAIRE_SUD + 1] = 98;
         astres_aspect[NOEUD_LUNAIRE_SUD + 2] = 99;
 
-        CalcUt* c_ut = new CalcUt[2];
-        const int MAX_PAIR = NOEUD_LUNAIRE_SUD + 2;
-        PairAspect* pair = new PairAspect[MAX_PAIR];
         int k = 0;
         svg_stroke.stroke_width = STROKE_FINE;
         for (int i = 0; i < NOEUD_LUNAIRE_SUD + 2; ++i) { // noeud lunaire sud
@@ -263,13 +260,7 @@ extern "C" {
                     }
                 }
                 if (sw_aspect_i && sw_aspect_j) {
-                    bool swl = false;
-                    for (int l = 0; l < MAX_PAIR; ++l) {
-                        if (pair[l].i == j && pair[l].j == i) {
-                            swl = true;
-                        }
-                    }
-                    if (i != j && !swl) {
+                    if (i != j) {
                         double *c_ut_longitude = new double[2];
                         c_ut_longitude[0] = item_longitude[i];
                         c_ut_longitude[1] = item_longitude[j];
@@ -322,10 +313,6 @@ extern "C" {
                                     doc << svg_line.generate(lxya.lx1, lxya.ly1, lxya.lx2, lxya.ly2);
                                     break;
                             }
-                            PairAspect p;
-                            p.i = i;
-                            p.j = j;
-                            pair[k] = p;
                             k++;
                         }
                         free(c_ut_longitude);
@@ -343,7 +330,6 @@ extern "C" {
         }
         free(astres);
         free(item_longitude);
-        free(pair);
         return encoded.c_str();
     }
     const char *asset_sign(int sign) {
