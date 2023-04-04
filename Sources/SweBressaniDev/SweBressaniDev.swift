@@ -201,12 +201,12 @@ public class SweSvg {
     }
 
     public func theme_astral() throws -> String {
-        let svg: String = ptrToString(ptr: cwrapper.theme_astral(year, month, day, hour, min, lat, lng, tz, ephemPath, Int32(colorMode.rawValue)))
+        let svg: String = ptrToString(ptr: cwrapper.theme_astral(year, month, day, hour, min, lat, lng, tz, ephemPath, Int32(colorMode.rawValue), "0,1,2,3,4,5,6,7,8,9,11"))
         return try asset_svg(name: "asset_theme_astral.svg", encoded: svg)
     }
 
     public func theme_astral_svg() -> String {
-        let svg: String = ptrToString(ptr: cwrapper.theme_astral(year, month, day, hour, min, lat, lng, tz, ephemPath, Int32(colorMode.rawValue)))
+        let svg: String = ptrToString(ptr: cwrapper.theme_astral(year, month, day, hour, min, lat, lng, tz, ephemPath, Int32(colorMode.rawValue), "0,1,2,3,4,5,6,7,8,9,11"))
         return svg
     }
 
