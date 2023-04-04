@@ -75,7 +75,6 @@ int main () {
     int gmt = 2;
     int color = 0;
     string aspect_option = "0,1,2,3,4,5,6,7,8,9,10";
-    vector<string> v_aspect_option = tokenize(aspect_option, ',');
     vector<string> param = tokenize(getenv(ENV[10].c_str()), '&');
     for (int i = 0; i < param.size(); ++i) {
         vector<string> param_split = tokenize(param[i], '=');
@@ -120,9 +119,9 @@ int main () {
         }
         if (param_split[0] == "aspect_option") {
             aspect_option = param_split[1];
-            v_aspect_option = tokenize(aspect_option, ',');
         }
     }
+    vector<string> v_aspect_option = tokenize(aspect_option, ',');
     if (sw_find) {
         if (sw_chart) {
             const char *path = "./";
