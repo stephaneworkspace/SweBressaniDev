@@ -251,7 +251,6 @@ extern "C" {
             for (auto& l : v_aspect_option) {
                 if (stoi(l) == astres_aspect[i]) {
                     sw_aspect_i = true;
-                    break;
                 }
             }
             for (int j = 0; j < NOEUD_LUNAIRE_SUD + 2; ++j) {
@@ -259,7 +258,6 @@ extern "C" {
                 for (auto& l : v_aspect_option) {
                     if (stoi(l) == astres_aspect[j]) {
                         sw_aspect_j = true;
-                        break;
                     }
                 }
                 if (sw_aspect_i && sw_aspect_j) {
