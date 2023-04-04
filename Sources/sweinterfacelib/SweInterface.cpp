@@ -329,6 +329,7 @@ extern "C" {
 
         }
         free(astres);
+        free(astres_aspect);
         free(item_longitude);
         return encoded.c_str();
     }
