@@ -5,7 +5,7 @@
 
 using namespace sweinterfacelib;
 extern "C" {
-    const char* theme_astral_svg(int year, int month, int day, int hour, int min, double lat, double lng, int gmt, const char* ephem_path, int color_mode, int size_aspect_option, const int* aspect_option) {
+    const char* theme_astral_svg(int year, int month, int day, int hour, int min, double lat, double lng, int gmt, const char* ephem_path, int color_mode, vector<string> v_aspect_option) {
         // Charger le path des ephem, depuis swift il est a préciser, sinon ça utilise de ce répertoire
         string ephem_path_string;
         if (strcmp(ephem_path, "") == 0) {
@@ -231,8 +231,8 @@ extern "C" {
         for (int i = 0; i < 10; ++i) { // noeud lunaire sud
             for (int j = 0; j < MAX_ASTRES + 2; ++j) {
                 bool sw_aspect = false;
-                for (int l = 0; l < size_aspect_option; ++l) {
-                    if (aspect_option[l] == j) {
+                for (int l = 0; l < v_aspect_option.size(); ++l) {
+                    if (stoi(v_aspect_option[l]) == j) {
                         sw_aspect = true;
                         break;
                     }

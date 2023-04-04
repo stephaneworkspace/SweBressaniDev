@@ -125,12 +125,8 @@ int main () {
     }
     if (sw_find) {
         if (sw_chart) {
-            int *ptr_aspect_option = new int[v_aspect_option.size()];
-            for (int i = 0; i < v_aspect_option.size(); ++i) {
-                ptr_aspect_option[i] = stoi(v_aspect_option[i]);
-            }
             const char *path = "./";
-            string svg = sweinterfacelib::theme_astral_svg(year, month, day, hour, min, lat, lng, gmt, path, color, v_aspect_option.size(), ptr_aspect_option);
+            string svg = sweinterfacelib::theme_astral_svg(year, month, day, hour, min, lat, lng, gmt, path, color, v_aspect_option);
             static std::string decode;
             if (!Base64::Decode(svg, &decode)) {
                 std::cout << "Failed to decode" << std::endl;
