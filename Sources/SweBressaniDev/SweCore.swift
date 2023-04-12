@@ -1697,7 +1697,7 @@ public class TextCore {
     }
 
     public enum LECycleRealisation1MA: String {
-        case F = "dès 53 ans",
+        case F = "dès 54 ans",
              E = "> 53 year"
     }
 
@@ -1707,37 +1707,37 @@ public class TextCore {
     }
 
     public enum LECycleRealisation3MA: String {
-        case F = "dès 51 ans",
+        case F = "dès 52 ans",
              E = "> 51 year"
     }
 
     public enum LECycleRealisation4MA: String {
-        case F = "dès 50 ans",
+        case F = "dès 51 ans",
              E = "> 50 year"
     }
 
     public enum LECycleRealisation5MA: String {
-        case F = "dès 49 ans",
+        case F = "dès 50 ans",
              E = "> 49 year"
     }
 
     public enum LECycleRealisation6MA: String {
-        case F = "dès 48 ans",
+        case F = "dès 49 ans",
              E = "> 48 year"
     }
 
     public enum LECycleRealisation7MA: String {
-        case F = "dès 47 ans",
+        case F = "dès 48 ans",
              E = "> 47 year"
     }
 
     public enum LECycleRealisation8MA: String {
-        case F = "dès 46 ans",
+        case F = "dès 47 ans",
              E = "> 46 year"
     }
 
     public enum LECycleRealisation9MA: String {
-        case F = "dès 45 ans",
+        case F = "dès 46 ans",
              E = "> 45 year"
     }
 
