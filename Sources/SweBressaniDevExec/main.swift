@@ -175,3 +175,19 @@ print("")
 print(case_cm2[0])
 print(case_cm2[1])
 print(case_cm2[2])
+
+// Juillet 2023
+// Exportation pour backend astrologie en ruby
+import SweBressaniDev
+let _svg = SweSvg(ephemPath: "")
+
+// 0
+var i = 0;
+var path = try! _svg.asset_bodie(i: i)
+var text = try? String(contentsOf: path).data(using: .utf8)?.base64EncodedString()
+print(String(format: "da01_astres = Da01Astre.create(nom: \"Soleil\", svg: \"%@\", id_swe: 0, id_sweinterfacelib: 0)", text ?? ""))
+// 1
+i = 1
+path = try! _svg.asset_bodie(i: i)
+text = try? String(contentsOf: path).data(using: .utf8)?.base64EncodedString()
+print(String(format: "da01_astres = Da01Astre.create(nom: \"Lune\", svg: \"%@\", id_swe: 1, id_sweinterfacelib: 1)", text ?? ""))
