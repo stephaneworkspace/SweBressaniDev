@@ -12,7 +12,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="231ca442-2f45-4892-bc00-20e04eb0cf61" name="Changes" comment="petit bricolage">
+    <list default="true" id="231ca442-2f45-4892-bc00-20e04eb0cf61" name="Changes" comment="petit bricolage rollback">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -211,7 +211,7 @@
       <workItem from="1691838686732" duration="517000" />
       <workItem from="1691840500955" duration="942000" />
       <workItem from="1691847787306" duration="751000" />
-      <workItem from="1691848553746" duration="6506000" />
+      <workItem from="1691848553746" duration="7222000" />
     </task>
     <task id="LOCAL-00001" summary="pour debug">
       <created>1680628357764</created>
@@ -269,7 +269,14 @@
       <option name="project" value="LOCAL" />
       <updated>1691866235541</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="petit bricolage rollback">
+      <created>1691867889661</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1691867889661</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -293,6 +300,7 @@
     <MESSAGE value="préparation d'un script d'export vers une interface ruby rails" />
     <MESSAGE value="ajout des signes en exporation" />
     <MESSAGE value="petit bricolage" />
-    <option name="LAST_COMMIT_MESSAGE" value="petit bricolage" />
+    <MESSAGE value="petit bricolage rollback" />
+    <option name="LAST_COMMIT_MESSAGE" value="petit bricolage rollback" />
   </component>
 </project>
