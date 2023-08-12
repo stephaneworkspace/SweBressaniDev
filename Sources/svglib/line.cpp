@@ -5,12 +5,12 @@
 
 using namespace svglib;
 
-Line::Line(Stroke s) {
+Line::Line(const Stroke& s) {
     stroke.stroke_cchar = s.stroke_str.c_str();
     stroke.stroke_width = s.stroke_width;
 }
 
-void Line::set_stroke(Stroke s) {
+void Line::set_stroke(const Stroke& s) {
     stroke.stroke_cchar = s.stroke_str.c_str();
     stroke.stroke_width = s.stroke_width;
 }

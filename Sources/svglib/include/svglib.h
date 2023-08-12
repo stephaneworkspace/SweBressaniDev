@@ -92,8 +92,8 @@ namespace svglib {
     private:
         SvgStroke stroke;
     public:
-        Line(Stroke s);
-        void set_stroke(Stroke s);
+        Line(const Stroke& s);
+        void set_stroke(const Stroke& s);
         string generate(double x1, double y1, double x2, double y2);
     };
 }

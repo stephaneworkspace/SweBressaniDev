@@ -18,7 +18,6 @@ double Data::get_value(const string& s, int pos) {
     while (end != string::npos)
     {
         if (pos == i) {
-            //std::cout << s.substr(start, end - start) << std::endl;
             res = s.substr(start, end - start);
             float res_int = stof(res);
             return res_int;
@@ -28,7 +27,6 @@ double Data::get_value(const string& s, int pos) {
         end = s.find(c, start);
     }
     if (pos == i) {
-        //std::cout << s.substr(start, end) << std::endl;
         res = s.substr(start, end);
         float res_int = stof(res);
         return res_int;
@@ -62,10 +60,6 @@ void Data::set_command(char c, const string& s) {
 }
 
 string Data::round(double var){
-    //char str[40];
-    //sprintf(str, "%.1f", var);
-    //sscanf(str, "%f", &var);
-    //return str;
     return to_string(var);
 }
 
