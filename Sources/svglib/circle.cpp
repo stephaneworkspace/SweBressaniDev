@@ -5,17 +5,19 @@
 
 using namespace svglib;
 
-Circle::Circle(Fill fill, Stroke stroke) {
+Circle::Circle(const Fill& fill, const Stroke& stroke) {
     properties.fill.fill_cchar = fill.fill_str.c_str();
     properties.stroke.stroke_cchar = stroke.stroke_str.c_str();
     properties.stroke.stroke_width = stroke.stroke_width;
 }
 
 string Circle::generate(double x, double y, double r) {
-    string fill;
-    fill.assign(properties.fill.fill_cchar);
-    string stroke;
-    stroke.assign(properties.stroke.stroke_cchar);
-    string s = "<circle cx=\"" + to_string(x) + "\" cy=\"" + to_string(y) + "\" fill=\"" + fill + "\" r=\""+ to_string(r) +"\" stroke=\""+ stroke +"\" stroke-width=\""+ to_string((int) properties.stroke.stroke_width) +"\"/>";
-    return s;
+    std::ostringstream oss;
+    oss << "<circle cx=\"" << x
+        << "\" cy=\"" << y
+        << "\" fill=\"" << properties.fill.fill_cchar
+        << "\" r=\"" << r
+        << "\" stroke=\"" << properties.stroke.stroke_cchar
+        << "\" stroke-width=\"" << static_cast<int>(properties.stroke.stroke_width) << "\"/>";
+    return oss.str();
 }

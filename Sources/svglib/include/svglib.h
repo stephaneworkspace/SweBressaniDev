@@ -44,7 +44,7 @@ namespace svglib {
             private:
                 SvgProperties properties;
             public:
-                Circle(Fill fill, Stroke stroke);
+                Circle(const Fill& fill, const Stroke& stroke);
                 string generate(double x, double y, double r);
         };
         class Data {
@@ -61,7 +61,7 @@ namespace svglib {
             void set_command(char c, const string& s);
             string round(double var);
         public:
-            Data(Fill fill, Stroke stroke);
+            Data(const Fill& fill, const Stroke& stroke);
             void move_to(double x, double y);
             void move_by(double x, double y);
             void line_to(double x, double y);
