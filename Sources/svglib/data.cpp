@@ -6,17 +6,10 @@
 using namespace svglib;
 
 long Data::get_size(const string& s) {
-    long count = 1; // compte initialement le premier élément
-    for (char c : s) {
-        if (c == DELIMITER_CHAR) {
-            count++;
-        }
-    }
-    return count;
-    //return std::count(s.begin(), s.end(), DELIMITER_CHAR) + 1;
+    return std::count(s.begin(), s.end(), DELIMITER_CHAR) + 1;
 }
 
-double Data::get_value(string s, int pos) {
+double Data::get_value(const string& s, int pos) {
     string c = DELIMITER;
     string res = "";
     auto start = 0U;
@@ -51,14 +44,14 @@ SvgData Data::set_data(char c, int point_size) {
     return data;
 }
 
-SvgPoint Data::set_point(string point_string, int pos) {
+SvgPoint Data::set_point(const string& point_string, int pos) {
     SvgPoint point;
     point.point_idx = idx_data;
     point.point = Data::get_value(point_string, pos);
     return point;
 }
 
-void Data::set_command(char c, string s) {
+void Data::set_command(char c, const string& s) {
     long size = Data::get_size(s);
     vec_data.push_back(Data::set_data(c, size));
     for (int k = 0; k < size; ++k) {

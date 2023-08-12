@@ -55,10 +55,10 @@ namespace svglib {
             int idx_point;
             SvgProperties properties;
             static long get_size(const string& s);
-            static double get_value(string s, int pos);
+            static double get_value(const string& s, int pos);
             SvgData set_data(char c, int point_size);
-            SvgPoint set_point(string point_string, int pos);
-            void set_command(char c, string s);
+            SvgPoint set_point(const string& point_string, int pos);
+            void set_command(char c, const string& s);
             string round(double var);
         public:
             Data(Fill fill, Stroke stroke);
@@ -77,7 +77,7 @@ namespace svglib {
             string content;
         public:
             Document(double w, double h);
-            Document &operator<<(string const &s) {
+            Document &operator<<(const string& s) {
                 content += s;
                 return *this;
             }
