@@ -1,7 +1,7 @@
 //
 // Created by Stéphane on 21.10.22.
 //
-//#include <fstream>
+#include <sstream>
 #include <iostream>
 #include <vector>
 #include <string>
@@ -90,6 +90,8 @@ namespace svglib {
     };
     class Line {
     private:
+        void configureStroke(const Stroke& s);
+
         SvgStroke stroke;
     public:
         Line(const Stroke& s);
