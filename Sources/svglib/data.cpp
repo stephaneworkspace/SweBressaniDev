@@ -115,7 +115,7 @@ string Data::generate() {
                 osst << (k++ ? "," : "") << vec_point[j].point;
             }
         }
-        if (i < idx_data - 1) oss << " ";
+        if (i < idx_data - 1) osst << " ";
     }
 
     oss << "<path d=\"" << osst.str()
