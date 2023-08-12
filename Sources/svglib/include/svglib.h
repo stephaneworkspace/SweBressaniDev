@@ -54,7 +54,7 @@ namespace svglib {
             int idx_data;
             int idx_point;
             SvgProperties properties;
-            static long get_size(string s);
+            static long get_size(const string& s);
             static double get_value(string s, int pos);
             SvgData set_data(char c, int point_size);
             SvgPoint set_point(string point_string, int pos);

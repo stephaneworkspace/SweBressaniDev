@@ -5,8 +5,15 @@
 
 using namespace svglib;
 
-long Data::get_size(string s) {
-    return std::count(s.begin(), s.end(), DELIMITER_CHAR) + 1;
+long Data::get_size(const string& s) {
+    long count = 1; // compte initialement le premier élément
+    for (char c : s) {
+        if (c == DELIMITER_CHAR) {
+            count++;
+        }
+    }
+    return count;
+    //return std::count(s.begin(), s.end(), DELIMITER_CHAR) + 1;
 }
 
 double Data::get_value(string s, int pos) {
