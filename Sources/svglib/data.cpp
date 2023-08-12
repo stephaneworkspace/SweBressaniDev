@@ -104,35 +104,23 @@ void Data::close_by() {
 }
 
 string Data::generate() {
-    string fill;
-    fill.assign(properties.fill.fill_cchar);
-    string stroke;
-    stroke.assign(properties.stroke.stroke_cchar);
-    string d;
+    std::ostringstream oss;
 
-    int l = 0;
     for (int i = 0; i < idx_data; ++i) {
-        if (l > 0) {
-            d += " ";
-        }
-        d += vec_data[i].data;
+        oss << vec_data[i].data;
         int k = 0;
         for (int j = 0; j < idx_point; ++j) {
             if (vec_point[j].point_idx == vec_data[i].point_idx) {
-                if (k > 0) {
-                    d += ",";
-                }
-                if ((int) vec_point[j].point == vec_point[j].point ) {
-                    d += to_string((int) vec_point[j].point);
-                } else {
-                    d += Data::round(vec_point[j].point);
-                }
-                k++;
+                oss << (k++ ? "," : "") << vec_point[j].point;
             }
         }
-        l++;
+        if (i < idx_data - 1) oss << " ";
     }
 
-    string s = "<path d=\"" + d + "\" fill=\"" + fill + "\" stroke=\""+ stroke +"\" stroke-width=\""+ to_string((int) properties.stroke.stroke_width) +"\"/>";
-    return s;
+    oss << "<path d=\"" << oss.str()
+        << "\" fill=\"" << properties.fill.fill_cchar
+        << "\" stroke=\"" << properties.stroke.stroke_cchar
+        << "\" stroke-width=\"" << properties.stroke.stroke_width << "\"/>";
+
+    return oss.str();
 }
