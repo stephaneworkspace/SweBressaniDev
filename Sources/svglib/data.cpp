@@ -10,17 +10,6 @@ long Data::get_size(const string& s) {
 }
 
 double Data::get_value(const string& s, int pos) {
-    std::stringstream ss(s);
-    string token;
-    int i = 0;
-    while (std::getline(ss, token, DELIMITER_CHAR)) {
-        if (i == pos) {
-            return std::stod(token); // Convertit directement en double
-        }
-        i++;
-    }
-    return 0;
-    /*
     string c = DELIMITER;
     string res = "";
     auto start = 0U;
@@ -42,7 +31,7 @@ double Data::get_value(const string& s, int pos) {
         float res_int = stof(res);
         return res_int;
     }
-    return 0;*/
+    return 0;
 }
 
 SvgData Data::set_data(char c, int point_size) {
@@ -115,7 +104,6 @@ void Data::close_by() {
 }
 
 string Data::generate() {
-    /*
     string fill;
     fill.assign(properties.fill.fill_cchar);
     string stroke;
@@ -146,24 +134,5 @@ string Data::generate() {
     }
 
     string s = "<path d=\"" + d + "\" fill=\"" + fill + "\" stroke=\""+ stroke +"\" stroke-width=\""+ to_string((int) properties.stroke.stroke_width) +"\"/>";
-    return s;*/
-    std::ostringstream oss;
-
-    for (int i = 0; i < idx_data; ++i) {
-        oss << vec_data[i].data;
-        int k = 0;
-        for (int j = 0; j < idx_point; ++j) {
-            if (vec_point[j].point_idx == vec_data[i].point_idx) {
-                oss << (k++ ? "," : "") << vec_point[j].point;
-            }
-        }
-        if (i < idx_data - 1) oss << " ";
-    }
-
-    oss << "<path d=\"" << oss.str()
-        << "\" fill=\"" << properties.fill.fill_cchar
-        << "\" stroke=\"" << properties.stroke.stroke_cchar
-        << "\" stroke-width=\"" << properties.stroke.stroke_width << "\"/>";
-
-    return oss.str();
+    return s;
 }
