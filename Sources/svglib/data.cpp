@@ -135,7 +135,7 @@ string Data::generate() {
         l++;
     }
 
-    oss << "<path d=\"" << oss.str()
+    oss << "<path d=\"" << d
         << "\" fill=\"" << properties.fill.fill_cchar
         << "\" stroke=\"" << properties.stroke.stroke_cchar
         << "\" stroke-width=\"" << properties.stroke.stroke_width << "\"/>";
