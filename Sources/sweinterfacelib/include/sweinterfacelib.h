@@ -246,8 +246,8 @@ namespace sweinterfacelib {
         const char *asset_bodie_r(int bodie);
         const char *text_bodie(int bodie);
         const char *asset_angle(int angle, int color_mode);
-        const char *asset_aspect(int aspcet);
-        const char *text_aspect(int aspcet);
+        const char *asset_aspect(int aspect);
+        const char *text_aspect(int aspect);
     class Angle {
         public:
             static string read_svg(int a, int color_mode);
