@@ -12,6 +12,7 @@ using namespace std;
 using namespace svglib;
 
 int main() {
+    //sweinterfacelib::grille_aspect_svg(0);
     std::cout << cpplib::five() << std::endl;
     /*
     char *version = (char *) malloc(255);

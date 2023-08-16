@@ -376,4 +376,52 @@ extern "C" {
     const char *text_aspect(int aspect) {
         return sweinterfacelib::Aspect::name(aspect);
     }
+    const char *grille_aspect_svg(int color_mode) {
+        const int GRILLE_SIZE = 25; // px
+        const int GRILLE_LINES = 16;
+        const int GRILLE_COLS = 15;
+        const int GRILLE_LINES_SIZE = GRILLE_LINES * GRILLE_SIZE;
+        const int GRILLE_COLS_SIZE = GRILLE_COLS * GRILLE_SIZE;
+
+        Document doc(GRILLE_COLS_SIZE, GRILLE_LINES_SIZE);
+        Stroke svg_stroke;
+        svg_stroke.stroke_str = color_mode == COLOR_MODE_LIGHT ? "black" : "white";
+        svg_stroke.stroke_width = 1;
+        Line svg_line(svg_stroke);
+        // Bordures Horizontales
+
+        // Ligne 1
+        // vide
+        // Ligne 2 à 15
+        for (int i = 0; i < GRILLE_LINES - 1; i++) {
+            int calc = i * GRILLE_SIZE;
+            doc << svg_line.generate(0, calc, calc ,calc);
+        }
+        // Ligne 16
+        int calc1 = (GRILLE_LINES - 1) * GRILLE_SIZE;
+        int calc2 = (GRILLE_LINES - 2) * GRILLE_SIZE;
+        doc << svg_line.generate(0, calc1, calc2 ,calc1);
+        // Ligne 17
+        calc1 = (GRILLE_LINES) * GRILLE_SIZE;
+        calc2 = (GRILLE_LINES - 2) * GRILLE_SIZE;
+        doc << svg_line.generate(0, calc1, calc2 ,calc1);
+
+        // Bordures Verticales
+        // Col 1 à 15
+        for (int i = 0; i < GRILLE_COLS; i++) {
+            calc1 = i * GRILLE_SIZE;
+            calc2 = (i + 1) * GRILLE_SIZE;
+            calc2 = i == 0 ? calc2 : calc2 - GRILLE_SIZE;
+            doc << svg_line.generate(calc1, calc2, calc1, GRILLE_LINES_SIZE);
+        }
+
+        static std::string encoded;
+        if(!Base64::Encode(doc.generate(), &encoded)) {
+            std::cout << "Failed to encode input string" << std::endl;
+            //return false;
+        } else {
+
+        }
+        return encoded.c_str();
+    }
 }
