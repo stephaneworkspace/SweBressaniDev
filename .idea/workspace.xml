@@ -12,7 +12,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="231ca442-2f45-4892-bc00-20e04eb0cf61" name="Changes" comment="intégration de la grille des aspects au format svg" />
+    <list default="true" id="231ca442-2f45-4892-bc00-20e04eb0cf61" name="Changes" comment="petite correction" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -71,7 +71,7 @@
       <recent name="$PROJECT_DIR$/cgi/Swe" />
     </key>
   </component>
-  <component name="RunManager" selected="Swift Package Run.cpp-exec">
+  <component name="RunManager" selected="Unknown.cpp-exec2025878449">
     <configuration default="true" type="BIBTEX_RUN_CONFIGURATION" factoryName="LaTeX configuration factory">
       <texify-bibtex>
         <compiler />
@@ -83,9 +83,9 @@
       </texify-bibtex>
       <method v="2" />
     </configuration>
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
     <configuration default="true" type="EXTERNAL_TOOL_RUN_CONFIGURATION" factoryName="LaTeX configuration factory">
@@ -141,12 +141,12 @@
       <envs />
       <method v="2" />
     </configuration>
-    <configuration name="SweBressaniDev" type="SwiftPackageManagerRunConfiguration" factoryName="Swift Package Run" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="SweBressaniDev" TARGET_NAME="SweBressaniDev" CONFIG_NAME="SweBressaniDev">
+    <configuration name="SweBressaniDevExec" type="SwiftPackageManagerRunConfiguration" factoryName="Swift Package Run" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="SweBressaniDev" TARGET_NAME="SweBressaniDevExec" CONFIG_NAME="SweBressaniDevExec" RUN_TARGET_PROJECT_NAME="SweBressaniDev" RUN_TARGET_NAME="SweBressaniDevExec">
       <method v="2">
         <option name="SPM.BUILD_TASK_PROVIDER" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SweBressaniDevExec" type="SwiftPackageManagerRunConfiguration" factoryName="Swift Package Run" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="SweBressaniDev" TARGET_NAME="SweBressaniDevExec" CONFIG_NAME="SweBressaniDevExec" RUN_TARGET_PROJECT_NAME="SweBressaniDev" RUN_TARGET_NAME="SweBressaniDevExec">
+    <configuration name="SweBressaniDev" type="SwiftPackageManagerRunConfiguration" factoryName="Swift Package Run" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="SweBressaniDev" TARGET_NAME="SweBressaniDev" CONFIG_NAME="SweBressaniDev">
       <method v="2">
         <option name="SPM.BUILD_TASK_PROVIDER" enabled="true" />
       </method>
@@ -219,6 +219,7 @@
       <workItem from="1691928473451" duration="5000" />
       <workItem from="1692185007008" duration="790000" />
       <workItem from="1692185809364" duration="2905000" />
+      <workItem from="1692260137079" duration="136000" />
     </task>
     <task id="LOCAL-00001" summary="pour debug">
       <created>1680628357764</created>
@@ -402,7 +403,15 @@
       <option name="project" value="LOCAL" />
       <updated>1692188707730</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="petite correction">
+      <option name="closed" value="true" />
+      <created>1692260250150</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1692260250150</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -432,6 +441,7 @@
     <MESSAGE value="amélioration" />
     <MESSAGE value="clean" />
     <MESSAGE value="intégration de la grille des aspects au format svg" />
-    <option name="LAST_COMMIT_MESSAGE" value="intégration de la grille des aspects au format svg" />
+    <MESSAGE value="petite correction" />
+    <option name="LAST_COMMIT_MESSAGE" value="petite correction" />
   </component>
 </project>
