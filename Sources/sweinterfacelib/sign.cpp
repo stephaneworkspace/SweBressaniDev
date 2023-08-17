@@ -107,5 +107,8 @@ string Sign::nom(int sign) {
             return "Verseau";
         case SIGNS_POISSON:
             return "Poisson";
+        default:
+            cerr << "Unreachable code reached" << endl;
+            return "";
     }
 }

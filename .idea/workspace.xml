@@ -12,12 +12,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="231ca442-2f45-4892-bc00-20e04eb0cf61" name="Changes" comment="clean">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sources/cpp-exec/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Sources/cpp-exec/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sources/sweinterfacelib/SweInterface.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Sources/sweinterfacelib/SweInterface.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sources/sweinterfacelib/include/sweinterfacelib.h" beforeDir="false" afterPath="$PROJECT_DIR$/Sources/sweinterfacelib/include/sweinterfacelib.h" afterDir="false" />
-    </list>
+    <list default="true" id="231ca442-2f45-4892-bc00-20e04eb0cf61" name="Changes" comment="intégration de la grille des aspects au format svg" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -223,7 +218,7 @@
       <workItem from="1691915557143" duration="3341000" />
       <workItem from="1691928473451" duration="5000" />
       <workItem from="1692185007008" duration="790000" />
-      <workItem from="1692185809364" duration="2688000" />
+      <workItem from="1692185809364" duration="2905000" />
     </task>
     <task id="LOCAL-00001" summary="pour debug">
       <created>1680628357764</created>
@@ -400,7 +395,14 @@
       <option name="project" value="LOCAL" />
       <updated>1691917991500</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="intégration de la grille des aspects au format svg">
+      <created>1692188707730</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1692188707730</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -429,6 +431,7 @@
     <MESSAGE value="petite correction mineur" />
     <MESSAGE value="amélioration" />
     <MESSAGE value="clean" />
-    <option name="LAST_COMMIT_MESSAGE" value="clean" />
+    <MESSAGE value="intégration de la grille des aspects au format svg" />
+    <option name="LAST_COMMIT_MESSAGE" value="intégration de la grille des aspects au format svg" />
   </component>
 </project>
