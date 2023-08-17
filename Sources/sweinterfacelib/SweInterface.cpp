@@ -393,7 +393,7 @@ extern "C" {
         // Ligne 1
         // vide
         // Ligne 2 à 15
-        for (int i = 0; i < GRILLE_LINES - 1; i++) {
+        for (int i = 1; i < GRILLE_LINES - 1; i++) {
             int calc = i * GRILLE_SIZE;
             doc << svg_line.generate(0 + 1, calc, calc ,calc); // 0 + 1 pour commencer à 1
         }
