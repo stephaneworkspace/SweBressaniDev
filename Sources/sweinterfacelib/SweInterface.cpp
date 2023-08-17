@@ -383,7 +383,7 @@ extern "C" {
         const int GRILLE_LINES_SIZE = GRILLE_LINES * GRILLE_SIZE;
         const int GRILLE_COLS_SIZE = GRILLE_COLS * GRILLE_SIZE;
 
-        Document doc(GRILLE_COLS_SIZE, GRILLE_LINES_SIZE + 1);
+        Document doc(GRILLE_COLS_SIZE + 1, GRILLE_LINES_SIZE + 1);
         Stroke svg_stroke;
         svg_stroke.stroke_str = color_mode == COLOR_MODE_LIGHT ? "black" : "white";
         svg_stroke.stroke_width = 1;
@@ -395,7 +395,7 @@ extern "C" {
         // Ligne 2 à 15
         for (int i = 0; i < GRILLE_LINES - 1; i++) {
             int calc = i * GRILLE_SIZE;
-            doc << svg_line.generate(0, calc, calc ,calc);
+            doc << svg_line.generate(0 + 1, calc, calc ,calc);
         }
         // Ligne 16
         int calc1 = (GRILLE_LINES - 1) * GRILLE_SIZE;
@@ -412,7 +412,7 @@ extern "C" {
             calc1 = i * GRILLE_SIZE;
             calc2 = (i + 1) * GRILLE_SIZE;
             calc2 = i == 0 ? calc2 : calc2 - GRILLE_SIZE;
-            doc << svg_line.generate(calc1, calc2, calc1, GRILLE_LINES_SIZE);
+            doc << svg_line.generate(calc1, calc2, i == 0 ? 1 : calc1, GRILLE_LINES_SIZE);
         }
 
         static std::string encoded;
