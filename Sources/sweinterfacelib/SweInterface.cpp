@@ -412,7 +412,7 @@ extern "C" {
             calc1 = i * GRILLE_SIZE;
             calc2 = (i + 1) * GRILLE_SIZE;
             calc2 = i == 0 ? calc2 : calc2 - GRILLE_SIZE;
-            doc << svg_line.generate(calc1, calc2, i == 0 ? 1 : calc1, GRILLE_LINES_SIZE); // i == 0 ? 1 -> pour commencer à 1
+            doc << svg_line.generate(i == 0 ? 1 : calc1, calc2, i == 0 ? 1 : calc1, GRILLE_LINES_SIZE); // i == 0 ? 1 -> pour commencer à 1
         }
 
         static std::string encoded;
