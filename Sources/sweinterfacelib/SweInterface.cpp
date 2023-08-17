@@ -383,7 +383,7 @@ extern "C" {
         const int GRILLE_LINES_SIZE = GRILLE_LINES * GRILLE_SIZE;
         const int GRILLE_COLS_SIZE = GRILLE_COLS * GRILLE_SIZE;
 
-        Document doc(GRILLE_COLS_SIZE, GRILLE_LINES_SIZE);
+        Document doc(GRILLE_COLS_SIZE, GRILLE_LINES_SIZE + 1);
         Stroke svg_stroke;
         svg_stroke.stroke_str = color_mode == COLOR_MODE_LIGHT ? "black" : "white";
         svg_stroke.stroke_width = 1;
