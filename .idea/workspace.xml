@@ -12,9 +12,9 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="231ca442-2f45-4892-bc00-20e04eb0cf61" name="Changes" comment="petite correction">
-      <change beforePath="$PROJECT_DIR$/.idea/SweBressaniDev.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SweBressaniDev.iml" afterDir="false" />
+    <list default="true" id="231ca442-2f45-4892-bc00-20e04eb0cf61" name="Changes" comment="ajout des aspect bon/neutre/mauvais">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sources/sweinterfacelib/SweInterface.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Sources/sweinterfacelib/SweInterface.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Sources/sweinterfacelib/aspect.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Sources/sweinterfacelib/aspect.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Sources/sweinterfacelib/include/sweinterfacelib.h" beforeDir="false" afterPath="$PROJECT_DIR$/Sources/sweinterfacelib/include/sweinterfacelib.h" afterDir="false" />
     </list>
@@ -51,27 +51,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
-    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;full.screen.before.presentation.mode&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/stephane/Code/AC/Package/bressani.dev/SweBressaniDev/SweBressaniDev/cgi/Swe&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;structure.view.defaults.are.configured&quot;: &quot;true&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "full.screen.before.presentation.mode": "true",
+    "last_opened_file_path": "/Users/stephane/Code/AC/Package/bressani.dev/SweBressaniDev/SweBressaniDev/cgi/Swe",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "project.propVCSSupport.CommitDialog",
+    "structure.view.defaults.are.configured": "true",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/cgi/Swe" />
@@ -238,7 +238,7 @@
       <workItem from="1692306494121" duration="14000" />
       <workItem from="1692306515026" duration="355000" />
       <workItem from="1692520187471" duration="1117000" />
-      <workItem from="1692701218917" duration="765000" />
+      <workItem from="1692701218917" duration="2942000" />
     </task>
     <task id="LOCAL-00001" summary="pour debug">
       <created>1680628357764</created>
@@ -470,7 +470,15 @@
       <option name="project" value="LOCAL" />
       <updated>1692303961911</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="ajout des noms des aspects en français">
+      <option name="closed" value="true" />
+      <created>1692715443251</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1692715443251</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -488,6 +496,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <MESSAGE value="pour debug" />
     <MESSAGE value="pour debug enlevé" />
     <MESSAGE value="ok" />
@@ -501,7 +510,9 @@
     <MESSAGE value="clean" />
     <MESSAGE value="intégration de la grille des aspects au format svg" />
     <MESSAGE value="petite correction" />
-    <option name="LAST_COMMIT_MESSAGE" value="petite correction" />
+    <MESSAGE value="ajout des noms des aspects en français" />
+    <MESSAGE value="ajout des aspect bon/neutre/mauvais" />
+    <option name="LAST_COMMIT_MESSAGE" value="ajout des aspect bon/neutre/mauvais" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

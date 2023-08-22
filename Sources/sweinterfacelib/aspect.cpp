@@ -147,7 +147,7 @@ const char *Aspect::name_fr(int a) {
         case ASPECTS_SEXTILE:
             return "Sextile";
         case ASPECTS_INCONJUNCTION:
-            return "Opposition";
+            return "Quinconce";
         case ASPECTS_SEQUISQUARE:
             return "Sequi-carré";
         case ASPECTS_SEMISQUARE:
@@ -156,5 +156,36 @@ const char *Aspect::name_fr(int a) {
             return "Semi-sextile";
         default:
             return "";
+    }
+}
+/*
+ * +3 = TRES BON ASPECT
+ * +1 = BON ASPECT
+ *  0 = NEUTRE
+ * -1 = MAUVAIS ASPECT
+ * -3 = TRES MAUVAIS ASPECT
+ */
+int Aspect::type_aspect(int a) {
+    switch (a) {
+        case ASPECTS_CONJUNCTION:
+            return 0;
+        case ASPECTS_OPPOSITION:
+            return -3;
+        case ASPECTS_TRINE:
+            return 3;
+        case ASPECTS_SQUARE:
+            return -3;
+        case ASPECTS_SEXTILE:
+            return 3;
+        case ASPECTS_INCONJUNCTION:
+            return 0;
+        case ASPECTS_SEQUISQUARE:
+            return -1;
+        case ASPECTS_SEMISQUARE:
+            return -1;
+        case ASPECTS_SEMISEXTILE:
+            return 1;
+        default:
+            return 0;
     }
 }

@@ -376,6 +376,9 @@ extern "C" {
     const char *text_aspect(int aspect) {
         return sweinterfacelib::Aspect::name_fr(aspect);
     }
+    int type_aspect(int aspect) {
+        return sweinterfacelib::Aspect::type_aspect(aspect);
+    }
     const char *grille_aspect_svg(int color_mode) {
         const int GRILLE_SIZE = 25; // px
         const int GRILLE_LINES = 16;
