@@ -260,6 +260,7 @@ namespace sweinterfacelib {
             static string read_svg(int a);
             static const char* read_svg_c(int a);
             static const char* name(int a);
+            static const char* name_fr(int a);
         };
         class Astre {
         public:

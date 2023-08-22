@@ -133,3 +133,28 @@ const char* Aspect::name(int a) {
             return "";
     }
 }
+
+const char *Aspect::name_fr(int a) {
+    switch (a) {
+        case ASPECTS_CONJUNCTION:
+            return "Conjonction";
+        case ASPECTS_OPPOSITION:
+            return "Opposition";
+        case ASPECTS_TRINE:
+            return "Trigone";
+        case ASPECTS_SQUARE:
+            return "Carré (quadrature)";
+        case ASPECTS_SEXTILE:
+            return "Sextile";
+        case ASPECTS_INCONJUNCTION:
+            return "Opposition";
+        case ASPECTS_SEQUISQUARE:
+            return "Sequi-carré";
+        case ASPECTS_SEMISQUARE:
+            return "Semi-carré";
+        case ASPECTS_SEMISEXTILE:
+            return "Semi-sextile";
+        default:
+            return "";
+    }
+}

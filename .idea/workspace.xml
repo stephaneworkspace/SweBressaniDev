@@ -13,7 +13,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="231ca442-2f45-4892-bc00-20e04eb0cf61" name="Changes" comment="petite correction">
+      <change beforePath="$PROJECT_DIR$/.idea/SweBressaniDev.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SweBressaniDev.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sources/sweinterfacelib/aspect.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Sources/sweinterfacelib/aspect.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sources/sweinterfacelib/include/sweinterfacelib.h" beforeDir="false" afterPath="$PROJECT_DIR$/Sources/sweinterfacelib/include/sweinterfacelib.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +26,7 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="macos_macos_x86_64" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -73,7 +77,7 @@
       <recent name="$PROJECT_DIR$/cgi/Swe" />
     </key>
   </component>
-  <component name="RunManager" selected="Shell Script.compile.sh">
+  <component name="RunManager" selected="Swift Package Run.cpp-exec">
     <configuration default="true" type="BIBTEX_RUN_CONFIGURATION" factoryName="LaTeX configuration factory">
       <texify-bibtex>
         <compiler />
@@ -138,12 +142,12 @@
       <envs />
       <method v="2" />
     </configuration>
-    <configuration name="SweBressaniDevExec" type="SwiftPackageManagerRunConfiguration" factoryName="Swift Package Run" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="SweBressaniDev" TARGET_NAME="SweBressaniDevExec" CONFIG_NAME="SweBressaniDevExec" RUN_TARGET_PROJECT_NAME="SweBressaniDev" RUN_TARGET_NAME="SweBressaniDevExec">
+    <configuration name="SweBressaniDev" type="SwiftPackageManagerRunConfiguration" factoryName="Swift Package Run" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="SweBressaniDev" TARGET_NAME="SweBressaniDev" CONFIG_NAME="SweBressaniDev">
       <method v="2">
         <option name="SPM.BUILD_TASK_PROVIDER" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SweBressaniDev" type="SwiftPackageManagerRunConfiguration" factoryName="Swift Package Run" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="SweBressaniDev" TARGET_NAME="SweBressaniDev" CONFIG_NAME="SweBressaniDev">
+    <configuration name="SweBressaniDevExec" type="SwiftPackageManagerRunConfiguration" factoryName="Swift Package Run" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="SweBressaniDev" TARGET_NAME="SweBressaniDevExec" CONFIG_NAME="SweBressaniDevExec" RUN_TARGET_PROJECT_NAME="SweBressaniDev" RUN_TARGET_NAME="SweBressaniDevExec">
       <method v="2">
         <option name="SPM.BUILD_TASK_PROVIDER" enabled="true" />
       </method>
@@ -230,6 +234,11 @@
       <workItem from="1692262864967" duration="508000" />
       <workItem from="1692263536370" duration="36000" />
       <workItem from="1692272107326" duration="86000" />
+      <workItem from="1692303945238" duration="616000" />
+      <workItem from="1692306494121" duration="14000" />
+      <workItem from="1692306515026" duration="355000" />
+      <workItem from="1692520187471" duration="1117000" />
+      <workItem from="1692701218917" duration="765000" />
     </task>
     <task id="LOCAL-00001" summary="pour debug">
       <created>1680628357764</created>
@@ -453,7 +462,15 @@
       <option name="project" value="LOCAL" />
       <updated>1692263564087</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="petite correction">
+      <option name="closed" value="true" />
+      <created>1692303961911</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1692303961911</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
