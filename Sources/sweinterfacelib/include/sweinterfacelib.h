@@ -239,7 +239,14 @@ namespace sweinterfacelib {
     const int COLOR_MODE_DARK = 1;
     const int MAX_ASTRES = 14;
     extern "C" {
-        const char *theme_astral_svg(int year, int month, int day, int hour, int min, double lat, double lng, int gmt, const char *ephem_path, int color_mode, const char* aspect_option);
+        /*
+         * Svg du thème complet
+         */
+        const char *theme_astral_svg(int year, int month, int day, int hour, int min, double lat, double lng, int gmt, const char *ephem_path, int color_mode, const char *aspect_option);
+        /*
+         * Dessine les cercles sans les images, car j'aimerai séparer les symboles
+         */
+        const char *theme_astral_empty_svg(int year, int month, int day, int hour, int min, double lat, double lng, int gmt, const char *ephem_path, int color_mode, const char* aspect_option);
         const char *asset_sign(int sign);
         const char *asset_house(int house, int color_mode);
         const char *asset_bodie(int bodie);

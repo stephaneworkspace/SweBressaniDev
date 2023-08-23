@@ -352,6 +352,165 @@ extern "C" {
         free(item_longitude);
         return encoded.c_str();
     }
+
+    const char *theme_astral_empty_svg(int year, int month, int day, int hour, int min, double lat, double lng, int gmt, const char *ephem_path, int color_mode, const char *aspect_option) {
+        // Charger le path des ephem, depuis swift il est a préciser, sinon ça utilise de ce répertoire
+        string ephem_path_string;
+        if (strcmp(ephem_path, "") == 0) {
+            //ephem_path_string = filesystem::current_path().parent_path().parent_path();
+            ephem_path_string += "/ephem";
+        } else {
+            ephem_path_string = ephem_path;
+        }
+        Swe02::set_ephe_path(ephem_path_string);
+
+        // TimeZone
+        TimeZone time_zone;
+        time_zone.year = year;
+        time_zone.month = month;
+        time_zone.day = day;
+        time_zone.hour = hour;
+        time_zone.min = min;
+        time_zone.sec = 0;
+        TimeZone utc_time_zone = TZ::utc_time_zone(time_zone, gmt);
+        UtcToJd utc_to_jd = Swe08::utc_to_jd(utc_time_zone, CALANDAR_GREGORIAN);
+        time_t t = time(0);
+        tm *now = localtime(&t);
+        TimeZone time_zone_t;
+        time_zone_t.year = now->tm_year + 1900;
+        time_zone_t.month = now->tm_mon + 1;
+        time_zone_t.day = now->tm_mday;
+        time_zone_t.hour = now->tm_hour;
+        time_zone_t.min = now->tm_min;
+        time_zone_t.sec = now->tm_sec;
+        double gmt_t = gmt;
+        TimeZone utc_time_zone_t = TZ::utc_time_zone(time_zone_t, gmt_t);
+        UtcToJd utc_to_jd_t = Swe08::utc_to_jd(utc_time_zone_t, CALANDAR_GREGORIAN);
+
+        H *house = new H[12];
+        for (int i = 0; i < 12; ++i) {
+            house[i] = Swe14::house(utc_to_jd.julian_day_ut, lat, lng, 'P', i + 1);
+        }
+
+        int *astres = new int[MAX_ASTRES];
+        astres[SOLEIL] = ASTRE_SOLEIL;
+        astres[LUNE] = ASTRE_LUNE;
+        astres[MERCURE] = ASTRE_MERCURE;
+        astres[VENUS] = ASTRE_VENUS;
+        astres[MARS] = ASTRE_MARS;
+        astres[JUPITER] = ASTRE_JUPITER;
+        astres[SATURN] = ASTRE_SATURN;
+        astres[URANUS] = ASTRE_URANUS;
+        astres[NEPTUNE] = ASTRE_NEPTUNE;
+        astres[PLUTON] = ASTRE_PLUTON;
+        astres[NOEUD_LUNAIRE] = ASTRE_NOEUD_LUNAIRE;
+        astres[CHIRON] = ASTRE_CHIRON;
+        astres[CERES] = ASTRE_CERES;
+        astres[NOEUD_LUNAIRE_SUD] = ASTRE_NOEUD_LUNAIRE_SUD;
+
+        Document doc(CHART_SIZE, CHART_SIZE);
+        Fill svg_fill;
+        Stroke svg_stroke;
+
+        // Draw circles natal
+        DrawCircle dz;
+        for (int i = 0; i <= 8; ++i) {
+            CircleZod cz = dz.circle(static_cast<CirclePositions>(i));
+            if (cz.sw) {
+                svg_fill.fill_str = "transparent";
+                svg_stroke.stroke_str = color_mode == COLOR_MODE_LIGHT ? "black" : "white";
+                svg_stroke.stroke_width = 1;
+                Circle svg_circle(svg_fill, svg_stroke);
+                doc << svg_circle.generate(CHART_SIZE / 2, CHART_SIZE / 2, cz.radius * 0.8);
+            }
+        }
+
+        // Draw house lines
+        DrawHouseLines dhl;
+        LineXY3 *lxy3 = dhl.lines(house);
+        LineXY3 *lxy3_ts = dhl.triangles_small(house);
+        for (int i = 0; i < 12; ++i) {
+            if (!lxy3[i].sw_lxy3) {
+                //double stroke; TOTO enlever ?
+                if (i == 3 || i == 6 || i == 9) {
+                } else {
+                    // Line
+                    svg_stroke.stroke_str = color_mode == COLOR_MODE_LIGHT ? "black" : "white";
+                    svg_stroke.stroke_width = 1;
+                    Line svg_line(svg_stroke);
+                    doc << svg_line.generate(lxy3[i].lx1, lxy3[i].ly1, lxy3[i].lx2, lxy3[i].ly2);
+                    // Triangle small
+                    svg_fill.fill_str = "black";
+                    svg_stroke.stroke_str = color_mode == COLOR_MODE_LIGHT ? "black" : "white";
+                    svg_stroke.stroke_width = 1;
+                    Data svg_data(svg_fill, svg_stroke);
+                    svg_data.move_to(lxy3_ts[i].lx3, lxy3_ts[i].ly3);
+                    svg_data.line_to(lxy3_ts[i].lx2, lxy3_ts[i].ly2);
+                    svg_data.line_to(lxy3_ts[i].lx1, lxy3_ts[i].ly1);
+                    svg_data.close_to();
+                    doc << svg_data.generate();
+                }
+            } else {
+                // Triangle big (in lines() function)
+                svg_fill.fill_str = color_mode == COLOR_MODE_LIGHT ? "black" : "white";
+                svg_stroke.stroke_str = color_mode == COLOR_MODE_LIGHT ? "black" : "white";
+                svg_stroke.stroke_width = 1;
+                Data svg_data(svg_fill, svg_stroke);
+                svg_data.move_to(lxy3[i].lx3, lxy3[i].ly3);
+                svg_data.line_to(lxy3[i].lx2, lxy3[i].ly2);
+                svg_data.line_to(lxy3[i].lx1, lxy3[i].ly1);
+                svg_data.close_to();
+                doc << svg_data.generate();
+            }
+        }
+
+        // Angle line
+        svg_stroke.stroke_str = color_mode == COLOR_MODE_LIGHT ? "black" : "white";
+        svg_stroke.stroke_width = STROKE_BOLD;
+        Line svg_line(svg_stroke);
+        LineXY lxy;
+
+        for (int i = ANGLES_ASC; i < ANGLES_MC + 1; ++i) {
+            lxy = dhl.angle_lines(house, i);
+            doc << svg_line.generate(lxy.lx1, lxy.ly1, lxy.lx2, lxy.ly2);
+        }
+
+        // Draw house angle image
+        Size angle_size;
+        Angle house_angle;
+        Offset offset;
+        // Asc
+        for (int angle = ANGLES_ASC; angle < ANGLES_MC + 1; ++angle) {
+            offset = DrawHouseAngle::angle(house, angle);
+            angle_size = DrawHouseAngle::angle_size(angle);
+            doc << Image::generate(
+                    angle_size.width,
+                    angle_size.height,
+                    offset.x,
+                    offset.y,
+                    Angle::read_svg(angle, color_mode).c_str());
+        }
+
+        // Draw zodiac lines
+        svg_stroke.stroke_str = color_mode == COLOR_MODE_LIGHT ? "black" : "white";
+        svg_stroke.stroke_width = 1;
+        svg_line.set_stroke(svg_stroke);
+        DrawZodiacLines dzl;
+        LineXY *lz = dzl.line(house[0]);
+        for (int i = 0; i < (16 * 12); ++i) {
+            doc << svg_line.generate(lz[i].lx1, lz[i].ly1, lz[i].lx2, lz[i].ly2);
+        }
+
+        static std::string encoded;
+        if (!Base64::Encode(doc.generate(), &encoded)) {
+            std::cout << "Failed to encode input string" << std::endl;
+            //return false;
+        } else {
+
+        }
+        free(astres);
+        return encoded.c_str();
+    }
     const char *asset_sign(int sign) {
         return sweinterfacelib::Sign::read_svg_c(sign);
     }
