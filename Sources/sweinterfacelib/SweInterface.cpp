@@ -511,6 +511,82 @@ extern "C" {
         free(astres);
         return encoded.c_str();
     }
+    MaisonOutput* theme_astral_maison_pos(int year, int month, int day, int hour, int min, double lat, double lng, int gmt, const char *ephem_path, int color_mode, const char *aspect_option) {
+        // Charger le path des ephem, depuis swift il est a préciser, sinon ça utilise de ce répertoire
+        string ephem_path_string;
+        if (strcmp(ephem_path, "") == 0) {
+            //ephem_path_string = filesystem::current_path().parent_path().parent_path();
+            ephem_path_string += "/ephem";
+        } else {
+            ephem_path_string = ephem_path;
+        }
+        Swe02::set_ephe_path(ephem_path_string);
+
+        // TimeZone
+        TimeZone time_zone;
+        time_zone.year = year;
+        time_zone.month = month;
+        time_zone.day = day;
+        time_zone.hour = hour;
+        time_zone.min = min;
+        time_zone.sec = 0;
+        TimeZone utc_time_zone = TZ::utc_time_zone(time_zone, gmt);
+        UtcToJd utc_to_jd = Swe08::utc_to_jd(utc_time_zone, CALANDAR_GREGORIAN);
+        time_t t = time(0);
+        tm *now = localtime(&t);
+        TimeZone time_zone_t;
+        time_zone_t.year = now->tm_year + 1900;
+        time_zone_t.month = now->tm_mon + 1;
+        time_zone_t.day = now->tm_mday;
+        time_zone_t.hour = now->tm_hour;
+        time_zone_t.min = now->tm_min;
+        time_zone_t.sec = now->tm_sec;
+        double gmt_t = gmt;
+        TimeZone utc_time_zone_t = TZ::utc_time_zone(time_zone_t, gmt_t);
+        UtcToJd utc_to_jd_t = Swe08::utc_to_jd(utc_time_zone_t, CALANDAR_GREGORIAN);
+
+        H *house = new H[12];
+        for (int i = 0; i < 12; ++i) {
+            house[i] = Swe14::house(utc_to_jd.julian_day_ut, lat, lng, 'P', i + 1);
+        }
+
+        int *astres = new int[MAX_ASTRES];
+        astres[SOLEIL] = ASTRE_SOLEIL;
+        astres[LUNE] = ASTRE_LUNE;
+        astres[MERCURE] = ASTRE_MERCURE;
+        astres[VENUS] = ASTRE_VENUS;
+        astres[MARS] = ASTRE_MARS;
+        astres[JUPITER] = ASTRE_JUPITER;
+        astres[SATURN] = ASTRE_SATURN;
+        astres[URANUS] = ASTRE_URANUS;
+        astres[NEPTUNE] = ASTRE_NEPTUNE;
+        astres[PLUTON] = ASTRE_PLUTON;
+        astres[NOEUD_LUNAIRE] = ASTRE_NOEUD_LUNAIRE;
+        astres[CHIRON] = ASTRE_CHIRON;
+        astres[CERES] = ASTRE_CERES;
+        astres[NOEUD_LUNAIRE_SUD] = ASTRE_NOEUD_LUNAIRE_SUD;
+
+        Document doc(CHART_SIZE, CHART_SIZE);
+        Fill svg_fill;
+        Stroke svg_stroke;
+
+        MaisonOutput outputs[13];
+
+        // Draw house number image
+        Size house_size;
+        for (int i = 1; i < 13; ++i) {
+            Offset offset;
+            house_size = DrawHouseNumber::number_size(i);
+            offset = DrawHouseNumber::number(i, house);
+            outputs[i].width = house_size.width;
+            outputs[i].height = house_size.height;
+            outputs[i].x = offset.x;
+            outputs[i].y = offset.y;
+        }
+
+        free(astres);
+        return outputs;
+    }
     const char *asset_sign(int sign) {
         return sweinterfacelib::Sign::read_svg_c(sign);
     }

@@ -12,7 +12,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="231ca442-2f45-4892-bc00-20e04eb0cf61" name="Changes" comment="ajout des aspects bon/neutre/mauvais">
+    <list default="true" id="231ca442-2f45-4892-bc00-20e04eb0cf61" name="Changes" comment="écriture de theme_astral_empty_svg">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Sources/sweinterfacelib/SweInterface.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Sources/sweinterfacelib/SweInterface.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Sources/sweinterfacelib/include/sweinterfacelib.h" beforeDir="false" afterPath="$PROJECT_DIR$/Sources/sweinterfacelib/include/sweinterfacelib.h" afterDir="false" />
@@ -238,7 +238,8 @@
       <workItem from="1692306515026" duration="355000" />
       <workItem from="1692520187471" duration="1117000" />
       <workItem from="1692701218917" duration="3123000" />
-      <workItem from="1692780602532" duration="448000" />
+      <workItem from="1692780602532" duration="1272000" />
+      <workItem from="1692786371220" duration="777000" />
     </task>
     <task id="LOCAL-00001" summary="pour debug">
       <created>1680628357764</created>
@@ -486,7 +487,15 @@
       <option name="project" value="LOCAL" />
       <updated>1692717667756</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="écriture de theme_astral_empty_svg">
+      <option name="closed" value="true" />
+      <created>1692781203230</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1692781203230</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -521,7 +530,8 @@
     <MESSAGE value="ajout des noms des aspects en français" />
     <MESSAGE value="ajout des aspect bon/neutre/mauvais" />
     <MESSAGE value="ajout des aspects bon/neutre/mauvais" />
-    <option name="LAST_COMMIT_MESSAGE" value="ajout des aspects bon/neutre/mauvais" />
+    <MESSAGE value="écriture de theme_astral_empty_svg" />
+    <option name="LAST_COMMIT_MESSAGE" value="écriture de theme_astral_empty_svg" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
