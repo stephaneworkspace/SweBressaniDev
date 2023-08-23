@@ -570,7 +570,7 @@ extern "C" {
         Fill svg_fill;
         Stroke svg_stroke;
 
-        MaisonOutput outputs[13];
+        MaisonOutput *outputs = new MaisonOutput[13];
 
         // Draw house number image
         Size house_size;
