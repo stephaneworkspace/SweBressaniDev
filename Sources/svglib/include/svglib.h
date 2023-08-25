@@ -1,6 +1,7 @@
 //
 // Created by Stéphane on 21.10.22.
 //
+#pragma once
 #include <sstream>
 #include <iostream>
 #include <vector>
