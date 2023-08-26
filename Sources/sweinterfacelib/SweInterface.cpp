@@ -511,7 +511,7 @@ extern "C" {
         free(astres);
         return encoded.c_str();
     }
-    MaisonOutput* theme_astral_maison_pos(int year, int month, int day, int hour, int min, double lat, double lng, int gmt, const char *ephem_path, int color_mode, const char *aspect_option) {
+    const MaisonOutput* theme_astral_maison_pos(int year, int month, int day, int hour, int min, double lat, double lng, int gmt, const char *ephem_path, int color_mode, const char *aspect_option) {
         // Charger le path des ephem, depuis swift il est a préciser, sinon ça utilise de ce répertoire
         string ephem_path_string;
         if (strcmp(ephem_path, "") == 0) {
