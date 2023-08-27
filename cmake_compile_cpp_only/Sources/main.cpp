@@ -20,6 +20,6 @@ int main() {
     cout << "Swissephem: " << res << endl;
     free(version);
     // Maison TODO const MaisonOutput* ?
-    const MaisonOutput* mo = theme_astral_maison_pos(1984, 4, 1, 0, 0, 16, 2, 2,"",0,"0");
-    cout << mo[0].x << endl;
+    const PosAsset* pa = theme_astral_signe_pos(1984, 4, 1, 0, 0, 16, 2, 2,"");
+    cout << pa[1].x << endl;
 }
