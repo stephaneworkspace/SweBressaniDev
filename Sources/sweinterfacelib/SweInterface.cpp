@@ -660,8 +660,143 @@ extern "C" {
         free(astres);
         return pos_asset;
     }
+    const PosAstreAsset* theme_astral_astre_pos(int year, int month, int day, int hour, int min, double lat, double lng, int gmt, const char *ephem_path) {
+        // Charger le path des ephem, depuis swift il est a préciser, sinon ça utilise de ce répertoire
+        string ephem_path_string;
+        if (strcmp(ephem_path, "") == 0) {
+            //ephem_path_string = filesystem::current_path().parent_path().parent_path();
+            ephem_path_string += "/ephem";
+        } else {
+            ephem_path_string = ephem_path;
+        }
+        Swe02::set_ephe_path(ephem_path_string);
+
+        // TimeZone
+        TimeZone time_zone;
+        time_zone.year = year;
+        time_zone.month = month;
+        time_zone.day = day;
+        time_zone.hour = hour;
+        time_zone.min = min;
+        time_zone.sec = 0;
+        TimeZone utc_time_zone = TZ::utc_time_zone(time_zone, gmt);
+        UtcToJd utc_to_jd = Swe08::utc_to_jd(utc_time_zone, CALANDAR_GREGORIAN);
+        time_t t = time(0);
+        tm *now = localtime(&t);
+        TimeZone time_zone_t;
+        time_zone_t.year = now->tm_year + 1900;
+        time_zone_t.month = now->tm_mon + 1;
+        time_zone_t.day = now->tm_mday;
+        time_zone_t.hour = now->tm_hour;
+        time_zone_t.min = now->tm_min;
+        time_zone_t.sec = now->tm_sec;
+        double gmt_t = gmt;
+        TimeZone utc_time_zone_t = TZ::utc_time_zone(time_zone_t, gmt_t);
+        UtcToJd utc_to_jd_t = Swe08::utc_to_jd(utc_time_zone_t, CALANDAR_GREGORIAN);
+
+        H *house = new H[12];
+        for (int i = 0; i < 12; ++i) {
+            house[i] = Swe14::house(utc_to_jd.julian_day_ut, lat, lng, 'P', i + 1);
+        }
+
+        int *astres = new int[MAX_ASTRES];
+        astres[SOLEIL] = ASTRE_SOLEIL;
+        astres[LUNE] = ASTRE_LUNE;
+        astres[MERCURE] = ASTRE_MERCURE;
+        astres[VENUS] = ASTRE_VENUS;
+        astres[MARS] = ASTRE_MARS;
+        astres[JUPITER] = ASTRE_JUPITER;
+        astres[SATURN] = ASTRE_SATURN;
+        astres[URANUS] = ASTRE_URANUS;
+        astres[NEPTUNE] = ASTRE_NEPTUNE;
+        astres[PLUTON] = ASTRE_PLUTON;
+        astres[NOEUD_LUNAIRE] = ASTRE_NOEUD_LUNAIRE;
+        astres[CHIRON] = ASTRE_CHIRON;
+        astres[CERES] = ASTRE_CERES;
+        astres[NOEUD_LUNAIRE_SUD] = ASTRE_NOEUD_LUNAIRE_SUD;
+
+        Document doc(CHART_SIZE, CHART_SIZE);
+        Fill svg_fill;
+        Stroke svg_stroke;
+
+        PosAstreAsset* paa = new PosAstreAsset[MAX_ASTRES];
+
+        // Draw astre image + line
+        double astre_size = DrawBodieAstre::astre_size();
+        double astre_r_size = DrawBodieAstre::astre_r_size();
+        //svg_stroke.stroke_str = color_mode == COLOR_MODE_LIGHT ? "black" : "white";
+        //svg_stroke.stroke_width = 1;
+        //svg_line.set_stroke(svg_stroke);
+        DrawBodieLines dbl;
+        LineXY lxy;
+        for (int i = 0; i < MAX_ASTRES; ++i) {
+            Offset offset;
+            // Natal
+            CalcUt calcul_ut = Swe03::calc_ut(utc_to_jd.julian_day_ut, astres[i], OPTION_FLAG_SPEED);
+            bool sw_retrograde = false;
+            if (abs(calcul_ut.speed_longitude) < 0.0003) {
+                // Stationary
+            } else if (calcul_ut.speed_longitude > 0.0) {
+                // Direct
+            } else {
+                sw_retrograde = true;
+            }
+            offset = DrawBodieAstre::bodie_astre(house[0], calcul_ut, false);
+            lxy = dbl.line(house[0], calcul_ut, false);
+            paa[i].nom = text_bodie(i);
+            paa[i].retrograde = sw_retrograde;
+            paa[i].astre.width = astre_size;
+            paa[i].astre.height = astre_size;
+            paa[i].astre.x = offset.x;
+            paa[i].astre.y = offset.y;
+            if (sw_retrograde) {
+                paa[i].astre_r.width = astre_r_size;
+                paa[i].astre_r.height = astre_r_size;
+                paa[i].astre_r.x = offset.x;
+                paa[i].astre_r.y = offset.y;
+            } else {
+                paa[i].astre_r.width = 0;
+                paa[i].astre_r.height = 0;
+                paa[i].astre_r.x = 0;
+                paa[i].astre_r.y = 0;
+            }
+            //doc << svg_line.generate(lxy.lx1, lxy.ly1, lxy.lx2, lxy.ly2);
+            paa[i].line.lx1 = lxy.lx1;
+            paa[i].line.ly1 = lxy.ly1;
+            paa[i].line.lx2 = lxy.lx2;
+            paa[i].line.ly2 = lxy.ly2;
+
+            /*// Transit
+            CalcUt calcul_ut_t = Swe03::calc_ut(utc_to_jd_t.julian_day_ut, astres[i], OPTION_FLAG_SPEED);
+            sw_retrograde = false;
+            if (abs(calcul_ut_t.speed_longitude) < 0.0003) {
+                // Stationary
+            } else if (calcul_ut_t.speed_longitude > 0.0) {
+                // Direct
+            } else {
+                sw_retrograde = true;
+            }
+            offset = DrawBodieAstre::bodie_astre(house[0], calcul_ut_t, true);
+            lxy = dbl.line(house[0], calcul_ut_t, true);
+            doc << Image::generate(astre_size, astre_size, offset.x, offset.y, Astre::read_svg(astres[i]).c_str());
+            if (sw_retrograde) {
+                doc
+                        << Image::generate(astre_r_size, astre_r_size, offset.x + astre_size / RETROGRADE_DIV, offset.y + astre_size / RETROGRADE_DIV, Astre::read_r_svg(astres[i]).c_str());
+            }
+            doc << svg_line.generate(lxy.lx1, lxy.ly1, lxy.lx2, lxy.ly2);
+             */
+        }
+
+        free(astres);
+        return paa;
+    }
     const char *asset_sign(int sign) {
         return sweinterfacelib::Sign::read_svg_c(sign);
+    }
+    const char *text_sign(int sign) {
+        string n = sweinterfacelib::Sign::nom(sign);
+        const char* nn = n.c_str();
+        return nn;
     }
     const char *asset_house(int house, int color_mode) {
         return sweinterfacelib::House::read_svg_c(house, color_mode);

@@ -242,6 +242,13 @@ namespace sweinterfacelib {
         double x;
         double y;
     };
+    struct PosAstreAsset {
+        const char* nom;
+        bool retrograde;
+        PosAsset astre;
+        PosAsset astre_r;
+        LineXY line;
+    };
     const int COLOR_MODE_LIGHT = 0;
     const int COLOR_MODE_DARK = 1;
     const int MAX_ASTRES = 14;
@@ -262,7 +269,12 @@ namespace sweinterfacelib {
          * Position des Signs
          */
         const PosAsset* theme_astral_signe_pos(int year, int month, int day, int hour, int min, double lat, double lng, int gmt, const char *ephem_path);
+        /*
+         * Astre position de l'image sans retrograde no lignes
+         */
+        const PosAstreAsset* theme_astral_astre_pos(int year, int month, int day, int hour, int min, double lat, double lng, int gmt, const char *ephem_path);
         const char *asset_sign(int sign);
+        const char *text_sign(int sign);
         const char *asset_house(int house, int color_mode);
         const char *asset_bodie(int bodie);
         const char *asset_bodie_r(int bodie);
