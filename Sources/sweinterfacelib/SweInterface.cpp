@@ -660,7 +660,7 @@ extern "C" {
         free(astres);
         return pos_asset;
     }
-    const PosAstreAsset* theme_astral_astre_pos(int year, int month, int day, int hour, int min, double lat, double lng, int gmt, const char *ephem_path) {
+    const PosAstreAsset* theme_astral_astre_pos(int year, int month, int day, int hour, int min, double lat, double lng, int gmt, const char *ephem_path, const char *aspect_option) {
         // Charger le path des ephem, depuis swift il est a préciser, sinon ça utilise de ce répertoire
         string ephem_path_string;
         if (strcmp(ephem_path, "") == 0) {
@@ -699,6 +699,29 @@ extern "C" {
             house[i] = Swe14::house(utc_to_jd.julian_day_ut, lat, lng, 'P', i + 1);
         }
 
+        // aspect_option
+        string s;
+        s = s.assign(aspect_option);
+        auto end = s.cend();
+        auto start = end;
+        vector<string> v_aspect_option;
+        for (auto it = s.cbegin(); it != end; ++it) {
+            if (*it != ',') {
+                if (start == end)
+                    start = it;
+                continue;
+            }
+            if (start != end) {
+                v_aspect_option.emplace_back(start, it);
+                start = end;
+            }
+        }
+        if (start != end)
+            v_aspect_option.emplace_back(start, end);
+        //
+
+
+
         int *astres = new int[MAX_ASTRES];
         astres[SOLEIL] = ASTRE_SOLEIL;
         astres[LUNE] = ASTRE_LUNE;
@@ -714,6 +737,24 @@ extern "C" {
         astres[CHIRON] = ASTRE_CHIRON;
         astres[CERES] = ASTRE_CERES;
         astres[NOEUD_LUNAIRE_SUD] = ASTRE_NOEUD_LUNAIRE_SUD;
+
+        int* astres_aspect = new int[MAX_ASTRES + 2];
+        astres_aspect[SOLEIL] = ASTRE_SOLEIL;
+        astres_aspect[LUNE] = ASTRE_LUNE;
+        astres_aspect[MERCURE] = ASTRE_MERCURE;
+        astres_aspect[VENUS] = ASTRE_VENUS;
+        astres_aspect[MARS] = ASTRE_MARS;
+        astres_aspect[JUPITER] = ASTRE_JUPITER;
+        astres_aspect[SATURN] = ASTRE_SATURN;
+        astres_aspect[URANUS] = ASTRE_URANUS;
+        astres_aspect[NEPTUNE] = ASTRE_NEPTUNE;
+        astres_aspect[PLUTON] = ASTRE_PLUTON;
+        astres_aspect[NOEUD_LUNAIRE] = ASTRE_NOEUD_LUNAIRE;
+        astres_aspect[CHIRON] = ASTRE_CHIRON;
+        astres_aspect[CERES] = ASTRE_CERES;
+        astres_aspect[NOEUD_LUNAIRE_SUD] = ASTRE_NOEUD_LUNAIRE_SUD;
+        astres_aspect[NOEUD_LUNAIRE_SUD + 1] = 98;
+        astres_aspect[NOEUD_LUNAIRE_SUD + 2] = 99;
 
         Document doc(CHART_SIZE, CHART_SIZE);
         Fill svg_fill;
@@ -743,7 +784,19 @@ extern "C" {
             }
             offset = DrawBodieAstre::bodie_astre(house[0], calcul_ut, false);
             lxy = dbl.line(house[0], calcul_ut, false);
-            paa[i].nom = text_bodie(i);
+            bool sw_aspect_i = false;
+            for (auto& l : v_aspect_option) {
+                if (stoi(l) == astres_aspect[i]) {
+                    sw_aspect_i = true;
+                    break;
+                }
+            }
+            if (sw_aspect_i) {
+                paa[i].nom = text_bodie(i);
+            } else {
+                paa[i].nom = "NULL";
+            }
+
             paa[i].retrograde = sw_retrograde;
             paa[i].astre.width = astre_size;
             paa[i].astre.height = astre_size;
