@@ -243,6 +243,7 @@ namespace sweinterfacelib {
         double y;
     };
     struct PosAstreAsset {
+        int id;
         const char* nom;
         bool retrograde;
         PosAsset astre;

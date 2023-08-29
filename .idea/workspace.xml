@@ -12,7 +12,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="231ca442-2f45-4892-bc00-20e04eb0cf61" name="Changes" comment="correction des fonctions pour mon interface cgi">
+    <list default="true" id="231ca442-2f45-4892-bc00-20e04eb0cf61" name="Changes" comment="correction">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -273,6 +273,8 @@
       <workItem from="1693214378284" duration="543000" />
       <workItem from="1693242307590" duration="1220000" />
       <workItem from="1693296590281" duration="3893000" />
+      <workItem from="1693301456653" duration="1429000" />
+      <workItem from="1693304836640" duration="10000" />
     </task>
     <task id="LOCAL-00001" summary="pour debug">
       <created>1680628357764</created>
@@ -608,7 +610,31 @@
       <option name="project" value="LOCAL" />
       <updated>1693299069667</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="vidage du pointer">
+      <option name="closed" value="true" />
+      <created>1693301999781</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1693301999781</updated>
+    </task>
+    <task id="LOCAL-00047" summary="vidage du pointer">
+      <option name="closed" value="true" />
+      <created>1693302097449</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1693302097449</updated>
+    </task>
+    <task id="LOCAL-00048" summary="correction">
+      <option name="closed" value="true" />
+      <created>1693302720569</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1693302720569</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -649,7 +675,9 @@
     <MESSAGE value="mise à jour des données des signes dans const PosAsset* (const MaisonPos* -&gt; const PosAsset*)" />
     <MESSAGE value="ajout logique pour les astres séparé pour exporation pour mon fcgi en c++" />
     <MESSAGE value="correction des fonctions pour mon interface cgi" />
-    <option name="LAST_COMMIT_MESSAGE" value="correction des fonctions pour mon interface cgi" />
+    <MESSAGE value="vidage du pointer" />
+    <MESSAGE value="correction" />
+    <option name="LAST_COMMIT_MESSAGE" value="correction" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

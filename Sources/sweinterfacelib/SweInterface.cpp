@@ -850,6 +850,7 @@ extern "C" {
                 }
             }
             if (sw_i) {
+                paa[i].id = astres_aspect[i];
                 paa[i].nom = text_bodie(i);
                 paa[i].retrograde = sw_retrograde;
                 paa[i].astre.width = astre_size;
@@ -868,7 +869,7 @@ extern "C" {
                     paa[i].astre_r.y = 0;
                 }
             } else {
-                paa[i].nom = "NULL";
+                paa[i].id = 0;
             }
 
             //doc << svg_line.generate(lxy.lx1, lxy.ly1, lxy.lx2, lxy.ly2);
