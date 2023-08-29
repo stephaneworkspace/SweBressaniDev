@@ -828,6 +828,7 @@ extern "C" {
         //svg_line.set_stroke(svg_stroke);
         //DrawBodieLines dbl;
         //LineXY lxy;
+        int j;
         for (int i = 0; i < MAX_ASTRES; ++i) {
             Offset offset;
             // Natal
@@ -850,27 +851,25 @@ extern "C" {
                 }
             }
             if (sw_i) {
-                paa[i].id = astres_aspect[i];
-                paa[i].nom = text_bodie(astres_aspect[i]);
-                paa[i].retrograde = sw_retrograde;
-                paa[i].astre.width = astre_size;
-                paa[i].astre.height = astre_size;
-                paa[i].astre.x = offset.x;
-                paa[i].astre.y = offset.y;
+                paa[j].id = astres_aspect[i];
+                paa[j].nom = text_bodie(astres_aspect[i]);
+                paa[j].retrograde = sw_retrograde;
+                paa[j].astre.width = astre_size;
+                paa[j].astre.height = astre_size;
+                paa[j].astre.x = offset.x;
+                paa[j].astre.y = offset.y;
                 if (sw_retrograde) {
-                    paa[i].astre_r.width = astre_r_size;
-                    paa[i].astre_r.height = astre_r_size;
-                    paa[i].astre_r.x = offset.x;
-                    paa[i].astre_r.y = offset.y;
+                    paa[j].astre_r.width = astre_r_size;
+                    paa[j].astre_r.height = astre_r_size;
+                    paa[j].astre_r.x = offset.x;
+                    paa[j].astre_r.y = offset.y;
                 } else {
-                    paa[i].astre_r.width = 0;
-                    paa[i].astre_r.height = 0;
-                    paa[i].astre_r.x = 0;
-                    paa[i].astre_r.y = 0;
+                    paa[j].astre_r.width = 0;
+                    paa[j].astre_r.height = 0;
+                    paa[j].astre_r.x = 0;
+                    paa[j].astre_r.y = 0;
                 }
-            } else {
-                paa[i].id = -1; // ignoré
-            }
+            j++;
 
             //doc << svg_line.generate(lxy.lx1, lxy.ly1, lxy.lx2, lxy.ly2);
 
