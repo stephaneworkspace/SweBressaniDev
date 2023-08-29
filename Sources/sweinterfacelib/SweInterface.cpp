@@ -568,7 +568,7 @@ extern "C" {
         return encoded.c_str();
     }
 
-    const PosAsset *theme_astral_maison_pos(int year, int month, int day, int hour, int min, double lat, double lng, int gmt, const char *ephem_path) {
+    const PosAsset* theme_astral_maison_pos(int year, int month, int day, int hour, int min, double lat, double lng, int gmt, const char *ephem_path) {
         // Charger le path des ephem, depuis swift il est a préciser, sinon ça utilise de ce répertoire
         string ephem_path_string;
         if (strcmp(ephem_path, "") == 0) {
@@ -851,25 +851,27 @@ extern "C" {
                 }
             }
             if (sw_i) {
-                paa[j].id = astres_aspect[i];
-                paa[j].nom = text_bodie(astres_aspect[i]);
-                paa[j].retrograde = sw_retrograde;
-                paa[j].astre.width = astre_size;
-                paa[j].astre.height = astre_size;
-                paa[j].astre.x = offset.x;
-                paa[j].astre.y = offset.y;
+                paa[i].id = astres_aspect[i];
+                paa[i].nom = text_bodie(astres_aspect[i]);
+                paa[i].retrograde = sw_retrograde;
+                paa[i].astre.width = astre_size;
+                paa[i].astre.height = astre_size;
+                paa[i].astre.x = offset.x;
+                paa[i].astre.y = offset.y;
                 if (sw_retrograde) {
-                    paa[j].astre_r.width = astre_r_size;
-                    paa[j].astre_r.height = astre_r_size;
-                    paa[j].astre_r.x = offset.x;
-                    paa[j].astre_r.y = offset.y;
+                    paa[i].astre_r.width = astre_r_size;
+                    paa[i].astre_r.height = astre_r_size;
+                    paa[i].astre_r.x = offset.x;
+                    paa[i].astre_r.y = offset.y;
                 } else {
-                    paa[j].astre_r.width = 0;
-                    paa[j].astre_r.height = 0;
-                    paa[j].astre_r.x = 0;
-                    paa[j].astre_r.y = 0;
+                    paa[i].astre_r.width = 0;
+                    paa[i].astre_r.height = 0;
+                    paa[i].astre_r.x = 0;
+                    paa[i].astre_r.y = 0;
                 }
-                j++;
+            } else {
+                // ignoré
+                paa[i] = -1;
             }
 
             //doc << svg_line.generate(lxy.lx1, lxy.ly1, lxy.lx2, lxy.ly2);
