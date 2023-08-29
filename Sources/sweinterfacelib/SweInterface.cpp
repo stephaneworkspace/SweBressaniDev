@@ -557,7 +557,7 @@ extern "C" {
             }
         }
 
-            static std::string encoded;
+        static std::string encoded;
         if (!Base64::Encode(doc.generate(), &encoded)) {
             std::cout << "Failed to encode input string" << std::endl;
             //return false;

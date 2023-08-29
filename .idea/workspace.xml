@@ -12,8 +12,9 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="231ca442-2f45-4892-bc00-20e04eb0cf61" name="Changes" comment="ajout logique pour les astres séparé pour exporation pour mon fcgi en c++">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="231ca442-2f45-4892-bc00-20e04eb0cf61" name="Changes" comment="correction des fonctions pour mon interface cgi">
+      <change beforePath="$PROJECT_DIR$/Sources/sweinterfacelib/SweInterface.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Sources/sweinterfacelib/SweInterface.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake_compile_cpp_only/Sources/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake_compile_cpp_only/Sources/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -272,6 +273,7 @@
       <workItem from="1693207945663" duration="2453000" />
       <workItem from="1693214378284" duration="543000" />
       <workItem from="1693242307590" duration="1220000" />
+      <workItem from="1693296590281" duration="1422000" />
     </task>
     <task id="LOCAL-00001" summary="pour debug">
       <created>1680628357764</created>
@@ -575,7 +577,15 @@
       <option name="project" value="LOCAL" />
       <updated>1693242911807</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="correction des fonctions pour mon interface cgi">
+      <option name="closed" value="true" />
+      <created>1693297101565</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1693297101565</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -615,7 +625,8 @@
     <MESSAGE value="mise à jour" />
     <MESSAGE value="mise à jour des données des signes dans const PosAsset* (const MaisonPos* -&gt; const PosAsset*)" />
     <MESSAGE value="ajout logique pour les astres séparé pour exporation pour mon fcgi en c++" />
-    <option name="LAST_COMMIT_MESSAGE" value="ajout logique pour les astres séparé pour exporation pour mon fcgi en c++" />
+    <MESSAGE value="correction des fonctions pour mon interface cgi" />
+    <option name="LAST_COMMIT_MESSAGE" value="correction des fonctions pour mon interface cgi" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
