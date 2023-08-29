@@ -851,7 +851,7 @@ extern "C" {
             }
             if (sw_i) {
                 paa[i].id = astres_aspect[i];
-                paa[i].nom = text_bodie(i);
+                paa[i].nom = text_bodie(astres_aspect[i]);
                 paa[i].retrograde = sw_retrograde;
                 paa[i].astre.width = astre_size;
                 paa[i].astre.height = astre_size;

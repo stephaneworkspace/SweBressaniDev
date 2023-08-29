@@ -12,9 +12,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="231ca442-2f45-4892-bc00-20e04eb0cf61" name="Changes" comment="correction">
-      <change beforePath="$PROJECT_DIR$/Sources/sweinterfacelib/SweInterface.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Sources/sweinterfacelib/SweInterface.cpp" afterDir="false" />
-    </list>
+    <list default="true" id="231ca442-2f45-4892-bc00-20e04eb0cf61" name="Changes" comment="correction" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -274,7 +272,7 @@
       <workItem from="1693242307590" duration="1220000" />
       <workItem from="1693296590281" duration="3893000" />
       <workItem from="1693301456653" duration="1429000" />
-      <workItem from="1693304836640" duration="449000" />
+      <workItem from="1693304836640" duration="463000" />
     </task>
     <task id="LOCAL-00001" summary="pour debug">
       <created>1680628357764</created>
@@ -458,14 +456,6 @@
       <option name="project" value="LOCAL" />
       <updated>1692188707730</updated>
     </task>
-    <task id="LOCAL-00027" summary="petite correction">
-      <option name="closed" value="true" />
-      <created>1692260250150</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1692260250150</updated>
-    </task>
     <task id="LOCAL-00028" summary="petite correction">
       <option name="closed" value="true" />
       <created>1692262157415</created>
@@ -642,7 +632,15 @@
       <option name="project" value="LOCAL" />
       <updated>1693304962417</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="correction">
+      <option name="closed" value="true" />
+      <created>1693305291435</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1693305291436</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
