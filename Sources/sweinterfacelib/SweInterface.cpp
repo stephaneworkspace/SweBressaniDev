@@ -869,7 +869,7 @@ extern "C" {
                     paa[i].astre_r.y = 0;
                 }
             } else {
-                paa[i].id = 0;
+                paa[i].id = -1; // ignoré
             }
 
             //doc << svg_line.generate(lxy.lx1, lxy.ly1, lxy.lx2, lxy.ly2);
