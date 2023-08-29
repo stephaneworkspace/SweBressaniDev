@@ -541,20 +541,20 @@ extern "C" {
 
         DrawBodieLines dbl;
         for (int i = 0; i < MAX_ASTRES; ++i) {
-            /*bool sw_aspect_i = false;
+            bool sw_i = false;
             for (auto &l: v_aspect_option) {
                 if (stoi(l) == astres_aspect[i]) {
-                    sw_aspect_i = true;
+                    sw_i = true;
                     break;
                 }
-            }*/
-            //if (sw_aspect_i) {
+            }
+            if (sw_i) {
                 // Natal
                 CalcUt calcul_ut = Swe03::calc_ut(utc_to_jd.julian_day_ut, astres[i], OPTION_FLAG_SPEED);
                 Offset offset = DrawBodieAstre::bodie_astre(house[0], calcul_ut, false);
                 lxy = dbl.line(house[0], calcul_ut, false);
                 doc << svg_line.generate(lxy.lx1, lxy.ly1, lxy.lx2, lxy.ly2);
-            //}
+            }
         }
 
         static std::string encoded;
@@ -839,14 +839,14 @@ extern "C" {
             }
             offset = DrawBodieAstre::bodie_astre(house[0], calcul_ut, false);
             //lxy = dbl.line(house[0], calcul_ut, false);
-            bool sw_aspect_i = false;
+            bool sw_i = false;
             for (auto& l : v_aspect_option) {
                 if (stoi(l) == astres_aspect[i]) {
-                    sw_aspect_i = true;
+                    sw_i = true;
                     break;
                 }
             }
-            if (sw_aspect_i) {
+            if (sw_i) {
                 paa[i].nom = text_bodie(i);
             } else {
                 paa[i].nom = "NULL";
