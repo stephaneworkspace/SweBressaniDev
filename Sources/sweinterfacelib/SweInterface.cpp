@@ -715,7 +715,6 @@ extern "C" {
         }
 
         free(astres);
-        free(astres_aspect);
         return pos_asset;
     }
     const PosAstreAsset* theme_astral_astre_pos(int year, int month, int day, int hour, int min, double lat, double lng, int gmt, const char *ephem_path, const char *aspect_option) {
@@ -893,6 +892,7 @@ extern "C" {
         }
 
         free(astres);
+        free(astres_aspect);
         return paa;
     }
     const char *asset_sign(int sign) {
