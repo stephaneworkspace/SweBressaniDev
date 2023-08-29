@@ -551,7 +551,7 @@ extern "C" {
             if (sw_i) {
                 // Natal
                 CalcUt calcul_ut = Swe03::calc_ut(utc_to_jd.julian_day_ut, astres[i], OPTION_FLAG_SPEED);
-                Offset offset = DrawBodieAstre::bodie_astre(house[0], calcul_ut, false);
+                //Offset offset = DrawBodieAstre::bodie_astre(house[0], calcul_ut, false);
                 lxy = dbl.line(house[0], calcul_ut, false);
                 doc << svg_line.generate(lxy.lx1, lxy.ly1, lxy.lx2, lxy.ly2);
             }
@@ -567,6 +567,7 @@ extern "C" {
         free(astres);
         return encoded.c_str();
     }
+
     const PosAsset *theme_astral_maison_pos(int year, int month, int day, int hour, int min, double lat, double lng, int gmt, const char *ephem_path) {
         // Charger le path des ephem, depuis swift il est a préciser, sinon ça utilise de ce répertoire
         string ephem_path_string;
@@ -643,6 +644,7 @@ extern "C" {
         free(astres);
         return pos_asset;
     }
+
     const PosAsset* theme_astral_signe_pos(int year, int month, int day, int hour, int min, double lat, double lng, int gmt, const char *ephem_path) {
         // Charger le path des ephem, depuis swift il est a préciser, sinon ça utilise de ce répertoire
         string ephem_path_string;
@@ -717,6 +719,7 @@ extern "C" {
         free(astres);
         return pos_asset;
     }
+
     const PosAstreAsset* theme_astral_astre_pos(int year, int month, int day, int hour, int min, double lat, double lng, int gmt, const char *ephem_path, const char *aspect_option) {
         // Charger le path des ephem, depuis swift il est a préciser, sinon ça utilise de ce répertoire
         string ephem_path_string;
@@ -848,26 +851,26 @@ extern "C" {
             }
             if (sw_i) {
                 paa[i].nom = text_bodie(i);
+                paa[i].retrograde = sw_retrograde;
+                paa[i].astre.width = astre_size;
+                paa[i].astre.height = astre_size;
+                paa[i].astre.x = offset.x;
+                paa[i].astre.y = offset.y;
+                if (sw_retrograde) {
+                    paa[i].astre_r.width = astre_r_size;
+                    paa[i].astre_r.height = astre_r_size;
+                    paa[i].astre_r.x = offset.x;
+                    paa[i].astre_r.y = offset.y;
+                } else {
+                    paa[i].astre_r.width = 0;
+                    paa[i].astre_r.height = 0;
+                    paa[i].astre_r.x = 0;
+                    paa[i].astre_r.y = 0;
+                }
             } else {
                 paa[i].nom = "NULL";
             }
 
-            paa[i].retrograde = sw_retrograde;
-            paa[i].astre.width = astre_size;
-            paa[i].astre.height = astre_size;
-            paa[i].astre.x = offset.x;
-            paa[i].astre.y = offset.y;
-            if (sw_retrograde) {
-                paa[i].astre_r.width = astre_r_size;
-                paa[i].astre_r.height = astre_r_size;
-                paa[i].astre_r.x = offset.x;
-                paa[i].astre_r.y = offset.y;
-            } else {
-                paa[i].astre_r.width = 0;
-                paa[i].astre_r.height = 0;
-                paa[i].astre_r.x = 0;
-                paa[i].astre_r.y = 0;
-            }
             //doc << svg_line.generate(lxy.lx1, lxy.ly1, lxy.lx2, lxy.ly2);
 
             /*// Transit
