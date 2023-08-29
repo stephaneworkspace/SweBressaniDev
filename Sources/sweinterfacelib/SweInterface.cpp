@@ -869,6 +869,7 @@ extern "C" {
                     paa[j].astre_r.x = 0;
                     paa[j].astre_r.y = 0;
                 }
+            }
             j++;
 
             //doc << svg_line.generate(lxy.lx1, lxy.ly1, lxy.lx2, lxy.ly2);
