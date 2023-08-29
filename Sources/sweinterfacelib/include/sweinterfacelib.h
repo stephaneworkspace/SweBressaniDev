@@ -247,7 +247,6 @@ namespace sweinterfacelib {
         bool retrograde;
         PosAsset astre;
         PosAsset astre_r;
-        LineXY line;
     };
     const int COLOR_MODE_LIGHT = 0;
     const int COLOR_MODE_DARK = 1;

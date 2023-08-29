@@ -271,7 +271,7 @@
       <workItem from="1693129330160" duration="1648000" />
       <workItem from="1693207945663" duration="2453000" />
       <workItem from="1693214378284" duration="543000" />
-      <workItem from="1693242307590" duration="5000" />
+      <workItem from="1693242307590" duration="1220000" />
     </task>
     <task id="LOCAL-00001" summary="pour debug">
       <created>1680628357764</created>
@@ -567,7 +567,15 @@
       <option name="project" value="LOCAL" />
       <updated>1693210395302</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="ajout logique pour les astres séparé pour exporation pour mon fcgi en c++">
+      <option name="closed" value="true" />
+      <created>1693242911807</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1693242911807</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

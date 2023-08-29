@@ -391,6 +391,27 @@ extern "C" {
             house[i] = Swe14::house(utc_to_jd.julian_day_ut, lat, lng, 'P', i + 1);
         }
 
+        // aspect_option
+        string s;
+        s = s.assign(aspect_option);
+        auto end = s.cend();
+        auto start = end;
+        vector<string> v_aspect_option;
+        for (auto it = s.cbegin(); it != end; ++it) {
+            if (*it != ',') {
+                if (start == end)
+                    start = it;
+                continue;
+            }
+            if (start != end) {
+                v_aspect_option.emplace_back(start, it);
+                start = end;
+            }
+        }
+        if (start != end)
+            v_aspect_option.emplace_back(start, end);
+        //
+
         int *astres = new int[MAX_ASTRES];
         astres[SOLEIL] = ASTRE_SOLEIL;
         astres[LUNE] = ASTRE_LUNE;
@@ -406,6 +427,24 @@ extern "C" {
         astres[CHIRON] = ASTRE_CHIRON;
         astres[CERES] = ASTRE_CERES;
         astres[NOEUD_LUNAIRE_SUD] = ASTRE_NOEUD_LUNAIRE_SUD;
+
+        int *astres_aspect = new int[MAX_ASTRES + 2];
+        astres_aspect[SOLEIL] = ASTRE_SOLEIL;
+        astres_aspect[LUNE] = ASTRE_LUNE;
+        astres_aspect[MERCURE] = ASTRE_MERCURE;
+        astres_aspect[VENUS] = ASTRE_VENUS;
+        astres_aspect[MARS] = ASTRE_MARS;
+        astres_aspect[JUPITER] = ASTRE_JUPITER;
+        astres_aspect[SATURN] = ASTRE_SATURN;
+        astres_aspect[URANUS] = ASTRE_URANUS;
+        astres_aspect[NEPTUNE] = ASTRE_NEPTUNE;
+        astres_aspect[PLUTON] = ASTRE_PLUTON;
+        astres_aspect[NOEUD_LUNAIRE] = ASTRE_NOEUD_LUNAIRE;
+        astres_aspect[CHIRON] = ASTRE_CHIRON;
+        astres_aspect[CERES] = ASTRE_CERES;
+        astres_aspect[NOEUD_LUNAIRE_SUD] = ASTRE_NOEUD_LUNAIRE_SUD;
+        astres_aspect[NOEUD_LUNAIRE_SUD + 1] = 98;
+        astres_aspect[NOEUD_LUNAIRE_SUD + 2] = 99;
 
         Document doc(CHART_SIZE, CHART_SIZE);
         Fill svg_fill;
@@ -500,7 +539,25 @@ extern "C" {
             doc << svg_line.generate(lz[i].lx1, lz[i].ly1, lz[i].lx2, lz[i].ly2);
         }
 
-        static std::string encoded;
+        DrawBodieLines dbl;
+        for (int i = 0; i < MAX_ASTRES; ++i) {
+            bool sw_aspect_i = false;
+            for (auto &l: v_aspect_option) {
+                if (stoi(l) == astres_aspect[i]) {
+                    sw_aspect_i = true;
+                    break;
+                }
+            }
+            if (sw_aspect_i) {
+                // Natal
+                CalcUt calcul_ut = Swe03::calc_ut(utc_to_jd.julian_day_ut, astres[i], OPTION_FLAG_SPEED);
+                Offset offset = DrawBodieAstre::bodie_astre(house[0], calcul_ut, false);
+                lxy = dbl.line(house[0], calcul_ut, false);
+                doc << svg_line.generate(lxy.lx1, lxy.ly1, lxy.lx2, lxy.ly2);
+            }
+        }
+
+            static std::string encoded;
         if (!Base64::Encode(doc.generate(), &encoded)) {
             std::cout << "Failed to encode input string" << std::endl;
             //return false;
@@ -720,8 +777,6 @@ extern "C" {
             v_aspect_option.emplace_back(start, end);
         //
 
-
-
         int *astres = new int[MAX_ASTRES];
         astres[SOLEIL] = ASTRE_SOLEIL;
         astres[LUNE] = ASTRE_LUNE;
@@ -768,8 +823,8 @@ extern "C" {
         //svg_stroke.stroke_str = color_mode == COLOR_MODE_LIGHT ? "black" : "white";
         //svg_stroke.stroke_width = 1;
         //svg_line.set_stroke(svg_stroke);
-        DrawBodieLines dbl;
-        LineXY lxy;
+        //DrawBodieLines dbl;
+        //LineXY lxy;
         for (int i = 0; i < MAX_ASTRES; ++i) {
             Offset offset;
             // Natal
@@ -783,7 +838,7 @@ extern "C" {
                 sw_retrograde = true;
             }
             offset = DrawBodieAstre::bodie_astre(house[0], calcul_ut, false);
-            lxy = dbl.line(house[0], calcul_ut, false);
+            //lxy = dbl.line(house[0], calcul_ut, false);
             bool sw_aspect_i = false;
             for (auto& l : v_aspect_option) {
                 if (stoi(l) == astres_aspect[i]) {
@@ -814,10 +869,6 @@ extern "C" {
                 paa[i].astre_r.y = 0;
             }
             //doc << svg_line.generate(lxy.lx1, lxy.ly1, lxy.lx2, lxy.ly2);
-            paa[i].line.lx1 = lxy.lx1;
-            paa[i].line.ly1 = lxy.ly1;
-            paa[i].line.lx2 = lxy.lx2;
-            paa[i].line.ly2 = lxy.ly2;
 
             /*// Transit
             CalcUt calcul_ut_t = Swe03::calc_ut(utc_to_jd_t.julian_day_ut, astres[i], OPTION_FLAG_SPEED);
