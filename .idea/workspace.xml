@@ -12,9 +12,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="231ca442-2f45-4892-bc00-20e04eb0cf61" name="Changes" comment="ajout d'une couleur eau plus clair 009FFF pour le cancer, scorpion et poisson, il ne devrait pas y avoir de changement dans l'utilisation de mon source switf qui utilise cette lib, mais pour le fastcgi en c++ il y a changement">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="231ca442-2f45-4892-bc00-20e04eb0cf61" name="Changes" comment="ajout d'une couleur eau plus clair 009FFF pour le cancer, scorpion et poisson, il ne devrait pas y avoir de changement dans l'utilisation de mon source switf qui utilise cette lib, mais pour le fastcgi en c++ il y a changement" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -279,7 +277,7 @@
       <workItem from="1693307379182" duration="475000" />
       <workItem from="1694782439596" duration="32000" />
       <workItem from="1694782494522" duration="1943000" />
-      <workItem from="1694784779161" duration="6000" />
+      <workItem from="1694784779161" duration="75000" />
     </task>
     <task id="LOCAL-00001" summary="pour debug">
       <created>1680628357764</created>
@@ -463,14 +461,6 @@
       <option name="project" value="LOCAL" />
       <updated>1692188707730</updated>
     </task>
-    <task id="LOCAL-00037" summary="écriture de theme_astral_maison_pos">
-      <option name="closed" value="true" />
-      <created>1692787624166</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1692787624166</updated>
-    </task>
     <task id="LOCAL-00038" summary="mise à jour">
       <option name="closed" value="true" />
       <created>1692945918081</created>
@@ -647,7 +637,15 @@
       <option name="project" value="LOCAL" />
       <updated>1694784420982</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="ajout d'une couleur eau plus clair 009FFF pour le cancer, scorpion et poisson, il ne devrait pas y avoir de changement dans l'utilisation de mon source switf qui utilise cette lib, mais pour le fastcgi en c++ il y a changement">
+      <option name="closed" value="true" />
+      <created>1694784843739</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1694784843740</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
