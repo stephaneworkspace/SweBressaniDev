@@ -85,7 +85,7 @@ const int ASTRE_PART_FORTUNE = 25;
 
 int cwrapperfive();
 const char *theme_astral(int year, int month, int day, int hour, int min, double lat, double lng, int gmt, const char *ephem_path, int color_mode, const char* aspect_option);
-const char *a_sign(int sign);
+const char *a_sign(int sign, int color_mode);
 const char *a_house(int house, int color_mode);
 const char *a_bodie(int bodie);
 const char *a_bodie_r(int bodie);

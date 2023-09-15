@@ -14,10 +14,6 @@
   <component name="ChangeListManager">
     <list default="true" id="231ca442-2f45-4892-bc00-20e04eb0cf61" name="Changes" comment="ajout d'une couleur eau plus clair 009FFF pour le cancer, scorpion et poisson, il ne devrait pas y avoir de changement dans l'utilisation de mon source switf qui utilise cette lib, mais pour le fastcgi en c++ il y a changement">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sources/sweinterfacelib/SweInterface.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Sources/sweinterfacelib/SweInterface.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sources/sweinterfacelib/astre.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Sources/sweinterfacelib/astre.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sources/sweinterfacelib/include/sweinterfacelib.h" beforeDir="false" afterPath="$PROJECT_DIR$/Sources/sweinterfacelib/include/sweinterfacelib.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sources/sweinterfacelib/sign.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Sources/sweinterfacelib/sign.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -282,7 +278,8 @@
       <workItem from="1693305423893" duration="1693000" />
       <workItem from="1693307379182" duration="475000" />
       <workItem from="1694782439596" duration="32000" />
-      <workItem from="1694782494522" duration="1912000" />
+      <workItem from="1694782494522" duration="1943000" />
+      <workItem from="1694784779161" duration="6000" />
     </task>
     <task id="LOCAL-00001" summary="pour debug">
       <created>1680628357764</created>
@@ -466,14 +463,6 @@
       <option name="project" value="LOCAL" />
       <updated>1692188707730</updated>
     </task>
-    <task id="LOCAL-00036" summary="écriture de theme_astral_maison_pos">
-      <option name="closed" value="true" />
-      <created>1692787326657</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1692787326657</updated>
-    </task>
     <task id="LOCAL-00037" summary="écriture de theme_astral_maison_pos">
       <option name="closed" value="true" />
       <created>1692787624166</created>
@@ -650,7 +639,15 @@
       <option name="project" value="LOCAL" />
       <updated>1693307423454</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="ajout d'une couleur eau plus clair 009FFF pour le cancer, scorpion et poisson, il ne devrait pas y avoir de changement dans l'utilisation de mon source switf qui utilise cette lib, mais pour le fastcgi en c++ il y a changement">
+      <option name="closed" value="true" />
+      <created>1694784420981</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1694784420982</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

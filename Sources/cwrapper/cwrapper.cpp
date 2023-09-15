@@ -14,8 +14,8 @@ const char *theme_astral(int year, int month, int day, int hour, int min, double
     return sweinterfacelib::theme_astral_svg(year, month, day, hour, min, lat, lng, gmt, ephem_path, color_mode, aspect_option);
 }
 
-const char *a_sign(int sign) {
-    return sweinterfacelib::asset_sign(sign);
+const char *a_sign(int sign, int color_mode) {
+    return sweinterfacelib::asset_sign(sign, color_mode);
 }
 
 const char *a_house(int house, int color_mode) {
