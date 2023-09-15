@@ -12,8 +12,12 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="231ca442-2f45-4892-bc00-20e04eb0cf61" name="Changes" comment="correction">
+    <list default="true" id="231ca442-2f45-4892-bc00-20e04eb0cf61" name="Changes" comment="ajout d'une couleur eau plus clair 009FFF pour le cancer, scorpion et poisson, il ne devrait pas y avoir de changement dans l'utilisation de mon source switf qui utilise cette lib, mais pour le fastcgi en c++ il y a changement">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sources/sweinterfacelib/SweInterface.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Sources/sweinterfacelib/SweInterface.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sources/sweinterfacelib/astre.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Sources/sweinterfacelib/astre.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sources/sweinterfacelib/include/sweinterfacelib.h" beforeDir="false" afterPath="$PROJECT_DIR$/Sources/sweinterfacelib/include/sweinterfacelib.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sources/sweinterfacelib/sign.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Sources/sweinterfacelib/sign.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -276,7 +280,9 @@
       <workItem from="1693301456653" duration="1429000" />
       <workItem from="1693304836640" duration="463000" />
       <workItem from="1693305423893" duration="1693000" />
-      <workItem from="1693307379182" duration="5000" />
+      <workItem from="1693307379182" duration="475000" />
+      <workItem from="1694782439596" duration="32000" />
+      <workItem from="1694782494522" duration="1912000" />
     </task>
     <task id="LOCAL-00001" summary="pour debug">
       <created>1680628357764</created>
@@ -460,14 +466,6 @@
       <option name="project" value="LOCAL" />
       <updated>1692188707730</updated>
     </task>
-    <task id="LOCAL-00035" summary="écriture de theme_astral_empty_svg">
-      <option name="closed" value="true" />
-      <created>1692781203230</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1692781203230</updated>
-    </task>
     <task id="LOCAL-00036" summary="écriture de theme_astral_maison_pos">
       <option name="closed" value="true" />
       <created>1692787326657</created>
@@ -644,7 +642,15 @@
       <option name="project" value="LOCAL" />
       <updated>1693307092995</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="libération mémoire">
+      <option name="closed" value="true" />
+      <created>1693307423454</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1693307423454</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -663,7 +669,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="pour debug" />
     <MESSAGE value="pour debug enlevé" />
     <MESSAGE value="ok" />
     <MESSAGE value="préparation d'un script d'export vers une interface ruby rails" />
@@ -687,7 +692,9 @@
     <MESSAGE value="correction des fonctions pour mon interface cgi" />
     <MESSAGE value="vidage du pointer" />
     <MESSAGE value="correction" />
-    <option name="LAST_COMMIT_MESSAGE" value="correction" />
+    <MESSAGE value="libération mémoire" />
+    <MESSAGE value="ajout d'une couleur eau plus clair 009FFF pour le cancer, scorpion et poisson, il ne devrait pas y avoir de changement dans l'utilisation de mon source switf qui utilise cette lib, mais pour le fastcgi en c++ il y a changement" />
+    <option name="LAST_COMMIT_MESSAGE" value="ajout d'une couleur eau plus clair 009FFF pour le cancer, scorpion et poisson, il ne devrait pas y avoir de changement dans l'utilisation de mon source switf qui utilise cette lib, mais pour le fastcgi en c++ il y a changement" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

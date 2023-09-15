@@ -165,7 +165,7 @@ extern "C" {
             Offset offset;
             zodiac_size = DrawZodiacSign::zodiac_size();
             offset = DrawZodiacSign::zodiac_sign(i, house[0]);
-            doc << Image::generate(zodiac_size, zodiac_size, offset.x, offset.y, Sign::read_svg(i).c_str());
+            doc << Image::generate(zodiac_size, zodiac_size, offset.x, offset.y, Sign::read_svg(i, color_mode).c_str());
         }
 
         // Draw astre image + line
@@ -902,8 +902,8 @@ extern "C" {
         free(astres_aspect);
         return paa;
     }
-    const char *asset_sign(int sign) {
-        return sweinterfacelib::Sign::read_svg_c(sign);
+    const char *asset_sign(int sign, int color_mode) {
+        return sweinterfacelib::Sign::read_svg_c(sign, color_mode);
     }
     const char *text_sign(int sign) {
         string n = sweinterfacelib::Sign::nom(sign);

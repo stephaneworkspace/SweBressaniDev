@@ -274,12 +274,12 @@ string* Astre::sign_name_and_svg(CalcUt calcul_ut) {
         }
         if (calcul_ut.longitude >= pos && calcul_ut.longitude <= pos + 30) {
             res[0] = Sign::nom(s);
-            res[1] = Sign::read_svg(s);
+            res[1] = Sign::read_svg(s, COLOR_MODE_LIGHT);
             return res;
         }
     }
     res[0] = Sign::nom(s);
-    res[1] = Sign::read_svg(s);
+    res[1] = Sign::read_svg(s, COLOR_MODE_LIGHT);
     return res;
 }
 

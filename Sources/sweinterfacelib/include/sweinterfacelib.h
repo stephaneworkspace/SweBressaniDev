@@ -273,7 +273,7 @@ namespace sweinterfacelib {
          * Astre position de l'image sans retrograde no lignes
          */
         const PosAstreAsset* theme_astral_astre_pos(int year, int month, int day, int hour, int min, double lat, double lng, int gmt, const char *ephem_path, const char* aspect_option);
-        const char *asset_sign(int sign);
+        const char *asset_sign(int sign, int color_mode);
         const char *text_sign(int sign);
         const char *asset_house(int house, int color_mode);
         const char *asset_bodie(int bodie);
@@ -383,9 +383,9 @@ namespace sweinterfacelib {
         };
         class Sign {
         public:
-            static string read_svg(int sign);
-            static const char *read_svg_c(int sign);
-            static string nom(int sign);
+            static const string read_svg(int sign, int color_mode);
+            static const char *read_svg_c(int sign, int color_mode);
+            const static string nom(int sign);
         };
         class Swe02 {
         public:
