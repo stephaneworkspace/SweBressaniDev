@@ -294,6 +294,8 @@ namespace sweinterfacelib {
             static int *angle(int a);
             static string read_svg(int a);
             static const char* read_svg_c(int a);
+            static string read_svg2(int a, int color_mode);
+            static const char *read_svg_c2(int a, int color_mode);
             static const char* name(int a);
             static const char* name_fr(int a);
             static int type_aspect(int a);
