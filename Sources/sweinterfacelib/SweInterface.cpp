@@ -928,6 +928,9 @@ extern "C" {
     const char *asset_aspect(int aspect) {
         return sweinterfacelib::Aspect::read_svg_c(aspect);
     }
+    const char *asset_aspect2(int aspect, int color_mode) {
+        return sweinterfacelib::Aspect::read_svg_c2(aspect, color_mode);
+    }
     const char *text_aspect(int aspect) {
         return sweinterfacelib::Aspect::name_fr(aspect);
     }

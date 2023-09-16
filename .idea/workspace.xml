@@ -12,7 +12,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="231ca442-2f45-4892-bc00-20e04eb0cf61" name="Changes" comment="ajout d'une couleur eau plus clair 009FFF pour le cancer, scorpion et poisson, il ne devrait pas y avoir de changement dans l'utilisation de mon source switf qui utilise cette lib, mais pour le fastcgi en c++ il y a changement">
+    <list default="true" id="231ca442-2f45-4892-bc00-20e04eb0cf61" name="Changes" comment="ajout d'un bleu plus clair pour les aspects:&#10;&#10;Conjonction (Conjunction) :&#10;Neutre : C'est un aspect qui tend à mélanger et à fusionner les énergies des planètes impliquées, et cela peut avoir des effets bénéfiques ou maléfiques, selon la nature des planètes concernées.&#10;Opposition :&#10;Maléfique : Cet aspect est souvent interprété comme créant des tensions et des défis, bien qu'il puisse aussi apporter une perspective et un équilibre nécessaires.&#10;Trigone (Trine) :&#10;Bénéfique : Il est généralement vu comme un aspect harmonieux, apportant facilité et flux naturel dans les domaines représentés par les planètes et les signes concernés.&#10;Carré (Square) :&#10;Maléfique : C'est un aspect tendu qui indique des défis, des frictions et des conflits potentiels.&#10;Sextile :&#10;Bénéfique : C'est un aspect favorable qui peut indiquer des opportunités et une coopération positive.&#10;In conjonction (Inconjunct/Quincunx) :&#10;Neutre/Maléfique : C'est un aspect qui peut créer des malentendus et une certaine tension, mais qui peut aussi apporter une croissance par l'ajustement et l'adaptation.&#10;Sesquicarré (Sesquisquare) :&#10;Maléfique : C'est un aspect tendu qui peut indiquer des défis et des tensions, similaire à un aspect carré mais potentiellement moins intense.&#10;Demi-carré (Semisquare) :&#10;Maléfique : C'est un autre aspect qui indique des tensions et des défis, bien que généralement moins intenses que ceux d'un carré complet.&#10;Semi-sextile (Semisextile) :&#10;Neutre/Bénéfique : C'est un aspect qui peut indiquer une opportunité de croissance et d'harmonie, bien que cela puisse aussi impliquer de petits défis et des ajustements nécessaires.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -280,6 +280,8 @@
       <workItem from="1694782439596" duration="32000" />
       <workItem from="1694782494522" duration="1943000" />
       <workItem from="1694784779161" duration="509000" />
+      <workItem from="1694850495293" duration="1503000" />
+      <workItem from="1694862498570" duration="10000" />
     </task>
     <task id="LOCAL-00001" summary="pour debug">
       <created>1680628357764</created>
@@ -463,14 +465,6 @@
       <option name="project" value="LOCAL" />
       <updated>1692188707730</updated>
     </task>
-    <task id="LOCAL-00039" summary="mise à jour des données des signes dans const PosAsset* (const MaisonPos* -&gt; const PosAsset*)">
-      <option name="closed" value="true" />
-      <created>1693130387826</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1693130387826</updated>
-    </task>
     <task id="LOCAL-00040" summary="ajout logique pour les astres séparé pour exporation pour mon fcgi en c++">
       <option name="closed" value="true" />
       <created>1693210395302</created>
@@ -647,7 +641,15 @@
       <option name="project" value="LOCAL" />
       <updated>1694785319068</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="ajout d'un bleu plus clair pour les aspects:&#10;&#10;Conjonction (Conjunction) :&#10;Neutre : C'est un aspect qui tend à mélanger et à fusionner les énergies des planètes impliquées, et cela peut avoir des effets bénéfiques ou maléfiques, selon la nature des planètes concernées.&#10;Opposition :&#10;Maléfique : Cet aspect est souvent interprété comme créant des tensions et des défis, bien qu'il puisse aussi apporter une perspective et un équilibre nécessaires.&#10;Trigone (Trine) :&#10;Bénéfique : Il est généralement vu comme un aspect harmonieux, apportant facilité et flux naturel dans les domaines représentés par les planètes et les signes concernés.&#10;Carré (Square) :&#10;Maléfique : C'est un aspect tendu qui indique des défis, des frictions et des conflits potentiels.&#10;Sextile :&#10;Bénéfique : C'est un aspect favorable qui peut indiquer des opportunités et une coopération positive.&#10;In conjonction (Inconjunct/Quincunx) :&#10;Neutre/Maléfique : C'est un aspect qui peut créer des malentendus et une certaine tension, mais qui peut aussi apporter une croissance par l'ajustement et l'adaptation.&#10;Sesquicarré (Sesquisquare) :&#10;Maléfique : C'est un aspect tendu qui peut indiquer des défis et des tensions, similaire à un aspect carré mais potentiellement moins intense.&#10;Demi-carré (Semisquare) :&#10;Maléfique : C'est un autre aspect qui indique des tensions et des défis, bien que généralement moins intenses que ceux d'un carré complet.&#10;Semi-sextile (Semisextile) :&#10;Neutre/Bénéfique : C'est un aspect qui peut indiquer une opportunité de croissance et d'harmonie, bien que cela puisse aussi impliquer de petits défis et des ajustements nécessaires.">
+      <option name="closed" value="true" />
+      <created>1694854571077</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1694854571077</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -666,7 +668,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="pour debug enlevé" />
     <MESSAGE value="ok" />
     <MESSAGE value="préparation d'un script d'export vers une interface ruby rails" />
     <MESSAGE value="ajout des signes en exporation" />
@@ -691,7 +692,8 @@
     <MESSAGE value="correction" />
     <MESSAGE value="libération mémoire" />
     <MESSAGE value="ajout d'une couleur eau plus clair 009FFF pour le cancer, scorpion et poisson, il ne devrait pas y avoir de changement dans l'utilisation de mon source switf qui utilise cette lib, mais pour le fastcgi en c++ il y a changement" />
-    <option name="LAST_COMMIT_MESSAGE" value="ajout d'une couleur eau plus clair 009FFF pour le cancer, scorpion et poisson, il ne devrait pas y avoir de changement dans l'utilisation de mon source switf qui utilise cette lib, mais pour le fastcgi en c++ il y a changement" />
+    <MESSAGE value="ajout d'un bleu plus clair pour les aspects:&#10;&#10;Conjonction (Conjunction) :&#10;Neutre : C'est un aspect qui tend à mélanger et à fusionner les énergies des planètes impliquées, et cela peut avoir des effets bénéfiques ou maléfiques, selon la nature des planètes concernées.&#10;Opposition :&#10;Maléfique : Cet aspect est souvent interprété comme créant des tensions et des défis, bien qu'il puisse aussi apporter une perspective et un équilibre nécessaires.&#10;Trigone (Trine) :&#10;Bénéfique : Il est généralement vu comme un aspect harmonieux, apportant facilité et flux naturel dans les domaines représentés par les planètes et les signes concernés.&#10;Carré (Square) :&#10;Maléfique : C'est un aspect tendu qui indique des défis, des frictions et des conflits potentiels.&#10;Sextile :&#10;Bénéfique : C'est un aspect favorable qui peut indiquer des opportunités et une coopération positive.&#10;In conjonction (Inconjunct/Quincunx) :&#10;Neutre/Maléfique : C'est un aspect qui peut créer des malentendus et une certaine tension, mais qui peut aussi apporter une croissance par l'ajustement et l'adaptation.&#10;Sesquicarré (Sesquisquare) :&#10;Maléfique : C'est un aspect tendu qui peut indiquer des défis et des tensions, similaire à un aspect carré mais potentiellement moins intense.&#10;Demi-carré (Semisquare) :&#10;Maléfique : C'est un autre aspect qui indique des tensions et des défis, bien que généralement moins intenses que ceux d'un carré complet.&#10;Semi-sextile (Semisextile) :&#10;Neutre/Bénéfique : C'est un aspect qui peut indiquer une opportunité de croissance et d'harmonie, bien que cela puisse aussi impliquer de petits défis et des ajustements nécessaires." />
+    <option name="LAST_COMMIT_MESSAGE" value="ajout d'un bleu plus clair pour les aspects:&#10;&#10;Conjonction (Conjunction) :&#10;Neutre : C'est un aspect qui tend à mélanger et à fusionner les énergies des planètes impliquées, et cela peut avoir des effets bénéfiques ou maléfiques, selon la nature des planètes concernées.&#10;Opposition :&#10;Maléfique : Cet aspect est souvent interprété comme créant des tensions et des défis, bien qu'il puisse aussi apporter une perspective et un équilibre nécessaires.&#10;Trigone (Trine) :&#10;Bénéfique : Il est généralement vu comme un aspect harmonieux, apportant facilité et flux naturel dans les domaines représentés par les planètes et les signes concernés.&#10;Carré (Square) :&#10;Maléfique : C'est un aspect tendu qui indique des défis, des frictions et des conflits potentiels.&#10;Sextile :&#10;Bénéfique : C'est un aspect favorable qui peut indiquer des opportunités et une coopération positive.&#10;In conjonction (Inconjunct/Quincunx) :&#10;Neutre/Maléfique : C'est un aspect qui peut créer des malentendus et une certaine tension, mais qui peut aussi apporter une croissance par l'ajustement et l'adaptation.&#10;Sesquicarré (Sesquisquare) :&#10;Maléfique : C'est un aspect tendu qui peut indiquer des défis et des tensions, similaire à un aspect carré mais potentiellement moins intense.&#10;Demi-carré (Semisquare) :&#10;Maléfique : C'est un autre aspect qui indique des tensions et des défis, bien que généralement moins intenses que ceux d'un carré complet.&#10;Semi-sextile (Semisextile) :&#10;Neutre/Bénéfique : C'est un aspect qui peut indiquer une opportunité de croissance et d'harmonie, bien que cela puisse aussi impliquer de petits défis et des ajustements nécessaires." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
