@@ -280,25 +280,19 @@ const char *Aspect::name_fr(int a) {
             return "";
     }
 }
-/*
- * +3 = TRES BON ASPECT
- * +1 = BON ASPECT
- *  0 = NEUTRE
- * -1 = MAUVAIS ASPECT
- * -3 = TRES MAUVAIS ASPECT
- */
+
 int Aspect::type_aspect(int a) {
     switch (a) {
         case ASPECTS_CONJUNCTION:
             return 0;
         case ASPECTS_OPPOSITION:
-            return -3;
+            return -2;
         case ASPECTS_TRINE:
-            return 3;
+            return 2;
         case ASPECTS_SQUARE:
-            return -3;
+            return -2;
         case ASPECTS_SEXTILE:
-            return 3;
+            return 2;
         case ASPECTS_INCONJUNCTION:
             return 0;
         case ASPECTS_SEQUISQUARE:
@@ -306,8 +300,58 @@ int Aspect::type_aspect(int a) {
         case ASPECTS_SEMISQUARE:
             return -1;
         case ASPECTS_SEMISEXTILE:
-            return 1;
+            return 0;
         default:
             return 0;
+    }
+}
+
+const char* Aspect::color2(int a, int color_mode) {
+    if (color_mode == COLOR_MODE_LIGHT) {
+        switch (a) {
+            case ASPECTS_CONJUNCTION:
+                return "#000000";
+            case ASPECTS_OPPOSITION:
+                return "#ff2700";
+            case ASPECTS_TRINE:
+                return "#0532ff";
+            case ASPECTS_SQUARE:
+                return "#ff2700";
+            case ASPECTS_SEXTILE:
+                return "#0532ff";
+            case ASPECTS_INCONJUNCTION:
+                return "#006633";
+            case ASPECTS_SEQUISQUARE:
+                return "#ff2700";
+            case ASPECTS_SEMISQUARE:
+                return "#ff2700";
+            case ASPECTS_SEMISEXTILE:
+                return "#006633";
+            default:
+                return "";
+        }
+    } else {
+        switch (a) {
+            case ASPECTS_CONJUNCTION:
+                return "#ffffff";
+            case ASPECTS_OPPOSITION:
+                return "#ff2700";
+            case ASPECTS_TRINE:
+                return "#009fff;";
+            case ASPECTS_SQUARE:
+                return "#ff2700";
+            case ASPECTS_SEXTILE:
+                return "#009fff;";
+            case ASPECTS_INCONJUNCTION:
+                return "#006633";
+            case ASPECTS_SEQUISQUARE:
+                return "#ff2700";
+            case ASPECTS_SEMISQUARE:
+                return "#ff2700";
+            case ASPECTS_SEMISEXTILE:
+                return "#006633";
+            default:
+                return "";
+        }
     }
 }

@@ -300,6 +300,7 @@ namespace sweinterfacelib {
             static const char* name(int a);
             static const char* name_fr(int a);
             static int type_aspect(int a);
+            static const char* color2(int a, int color_mode);
         };
         class Astre {
         public:

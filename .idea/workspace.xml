@@ -14,6 +14,8 @@
   <component name="ChangeListManager">
     <list default="true" id="231ca442-2f45-4892-bc00-20e04eb0cf61" name="Changes" comment="ajout d'un bleu plus clair pour les aspects:&#10;&#10;Conjonction (Conjunction) :&#10;Neutre : C'est un aspect qui tend à mélanger et à fusionner les énergies des planètes impliquées, et cela peut avoir des effets bénéfiques ou maléfiques, selon la nature des planètes concernées.&#10;Opposition :&#10;Maléfique : Cet aspect est souvent interprété comme créant des tensions et des défis, bien qu'il puisse aussi apporter une perspective et un équilibre nécessaires.&#10;Trigone (Trine) :&#10;Bénéfique : Il est généralement vu comme un aspect harmonieux, apportant facilité et flux naturel dans les domaines représentés par les planètes et les signes concernés.&#10;Carré (Square) :&#10;Maléfique : C'est un aspect tendu qui indique des défis, des frictions et des conflits potentiels.&#10;Sextile :&#10;Bénéfique : C'est un aspect favorable qui peut indiquer des opportunités et une coopération positive.&#10;In conjonction (Inconjunct/Quincunx) :&#10;Neutre/Maléfique : C'est un aspect qui peut créer des malentendus et une certaine tension, mais qui peut aussi apporter une croissance par l'ajustement et l'adaptation.&#10;Sesquicarré (Sesquisquare) :&#10;Maléfique : C'est un aspect tendu qui peut indiquer des défis et des tensions, similaire à un aspect carré mais potentiellement moins intense.&#10;Demi-carré (Semisquare) :&#10;Maléfique : C'est un autre aspect qui indique des tensions et des défis, bien que généralement moins intenses que ceux d'un carré complet.&#10;Semi-sextile (Semisextile) :&#10;Neutre/Bénéfique : C'est un aspect qui peut indiquer une opportunité de croissance et d'harmonie, bien que cela puisse aussi impliquer de petits défis et des ajustements nécessaires.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sources/sweinterfacelib/aspect.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Sources/sweinterfacelib/aspect.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sources/sweinterfacelib/include/sweinterfacelib.h" beforeDir="false" afterPath="$PROJECT_DIR$/Sources/sweinterfacelib/include/sweinterfacelib.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -281,7 +283,8 @@
       <workItem from="1694782494522" duration="1943000" />
       <workItem from="1694784779161" duration="509000" />
       <workItem from="1694850495293" duration="1503000" />
-      <workItem from="1694862498570" duration="10000" />
+      <workItem from="1694862498570" duration="195000" />
+      <workItem from="1695047487478" duration="1060000" />
     </task>
     <task id="LOCAL-00001" summary="pour debug">
       <created>1680628357764</created>
@@ -465,14 +468,6 @@
       <option name="project" value="LOCAL" />
       <updated>1692188707730</updated>
     </task>
-    <task id="LOCAL-00040" summary="ajout logique pour les astres séparé pour exporation pour mon fcgi en c++">
-      <option name="closed" value="true" />
-      <created>1693210395302</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1693210395302</updated>
-    </task>
     <task id="LOCAL-00041" summary="ajout logique pour les astres séparé pour exporation pour mon fcgi en c++">
       <option name="closed" value="true" />
       <created>1693242911807</created>
@@ -649,7 +644,15 @@
       <option name="project" value="LOCAL" />
       <updated>1694854571077</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="ajout d'un bleu plus clair pour les aspects:&#10;&#10;Conjonction (Conjunction) :&#10;Neutre : C'est un aspect qui tend à mélanger et à fusionner les énergies des planètes impliquées, et cela peut avoir des effets bénéfiques ou maléfiques, selon la nature des planètes concernées.&#10;Opposition :&#10;Maléfique : Cet aspect est souvent interprété comme créant des tensions et des défis, bien qu'il puisse aussi apporter une perspective et un équilibre nécessaires.&#10;Trigone (Trine) :&#10;Bénéfique : Il est généralement vu comme un aspect harmonieux, apportant facilité et flux naturel dans les domaines représentés par les planètes et les signes concernés.&#10;Carré (Square) :&#10;Maléfique : C'est un aspect tendu qui indique des défis, des frictions et des conflits potentiels.&#10;Sextile :&#10;Bénéfique : C'est un aspect favorable qui peut indiquer des opportunités et une coopération positive.&#10;In conjonction (Inconjunct/Quincunx) :&#10;Neutre/Maléfique : C'est un aspect qui peut créer des malentendus et une certaine tension, mais qui peut aussi apporter une croissance par l'ajustement et l'adaptation.&#10;Sesquicarré (Sesquisquare) :&#10;Maléfique : C'est un aspect tendu qui peut indiquer des défis et des tensions, similaire à un aspect carré mais potentiellement moins intense.&#10;Demi-carré (Semisquare) :&#10;Maléfique : C'est un autre aspect qui indique des tensions et des défis, bien que généralement moins intenses que ceux d'un carré complet.&#10;Semi-sextile (Semisextile) :&#10;Neutre/Bénéfique : C'est un aspect qui peut indiquer une opportunité de croissance et d'harmonie, bien que cela puisse aussi impliquer de petits défis et des ajustements nécessaires.">
+      <option name="closed" value="true" />
+      <created>1694862687147</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1694862687148</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
