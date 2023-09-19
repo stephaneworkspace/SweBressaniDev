@@ -583,11 +583,11 @@ extern "C" {
 
         map <pair<int, int>, Aspect2> m;
         for (int i = 0; i < MAX_ASTRES + 2; ++i) {
-            if (astresAngle[i] == ASTRE_CHIRON || astresAngle[i] == CERES || astresAngle[i] == NOEUD_LUNAIRE_SUD) {
+            if (i == CHIRON || i == CERES || i == NOEUD_LUNAIRE_SUD) {
                 // ignore
             } else {
                 for (int j = 0; j < MAX_ASTRES + 2; ++j) {
-                    if (astresAngle[i] == ASTRE_CHIRON || astresAngle[i] == CERES || astresAngle[i] == NOEUD_LUNAIRE_SUD) {
+                    if (j == CHIRON || j == CERES || j == NOEUD_LUNAIRE_SUD) {
                         // ignore
                     } else {
                         if (i != j) {
@@ -656,7 +656,7 @@ extern "C" {
         svg_stroke.stroke_width = STROKE_FINE;
 
         for (int i = 0; i < MAX_ASTRES; i++) {
-            if (astresAngle[i] == ASTRE_CHIRON || astresAngle[i] == CERES || astresAngle[i] == NOEUD_LUNAIRE_SUD) {
+            if (i == CHIRON || i == CERES || i == NOEUD_LUNAIRE_SUD) {
                // ignore
             } else {
                 // int aspect_id = astresAngle[i];
@@ -670,7 +670,7 @@ extern "C" {
                     loni = calcul_ut.longitude;
                 }
                 for (int j = i + 1; j < MAX_ASTRES + 2; j++) {
-                    if (astresAngle[j] == ASTRE_CHIRON || astresAngle[j] == CERES || astresAngle[j] == NOEUD_LUNAIRE_SUD) {
+                    if (j == CHIRON || j == CERES || j == NOEUD_LUNAIRE_SUD) {
                         // ignore
                     } else {
                         pair<int, int> key(i, j);
