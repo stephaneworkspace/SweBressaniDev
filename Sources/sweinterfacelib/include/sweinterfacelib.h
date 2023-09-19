@@ -8,6 +8,7 @@
 #include <cstring>
 #include <cmath>
 #include <map>
+#include <memory>
 #include "base64.h"
 #include "svglib.h"
 #include "swelib.h"
