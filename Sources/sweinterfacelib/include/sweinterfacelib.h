@@ -7,6 +7,7 @@
 #include <string>
 #include <cstring>
 #include <cmath>
+#include <map>
 #include "base64.h"
 #include "svglib.h"
 #include "swelib.h"
@@ -252,6 +253,17 @@ namespace sweinterfacelib {
     const int COLOR_MODE_LIGHT = 0;
     const int COLOR_MODE_DARK = 1;
     const int MAX_ASTRES = 14;
+
+    struct Aspect2 {
+        float asp;
+        int orb;
+        int aspect;
+
+        Aspect2() : asp(0.0), orb(0), aspect(0) {
+        } // Constructeur par défaut
+        Aspect2(float asp_, int orb_, int aspect_) : asp(asp_), orb(orb_), aspect(aspect_) {
+        } // Constructeur avec paramètres
+    };
     extern "C" {
         /*
          * Svg du thème complet

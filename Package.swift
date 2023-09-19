@@ -22,7 +22,12 @@ let package = Package(
         targets: [.target(name: "cpplib"),
                   .target(name: "svglib"),
                   .target(name: "swelib"),
-                  .target(name: "sweinterfacelib", dependencies: ["svglib", "swelib"]),
+                  .target(
+                          name: "sweinterfacelib",
+                          dependencies: ["svglib", "swelib"],
+                          cxxSettings: [
+                              .unsafeFlags(["-std=c++14"], .when(platforms: [.macOS])),
+                          ]),
                   .executableTarget(name: "cpp-exec", dependencies: ["cpplib", "swelib", "svglib", "sweinterfacelib"]),
                   .target(name: "cwrapper", dependencies: ["cpplib", "swelib", "svglib", "sweinterfacelib"]),
                   .target(name: "SweBressaniDev", dependencies: ["cwrapper", "SVGView", "TPPDF"]),
