@@ -560,7 +560,7 @@ extern "C" {
 
         // ASPECT
         // c++ 14 probleme compiulation fastcgi auto astresAngle = std::make_unique<int[]>(MAX_ASTRES + 2);
-        std::unique_ptr<int[]> astresAngle(new int[MAX_ASTRES + 2]);
+        std::unique_ptr<int[]> astresAngle(new int[MAX_ASTRES - 3 + 2]);
         astresAngle[SOLEIL] = ASTRE_SOLEIL;
         astresAngle[LUNE] = ASTRE_LUNE;
         astresAngle[MERCURE] = ASTRE_MERCURE;
@@ -572,9 +572,9 @@ extern "C" {
         astresAngle[NEPTUNE] = ASTRE_NEPTUNE;
         astresAngle[PLUTON] = ASTRE_PLUTON;
         astresAngle[NOEUD_LUNAIRE] = ASTRE_NOEUD_LUNAIRE;
-        astresAngle[CHIRON] = ASTRE_CHIRON;
-        astresAngle[CERES] = ASTRE_CERES;
-        astresAngle[NOEUD_LUNAIRE_SUD] = ASTRE_NOEUD_LUNAIRE_SUD;
+        //astresAngle[CHIRON] = ASTRE_CHIRON;
+        //astresAngle[CERES] = ASTRE_CERES;
+        //astresAngle[NOEUD_LUNAIRE_SUD] = ASTRE_NOEUD_LUNAIRE_SUD;
         astresAngle[NOEUD_LUNAIRE_SUD + 1] = 98; // Asc
         astresAngle[NOEUD_LUNAIRE_SUD + 2] = 99; // Mc
 
@@ -582,8 +582,8 @@ extern "C" {
         double lon_mc = house[10].longitude;
 
         map <pair<int, int>, Aspect2> m;
-        for (int i = 0; i < MAX_ASTRES + 2; ++i) {
-            for (int j = 0; j < MAX_ASTRES + 2; ++j) {
+        for (int i = 0; i < MAX_ASTRES -3 + 2; ++i) {
+            for (int j = 0; j < MAX_ASTRES -3 + 2; ++j) {
                 if (i != j) {
                     double lon1 = 0.0;
                     double lon2 = 0.0;
@@ -645,7 +645,7 @@ extern "C" {
             }
         }
 
-        for (int i = 0; i < MAX_ASTRES; i++) {
+        for (int i = 0; i < MAX_ASTRES -3; i++) {
             // int aspect_id = astresAngle[i];
             double loni = 0;
             if (astresAngle[i] == 98) {
