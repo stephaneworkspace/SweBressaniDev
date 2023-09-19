@@ -645,6 +645,8 @@ extern "C" {
             }
         }
 
+        svg_stroke.stroke_width = STROKE_FINE;
+
         for (int i = 0; i < MAX_ASTRES; i++) {
             if (astresAngle[i] == ASTRE_CHIRON || astresAngle[i] == CERES || astresAngle[i] == NOEUD_LUNAIRE_SUD) {
                // ignore
@@ -682,19 +684,15 @@ extern "C" {
                             LineXYAspect lxya = DrawAspectLines::line(house[0], lonp);
                             free(lonp);
                             const char *r_ca = color_aspect2(value.aspect, color_mode);
-                            string ca_string = "#000000";
                             if (r_ca != nullptr) {
-                                string ca(r_ca);
-                                ca_string = ca;
+                                svg_stroke.stroke_str = r_ca;
                             } else {
                                 if (color_mode == 1) {
-                                    ca_string = "#ffffff";
+                                    svg_stroke.stroke_str = "#ffffff";
                                 } else {
-                                    ca_string = "#000000";
+                                    svg_stroke.stroke_str = "#000000";
                                 }
                             }
-                            svg_stroke.stroke_width = STROKE_FINE;
-                            svg_stroke.stroke_str = ca_string;
                             svg_line.set_stroke(svg_stroke);
                             doc << svg_line.generate(lxya.lx1, lxya.ly1, lxya.lx2, lxya.ly2);
                         }
