@@ -283,6 +283,7 @@ namespace sweinterfacelib {
         const char *asset_aspect(int aspect);
         const char *asset_aspect2(int aspect, int color_mode);
         const char *text_aspect(int aspect);
+        const char *color_aspect2(int aspect, int color_mode);
         int type_aspect(int aspect);
         const char *grille_aspect_svg(int color_mode);
     class Angle {

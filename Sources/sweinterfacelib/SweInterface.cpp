@@ -934,6 +934,9 @@ extern "C" {
     const char *text_aspect(int aspect) {
         return sweinterfacelib::Aspect::name_fr(aspect);
     }
+    const char *color_aspect2(int aspect, int color_mode) {
+        return sweinterfacelib::Aspect::color2(aspect, color_mode);
+    }
     int type_aspect(int aspect) {
         return sweinterfacelib::Aspect::type_aspect(aspect);
     }
