@@ -559,7 +559,8 @@ extern "C" {
 
 
         // ASPECT
-        auto astresAngle = std::make_unique<int[]>(MAX_ASTRES + 2);
+        // c++ 14 probleme compiulation fastcgi auto astresAngle = std::make_unique<int[]>(MAX_ASTRES + 2);
+        std::unique_ptr<int[]> astresAngle(new int[MAX_ASTRES + 2]);
         astresAngle[SOLEIL] = ASTRE_SOLEIL;
         astresAngle[LUNE] = ASTRE_LUNE;
         astresAngle[MERCURE] = ASTRE_MERCURE;
@@ -709,6 +710,7 @@ extern "C" {
         }
         free(astres);
         free(astres_aspect);
+        astresAngle.reset();
         return encoded.c_str();
     }
 
