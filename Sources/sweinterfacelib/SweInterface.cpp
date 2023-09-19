@@ -902,9 +902,6 @@ extern "C" {
         free(astres_aspect);
         return paa;
     }
-    const LineXYAspect theme_astral_aspect_line(H house_asc, double* item_longitude) {
-        return sweinterfacelib::DrawAspectLines::line(house_asc, item_longitude);
-    }
     const char *asset_sign(int sign, int color_mode) {
         return sweinterfacelib::Sign::read_svg_c(sign, color_mode);
     }

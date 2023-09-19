@@ -273,11 +273,6 @@ namespace sweinterfacelib {
          * Astre position de l'image sans retrograde no lignes
          */
         const PosAstreAsset* theme_astral_astre_pos(int year, int month, int day, int hour, int min, double lat, double lng, int gmt, const char *ephem_path, const char* aspect_option);
-        /*
-         * Aspect position line
-         */
-        const LineXYAspect theme_astral_aspect_line(H house_asc, double* item_longitude);
-
         const char *asset_sign(int sign, int color_mode);
         const char *text_sign(int sign);
         const char *asset_house(int house, int color_mode);
