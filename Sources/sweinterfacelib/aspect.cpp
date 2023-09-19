@@ -337,11 +337,11 @@ const char* Aspect::color2(int a, int color_mode) {
             case ASPECTS_OPPOSITION:
                 return "#ff2700";
             case ASPECTS_TRINE:
-                return "#009fff;";
+                return "#009fff";
             case ASPECTS_SQUARE:
                 return "#ff2700";
             case ASPECTS_SEXTILE:
-                return "#009fff;";
+                return "#009fff";
             case ASPECTS_INCONJUNCTION:
                 return "#006633";
             case ASPECTS_SEQUISQUARE:
