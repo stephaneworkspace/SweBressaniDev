@@ -659,47 +659,46 @@ extern "C" {
                     CalcUt calcul_ut = Swe03::calc_ut(utc_to_jd.julian_day_ut, astresAngle[i], OPTION_FLAG_SPEED);
                     loni = calcul_ut.longitude;
                 }
-                int k = 0;
                 for (int j = i + 1; j < MAX_ASTRES + 2; j++) {
-                    // lien_aspect_id = astresAngle[j];
-                    // js["aspect"][i]["liens"][k]["id"] = astresAngle[j];
-                    pair<int, int> key(i, j);
-                    auto it = m.find(key);
-                    if (it != m.end()) { // la clé existe
-                        Aspect2 value = it->second;
-                        //js["aspect"][i]["liens"][k]["aspect_id"] = value.aspect;
-                        double lonj = 0;
-                        if (astresAngle[j] == 98) {
-                            lonj = lon_asc;
-                        } else if (astresAngle[j] == 99) {
-                            lonj = lon_mc;
-                        } else {
-                            CalcUt calcul_ut = Swe03::calc_ut(utc_to_jd.julian_day_ut, astresAngle[j], OPTION_FLAG_SPEED);
-                            lonj = calcul_ut.longitude;
-                        }
-                        double *lonp = new double[2];
-                        lonp[0] = loni;
-                        lonp[1] = lonj;
-                        LineXYAspect lxya = DrawAspectLines::line(house[0], lonp);
-                        free(lonp);
-                        const char *r_ca = color_aspect2(value.aspect, color_mode);
-                        string ca_string = "#000000";
-                        if (r_ca != nullptr) {
-                            string ca(r_ca);
-                            ca_string = ca;
-                        } else {
-                            if (color_mode == 1) {
-                                ca_string = "#ffffff";
+                    if (astresAngle[j] == ASTRE_CHIRON || astresAngle[j] == CERES || astresAngle[j] == NOEUD_LUNAIRE_SUD) {
+                        // ignore
+                    } else {
+                        pair<int, int> key(i, j);
+                        auto it = m.find(key);
+                        if (it != m.end()) { // la clé existe
+                            Aspect2 value = it->second;
+                            double lonj = 0;
+                            if (astresAngle[j] == 98) {
+                                lonj = lon_asc;
+                            } else if (astresAngle[j] == 99) {
+                                lonj = lon_mc;
                             } else {
-                                ca_string = "#000000";
+                                CalcUt calcul_ut = Swe03::calc_ut(utc_to_jd.julian_day_ut, astresAngle[j], OPTION_FLAG_SPEED);
+                                lonj = calcul_ut.longitude;
                             }
+                            double *lonp = new double[2];
+                            lonp[0] = loni;
+                            lonp[1] = lonj;
+                            LineXYAspect lxya = DrawAspectLines::line(house[0], lonp);
+                            free(lonp);
+                            const char *r_ca = color_aspect2(value.aspect, color_mode);
+                            string ca_string = "#000000";
+                            if (r_ca != nullptr) {
+                                string ca(r_ca);
+                                ca_string = ca;
+                            } else {
+                                if (color_mode == 1) {
+                                    ca_string = "#ffffff";
+                                } else {
+                                    ca_string = "#000000";
+                                }
+                            }
+                            svg_stroke.stroke_width = STROKE_FINE;
+                            svg_stroke.stroke_str = ca_string;
+                            svg_line.set_stroke(svg_stroke);
+                            doc << svg_line.generate(lxya.lx1, lxya.ly1, lxya.lx2, lxya.ly2);
                         }
-                        svg_stroke.stroke_width = STROKE_FINE;
-                        svg_stroke.stroke_str = ca_string;
-                        svg_line.set_stroke(svg_stroke);
-                        doc << svg_line.generate(lxya.lx1, lxya.ly1, lxya.lx2, lxya.ly2);
                     }
-                    k++;
                 }
             }
         }
