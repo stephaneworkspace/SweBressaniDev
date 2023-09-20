@@ -12,7 +12,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="231ca442-2f45-4892-bc00-20e04eb0cf61" name="Changes" comment="ajout des aspects tous groupé dans la fonction theme_astral_empty_svg" />
+    <list default="true" id="231ca442-2f45-4892-bc00-20e04eb0cf61" name="Changes" comment="correciton erreur" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -283,6 +283,7 @@
       <workItem from="1695047487478" duration="1333000" />
       <workItem from="1695109353902" duration="3035000" />
       <workItem from="1695120958486" duration="1929000" />
+      <workItem from="1695123016719" duration="3680000" />
     </task>
     <task id="LOCAL-00001" summary="pour debug">
       <created>1680628357764</created>
@@ -466,86 +467,6 @@
       <option name="project" value="LOCAL" />
       <updated>1692188707730</updated>
     </task>
-    <task id="LOCAL-00046" summary="vidage du pointer">
-      <option name="closed" value="true" />
-      <created>1693301999781</created>
-      <option name="number" value="00046" />
-      <option name="presentableId" value="LOCAL-00046" />
-      <option name="project" value="LOCAL" />
-      <updated>1693301999781</updated>
-    </task>
-    <task id="LOCAL-00047" summary="vidage du pointer">
-      <option name="closed" value="true" />
-      <created>1693302097449</created>
-      <option name="number" value="00047" />
-      <option name="presentableId" value="LOCAL-00047" />
-      <option name="project" value="LOCAL" />
-      <updated>1693302097449</updated>
-    </task>
-    <task id="LOCAL-00048" summary="correction">
-      <option name="closed" value="true" />
-      <created>1693302720569</created>
-      <option name="number" value="00048" />
-      <option name="presentableId" value="LOCAL-00048" />
-      <option name="project" value="LOCAL" />
-      <updated>1693302720569</updated>
-    </task>
-    <task id="LOCAL-00049" summary="correction">
-      <option name="closed" value="true" />
-      <created>1693304962417</created>
-      <option name="number" value="00049" />
-      <option name="presentableId" value="LOCAL-00049" />
-      <option name="project" value="LOCAL" />
-      <updated>1693304962417</updated>
-    </task>
-    <task id="LOCAL-00050" summary="correction">
-      <option name="closed" value="true" />
-      <created>1693305291435</created>
-      <option name="number" value="00050" />
-      <option name="presentableId" value="LOCAL-00050" />
-      <option name="project" value="LOCAL" />
-      <updated>1693305291436</updated>
-    </task>
-    <task id="LOCAL-00051" summary="correction">
-      <option name="closed" value="true" />
-      <created>1693305577036</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL-00051" />
-      <option name="project" value="LOCAL" />
-      <updated>1693305577036</updated>
-    </task>
-    <task id="LOCAL-00052" summary="correction">
-      <option name="closed" value="true" />
-      <created>1693305874448</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL-00052" />
-      <option name="project" value="LOCAL" />
-      <updated>1693305874448</updated>
-    </task>
-    <task id="LOCAL-00053" summary="correction">
-      <option name="closed" value="true" />
-      <created>1693305952620</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1693305952620</updated>
-    </task>
-    <task id="LOCAL-00054" summary="correction">
-      <option name="closed" value="true" />
-      <created>1693306058545</created>
-      <option name="number" value="00054" />
-      <option name="presentableId" value="LOCAL-00054" />
-      <option name="project" value="LOCAL" />
-      <updated>1693306058545</updated>
-    </task>
-    <task id="LOCAL-00055" summary="correction">
-      <option name="closed" value="true" />
-      <created>1693306364274</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1693306364274</updated>
-    </task>
     <task id="LOCAL-00056" summary="correction">
       <option name="closed" value="true" />
       <created>1693306972739</created>
@@ -650,7 +571,87 @@
       <option name="project" value="LOCAL" />
       <updated>1695122884409</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="probleme de compiliation c++ 14 dans projet fcgi">
+      <option name="closed" value="true" />
+      <created>1695123429013</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1695123429013</updated>
+    </task>
+    <task id="LOCAL-00070" summary="probleme de compiliation c++ 14 dans projet fcgi">
+      <option name="closed" value="true" />
+      <created>1695123580262</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1695123580262</updated>
+    </task>
+    <task id="LOCAL-00071" summary="supression des astres non traditionel pour les aspects dessiné sur la carte du ciel">
+      <option name="closed" value="true" />
+      <created>1695123864790</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1695123864791</updated>
+    </task>
+    <task id="LOCAL-00072" summary="supression des astres non traditionel pour les aspects dessiné sur la carte du ciel">
+      <option name="closed" value="true" />
+      <created>1695124200507</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1695124200507</updated>
+    </task>
+    <task id="LOCAL-00073" summary="supression des astres non traditionel pour les aspects dessiné sur la carte du ciel">
+      <option name="closed" value="true" />
+      <created>1695124353360</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1695124353361</updated>
+    </task>
+    <task id="LOCAL-00074" summary="supression des astres non traditionel pour les aspects dessiné sur la carte du ciel">
+      <option name="closed" value="true" />
+      <created>1695124855384</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1695124855384</updated>
+    </task>
+    <task id="LOCAL-00075" summary="correciton erreur">
+      <option name="closed" value="true" />
+      <created>1695125425668</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1695125425668</updated>
+    </task>
+    <task id="LOCAL-00076" summary="correciton erreur">
+      <option name="closed" value="true" />
+      <created>1695126094465</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1695126094465</updated>
+    </task>
+    <task id="LOCAL-00077" summary="correciton erreur">
+      <option name="closed" value="true" />
+      <created>1695126416040</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1695126416040</updated>
+    </task>
+    <task id="LOCAL-00078" summary="correciton erreur">
+      <option name="closed" value="true" />
+      <created>1695126781934</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1695126781934</updated>
+    </task>
+    <option name="localTasksCounter" value="79" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -669,9 +670,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="petit bricolage" />
-    <MESSAGE value="fix" />
-    <MESSAGE value="petite correction mineur" />
     <MESSAGE value="amélioration" />
     <MESSAGE value="clean" />
     <MESSAGE value="intégration de la grille des aspects au format svg" />
@@ -694,7 +692,10 @@
     <MESSAGE value="ajout de la fonction pour la position aspect" />
     <MESSAGE value="rollback" />
     <MESSAGE value="ajout des aspects tous groupé dans la fonction theme_astral_empty_svg" />
-    <option name="LAST_COMMIT_MESSAGE" value="ajout des aspects tous groupé dans la fonction theme_astral_empty_svg" />
+    <MESSAGE value="probleme de compiliation c++ 14 dans projet fcgi" />
+    <MESSAGE value="supression des astres non traditionel pour les aspects dessiné sur la carte du ciel" />
+    <MESSAGE value="correciton erreur" />
+    <option name="LAST_COMMIT_MESSAGE" value="correciton erreur" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

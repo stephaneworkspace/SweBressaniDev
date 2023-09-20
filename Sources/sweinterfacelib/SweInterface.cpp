@@ -692,6 +692,12 @@ extern "C" {
                             LineXYAspect lxya = DrawAspectLines::line(house[0], lonp);
                             free(lonp);
                             const char *r_ca = color_aspect2(value.aspect, color_mode);
+                            int point = Aspect::type_aspect(value.aspect);
+                            if (point <= -1 && point >= 1) {
+                                svg_stroke.stroke_width = STROKE_FINE;
+                            } else {
+                                svg_stroke.stroke_width = STROKE_BOLD;
+                            }
                             if (r_ca != nullptr) {
                                 svg_stroke.stroke_str = r_ca;
                             } else {
