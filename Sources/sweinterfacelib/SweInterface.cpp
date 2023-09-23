@@ -633,6 +633,18 @@ extern "C" {
                                     lon2 = calcul_ut.longitude;
                                 }
                             }
+                            if (i == NOEUD_LUNAIRE_SUD) {
+                                lon1 += 180;
+                                if (lon1 > 360) {
+                                    lon1 -= 360;
+                                }
+                            }
+                            if (j == NOEUD_LUNAIRE_SUD) {
+                                lon2 += 180;
+                                if (lon2 > 360) {
+                                    lon2 -= 360;
+                                }
+                            }
                             double *lonp = new double[2];
                             lonp[0] = lon1;
                             lonp[1] = lon2;
