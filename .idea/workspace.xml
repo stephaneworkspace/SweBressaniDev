@@ -12,7 +12,9 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="231ca442-2f45-4892-bc00-20e04eb0cf61" name="Changes" comment="traits gras pour aspect fort" />
+    <list default="true" id="231ca442-2f45-4892-bc00-20e04eb0cf61" name="Changes" comment="avancement">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -285,6 +287,8 @@
       <workItem from="1695120958486" duration="1929000" />
       <workItem from="1695123016719" duration="3680000" />
       <workItem from="1695197606799" duration="612000" />
+      <workItem from="1695482660854" duration="472000" />
+      <workItem from="1695483407151" duration="4000" />
     </task>
     <task id="LOCAL-00001" summary="pour debug">
       <created>1680628357764</created>
@@ -468,14 +472,6 @@
       <option name="project" value="LOCAL" />
       <updated>1692188707730</updated>
     </task>
-    <task id="LOCAL-00057" summary="correction">
-      <option name="closed" value="true" />
-      <created>1693307092995</created>
-      <option name="number" value="00057" />
-      <option name="presentableId" value="LOCAL-00057" />
-      <option name="project" value="LOCAL" />
-      <updated>1693307092995</updated>
-    </task>
     <task id="LOCAL-00058" summary="libération mémoire">
       <option name="closed" value="true" />
       <created>1693307423454</created>
@@ -652,7 +648,15 @@
       <option name="project" value="LOCAL" />
       <updated>1695197922968</updated>
     </task>
-    <option name="localTasksCounter" value="80" />
+    <task id="LOCAL-00080" summary="avancement">
+      <option name="closed" value="true" />
+      <created>1695483121087</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1695483121088</updated>
+    </task>
+    <option name="localTasksCounter" value="81" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -671,7 +675,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="clean" />
     <MESSAGE value="intégration de la grille des aspects au format svg" />
     <MESSAGE value="petite correction" />
     <MESSAGE value="ajout des noms des aspects en français" />
@@ -696,7 +699,8 @@
     <MESSAGE value="supression des astres non traditionel pour les aspects dessiné sur la carte du ciel" />
     <MESSAGE value="correciton erreur" />
     <MESSAGE value="traits gras pour aspect fort" />
-    <option name="LAST_COMMIT_MESSAGE" value="traits gras pour aspect fort" />
+    <MESSAGE value="avancement" />
+    <option name="LAST_COMMIT_MESSAGE" value="avancement" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
