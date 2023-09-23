@@ -633,18 +633,6 @@ extern "C" {
                                     lon2 = calcul_ut.longitude;
                                 }
                             }
-                            if (i == NOEUD_LUNAIRE_SUD) {
-                                lon1 += 180;
-                                if (lon1 > 360) {
-                                    lon1 -= 360;
-                                }
-                            }
-                            if (j == NOEUD_LUNAIRE_SUD) {
-                                lon2 += 180;
-                                if (lon2 > 360) {
-                                    lon2 -= 360;
-                                }
-                            }
                             double *lonp = new double[2];
                             lonp[0] = lon1;
                             lonp[1] = lon2;
@@ -699,18 +687,6 @@ extern "C" {
                                 lonj = calcul_ut.longitude;
                             }
                             double *lonp = new double[2];
-                            if (i == NOEUD_LUNAIRE_SUD) {
-                                loni += 180;
-                                if (loni > 360) {
-                                    loni -= 360;
-                                }
-                            }
-                            if (j == NOEUD_LUNAIRE_SUD) {
-                                lonj += 180;
-                                if (lonj > 360) {
-                                    lonj -= 360;
-                                }
-                            }
                             lonp[0] = loni;
                             lonp[1] = lonj;
                             LineXYAspect lxya = DrawAspectLines::line(house[0], lonp);
